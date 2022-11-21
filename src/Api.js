@@ -19,6 +19,10 @@ class Api {
     return api.post('', data);
   }
 
+  static register(data) {
+    return api.post('', data);
+  }
+
   static getCategoryData(category) {
     return api.get(`shop/${category}`);
   }

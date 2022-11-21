@@ -1,4 +1,4 @@
-// import Api from "../../Api";
+import Api from '../../Api';
 
 export const GET_PRODUCT_DATA_REQUEST = 'GET_PRODUCT_DATA_REQUEST';
 
