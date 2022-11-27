@@ -1,13 +1,34 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { Link } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Slider from 'rc-slider';
-import PropTypes from 'prop-types';
+import 'rc-slider/assets/index.css';
+import qs from 'query-string';
+// import _ from 'lodash';
 import Wrapper from '../components/Wrapper';
-import image from '../assets/img/post/shopProduct1.jpg';
 import Filter from '../components/Filter';
+import ShopProduct from '../components/ShopProduct';
+import data from '../productData';
 
 function Shop() {
+  const location = useLocation();
+  const [min, setMin] = useState(223);
+  const [max, setMax] = useState(1000);
+  const navigate = useNavigate();
+  const query = qs.parse(location.search, { arrayFormat: 'comma' });
+  useEffect(() => {
+    // if (query.sliderPrice) {
+    //   // eslint-disable-next-line no-shadow
+    //   const [min, max] = query.sliderPrice.split('_');
+    //   setMin(+min);
+    //   setMax(+max);
+    // }
+  }, [location.search]);
+  const handleChange = useCallback((value) => {
+    query.sliderPrice = value.join('_');
+    navigate(`?${qs.stringify(query, { arrayFormat: 'comma', skipEmptyString: true })}`);
+    console.log();
+  }, [location.search]);
   return (
     <Wrapper>
       <Helmet>
@@ -30,35 +51,30 @@ function Shop() {
             <aside className="shopAside">
               <h2 className="shopAsideTitle">Filters</h2>
               <form action="">
-                {/* TODO range տեսակը ու checked եղած ինփուտները կարմիր գույնով  #c31e39 */}
                 <div className="shopBtCategory">
                   <h3 className="shopAsideSubtitle">price</h3>
                   <Slider
                     range
                     allowCross={false}
                     // defaultValue={[2900, 29000]}
-                    min={2900}
-                    max={29000}
+                    min={min}
+                    max={max}
                     // min={min}
                     // max={max}
-                    // defaultValue={[min, max]}
-                    // value={query?.sliderPrice?.split('_').map(l => +l)}
-                    // onChange={(val) => handleChange(val)}
+                    defaultValue={[min, max]}
+                    value={query?.sliderPrice?.split('_').map((l) => +l)}
+                    onChange={(val) => handleChange(val)}
                   />
                   <div className="shopPrices">
                     <div className="shopPriceMin">
                       <span className="shopPriceSpan">$</span>
                       {/* eslint-disable-next-line max-len */}
-                      TODO ստեղ ստուգում բդի դնես որ հենց ուզեն ինչ որ string գրեն կարմրի input ու
-                      մենակ թիվ թույլ տաս որ գրեն
                       <input type="text" placeholder="0" />
                     </div>
                     <p className="shopPriceTo">To</p>
                     <div className="shopPriceMax">
                       <span className="shopPriceSpan">$</span>
                       {/* eslint-disable-next-line max-len */}
-                      TODO ստեղ ստուգում բդի դնես որ հենց ուզեն ինչ որ string գրեն կարմրի input ու
-                      մենակ թիվ թույլ տաս որ գրեն
                       <input type="text" placeholder="180.00" />
                     </div>
                   </div>
@@ -68,30 +84,9 @@ function Shop() {
             </aside>
             <section className="shopSection">
               <div className="shopProductsRow">
-                <div className="shopProduct">
-                  <figure className="shopProductItem">
-                    <img src={image} alt="" className="shopProductImg" />
-                    <figcaption className="shopProductInfo">
-                      <h3 className="shopProductTitle">Ring</h3>
-                      <p className="shopProductPrice">$16.00</p>
-                      <div className="shopProductLabel">
-                        <Link to="/shop/id" className="linkToSinglePage">Buy now</Link>
-                      </div>
-                    </figcaption>
-                  </figure>
-                </div>
-                <div className="shopProduct">
-                  <figure className="shopProductItem">
-                    <img src={image} alt="" className="shopProductImg" />
-                    <figcaption className="shopProductInfo">
-                      <h3 className="shopProductTitle">Ring</h3>
-                      <p className="shopProductPrice">$16.00</p>
-                      <div className="shopProductLabel">
-                        <Link to="/id" className="linkToSinglePage">Buy now</Link>
-                      </div>
-                    </figcaption>
-                  </figure>
-                </div>
+                {data.map((l) => (
+                  <ShopProduct data={l} />
+                ))}
               </div>
             </section>
           </div>

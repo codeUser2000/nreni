@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import logo from '../assets/img/logo/logo.png';
-import Api from '../Api';
 
 function Register() {
   const [email, setEmail] = useState('');
