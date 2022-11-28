@@ -25,6 +25,6 @@ function ShopProduct(props) {
 }
 ShopProduct.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
-  data: PropTypes.array.isRequired,
+  data: PropTypes.object.isRequired,
 };
 export default ShopProduct;

@@ -20,7 +20,7 @@ class App extends Component {
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
-          <Route path="/shop/:category/:itemId" element={<Single />} />
+          <Route path="/shop/:itemId" element={<Single />} />
           <Route path="/shop/:category" element={<Shop />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />

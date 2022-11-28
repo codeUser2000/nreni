@@ -4,7 +4,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import qs from 'query-string';
-// import _ from 'lodash';
+import LazyLoad from 'react-lazy-load';
+import _ from 'lodash';
 import Wrapper from '../components/Wrapper';
 import Filter from '../components/Filter';
 import ShopProduct from '../components/ShopProduct';
@@ -84,9 +85,15 @@ function Shop() {
             </aside>
             <section className="shopSection">
               <div className="shopProductsRow">
-                {data.map((l) => (
-                  <ShopProduct data={l} />
-                ))}
+                {data.map((l) => {
+                  if (l.type === 0) {
+                    return (
+                      <LazyLoad>
+                        <ShopProduct key={_.uniqueId()} data={l} />
+                      </LazyLoad>
+                    );
+                  }
+                })}
               </div>
             </section>
           </div>
