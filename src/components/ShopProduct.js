@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import image from '../assets/img/post/shopProduct1.jpg';
 
-function ShopProduct(props) {
-  const { data } = props;
+function ShopProduct({ data }) {
   return (
     <div className="shopProduct">
       <figure className="shopProductItem">
@@ -14,6 +13,7 @@ function ShopProduct(props) {
           <p className="shopProductPrice">
             $
             {data.price}
+            {data.id}
           </p>
           <div className="shopProductLabel">
             <Link to={`/shop/${data.id}`} className="linkToSinglePage">Buy now</Link>

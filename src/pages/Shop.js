@@ -1,5 +1,5 @@
 import React, {
-  useCallback,
+  useCallback, useEffect, useState,
 } from 'react';
 import { Helmet } from 'react-helmet';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -24,6 +24,17 @@ function Shop() {
     query.sliderPrice = val.join('_');
     navigate(`?${qs.stringify(query, { arrayFormat: 'comma', skipEmptyString: true })}`);
   }, [location.search]);
+  let finalProduct = data;
+  if (query.sliderPrice) {
+    const arr = [];
+    // eslint-disable-next-line no-shadow
+    const [min, max] = query.sliderPrice.split('_');
+    const a = finalProduct.filter((f) => f.price >= min && f.price <= max);
+    if (!_.isEmpty(a)) {
+      arr.push(a);
+    }
+    finalProduct = arr.flat(1);
+  }
   return (
     <Wrapper>
       <Helmet>
@@ -75,6 +86,7 @@ function Shop() {
                       </LazyLoad>
                     );
                   }
+                  return true;
                 })}
               </div>
             </section>
