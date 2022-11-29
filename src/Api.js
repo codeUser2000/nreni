@@ -12,7 +12,7 @@ api.interceptors.request.use(
 
 class Api {
   static getData() {
-    return api.get('');
+    return api.get('/products');
   }
 
   static login(data) {

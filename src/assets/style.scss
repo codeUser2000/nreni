@@ -76,6 +76,7 @@ span {
   margin-left: 5px;
   line-height: 70px;
   font-weight: 700;
+  text-transform: uppercase;
   font-family: "Fuzzy Bubbles";
 }
 
@@ -992,9 +993,13 @@ figure.registerBanner{
 
 .shopProductsRow {
   width: 100%;
-  display: inline-flex;
+  display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   gap: 1%;
+  .LazyLoad{
+    width: calc(100% / 3 - 10px);
+  }
 }
 
 
@@ -1005,7 +1010,7 @@ figure.registerBanner{
   margin-bottom: 40px;
   transition: all 0.5s;
   background-color: #ffece5;
-  width: calc(100% / 3 - 10px);
+  //
 }
 
 .shopProductImg {

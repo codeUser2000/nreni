@@ -1,4 +1,6 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, {
+  useCallback,
+} from 'react';
 import { Helmet } from 'react-helmet';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Slider from 'rc-slider';
@@ -7,28 +9,20 @@ import qs from 'query-string';
 import LazyLoad from 'react-lazy-load';
 import _ from 'lodash';
 import Wrapper from '../components/Wrapper';
-import Filter from '../components/Filter';
+// import Filter from '../components/Filter';
 import ShopProduct from '../components/ShopProduct';
 import data from '../productData';
+import SliderValue from '../components/SliderValue';
 
 function Shop() {
   const location = useLocation();
-  const [min, setMin] = useState(223);
-  const [max, setMax] = useState(1000);
   const navigate = useNavigate();
   const query = qs.parse(location.search, { arrayFormat: 'comma' });
-  useEffect(() => {
-    // if (query.sliderPrice) {
-    //   // eslint-disable-next-line no-shadow
-    //   const [min, max] = query.sliderPrice.split('_');
-    //   setMin(+min);
-    //   setMax(+max);
-    // }
-  }, [location.search]);
-  const handleChange = useCallback((value) => {
-    query.sliderPrice = value.join('_');
+  const min = 233;
+  const max = 1900;
+  const handleChange = useCallback((val) => {
+    query.sliderPrice = val.join('_');
     navigate(`?${qs.stringify(query, { arrayFormat: 'comma', skipEmptyString: true })}`);
-    console.log();
   }, [location.search]);
   return (
     <Wrapper>
@@ -57,30 +51,18 @@ function Shop() {
                   <Slider
                     range
                     allowCross={false}
-                    // defaultValue={[2900, 29000]}
+                    defaultValue={[min, max]}
                     min={min}
                     max={max}
-                    // min={min}
-                    // max={max}
-                    defaultValue={[min, max]}
                     value={query?.sliderPrice?.split('_').map((l) => +l)}
                     onChange={(val) => handleChange(val)}
                   />
-                  <div className="shopPrices">
-                    <div className="shopPriceMin">
-                      <span className="shopPriceSpan">$</span>
-                      {/* eslint-disable-next-line max-len */}
-                      <input type="text" placeholder="0" />
-                    </div>
-                    <p className="shopPriceTo">To</p>
-                    <div className="shopPriceMax">
-                      <span className="shopPriceSpan">$</span>
-                      {/* eslint-disable-next-line max-len */}
-                      <input type="text" placeholder="180.00" />
-                    </div>
-                  </div>
+                  <SliderValue
+                    min={min}
+                    max={max}
+                  />
                 </div>
-                <Filter />
+                {/* <Filter /> */}
               </form>
             </aside>
             <section className="shopSection">
@@ -88,8 +70,8 @@ function Shop() {
                 {data.map((l) => {
                   if (l.type === 0) {
                     return (
-                      <LazyLoad>
-                        <ShopProduct key={_.uniqueId()} data={l} />
+                      <LazyLoad key={_.uniqueId()} height={500}>
+                        <ShopProduct data={l} />
                       </LazyLoad>
                     );
                   }

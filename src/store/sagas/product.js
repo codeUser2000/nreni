@@ -18,8 +18,7 @@ export default function* watcher() {
 
 function* handleGetProductsRequest() {
   try {
-    const { data } = yield call(Api.getProductData);
-    console.log(data);
+    const { data } = yield call(Api.getData);
     yield put({
       type: GET_PRODUCT_DATA_SUCCESS,
       payload: { productsData: data },
