@@ -20,7 +20,8 @@ class Api {
   }
 
   static register(data) {
-    return api.post('', data);
+    console.log(data);
+    return api.post('/users/register', data);
   }
 
   static getCategoryData(category) {

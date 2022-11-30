@@ -18,7 +18,7 @@ function Shop() {
   const location = useLocation();
   const navigate = useNavigate();
   const query = qs.parse(location.search, { arrayFormat: 'comma' });
-  const min = 233;
+  const min = 100;
   const max = 1900;
   const handleChange = useCallback((val) => {
     query.sliderPrice = val.join('_');
@@ -78,7 +78,7 @@ function Shop() {
             </aside>
             <section className="shopSection">
               <div className="shopProductsRow">
-                {data.map((l) => {
+                {finalProduct.map((l) => {
                   if (l.type === 0) {
                     return (
                       <LazyLoad key={_.uniqueId()} height={500}>

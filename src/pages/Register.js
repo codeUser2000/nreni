@@ -2,56 +2,72 @@ import React, { useCallback, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
+import { useDispatch } from 'react-redux';
 import logo from '../assets/img/logo/logo.png';
+import { createUserRequest } from '../store/actions/users';
 
 function Register() {
-  const [email, setEmail] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [password, setPassword] = useState('');
-  const [lastName, setLastName] = useState('');
+  const dispatch = useDispatch();
   const [password2, setPassword2] = useState('');
   const [btnRun, setBtnRun] = useState(false);
-
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    birthYear: '1-1-2005',
+  });
+  const handleChange = useCallback((key, value) => {
+    formData[key] = value;
+    setFormData({ ...formData });
+  }, [formData]);
   const handleSubmit = useCallback(async (ev) => {
     ev.preventDefault();
-    const emailReg = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    const emailReg = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
     const passReg = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-    if (!firstName || !password || !lastName || !email || !password2) {
+    if (
+      !formData.firstName
+      || !formData.password
+      || !formData.lastName
+      || !formData.email
+      || !password2) {
       alert('hy');
-      console.log(email, password, firstName, lastName);
+      console.log(
+        formData.email,
+        formData.password,
+        formData.firstName,
+        formData.lastName,
+        password2,
+      );
       return;
     }
-    if (!emailReg.test(email)) {
+    if (!emailReg.test(formData.email)) {
       alert('no email');
     }
-    if (!passReg.test(password)) {
+    if (!passReg.test(formData.password)) {
       if (!password2) {
         alert('no email');
       }
-      if (password !== password2) {
+      if (formData.password !== password2) {
         alert('no equal password');
       }
     }
-    // await Api.register({
-    //   email,
-    //   password,
-    //   lastName,
-    //   firstName,
-    // });
-  }, [email, password, firstName, lastName]);
+    console.log(2234423);
+    await dispatch(createUserRequest(formData));
+  }, [formData, password2]);
 
   const handleMouseEnter = () => {
-    const emailReg = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    const emailReg = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
     const passReg = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-    if (!emailReg.test(email)) {
+    if (!emailReg.test(formData.email)) {
       setBtnRun(!btnRun);
     }
-    if (!passReg.test(password)) {
+    if (!passReg.test(formData.password)) {
       console.log(112);
       if (!password2) {
         setBtnRun(!btnRun);
       }
-      if (password !== password2) {
+      if (formData.password !== password2) {
         console.log(11);
         setBtnRun(!btnRun);
       }
@@ -86,22 +102,22 @@ function Register() {
                 type=" text"
                 className=" regFormInput"
                 placeholder=" Type your first name"
-                value={firstName}
-                onChange={(ev) => setFirstName(ev.target.value)}
+                value={formData.firstName}
+                onChange={(ev) => handleChange('firstName', ev.target.value)}
               />
               <input
                 type=" text"
                 className=" regFormInput"
                 placeholder=" Type your last name"
-                value={lastName}
-                onChange={(ev) => setLastName(ev.target.value)}
+                value={formData.lastName}
+                onChange={(ev) => handleChange('lastName', ev.target.value)}
               />
               <input
                 type=" email"
                 className=" regFormInput"
                 placeholder=" Type your email"
-                value={email}
-                onChange={(ev) => setEmail(ev.target.value)}
+                value={formData.email}
+                onChange={(ev) => handleChange('email', ev.target.value)}
               />
               <input
                 type=" date"
@@ -112,8 +128,8 @@ function Register() {
                 type=" password"
                 className=" regFormInput"
                 placeholder=" Type your password"
-                value={password}
-                onChange={(ev) => setPassword(ev.target.value)}
+                value={formData.password}
+                onChange={(ev) => handleChange('password', ev.target.value)}
               />
               <input
                 type=" password"

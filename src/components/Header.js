@@ -4,6 +4,8 @@ import logo from '../assets/img/logo/logo.png';
 import login from '../assets/img/site/user.png';
 import cart from '../assets/img/site/cart.png';
 import us from '../assets/img/site/usa.png';
+import russian from '../assets/img/site/russian.png';
+import arm from '../assets/img/site/armenia.png';
 
 function Header() {
   return (
@@ -41,27 +43,19 @@ function Header() {
                 </NavLink>
               </li>
               <li className="navList">
-                <Link to="/" className="navLink">
-                  <img className="languageIcons" src={us} alt="" />
-                </Link>
+                <img className="languageIcons" src={us} alt="" />
                 <ul className="subMenu">
                   <li className="subList">
-                    <Link to="/" className="subLink">
-                      <img className="subLanguageIcons" src={us} alt="" />
-                      <p className="subLangName">English</p>
-                    </Link>
+                    <img className="subLanguageIcons" src={us} alt="" />
+                    <p className="subLangName">English</p>
                   </li>
                   <li className="subList">
-                    <Link to="/" className="subLink">
-                      <img className="subLanguageIcons" src={us} alt="" />
-                      <p className="subLangName">Հայերեն</p>
-                    </Link>
+                    <img className="subLanguageIcons" src={arm} alt="" />
+                    <p className="subLangName">Հայերեն</p>
                   </li>
                   <li className="subList">
-                    <Link to="/" className="subLink">
-                      <img className="subLanguageIcons" src={us} alt="" />
-                      <p className="subLangName">Русский</p>
-                    </Link>
+                    <img className="subLanguageIcons" src={russian} alt="" />
+                    <p className="subLangName">Русский</p>
                   </li>
                 </ul>
               </li>
