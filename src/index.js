@@ -8,6 +8,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import reducers from './store/reducers';
 import sagas from './store/sagas';
+import 'react-toastify/dist/ReactToastify.css';
 import './assets/style.scss';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

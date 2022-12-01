@@ -3,9 +3,9 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 import logo from '../assets/img/logo/logo.png';
 import { createUserRequest } from '../store/actions/users';
-import Api from '../Api';
 
 function Register() {
   const dispatch = useDispatch();
@@ -32,29 +32,21 @@ function Register() {
       || !formData.lastName
       || !formData.email
       || !password2) {
-      alert('hy');
-      console.log(
-        formData.email,
-        formData.password,
-        formData.firstName,
-        formData.lastName,
-        password2,
-      );
+      toast.error('Please fill all gaps');
       return;
     }
     if (!emailReg.test(formData.email)) {
-      alert('no email');
+      toast.error('Please enter valid email');
     }
     if (!passReg.test(formData.password)) {
       if (!password2) {
-        alert('no email');
+        toast.error('Please enter password2');
       }
       if (formData.password !== password2) {
-        alert('no equal password');
+        toast.error('Passwords are not equal');
       }
     }
-    console.log(2234423);
-    await Api.register(formData);
+    await dispatch(createUserRequest(formData));
   }, [formData, password2]);
 
   const handleMouseEnter = () => {
@@ -64,12 +56,10 @@ function Register() {
       setBtnRun(!btnRun);
     }
     if (!passReg.test(formData.password)) {
-      console.log(112);
       if (!password2) {
         setBtnRun(!btnRun);
       }
       if (formData.password !== password2) {
-        console.log(11);
         setBtnRun(!btnRun);
       }
     }

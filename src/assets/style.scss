@@ -531,22 +531,8 @@
   background-color: #c31e39;
 }
 
-.regPage,
-.loginPage {
-  width: 90%;
-  height: 550px;
-  margin: 0 auto;
-  padding: 20px;
-  display: flex;
-  border-radius: 5px;
-  flex-direction: row;
-  background-color: #ffece5;
-  box-shadow: 1px 0 38px -2px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 1px 0 38px -2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 1px 0 38px -2px rgba(0, 0, 0, 0.75);
-}
 
-figure.registerBanner {
+figure.registerBanner\" {
   width: 50%;
   height: 100%;
   padding: 30px;
@@ -714,18 +700,6 @@ figure.registerBanner {
   background-color: #c31e39;
 }
 
-.contactPage {
-  width: 90%;
-  margin: 0 auto;
-  display: flex;
-  padding: 1px;
-  border-radius: 5px;
-  flex-direction: row;
-  background-color: #ffece5;
-  box-shadow: 1px 0 38px -2px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 1px 0 38px -2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 1px 0 38px -2px rgba(0, 0, 0, 0.75);
-}
 
 .contactMap {
   width: 50%;
@@ -769,6 +743,7 @@ figure.registerBanner {
   font-weight: 700;
   text-align: center;
   margin-bottom: 30px;
+
 }
 
 .contactSoc {
@@ -999,9 +974,6 @@ figure.registerBanner {
   margin-bottom: 40px;
   transition: all 0.5s;
   background-color: #ffece5;
-}
-
-.newProduct{
   width: calc(100% / 3 - 10px);
 }
 
@@ -1037,20 +1009,6 @@ figure.registerBanner {
   background-color: #ffece5;
 }
 
-.newProductLabel,
-.shopProductLabel {
-  left: 0;
-  top: -100%;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  text-align: center;
-  position: absolute;
-  align-items: center;
-  transition: all 0.7s;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.3);;
-}
 
 .newProduct:hover .newProductLabel,
 .shopProduct:hover .shopProductLabel {
@@ -1408,6 +1366,61 @@ span {
 }
 
 
+
+.bannerFigure {
+  width: 50%;
+  height: 100%;
+}
+
+.bannerImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bannerTitle {
+  width: 100%;
+  font-size: 72px;
+  font-weight: bold;
+}
+
+.bannerSlogan {
+  width: 100%;
+  font-weight: 400;
+}
+
+.bannerInfo {
+  width: 100%;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.bannerBtn {
+  width: 40%;
+  height: 40px;
+  border-radius: 50px;
+  transition: all 0.4s;
+  text-transform: uppercase;
+  border: 2px solid #ffece5;
+  background-color: #ffece5;
+}
+
+.bannerLink {
+  color: #c31e39;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.bannerBtn:hover {
+  background-color: #c31e39;
+}
+
+.bannerBtn:hover .bannerLink {
+  color: #ffece5;
+}
+
+
 /*about*/
 .aboutCleaning,
 .about {
@@ -1424,6 +1437,20 @@ span {
   margin-bottom: 40px;
 }
 
+.aboutCleaningBlock,
+.aboutBlock {
+  width: 90%;
+  padding: 50px;
+  margin-bottom: 90px;
+  background-color: #ffece5;
+}
+
+.aboutDesk {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
 .aboutCleaningTitle,
 .aboutTitle {
   color: #c31e39;
@@ -1431,6 +1458,47 @@ span {
   margin-bottom: 25px;
 }
 
+.aboutCleaningInfo,
+.aboutInfo {
+  width: 50%;
+  font-weight: 100;
+  font-size: 17px;
+}
+
+.aboutCleaningFigure,
+.aboutFigure {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+
+.aboutImg {
+  width: 45%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.aboutCleaningVideo,
+.aboutCleaningImg {
+  width: 45%;
+  height: 500px;
+  object-fit: cover;
+  margin-left: 40px;
+}
+
+
+.aboutCleaningList {
+  padding-left: 20px;
+}
+
+.aboutClean {
+  width: 45%;
+  padding: 30px;
+  text-align: center;
+  margin-right: 40px;
+  background-color: #c31e39;
+}
 
 .aboutCleanLink {
   color: black;
@@ -1443,6 +1511,19 @@ span {
   color: #ffece5;
 }
 
+.aboutCleanFigure {
+  width: 100%;
+  height: 250px;
+  margin-top: 20px;
+  border: 5px solid #ffece5;
+}
+
+.aboutCleanImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .aboutCleanTitle {
   font-size: 18px;
   font-weight: bold;
@@ -1451,6 +1532,28 @@ span {
 
 
 /*LOGIN & REGISTRATION*/
+.registrationPage,
+.logIn {
+  width: 100%;
+  height: 100vh;
+  padding: 100px;
+  background-color: #c31e39;
+}
+
+.regPage,
+.loginPage {
+  width: 90%;
+  height: 550px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  border-radius: 5px;
+  flex-direction: row;
+  background-color: #ffece5;
+  box-shadow: 1px 0 38px -2px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 1px 0 38px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 0 38px -2px rgba(0, 0, 0, 0.75);
+}
 
 figure.registerBanner{
   width: 50%;
@@ -1630,6 +1733,20 @@ figure.registerBanner{
   padding: 100px;
   background-color: #c31e39;
 }
+
+.contactPage {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  padding: 1px;
+  border-radius: 5px;
+  flex-direction: row;
+  background-color: #ffece5;
+  box-shadow: 1px 0 38px -2px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 1px 0 38px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 0 38px -2px rgba(0, 0, 0, 0.75);
+}
+
 .contactMap {
   width: 50%;
   padding: 30px;
@@ -1766,7 +1883,6 @@ figure.registerBanner{
   text-transform: uppercase;
   background-color: #ffece5;
 }
-
 
 .shopProduct:hover .shopProductLabel {
   top: 0;
@@ -2159,7 +2275,19 @@ figure.registerBanner{
   background-color: #ffece5;
 }
 
-
+.shopProductLabel {
+  left: 0;
+  top: -100%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  text-align: center;
+  position: absolute;
+  align-items: center;
+  transition: all 0.7s;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.3);;
+}
 
 .shopProduct:hover .shopProductLabel {
   top: 0;
@@ -2173,7 +2301,7 @@ figure.registerBanner{
 }
 
 
-// banner
+//baner
 
 .banner {
   width: 100%;
@@ -2187,6 +2315,41 @@ figure.registerBanner{
   background-color: #c31e39;
 }
 
+
+
+.bannerImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bannerTitle {
+  width: 100%;
+  font-size: 72px;
+  font-weight: bold;
+}
+
+.bannerSlogan {
+  width: 100%;
+  font-weight: 400;
+}
+
+.bannerInfo {
+  width: 100%;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.bannerBtn {
+  width: 40%;
+  height: 40px;
+  border-radius: 50px;
+  transition: all 0.4s;
+  text-transform: uppercase;
+  border: 2px solid #ffece5;
+  background-color: #ffece5;
+}
+
 .carousel {
   position: relative;
 
@@ -2195,6 +2358,21 @@ figure.registerBanner{
     width: 100%;
     overflow: hidden;
   }
+}
+
+.bannerLink {
+  color: #c31e39;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.bannerBtn:hover {
+  background-color: #c31e39;
+}
+
+.bannerBtn:hover .bannerLink {
+  color: #ffece5;
 }
 
 //range

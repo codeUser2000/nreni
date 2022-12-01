@@ -59,7 +59,7 @@ function Home() {
                   <div className="assortmentDesk">
                     <p className="assortmentInfo">Necklaces</p>
                     <button type="button" className="assortmentBtn">
-                      <Link to="shop.html" className="assortmentLink">Shop now</Link>
+                      <Link to="/shop" className="assortmentLink">Shop now</Link>
                     </button>
                   </div>
                 </div>

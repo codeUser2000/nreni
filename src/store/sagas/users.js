@@ -1,4 +1,5 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
+import { toast } from 'react-toastify';
 import {
   CREATE_USER_FAIL,
   CREATE_USER_REQUEST,
