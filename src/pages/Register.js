@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
 import logo from '../assets/img/logo/logo.png';
 import { createUserRequest } from '../store/actions/users';
+import Api from '../Api';
 
 function Register() {
   const dispatch = useDispatch();
@@ -53,7 +54,7 @@ function Register() {
       }
     }
     console.log(2234423);
-    await dispatch(createUserRequest(formData));
+    await Api.register(formData);
   }, [formData, password2]);
 
   const handleMouseEnter = () => {

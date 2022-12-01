@@ -1,13 +1,18 @@
 import axios from 'axios';
+import Account from './helpers/Account';
 
 const { REACT_APP_API_URL } = process.env;
 const api = axios.create({
   baseURL: REACT_APP_API_URL,
+  headers: {
+    Authorization: Account.getToken(),
+    'Content-Type': 'application/json',
+  },
 });
 
 api.interceptors.request.use(
   // eslint-disable-next-line no-unused-vars
-  (config) => {},
+  (config) => config,
 );
 
 class Api {
