@@ -1,20 +1,31 @@
 import React, { useCallback, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router';
 import logo from '../assets/img/logo/logo.png';
-import Api from '../Api';
+import { userLoginRequest } from '../store/actions/users';
 
 function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const userDataStatus = useSelector((state) => state.users.usersDataStatus);
+  const [form, setForm] = useState({
+    email: '',
+    password: '',
+  });
   const handleSubmit = useCallback(async (ev) => {
     ev.preventDefault();
-    await Api.login({
-      email,
-      password,
-    });
-  }, [email, password]);
+    if (!form.email || !form.password) {
+      toast.error('Enter email and password');
+    }
+    dispatch(userLoginRequest(form));
+  }, [form, userDataStatus]);
+  const handleChange = useCallback((key, value) => {
+    form[key] = value;
+    setForm({ ...form });
+  }, [form]);
   return (
     <>
       <Helmet>
@@ -44,15 +55,15 @@ function Login() {
                 type="email"
                 className="loginFormInput"
                 placeholder=" Type your email"
-                value={email}
-                onChange={(ev) => setEmail(ev.target.value)}
+                value={form.email}
+                onChange={(ev) => handleChange('email', ev.target.value)}
               />
               <input
                 type="password"
                 className="loginFormInput"
                 placeholder="Type your password"
-                value={password}
-                onChange={(ev) => setPassword(ev.target.value)}
+                value={form.password}
+                onChange={(ev) => handleChange('password', ev.target.value)}
               />
               <button type="submit" className="loginFormBtn">LOGIN</button>
               <Link to="/register" className="loginFormLink">Or sign up Using</Link>

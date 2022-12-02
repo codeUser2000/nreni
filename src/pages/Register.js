@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
+import DatePicker from 'react-datepicker';
 import logo from '../assets/img/logo/logo.png';
 import { createUserRequest } from '../store/actions/users';
 
@@ -16,7 +17,7 @@ function Register() {
     lastName: '',
     email: '',
     password: '',
-    birthYear: '1-1-2005',
+    birthYear: new Date(),
   });
   const handleChange = useCallback((key, value) => {
     formData[key] = value;
@@ -31,6 +32,7 @@ function Register() {
       || !formData.password
       || !formData.lastName
       || !formData.email
+      || !formData.birthYear
       || !password2) {
       toast.error('Please fill all gaps');
       return;
@@ -110,10 +112,11 @@ function Register() {
                 value={formData.email}
                 onChange={(ev) => handleChange('email', ev.target.value)}
               />
-              <input
-                type=" date"
+              <DatePicker
                 className=" regFormInput"
-                placeholder=" Type your date of birth"
+                selected={formData.birthYear}
+                dateFormat="yyyy/dd/MM"
+                onChange={(ev) => handleChange('birthYear', ev)}
               />
               <input
                 type=" password"

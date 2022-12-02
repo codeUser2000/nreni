@@ -12,6 +12,7 @@ import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Cart from './pages/Cart';
+import Confirm from './pages/Confirm';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class App extends Component {
@@ -31,6 +32,7 @@ class App extends Component {
             <Route path="/register" element={<Register />} />
             <Route path="/not-found" element={<NotFound />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/confirm" element={<Confirm />} />
             {/* <Route path='*' element={<Navigate to='/not-found'/>}/> */}
           </Routes>
         </BrowserRouter>

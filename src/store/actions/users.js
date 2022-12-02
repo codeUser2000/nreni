@@ -1,11 +1,11 @@
-export const GET_USERS_LIST_REQUEST = 'GET_USERS_LIST_REQUEST';
-export const GET_USERS_LIST_SUCCESS = 'GET_USERS_LIST_SUCCESS';
-export const GET_USERS_LIST_FAIL = 'GET_USERS_LIST_FAIL';
+export const LOGIN_USER_REQUEST = 'LOGIN_USER_REQUEST';
+export const LOGIN_USER_SUCCESS = 'LOGIN_USER_SUCCESS';
+export const LOGIN_USER_FAIL = 'LOGIN_USER_FAIL';
 
-export function getUsersListRequest() {
+export function userLoginRequest(data) {
   return {
-    type: GET_USERS_LIST_REQUEST,
-    payload: {},
+    type: LOGIN_USER_REQUEST,
+    payload: { data },
   };
 }
 

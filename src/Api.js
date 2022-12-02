@@ -21,12 +21,16 @@ class Api {
   }
 
   static login(data) {
-    return api.post('', data);
+    // console.log(data);
+    return api.post('/users/login', data);
   }
 
   static register(data) {
-    console.log(data);
     return api.post('/users/register', data);
+  }
+
+  static confirm() {
+    return api.get('/users/confirm');
   }
 
   static getCategoryData(category) {
