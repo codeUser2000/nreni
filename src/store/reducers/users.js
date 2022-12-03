@@ -1,6 +1,8 @@
 // import { GET_USERS_LIST_FAIL, GET_USERS_LIST_REQUEST, GET_USERS_LIST_SUCCESS } from '../actions/users';
 import { toast } from 'react-toastify';
-import { CREATE_USER_FAIL, LOGIN_USER_SUCCESS, LOGIN_USER_FAIL } from '../actions/users';
+import {
+  CREATE_USER_FAIL, LOGIN_USER_SUCCESS, LOGIN_USER_FAIL, CREATE_USER_SUCCESS,
+} from '../actions/users';
 import Account from '../../helpers/Account';
 
 const initialState = {
@@ -34,6 +36,14 @@ export default function reducer(state = initialState, action) {
       Account.setToken(action.payload.data.token);
       return {
         ...state,
+        usersDataStatus: 'ok',
+      };
+    }
+    case CREATE_USER_SUCCESS: {
+      Account.setToken(action.payload.data.token);
+      return {
+        ...state,
+        usersDataStatus: 'ok',
       };
     }
     case LOGIN_USER_FAIL: {
@@ -44,7 +54,11 @@ export default function reducer(state = initialState, action) {
       };
     }
     case CREATE_USER_FAIL: {
-      console.log(action.payload.error);
+      const { errors } = action.payload.error.data;
+      // eslint-disable-next-line guard-for-in,no-restricted-syntax
+      for (const i in errors) {
+        toast.error(errors[i]);
+      }
       toast.error('You didnt get registered');
       return {
         ...state,

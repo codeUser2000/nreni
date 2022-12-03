@@ -1,5 +1,6 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
 // import { toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import {
   CREATE_USER_FAIL,
   CREATE_USER_REQUEST,
@@ -30,15 +31,16 @@ import Api from '../../Api';
 
 function* handleCreateUserRequest(action) {
   try {
-    yield call(Api.register, action.payload.data);
+    const { data } = yield call(Api.register, action.payload.data);
+    toast.success('Please check your mail for activating your account');
     yield put({
       type: CREATE_USER_SUCCESS,
-      payload: {},
+      payload: { data },
     });
   } catch (e) {
     yield put({
       type: CREATE_USER_FAIL,
-      payload: { error: e.response.data.errors },
+      payload: { error: e.response },
     });
   }
 }
@@ -52,7 +54,7 @@ function* handleUserLoginRequest(action) {
   } catch (e) {
     yield put({
       type: LOGIN_USER_FAIL,
-      payload: { error: e.response.data.errors },
+      payload: { error: e.response },
     });
   }
 }

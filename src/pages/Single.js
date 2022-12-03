@@ -1,13 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useParams } from 'react-router';
 import Wrapper from '../components/Wrapper';
 
 function Single() {
   const params = useParams();
+  const [count, setCount] = useState(0);
   useEffect(() => {
     console.log(params);
   }, [params]);
+
+  const handleProductAdd = useCallback(() => {
+
+  }, []);
+
   return (
     <Wrapper>
       <Helmet>
@@ -36,11 +42,11 @@ function Single() {
                 <option>XXL</option>
               </select>
               <div className="singleInfoQuantity">
-                <button type="button" className="singleBtnM">-</button>
-                <input value="1" className="singleInfoInput" type="text" />
-                <button type="button" className="singleBtnP">+</button>
+                <button type="button" onClick={() => setCount(count - 1)} className="singleBtnM">-</button>
+                <input value={count < 1 ? setCount(1) : count} className="singleInfoInput" type="text" />
+                <button type="button" onClick={() => setCount(count + 1)} className="singleBtnP">+</button>
               </div>
-              <button type="button" className="singleInfoBtn">
+              <button type="button" onClick={handleProductAdd} className="singleInfoBtn">
                 Add to cart
               </button>
             </div>

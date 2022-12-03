@@ -3,13 +3,11 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router';
 import logo from '../assets/img/logo/logo.png';
 import { userLoginRequest } from '../store/actions/users';
 
 function Login() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const userDataStatus = useSelector((state) => state.users.usersDataStatus);
   const [form, setForm] = useState({
     email: '',

@@ -1,15 +1,13 @@
-import Cookies from 'js-cookie';
-
 class Account {
   static getToken() {
-    return localStorage.getItem('token') || Cookies.get('token') || '';
+    return localStorage.getItem('token') || sessionStorage.getItem('token') || '';
   }
 
   static setToken(token, remember) {
     if (remember) {
       localStorage.setItem('token', token);
     } else {
-      Cookies.set('token', token);
+      sessionStorage.setItem('token', token);
     }
   }
 }

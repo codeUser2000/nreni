@@ -13,7 +13,7 @@ function Header() {
       <div className="container">
         <div className="row">
           <figure className="logo">
-            <Link to="index.html" className="logoLink">
+            <Link to="/" className="logoLink">
               <img src={logo} alt="nreni" className="logoImg" />
               <p className="logoName">NRENI</p>
             </Link>
@@ -21,7 +21,7 @@ function Header() {
           <nav className="nav">
             <ul className="navBlock">
               <li className="navList">
-                <NavLink to="/" className="navLink">Home</NavLink>
+                <NavLink to="/home" className="navLink">Home</NavLink>
               </li>
               <li className="navList">
                 <NavLink to="/shop" className="navLink">Shop</NavLink>
@@ -33,9 +33,17 @@ function Header() {
                 <NavLink to="/contact" className="navLink">Contact</NavLink>
               </li>
               <li className="navList">
-                <NavLink to="/login" className="navLink">
-                  <img className="navImg" src={login} alt="" />
-                </NavLink>
+                {sessionStorage.getItem('token')
+                  ? (
+                    <NavLink to="/profile" className="navLink">
+                      <img className="navImg" src={login} alt="" />
+                    </NavLink>
+                  )
+                  : (
+                    <NavLink to="/login" className="navLink">
+                      <img className="navImg" src={login} alt="" />
+                    </NavLink>
+                  )}
               </li>
               <li className="navList">
                 <NavLink to="/cart" className="navLink">
