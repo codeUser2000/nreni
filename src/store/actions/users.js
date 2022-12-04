@@ -34,9 +34,9 @@ export const NEW_USER_PASSWORD_REQUEST = 'NEW_USER_PASSWORD_REQUEST';
 export const NEW_USER_PASSWORD_SUCCESS = 'NEW_USER_PASSWORD_SUCCESS';
 export const NEW_USER_PASSWORD_FAIL = 'NEW_USER_PASSWORD_FAIL';
 
-export function newUserPasswordRequest(password) {
+export function newUserPasswordRequest(data) {
   return {
     type: NEW_USER_PASSWORD_REQUEST,
-    payload: { password },
+    payload: { data },
   };
 }

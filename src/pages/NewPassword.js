@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import qs from 'query-string';
 import { useNavigate } from 'react-router';
@@ -11,17 +11,17 @@ import logo from '../assets/img/logo/logo.png';
 import { newUserPasswordRequest } from '../store/actions/users';
 
 function NewPassword() {
-  const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
   const [show, setShow] = useState(false);
   const [password2, setPassword2] = useState('');
-  const query = qs.parse(location.search, { arrayFormat: 'comma' });
   useEffect(() => {
-    if (!query.email) {
+    if (!localStorage.getItem('user')) {
       navigate('/login');
     }
+    setEmail(JSON.parse(localStorage.getItem('user')).email);
   }, []);
 
   const handleSubmit = useCallback((ev) => {
@@ -30,8 +30,10 @@ function NewPassword() {
       toast.error('Passwords are not similar');
       return;
     }
-    dispatch(newUserPasswordRequest(password));
-  }, [password, password2]);
+    dispatch(newUserPasswordRequest({ password, email }));
+    localStorage.removeItem('user');
+    navigate('/login');
+  }, [password, password2, email]);
 
   return (
     <>
@@ -74,7 +76,7 @@ function NewPassword() {
                   : <VisibilityOffIcon onClick={() => setShow(true)} />}
               </label>
               <input
-                  type={show ? 'text' : 'password'}
+                type={show ? 'text' : 'password'}
                 onChange={(ev) => setPassword2(ev.target.value)}
                 className="resetPasInput"
                 placeholder="Confirm password"

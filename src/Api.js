@@ -28,9 +28,8 @@ class Api {
     return api.post('/users/forget', { email });
   }
 
-  static setNewPassword(password) {
-    console.log(password);
-    // return api.post('/users/forgetPass', data);
+  static setNewPassword(data) {
+    return api.post('/users/newPassword', data);
   }
 
   static register(data) {

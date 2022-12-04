@@ -69,7 +69,7 @@ function* handleUserForgetPasswordRequest(action) {
     console.log(data, 'saga');
     yield put({
       type: FORGET_USER_PASSWORD_SUCCESS,
-      payload: {},
+      payload: { data },
     });
   } catch (e) {
     yield put({
@@ -81,7 +81,7 @@ function* handleUserForgetPasswordRequest(action) {
 
 function* handleUserNewPasswordRequest(action) {
   try {
-    yield call(Api.setNewPassword, action.payload.password);
+    yield call(Api.setNewPassword, action.payload.data);
     yield put({
       type: NEW_USER_PASSWORD_SUCCESS,
       payload: {},

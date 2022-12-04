@@ -4,15 +4,13 @@ import { Helmet } from 'react-helmet';
 import { useDispatch } from 'react-redux';
 import logo from '../assets/img/logo/logo.png';
 import { forgetUserPasswordRequest } from '../store/actions/users';
-import Api from "../Api";
 
 function PasswordReset() {
   const [email, setEmail] = useState('');
   const dispatch = useDispatch();
   const handleSubmit = useCallback(async (ev) => {
     ev.preventDefault();
-    await Api.forgetPass(email);
-    //dispatch(forgetUserPasswordRequest(email));
+    dispatch(forgetUserPasswordRequest(email));
   }, [email]);
 
   return (

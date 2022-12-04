@@ -1,7 +1,14 @@
-// import { GET_USERS_LIST_FAIL, GET_USERS_LIST_REQUEST, GET_USERS_LIST_SUCCESS } from '../actions/users';
+// import { GET_USERS_LIST_FAIL,
+// GET_USERS_LIST_REQUEST,
+// GET_USERS_LIST_SUCCESS } from '../actions/users';
 import { toast } from 'react-toastify';
 import {
-  CREATE_USER_FAIL, LOGIN_USER_SUCCESS, LOGIN_USER_FAIL, CREATE_USER_SUCCESS,
+  CREATE_USER_FAIL,
+  LOGIN_USER_SUCCESS,
+  LOGIN_USER_FAIL,
+  CREATE_USER_SUCCESS,
+  FORGET_USER_PASSWORD_SUCCESS,
+  FORGET_USER_PASSWORD_FAIL,
 } from '../actions/users';
 import Account from '../../helpers/Account';
 
@@ -39,18 +46,33 @@ export default function reducer(state = initialState, action) {
         usersDataStatus: 'ok',
       };
     }
-    case CREATE_USER_SUCCESS: {
-      Account.setToken(action.payload.data.token);
+    case LOGIN_USER_FAIL: {
+      toast.error('Login or password is wrong');
+      return {
+        ...state,
+        usersDataStatus: 'fail',
+      };
+    }
+    case FORGET_USER_PASSWORD_SUCCESS: {
+      toast.success('Please check your mail');
+      localStorage.setItem('user', JSON.stringify(action.payload.data));
       return {
         ...state,
         usersDataStatus: 'ok',
       };
     }
-    case LOGIN_USER_FAIL: {
-      toast.error('Login is wrong');
+    case FORGET_USER_PASSWORD_FAIL: {
+      toast.error(action.payload.error.data.message);
       return {
         ...state,
         usersDataStatus: 'fail',
+      };
+    }
+    case CREATE_USER_SUCCESS: {
+      Account.setToken(action.payload.data.token);
+      return {
+        ...state,
+        usersDataStatus: 'ok',
       };
     }
     case CREATE_USER_FAIL: {
