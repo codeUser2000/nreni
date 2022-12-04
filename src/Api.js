@@ -6,7 +6,7 @@ const api = axios.create({
   baseURL: REACT_APP_API_URL,
   headers: {
     Authorization: Account.getToken(),
-    'Content-Type': 'application/json',
+    'Content-type': 'application/json',
   },
 });
 
@@ -21,8 +21,16 @@ class Api {
   }
 
   static login(data) {
-    // console.log(data);
     return api.post('/users/login', data);
+  }
+
+  static forgetPass(email) {
+    return api.post('/users/forget_pass', email);
+  }
+
+  static setNewPassword(password) {
+    console.log(password);
+    // return api.post('/users/forgetPass', data);
   }
 
   static register(data) {
@@ -34,6 +42,10 @@ class Api {
   }
 
   static getCategoryData(category) {
+    return api.get(`shop/${category}`);
+  }
+
+  static getCartDate(category) {
     return api.get(`shop/${category}`);
   }
 }

@@ -1057,9 +1057,18 @@ figure.registerBanner\" {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  //background-image: url("../img/post/shopSectionPhoto.png");
+  background-image: url("./img/post/shopSectionPhoto.png");
+}
+.navLink.active{
+  color: #c31e39;
 }
 
+
+.subList{
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+}
 .shopPageSection:after {
   content: "";
   width: 100%;
@@ -1210,7 +1219,6 @@ figure.registerBanner\" {
   margin-bottom: 40px;
   transition: all 0.5s;
   background-color: #ffece5;
-  width: calc(100% / 3 - 10px);
 }
 
 .newProductImg,

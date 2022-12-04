@@ -1,5 +1,5 @@
 import React, {
-  useCallback, useEffect, useState,
+  useCallback,
 } from 'react';
 import { Helmet } from 'react-helmet';
 import { useLocation, useNavigate } from 'react-router-dom';

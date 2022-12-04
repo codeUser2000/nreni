@@ -11,6 +11,7 @@ function SliderValue({ min, max }) {
   const query = qs.parse(location.search);
   useEffect(() => {
     if (!_.isEmpty(query)) {
+      // eslint-disable-next-line no-shadow,no-unsafe-optional-chaining
       const [min, max] = query?.sliderPrice?.split('_');
       setMin(min);
       setMax(max);

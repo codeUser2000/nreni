@@ -1,5 +1,4 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
-// import { toast } from 'react-toastify';
 import { toast } from 'react-toastify';
 import {
   CREATE_USER_FAIL,
@@ -8,6 +7,12 @@ import {
   LOGIN_USER_FAIL,
   LOGIN_USER_REQUEST,
   LOGIN_USER_SUCCESS,
+  FORGET_USER_PASSWORD_REQUEST,
+  FORGET_USER_PASSWORD_SUCCESS,
+  FORGET_USER_PASSWORD_FAIL,
+  NEW_USER_PASSWORD_REQUEST,
+  NEW_USER_PASSWORD_SUCCESS,
+  NEW_USER_PASSWORD_FAIL,
   // GET_USERS_LIST_FAIL,
   // GET_USERS_LIST_REQUEST,
   // GET_USERS_LIST_SUCCESS, getUsersListRequest,
@@ -58,8 +63,40 @@ function* handleUserLoginRequest(action) {
     });
   }
 }
+function* handleUserForgetPasswordRequest(action) {
+  try {
+    const { data } = yield call(Api.forgetPass, action.payload.email);
+    console.log(data, 'saga');
+    yield put({
+      type: FORGET_USER_PASSWORD_SUCCESS,
+      payload: {},
+    });
+  } catch (e) {
+    yield put({
+      type: FORGET_USER_PASSWORD_FAIL,
+      payload: { error: e.response },
+    });
+  }
+}
+
+function* handleUserNewPasswordRequest(action) {
+  try {
+    yield call(Api.setNewPassword, action.payload.password);
+    yield put({
+      type: NEW_USER_PASSWORD_SUCCESS,
+      payload: {},
+    });
+  } catch (e) {
+    yield put({
+      type: NEW_USER_PASSWORD_FAIL,
+      payload: { error: e.response },
+    });
+  }
+}
 
 export default function* watcher() {
   yield takeLatest(LOGIN_USER_REQUEST, handleUserLoginRequest);
+  yield takeLatest(FORGET_USER_PASSWORD_REQUEST, handleUserForgetPasswordRequest);
+  yield takeLatest(NEW_USER_PASSWORD_REQUEST, handleUserNewPasswordRequest);
   yield takeLatest(CREATE_USER_REQUEST, handleCreateUserRequest);
 }

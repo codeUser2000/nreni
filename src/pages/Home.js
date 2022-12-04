@@ -6,12 +6,13 @@ import Wrapper from '../components/Wrapper';
 import MyCarouselComp from '../components/MyCarouselComp';
 import img from '../assets/img/post/banner.jpg';
 import NewProduct from '../components/NewProduct';
+import newProduct from '../newProduct';
 
 function Home() {
   return (
     <Wrapper>
       <Helmet>
-        <title>Home</title>
+        <title>NRENI</title>
       </Helmet>
       <div id="header-carousel" className="carousel slide" data-ride="carousel">
         <div className="carousel-inner">
@@ -91,9 +92,9 @@ function Home() {
             <section className="new">
               <h2 className="newTitle">New jewelery</h2>
               <div className="newJewelryRow">
-                <NewProduct />
-                <NewProduct />
-                <NewProduct />
+                {newProduct.map((n) => (
+                  <NewProduct key={n.id} data={n} />
+                ))}
               </div>
             </section>
           </div>

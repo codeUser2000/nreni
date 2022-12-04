@@ -1,9 +1,13 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import Wrapper from '../components/Wrapper';
 
 function Cart() {
   return (
     <Wrapper>
+      <Helmet>
+        <title>Cart</title>
+      </Helmet>
       <div className="cart">
         <div className="container">
           <div className="cartPage">

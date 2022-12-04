@@ -14,6 +14,8 @@ import Register from './pages/Register';
 import Cart from './pages/Cart';
 import Confirm from './pages/Confirm';
 import Profile from './pages/Profile';
+import PasswordReset from './pages/PasswordReset';
+import NewPassword from './pages/NewPassword';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class App extends Component {
@@ -35,6 +37,8 @@ class App extends Component {
             <Route path="/cart" element={<Cart />} />
             <Route path="/confirm" element={<Confirm />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/passwordReset" element={<PasswordReset />} />
+            <Route path="/newPassword" element={<NewPassword />} />
             {/* <Route path='*' element={<Navigate to='/not-found'/>}/> */}
           </Routes>
         </BrowserRouter>

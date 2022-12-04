@@ -47,7 +47,7 @@ function Login() {
                 <p className="loginBannerInfo">Sign in to continue and success</p>
               </figcaption>
             </figure>
-            <form className="loginForm" onSubmit={(ev) => handleSubmit(ev)}>
+            <form onSubmit={handleSubmit} className="loginForm">
               <h2 className="loginFormTitle">Login</h2>
               <input
                 type="email"
@@ -63,6 +63,7 @@ function Login() {
                 value={form.password}
                 onChange={(ev) => handleChange('password', ev.target.value)}
               />
+              <Link className="forgotPassword" to="/passwordReset">Forgot password?</Link>
               <button type="submit" className="loginFormBtn">LOGIN</button>
               <Link to="/register" className="loginFormLink">Or sign up Using</Link>
             </form>
