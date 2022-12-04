@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/img/logo/logo.png';
 import login from '../assets/img/site/user.png';
@@ -8,6 +8,9 @@ import russian from '../assets/img/site/russian.png';
 import arm from '../assets/img/site/armenia.png';
 
 function Header() {
+  const handleLangChange = useCallback((lang) => {
+    localStorage.setItem('lang', lang);
+  }, []);
   return (
     <header className="header">
       <div className="container">
@@ -53,15 +56,15 @@ function Header() {
               <li className="navList">
                 <img className="languageIcons" src={us} alt="" />
                 <ul className="subMenu">
-                  <li className="subList">
+                  <li className="subList" onClick={() => handleLangChange('us')}>
                     <img className="subLanguageIcons" src={us} alt="" />
                     <p className="subLangName">English</p>
                   </li>
-                  <li className="subList">
+                  <li className="subList" onClick={() => handleLangChange('arm')}>
                     <img className="subLanguageIcons" src={arm} alt="" />
                     <p className="subLangName">Հայերեն</p>
                   </li>
-                  <li className="subList">
+                  <li className="subList" onClick={() => handleLangChange('ru')}>
                     <img className="subLanguageIcons" src={russian} alt="" />
                     <p className="subLangName">Русский</p>
                   </li>

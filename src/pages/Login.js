@@ -17,6 +17,7 @@ function Login() {
     ev.preventDefault();
     if (!form.email || !form.password) {
       toast.error('Enter email and password');
+      return;
     }
     dispatch(userLoginRequest(form));
   }, [form, userDataStatus]);
