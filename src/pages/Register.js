@@ -1,7 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
-import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import DatePicker from 'react-datepicker';
@@ -13,7 +12,6 @@ import { createUserRequest } from '../store/actions/users';
 function Register() {
   const dispatch = useDispatch();
   const [password2, setPassword2] = useState('');
-  const [btnRun, setBtnRun] = useState(false);
   const [show, setShow] = useState(false);
   const [formData, setFormData] = useState({
     firstName: '',
@@ -57,21 +55,6 @@ function Register() {
     await dispatch(createUserRequest(formData));
   }, [formData, password2]);
 
-  const handleMouseEnter = () => {
-    const emailReg = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
-    const passReg = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-    if (!emailReg.test(formData.email)) {
-      setBtnRun(!btnRun);
-    }
-    if (!passReg.test(formData.password)) {
-      if (!password2) {
-        setBtnRun(!btnRun);
-      }
-      if (formData.password !== password2) {
-        setBtnRun(!btnRun);
-      }
-    }
-  };
   return (
     <>
       <Helmet>
@@ -147,11 +130,7 @@ function Register() {
 
               <button
                 type="submit"
-                className={classNames(
-                  'regFormBtn',
-                  { run: btnRun },
-                )}
-                onMouseEnter={() => handleMouseEnter()}
+                className="regFormBtn"
               >
                 SIGN UP
               </button>
