@@ -19,6 +19,7 @@ function Login() {
       toast.error('Enter email and password');
       return;
     }
+    console.log('hi');
     dispatch(userLoginRequest(form));
   }, [form, userDataStatus]);
   const handleChange = useCallback((key, value) => {
