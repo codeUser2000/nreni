@@ -25,7 +25,7 @@ class Api {
   }
 
   static forgetPass(email) {
-    return api.post('/users/forget_pass', email);
+    return api.post('/users/forget_password', email);
   }
 
   static setNewPassword(password) {

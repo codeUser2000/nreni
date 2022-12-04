@@ -42,13 +42,16 @@ function Register() {
     }
     if (!emailReg.test(formData.email)) {
       toast.error('Please enter valid email');
+      return;
     }
     if (!passReg.test(formData.password)) {
       if (!password2) {
         toast.error('Please enter password2');
+        return;
       }
       if (formData.password !== password2) {
         toast.error('Passwords are not equal');
+        return;
       }
     }
     await dispatch(createUserRequest(formData));
