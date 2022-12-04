@@ -5,11 +5,13 @@ import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { useNavigate } from 'react-router';
 import logo from '../assets/img/logo/logo.png';
 import { userLoginRequest } from '../store/actions/users';
 
 function Login() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const userDataStatus = useSelector((state) => state.users.usersDataStatus);
   const [show, setShow] = useState(false);
   const [form, setForm] = useState({
@@ -22,8 +24,8 @@ function Login() {
       toast.error('Enter email and password');
       return;
     }
-    console.log('hi');
     dispatch(userLoginRequest(form));
+    navigate('/home');
   }, [form, userDataStatus]);
   const handleChange = useCallback((key, value) => {
     form[key] = value;
