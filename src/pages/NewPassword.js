@@ -5,6 +5,8 @@ import qs from 'query-string';
 import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import logo from '../assets/img/logo/logo.png';
 import { newUserPasswordRequest } from '../store/actions/users';
 
@@ -13,6 +15,7 @@ function NewPassword() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [password, setPassword] = useState('');
+  const [show, setShow] = useState(false);
   const [password2, setPassword2] = useState('');
   const query = qs.parse(location.search, { arrayFormat: 'comma' });
   useEffect(() => {
@@ -57,15 +60,21 @@ function NewPassword() {
               <p className="resetPasInfo">
                 Your new password must be different from previous used passwords.
               </p>
+              <label htmlFor="newPass" style={{ display: 'flex' }}>
+                <input
+                  id="newPass"
+                  type={show ? 'text' : 'password'}
+                  className="resetPasInput"
+                  placeholder="Type your password"
+                  value={password}
+                  onChange={(ev) => setPassword(ev.target.value)}
+                />
+                {show
+                  ? <RemoveRedEyeIcon onClick={() => setShow(false)} />
+                  : <VisibilityOffIcon onClick={() => setShow(true)} />}
+              </label>
               <input
-                type="password"
-                onChange={(ev) => setPassword(ev.target.value)}
-                className="resetPasInput"
-                placeholder="Type new password"
-                value={password}
-              />
-              <input
-                type="password"
+                  type={show ? 'text' : 'password'}
                 onChange={(ev) => setPassword2(ev.target.value)}
                 className="resetPasInput"
                 placeholder="Confirm password"

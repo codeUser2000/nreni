@@ -3,12 +3,15 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import logo from '../assets/img/logo/logo.png';
 import { userLoginRequest } from '../store/actions/users';
 
 function Login() {
   const dispatch = useDispatch();
   const userDataStatus = useSelector((state) => state.users.usersDataStatus);
+  const [show, setShow] = useState(false);
   const [form, setForm] = useState({
     email: '',
     password: '',
@@ -58,13 +61,20 @@ function Login() {
                 value={form.email}
                 onChange={(ev) => handleChange('email', ev.target.value)}
               />
-              <input
-                type="password"
-                className="loginFormInput"
-                placeholder="Type your password"
-                value={form.password}
-                onChange={(ev) => handleChange('password', ev.target.value)}
-              />
+              <label htmlFor="loginPass" style={{ display: 'flex' }}>
+                <input
+                  id="loginPass"
+                  type={show ? 'text' : 'password'}
+                  className="loginFormInput"
+                  placeholder="Type your password"
+                  value={form.password}
+                  onChange={(ev) => handleChange('password', ev.target.value)}
+                />
+                {show
+                  ? <RemoveRedEyeIcon onClick={() => setShow(false)} />
+                  : <VisibilityOffIcon onClick={() => setShow(true)} />}
+              </label>
+
               <Link className="forgotPassword" to="/passwordReset">Forgot password?</Link>
               <button type="submit" className="loginFormBtn">LOGIN</button>
               <Link to="/register" className="loginFormLink">Or sign up Using</Link>
