@@ -25,7 +25,7 @@ function Login() {
       return;
     }
     dispatch(userLoginRequest(form));
-    navigate('/home');
+    // navigate('/home');
   }, [form, userDataStatus]);
   const handleChange = useCallback((key, value) => {
     form[key] = value;
