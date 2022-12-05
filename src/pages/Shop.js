@@ -81,9 +81,7 @@ function Shop() {
                 {finalProduct.map((l) => {
                   if (l.type === 0) {
                     return (
-                      <LazyLoad key={_.uniqueId()} height={500}>
-                        <ShopProduct data={l} />
-                      </LazyLoad>
+                      <ShopProduct key={_.uniqueId()} data={l} />
                     );
                   }
                   return true;

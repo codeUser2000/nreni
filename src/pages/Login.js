@@ -24,8 +24,9 @@ function Login() {
       toast.error('Enter email and password');
       return;
     }
-    dispatch(userLoginRequest(form));
-    navigate('/home');
+    const data = dispatch(userLoginRequest(form));
+    console.log(data);
+    // navigate('/home');
   }, [form, userDataStatus]);
   const handleChange = useCallback((key, value) => {
     form[key] = value;
