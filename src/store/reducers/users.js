@@ -43,6 +43,7 @@ export default function reducer(state = initialState, action) {
     // }
     case LOGIN_USER_SUCCESS: {
       Account.setToken(action.payload.data.token);
+      Account.setProfile(action.payload.data.user);
       return {
         ...state,
         usersDataStatus: 'ok',

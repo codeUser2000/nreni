@@ -10,6 +10,14 @@ class Account {
       sessionStorage.setItem('token', token);
     }
   }
+
+  static setProfile(profile, remember) {
+    if (remember) {
+      localStorage.setItem('profile', JSON.stringify(profile));
+    } else {
+      sessionStorage.setItem('profile', JSON.stringify(profile));
+    }
+  }
 }
 
 export default Account;

@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
@@ -17,6 +17,11 @@ function Login() {
     email: '',
     password: '',
   });
+  useEffect(() => {
+    if (userDataStatus === 'ok') {
+      navigate('/profile');
+    }
+  }, [userDataStatus]);
   const handleSubmit = useCallback(async (ev) => {
     ev.preventDefault();
     if (!form.email || !form.password) {
@@ -24,12 +29,12 @@ function Login() {
       return;
     }
     dispatch(userLoginRequest(form));
-    navigate('/profile');
   }, [form, userDataStatus]);
   const handleChange = useCallback((key, value) => {
     form[key] = value;
     setForm({ ...form });
   }, [form]);
+
   return (
     <div className="logIn">
       <div className="container">

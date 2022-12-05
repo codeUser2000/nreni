@@ -1,13 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 import Wrapper from '../components/Wrapper';
 
 function Profile() {
   const navigate = useNavigate();
+  const [user, setUser] = useState({});
   useEffect(() => {
     if (!sessionStorage.getItem('token')) {
       navigate('/login');
+    } else {
+      setUser(JSON.parse(sessionStorage.getItem('profile')));
     }
   }, [sessionStorage]);
   return (
@@ -18,7 +21,12 @@ function Profile() {
           <div className="customer">
             <p className="customerWelcome">
               Hello
-              <span className="customerInfo">aida hakobyan</span>
+              <span className="customerInfo">
+                {' '}
+                {user.firstName}
+                {' '}
+                {user.lastName}
+              </span>
               !
               ( Do you want
               <Link to="/home" className="customerInactive">logout</Link>
@@ -29,7 +37,11 @@ function Profile() {
               <h4 className="customerTitle">user info</h4>
               <div className="customerDesk">
                 {/* <i className="fa-solid fa-user customerIcon"></i> */}
-                <p className="customerName">aida hakobyan</p>
+                <p className="customerName">
+                  {user.firstName}
+                  {' '}
+                  {user.lastName}
+                </p>
               </div>
               <div className="customerDesk">
                 {/* <i className="fa-solid fa-phone customerIcon"></i> */}
@@ -37,7 +49,7 @@ function Profile() {
               </div>
               <div className="customerDesk">
                 {/* <i className="fa-solid fa-envelope customerIcon"></i> */}
-                <p className="customerEmail">aidahakobyan@gmail.com</p>
+                <p className="customerEmail">{user.email}</p>
               </div>
             </div>
             <div className="customerOrder">
