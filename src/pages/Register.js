@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from 'react';
-import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
@@ -56,90 +55,85 @@ function Register() {
   }, [formData, password2]);
 
   return (
-    <>
-      <Helmet>
-        <title>Register</title>
-      </Helmet>
-      <div className="registrationPage">
-        <div className="container">
-          <div className="regPage">
-            <figure className="registerBanner">
-              <figcaption className=" regBannerFigcaption">
-                <Link to="/home" className=" regPageLogo">
-                  <img src={logo} alt=" nreni" className=" regPageLogoImg" />
-                  <p className=" regPageLogoName">NRENI</p>
-                </Link>
-                <h2 className=" regBannerTitle">
-                  Welcome to
-                  <span>SILVER NRENI</span>
-                  {' '}
-                  page
-                </h2>
-                <p className=" regBannerInfo">Sign up to continue and success</p>
-              </figcaption>
-            </figure>
-            <form onSubmit={handleSubmit} className=" regForm">
-              <h2 className=" regFormTitle">Sign Up</h2>
+    <div className="registrationPage">
+      <div className="container">
+        <div className="regPage">
+          <figure className="registerBanner">
+            <figcaption className=" regBannerFigcaption">
+              <Link to="/home" className=" regPageLogo">
+                <img src={logo} alt=" nreni" className=" regPageLogoImg" />
+                <p className=" regPageLogoName">NRENI</p>
+              </Link>
+              <h2 className=" regBannerTitle">
+                Welcome to
+                <span>SILVER NRENI</span>
+                {' '}
+                page
+              </h2>
+              <p className=" regBannerInfo">Sign up to continue and success</p>
+            </figcaption>
+          </figure>
+          <form onSubmit={handleSubmit} className=" regForm">
+            <h2 className=" regFormTitle">Sign Up</h2>
+            <input
+              type=" text"
+              className=" regFormInput"
+              placeholder="Your first name"
+              value={formData.firstName}
+              onChange={(ev) => handleChange('firstName', ev.target.value)}
+            />
+            <input
+              type=" text"
+              className=" regFormInput"
+              placeholder="Your last name"
+              value={formData.lastName}
+              onChange={(ev) => handleChange('lastName', ev.target.value)}
+            />
+            <input
+              type=" email"
+              className=" regFormInput"
+              placeholder="Your email"
+              value={formData.email}
+              onChange={(ev) => handleChange('email', ev.target.value)}
+            />
+            <DatePicker
+              className=" regFormInput"
+              selected={formData.birthYear}
+              dateFormat="yyyy/dd/MM"
+              onChange={(ev) => handleChange('birthYear', ev)}
+            />
+            <label htmlFor="RegPass" style={{ display: 'flex' }}>
               <input
-                type=" text"
-                className=" regFormInput"
-                placeholder="Your first name"
-                value={formData.firstName}
-                onChange={(ev) => handleChange('firstName', ev.target.value)}
-              />
-              <input
-                type=" text"
-                className=" regFormInput"
-                placeholder="Your last name"
-                value={formData.lastName}
-                onChange={(ev) => handleChange('lastName', ev.target.value)}
-              />
-              <input
-                type=" email"
-                className=" regFormInput"
-                placeholder="Your email"
-                value={formData.email}
-                onChange={(ev) => handleChange('email', ev.target.value)}
-              />
-              <DatePicker
-                className=" regFormInput"
-                selected={formData.birthYear}
-                dateFormat="yyyy/dd/MM"
-                onChange={(ev) => handleChange('birthYear', ev)}
-              />
-              <label htmlFor="RegPass" style={{ display: 'flex' }}>
-                <input
-                  id="RegPass"
-                  type={show ? 'text' : 'password'}
-                  className="regFormInput"
-                  placeholder="Type your password"
-                  value={formData.password}
-                  onChange={(ev) => handleChange('password', ev.target.value)}
-                />
-                {show
-                  ? <RemoveRedEyeIcon fontSize='small' onClick={() => setShow(false)} />
-                  : <VisibilityOffIcon fontSize='small' onClick={() => setShow(true)} />}
-              </label>
-              <input
+                id="RegPass"
                 type={show ? 'text' : 'password'}
-                className=" regFormInput"
-                placeholder="Confirm Your password"
-                value={password2}
-                onChange={(ev) => setPassword2(ev.target.value)}
+                className="regFormInput"
+                placeholder="Type your password"
+                value={formData.password}
+                onChange={(ev) => handleChange('password', ev.target.value)}
               />
+              {show
+                ? <RemoveRedEyeIcon fontSize="small" onClick={() => setShow(false)} />
+                : <VisibilityOffIcon fontSize="small" onClick={() => setShow(true)} />}
+            </label>
+            <input
+              type={show ? 'text' : 'password'}
+              className=" regFormInput"
+              placeholder="Confirm Your password"
+              value={password2}
+              onChange={(ev) => setPassword2(ev.target.value)}
+            />
 
-              <button
-                type="submit"
-                className="regFormBtn"
-              >
-                SIGN UP
-              </button>
-              <Link to="/login" className="regFormLink">Or Login Using</Link>
-            </form>
-          </div>
+            <button
+              type="submit"
+              className="regFormBtn"
+            >
+              SIGN UP
+            </button>
+            <Link to="/login" className="regFormLink">Or Login Using</Link>
+          </form>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

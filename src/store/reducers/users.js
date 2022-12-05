@@ -43,8 +43,6 @@ export default function reducer(state = initialState, action) {
     // }
     case LOGIN_USER_SUCCESS: {
       Account.setToken(action.payload.data.token);
-      const navigate = useNavigate();
-      navigate('/home');
       return {
         ...state,
         usersDataStatus: 'ok',
