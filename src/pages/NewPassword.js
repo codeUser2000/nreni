@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import qs from 'query-string';
 import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';

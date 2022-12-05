@@ -6,7 +6,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import qs from 'query-string';
-import LazyLoad from 'react-lazy-load';
 import _ from 'lodash';
 import Wrapper from '../components/Wrapper';
 // import Filter from '../components/Filter';
@@ -81,9 +80,7 @@ function Shop() {
                 {finalProduct.map((l) => {
                   if (l.type === 0) {
                     return (
-                      <LazyLoad key={_.uniqueId()} height={500}>
-                        <ShopProduct data={l} />
-                      </LazyLoad>
+                      <ShopProduct key={_.uniqueId()} data={l} />
                     );
                   }
                   return true;
