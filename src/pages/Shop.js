@@ -3,6 +3,7 @@ import 'rc-slider/assets/index.css';
 import Wrapper from '../components/Wrapper';
 import ShopSection from '../components/ShopSection';
 import Filter from '../components/Filter';
+import Product from '../components/Product';
 
 function Shop() {
   return (
@@ -12,6 +13,7 @@ function Shop() {
         <div className="container">
           <div className="row">
             <Filter />
+            <Product />
           </div>
         </div>
       </div>
