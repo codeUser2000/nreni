@@ -49,6 +49,10 @@ span {
     padding-right: 5px;
 }
 
+input[type="checkbox"] {
+    background: #c31e39;
+}
+
 /*header*/
 .header {
     width: 100%;
