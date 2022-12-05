@@ -3,7 +3,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import qs from 'query-string';
-import Wrapper from './Wrapper';
 import SliderValue from './SliderValue';
 
 function Filter() {
@@ -41,7 +40,6 @@ function Filter() {
             max={max}
           />
         </div>
-        {/* <Filter /> */}
       </form>
     </aside>
   );
