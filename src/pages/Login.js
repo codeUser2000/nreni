@@ -13,12 +13,16 @@ function Login() {
   const navigate = useNavigate();
   const userDataStatus = useSelector((state) => state.users.usersDataStatus);
   const [show, setShow] = useState(false);
+  const [remember, setRemember] = useState(false);
   const [form, setForm] = useState({
     email: '',
     password: '',
   });
   useEffect(() => {
     if (userDataStatus === 'ok') {
+      navigate('/profile');
+    }
+    if (sessionStorage.getItem('token')) {
       navigate('/profile');
     }
   }, [userDataStatus]);
@@ -28,8 +32,8 @@ function Login() {
       toast.error('Enter email and password');
       return;
     }
-    dispatch(userLoginRequest(form));
-  }, [form, userDataStatus]);
+    dispatch(userLoginRequest(form, remember));
+  }, [form, remember]);
   const handleChange = useCallback((key, value) => {
     form[key] = value;
     setForm({ ...form });
@@ -76,8 +80,12 @@ function Login() {
                 ? <RemoveRedEyeIcon onClick={() => setShow(false)} />
                 : <VisibilityOffIcon onClick={() => setShow(true)} />}
             </label>
-
             <Link className="forgotPassword" to="/passwordReset">Forgot password?</Link>
+            <label htmlFor="remember">
+              <input type="checkbox" id="remember" checked={remember} onChange={() => setRemember(!remember)} />
+              {' '}
+              Remember me
+            </label>
             <button type="submit" className="loginFormBtn">LOGIN</button>
             <Link to="/register" className="loginFormLink">Or sign up Using</Link>
           </form>

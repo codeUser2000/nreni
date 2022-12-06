@@ -51,10 +51,11 @@ function* handleCreateUserRequest(action) {
 }
 function* handleUserLoginRequest(action) {
   try {
-    const { data } = yield call(Api.login, action.payload.data);
+    const { formData, remember } = action.payload;
+    const { data } = yield call(Api.login, formData);
     yield put({
       type: LOGIN_USER_SUCCESS,
-      payload: { data },
+      payload: { data, remember },
     });
   } catch (e) {
     yield put({

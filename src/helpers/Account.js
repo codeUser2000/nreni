@@ -3,19 +3,17 @@ class Account {
     return localStorage.getItem('token') || sessionStorage.getItem('token') || '';
   }
 
-  static setToken(token, remember) {
-    if (remember) {
-      localStorage.setItem('token', token);
-    } else {
-      sessionStorage.setItem('token', token);
-    }
+  static getProfile() {
+    return localStorage.getItem('profile') || sessionStorage.getItem('profile') || '';
   }
 
-  static setProfile(profile, remember) {
+  static setToken(token, remember, profile) {
     if (remember) {
-      localStorage.setItem('profile', JSON.stringify(profile));
+      localStorage.setItem('token', token);
+      localStorage.setItem('profile', profile);
     } else {
-      sessionStorage.setItem('profile', JSON.stringify(profile));
+      sessionStorage.setItem('token', token);
+      sessionStorage.setItem('profile', profile);
     }
   }
 }

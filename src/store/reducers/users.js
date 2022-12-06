@@ -3,7 +3,6 @@
 // GET_USERS_LIST_SUCCESS } from '../actions/users';
 
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router';
 import {
   CREATE_USER_FAIL,
   LOGIN_USER_SUCCESS,
@@ -42,8 +41,8 @@ export default function reducer(state = initialState, action) {
     //   };
     // }
     case LOGIN_USER_SUCCESS: {
-      Account.setToken(action.payload.data.token);
-      Account.setProfile(action.payload.data.user);
+      const { data, remember } = action.payload;
+      Account.setToken(data.token, data.user, remember);
       return {
         ...state,
         usersDataStatus: 'ok',

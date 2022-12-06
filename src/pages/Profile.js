@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 import PersonIcon from '@mui/icons-material/Person';
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import Wrapper from '../components/Wrapper';
 
 function Profile() {
@@ -10,6 +12,10 @@ function Profile() {
   useEffect(() => {
     if (!sessionStorage.getItem('token')) {
       navigate('/login');
+      // } else {
+      //   if (!sessionStorage.getItem('profile')) {
+      //     setUser(JSON.parse(localStorage.getItem('profile')));
+      //   }
     } else {
       setUser(JSON.parse(sessionStorage.getItem('profile')));
     }
@@ -39,18 +45,18 @@ function Profile() {
               <div className="customerDesk">
                 {/* <i className="fa-solid fa-user customerIcon"></i> */}
                 <p className="customerName">
-                  {PersonIcon}
+                  <PersonIcon />
                   {user.firstName}
                   {' '}
                   {user.lastName}
                 </p>
               </div>
               <div className="customerDesk">
-                {/* <i className="fa-solid fa-phone customerIcon"></i> */}
+                <LocalPhoneIcon />
                 <p className="customerPhone">(+374) 95 067515</p>
               </div>
               <div className="customerDesk">
-                {/* <i className="fa-solid fa-envelope customerIcon"></i> */}
+                <MailOutlineIcon />
                 <p className="customerEmail">{user.email}</p>
               </div>
             </div>
