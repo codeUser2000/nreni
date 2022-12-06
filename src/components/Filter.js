@@ -43,8 +43,10 @@ function Filter() {
             range
             min={min}
             max={max}
+            className="shopPriceRange"
             defaultValue={[min, max]}
-            value={query?.sliderPrice?.split('_').map((l) => +l)}
+            value={query?.sliderPrice?.split('_')
+              .map((l) => +l)}
             onChange={(val) => handleChange(val)}
           />
           <SliderValue
@@ -58,9 +60,16 @@ function Filter() {
             // eslint-disable-next-line max-len
             // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions
             <label key={m.id} htmlFor={m.name} className="shopLabels containerCheck">
-              <input id={m.name} onClick={() => handleFilter(m.name)} type="checkbox" checked={categories.includes(m.name)} />
+              <input
+                id={m.name}
+                onClick={() => handleFilter(m.name)}
+                type="checkbox"
+                checked={categories.includes(m.name)}
+              />
               <span className="checkmark" />
               <img className="shopLabelsIcon" src={m.src} alt="" />
+              {' '}
+              {' '}
               {m.name}
             </label>
           ))}

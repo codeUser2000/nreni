@@ -49,9 +49,6 @@ span {
     padding-right: 5px;
 }
 
-input[type="checkbox"] {
-    background: #c31e39;
-}
 
 /*header*/
 .header {
@@ -1175,9 +1172,11 @@ input[type="checkbox"] {
 }
 
 .shopLabels {
+    display: flex;
     font-size: 19px;
     font-weight: 300;
     padding: 10px 0;
+    align-items: center;
     text-transform: capitalize;
 }
 
@@ -1187,11 +1186,12 @@ input[type="checkbox"] {
     object-fit: cover;
 }
 
-[type="checkbox"] {
-    width: 19px;
-    height: 19px;
-    margin-right: 15px;
+.rc-slider-handle,
+.rc-slider-track {
+
+    background-color: #c31e39;
 }
+
 
 .shopProductsRow {
     width: 100%;

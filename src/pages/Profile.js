@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 import PersonIcon from '@mui/icons-material/Person';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
-import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import EmailIcon from '@mui/icons-material/MailOutline';
 import Wrapper from '../components/Wrapper';
 import Account from '../helpers/Account';
 
@@ -37,8 +37,8 @@ function Profile() {
               </span>
               !
               ( Do you want
-              {/* eslint-disable-next-line max-len */}
-              {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
+              {' '}
+              {' '}
               <span
                 onClick={handleLogout}
                 className="customerInactive"
@@ -48,12 +48,12 @@ function Profile() {
               {' '}
               ?)
             </p>
+            <div className="deleteProfile">Delete profile</div>
             <div className="customerDetails">
               <h4 className="customerTitle">user info</h4>
               <div className="customerDesk">
-                {/* <i className="fa-solid fa-user customerIcon"></i> */}
+                <PersonIcon />
                 <p className="customerName">
-                  <PersonIcon />
                   {user.firstName}
                   {' '}
                   {user.lastName}
@@ -64,7 +64,7 @@ function Profile() {
                 <p className="customerPhone">{user.phone}</p>
               </div>
               <div className="customerDesk">
-                <MailOutlineIcon />
+                <EmailIcon />
                 <p className="customerEmail">{user.email}</p>
               </div>
             </div>
@@ -77,7 +77,6 @@ function Profile() {
               </p>
               {/* եթե ունի գնումներ */}
               <div className="customerOrders" />
-              <div>Delete profile</div>
             </div>
           </div>
         </div>
