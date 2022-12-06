@@ -47,7 +47,7 @@ function Login() {
           <figure className="logInBanner">
             <figcaption className="logInBannerFigcaption">
               <Link to="/home" className="loginPageLogo">
-                <img src={logo} alt="nreni" className="loginPageLogoImg" />
+                <img src={logo} alt="nreni" className="loginPageLogoImg"/>
                 <p className="loginPageLogoName">NRENI</p>
               </Link>
               <h2 className="loginBannerTitle">
@@ -78,16 +78,23 @@ function Login() {
                 onChange={(ev) => handleChange('password', ev.target.value)}
               />
               {show
-                ? <RemoveRedEyeIcon fontSize="small" onClick={() => setShow(false)} />
-                : <VisibilityOffIcon fontSize="small" onClick={() => setShow(true)} />}
+                ? <RemoveRedEyeIcon fontSize="small" onClick={() => setShow(false)}/>
+                : <VisibilityOffIcon fontSize="small" onClick={() => setShow(true)}/>}
             </label>
-            <Link className="forgotPassword" to="/passwordReset">Forgot password?</Link>
-            <label htmlFor="remember" className="containerCheck">
-              <input type="checkbox" id="remember" checked={remember} onChange={() => setRemember(!remember)} />
-              <span className="checkmark" />
-              {' '}
-              Remember me
-            </label>
+            <div className="loginBorder">
+              <label htmlFor="remember" className="containerCheck">
+                <input
+                  type="checkbox"
+                  id="remember"
+                  checked={remember}
+                  onChange={() => setRemember(!remember)}
+                />
+                <span className="checkmark"/>
+                {' '}
+                Remember me
+              </label>
+              <Link className="forgotPassword" to="/passwordReset">Forgot password?</Link>
+            </div>
             <button type="submit" className="loginFormBtn">LOGIN</button>
             <Link to="/register" className="loginFormLink">Or sign up Using</Link>
           </form>

@@ -73,6 +73,8 @@ function Profile() {
               {/* եթե չունի գնումներ կատարած ուրեմ․․․ */}
               <p className="customerOrderInfo">
                 <Link className="customerOrderLink" to="/shop">Make Your first order.</Link>
+                {' '}
+                {' '}
                 You haven&apos;t placed any orders yet.
               </p>
               {/* եթե ունի գնումներ */}
