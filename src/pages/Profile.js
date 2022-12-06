@@ -1,25 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 import PersonIcon from '@mui/icons-material/Person';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import Wrapper from '../components/Wrapper';
+import Account from '../helpers/Account';
 
 function Profile() {
   const navigate = useNavigate();
   const [user, setUser] = useState({});
   useEffect(() => {
-    if (!sessionStorage.getItem('token')) {
+    if (!Account.getToken()) {
       navigate('/login');
-      // } else {
-      //   if (!sessionStorage.getItem('profile')) {
-      //     setUser(JSON.parse(localStorage.getItem('profile')));
-      //   }
     } else {
-      setUser(JSON.parse(sessionStorage.getItem('profile')));
+      setUser(JSON.parse(Account.getProfile()));
     }
-  }, [sessionStorage]);
+  }, []);
+  const handleLogout = useCallback(() => {
+    Account.logout();
+    window.location.reload(false);
+  }, []);
   return (
     <Wrapper>
       <main className="profile">
@@ -36,7 +37,14 @@ function Profile() {
               </span>
               !
               ( Do you want
-              <Link to="/home" className="customerInactive">logout</Link>
+              {/* eslint-disable-next-line max-len */}
+              {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
+              <span
+                onClick={handleLogout}
+                className="customerInactive"
+              >
+                logout
+              </span>
               {' '}
               ?)
             </p>

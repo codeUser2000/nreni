@@ -67,7 +67,6 @@ function* handleUserLoginRequest(action) {
 function* handleUserForgetPasswordRequest(action) {
   try {
     const { data } = yield call(Api.forgetPass, action.payload.email);
-    console.log(data, 'saga');
     yield put({
       type: FORGET_USER_PASSWORD_SUCCESS,
       payload: { data },

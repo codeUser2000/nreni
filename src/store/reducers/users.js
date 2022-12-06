@@ -42,7 +42,7 @@ export default function reducer(state = initialState, action) {
     // }
     case LOGIN_USER_SUCCESS: {
       const { data, remember } = action.payload;
-      Account.setToken(data.token, data.user, remember);
+      Account.setTokenAndProfile(data.token, remember, data.user);
       return {
         ...state,
         usersDataStatus: 'ok',
@@ -71,7 +71,7 @@ export default function reducer(state = initialState, action) {
       };
     }
     case CREATE_USER_SUCCESS: {
-      Account.setToken(action.payload.data.token);
+      Account.setTokenAndProfile(action.payload.data.token);
       return {
         ...state,
         usersDataStatus: 'ok',

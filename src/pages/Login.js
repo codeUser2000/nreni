@@ -7,6 +7,7 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { useNavigate } from 'react-router';
 import logo from '../assets/img/logo/logo.png';
 import { userLoginRequest } from '../store/actions/users';
+import Account from '../helpers/Account';
 
 function Login() {
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ function Login() {
     if (userDataStatus === 'ok') {
       navigate('/profile');
     }
-    if (sessionStorage.getItem('token')) {
+    if (Account.getToken()) {
       navigate('/profile');
     }
   }, [userDataStatus]);
