@@ -1637,10 +1637,8 @@ input[type="checkbox"] {
 .customerName {
     text-transform: capitalize;
 }
-
-.customerIcon {
-    color: #c31e39;
-    margin-right: 15px;
+.customerEmail, .customerPhone, .customerName {
+    margin-left: 15px;
 }
 
 /*FOOTER*/

@@ -78,8 +78,8 @@ function Login() {
                 onChange={(ev) => handleChange('password', ev.target.value)}
               />
               {show
-                ? <RemoveRedEyeIcon onClick={() => setShow(false)} />
-                : <VisibilityOffIcon onClick={() => setShow(true)} />}
+                ? <RemoveRedEyeIcon fontSize="small" onClick={() => setShow(false)} />
+                : <VisibilityOffIcon fontSize="small" onClick={() => setShow(true)} />}
             </label>
             <Link className="forgotPassword" to="/passwordReset">Forgot password?</Link>
             <label htmlFor="remember" className="containerCheck">

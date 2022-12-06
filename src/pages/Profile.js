@@ -37,8 +37,7 @@ function Profile() {
               </span>
               !
               ( Do you want
-              {/* eslint-disable-next-line max-len */}
-              {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
+              {' '}
               <span
                 onClick={handleLogout}
                 className="customerInactive"
@@ -51,20 +50,19 @@ function Profile() {
             <div className="customerDetails">
               <h4 className="customerTitle">user info</h4>
               <div className="customerDesk">
-                {/* <i className="fa-solid fa-user customerIcon"></i> */}
+                <PersonIcon color="hex" />
                 <p className="customerName">
-                  <PersonIcon />
                   {user.firstName}
                   {' '}
                   {user.lastName}
                 </p>
               </div>
               <div className="customerDesk">
-                <LocalPhoneIcon />
+                <LocalPhoneIcon color="hex" />
                 <p className="customerPhone">{user.phone}</p>
               </div>
               <div className="customerDesk">
-                <MailOutlineIcon />
+                <MailOutlineIcon color="hex" />
                 <p className="customerEmail">{user.email}</p>
               </div>
             </div>
