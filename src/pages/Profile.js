@@ -61,7 +61,7 @@ function Profile() {
               </div>
               <div className="customerDesk">
                 <LocalPhoneIcon />
-                <p className="customerPhone">(+374) 95 067515</p>
+                <p className="customerPhone">{user.phone}</p>
               </div>
               <div className="customerDesk">
                 <MailOutlineIcon />

@@ -10,6 +10,7 @@ import reducers from './store/reducers';
 import sagas from './store/sagas';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-datepicker/dist/react-datepicker.css';
+import 'react-phone-number-input/style.css'
 import './assets/css/style.css';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

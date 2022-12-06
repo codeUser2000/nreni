@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import DatePicker from 'react-datepicker';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input';
 import logo from '../assets/img/logo/logo.png';
 import { createUserRequest } from '../store/actions/users';
 
@@ -18,6 +19,7 @@ function Register() {
     email: '',
     password: '',
     birthYear: new Date(),
+    phone: '',
   });
   const handleChange = useCallback((key, value) => {
     formData[key] = value;
@@ -33,8 +35,13 @@ function Register() {
             || !formData.lastName
             || !formData.email
             || !formData.birthYear
-            || !password2) {
+            || !password2
+            || !formData.phone) {
       toast.error('Please fill all gaps');
+      return;
+    }
+    if (!isValidPhoneNumber(formData.phone)) {
+      toast.error('Not valid number');
       return;
     }
     if (!emailReg.test(formData.email)) {
@@ -53,7 +60,6 @@ function Register() {
     }
     await dispatch(createUserRequest(formData));
   }, [formData, password2]);
-
   return (
     <div className="registrationPage">
       <div className="container">
@@ -81,6 +87,11 @@ function Register() {
               placeholder="Your first name"
               value={formData.firstName}
               onChange={(ev) => handleChange('firstName', ev.target.value)}
+            />
+            <PhoneInput
+              international
+              value={formData.phone}
+              onChange={(ev) => handleChange('phone', ev)}
             />
             <input
               type=" text"
