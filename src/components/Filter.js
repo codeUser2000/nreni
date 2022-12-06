@@ -47,31 +47,36 @@ function Filter() {
         </div>
         <div className="shopBtCategory">
           <h3 className="shopAsideSubtitle">type of goods</h3>
-          <label htmlFor="collection" className="shopLabels">
+          <label htmlFor="collection" className="shopLabels containerCheck">
             <input id="collection" type="checkbox" />
+            <span className="checkmark" />
             <img className="shopLabelsIcon" src={collection} alt="" />
             collection
           </label>
-          <label htmlFor="ring" className="shopLabels">
+          <label htmlFor="ring" className="shopLabels containerCheck">
             <input id="ring" type="checkbox" />
+            <span className="checkmark" />
             <img className="shopLabelsIcon" src={ring} alt="" />
             {' '}
             Rings
           </label>
-          <label htmlFor="bracelet" className="shopLabels">
+          <label htmlFor="bracelet" className="shopLabels containerCheck">
             <input id="bracelet" type="checkbox" />
+            <span className="checkmark" />
             <img className="shopLabelsIcon" src={bracelets} alt="" />
             {' '}
             Bracelets
           </label>
-          <label htmlFor="necklace" className="shopLabels">
+          <label htmlFor="necklace" className="shopLabels containerCheck">
             <input id="necklace" type="checkbox" />
+            <span className="checkmark" />
             <img className="shopLabelsIcon" src={necklace} alt="" />
             {' '}
             Necklaces
           </label>
-          <label htmlFor="earring" className="shopLabels">
+          <label htmlFor="earring" className="shopLabels containerCheck">
             <input id="earring" type="checkbox" />
+            <span className="checkmark" />
             <img className="shopLabelsIcon" src={earring} alt="" />
             {' '}
             Earrings

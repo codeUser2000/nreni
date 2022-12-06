@@ -1800,6 +1800,7 @@ input[type="checkbox"] {
 /* When the checkbox is checked, add a blue background */
 .containerCheck input:checked ~ .checkmark {
     background-color: #c31e39;
+    border: none;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
