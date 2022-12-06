@@ -88,11 +88,6 @@ function Register() {
               value={formData.firstName}
               onChange={(ev) => handleChange('firstName', ev.target.value)}
             />
-            <PhoneInput
-              international
-              value={formData.phone}
-              onChange={(ev) => handleChange('phone', ev)}
-            />
             <input
               type=" text"
               className=" regFormInput"
@@ -106,6 +101,11 @@ function Register() {
               placeholder="Your email"
               value={formData.email}
               onChange={(ev) => handleChange('email', ev.target.value)}
+            />
+            <PhoneInput
+              international
+              value={formData.phone}
+              onChange={(ev) => handleChange('phone', ev)}
             />
             <DatePicker
               className=" regFormInput"

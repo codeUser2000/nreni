@@ -77,6 +77,7 @@ function Profile() {
               </p>
               {/* եթե ունի գնումներ */}
               <div className="customerOrders" />
+              <div>Delete profile</div>
             </div>
           </div>
         </div>

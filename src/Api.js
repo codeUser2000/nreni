@@ -20,6 +20,10 @@ class Api {
     return api.get('/products');
   }
 
+  static deleteUser(data) {
+    return api.post('/deleteUser', data);
+  }
+
   static login(data) {
     return api.post('/users/login', data);
   }
