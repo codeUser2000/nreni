@@ -29,6 +29,7 @@ class Account {
       // eslint-disable-next-line react/react-in-jsx-scope
       return <Navigate to="/login" replace />;
     }
+    return false;
   }
 }
 

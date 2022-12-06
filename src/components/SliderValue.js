@@ -1,33 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import qs from 'query-string';
 import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import _ from 'lodash';
 
 function SliderValue({ min, max }) {
   const location = useLocation();
-  const [minValue, setMin] = useState('');
-  const [maxValue, setMax] = useState('');
   const query = qs.parse(location.search);
-  useEffect(() => {
-    if (!_.isEmpty(query)) {
-      // eslint-disable-next-line no-shadow,no-unsafe-optional-chaining
-      const [min, max] = query?.sliderPrice?.split('_');
-      setMin(min);
-      setMax(max);
-    } else {
-      setMin(min);
-      setMax(max);
-    }
-  }, [location.search]);
-
   return (
     <div className="shopPrices">
       <div className="shopPriceMin">
         <span className="shopPriceSpan">$ </span>
         <input
           style={{ textAlign: 'right' }}
-          value={minValue}
+          value={query?.sliderPrice?.split('_')[0]}
+          defaultValue={min}
           type="text"
           readOnly
         />
@@ -37,7 +23,8 @@ function SliderValue({ min, max }) {
         <span className="shopPriceSpan">$</span>
         <input
           style={{ textAlign: 'right' }}
-          value={maxValue}
+          value={query?.sliderPrice?.split('_')[1]}
+          defaultValue={max}
           type="text"
           readOnly
         />

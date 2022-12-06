@@ -21,7 +21,7 @@ class Api {
   }
 
   static deleteUser(data) {
-    return api.post('/deleteUser', data);
+    return api.post('/users/deleteUser', data);
   }
 
   static login(data) {
@@ -44,13 +44,13 @@ class Api {
     return api.get('/users/confirm');
   }
 
-  static getCategoryData(category) {
-    return api.get(`shop/${category}`);
-  }
-
-  static getCartDate(category) {
-    return api.get(`shop/${category}`);
-  }
+  // static getCategoryData(category) {
+  //   return api.get(`shop/${category}`);
+  // }
+  //
+  // static getCartDate(category) {
+  //   return api.get(`shop/${category}`);
+  // }
 }
 
 export default Api;

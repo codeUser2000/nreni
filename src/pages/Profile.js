@@ -37,7 +37,8 @@ function Profile() {
               </span>
               !
               ( Do you want
-              {' '}
+              {/* eslint-disable-next-line max-len */}
+              {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
               <span
                 onClick={handleLogout}
                 className="customerInactive"
@@ -47,23 +48,23 @@ function Profile() {
               {' '}
               ?)
             </p>
-            <div className="deleteProfile">Delete profile</div>
             <div className="customerDetails">
               <h4 className="customerTitle">user info</h4>
               <div className="customerDesk">
-                <PersonIcon color="hex" />
+                {/* <i className="fa-solid fa-user customerIcon"></i> */}
                 <p className="customerName">
+                  <PersonIcon />
                   {user.firstName}
                   {' '}
                   {user.lastName}
                 </p>
               </div>
               <div className="customerDesk">
-                <LocalPhoneIcon color="hex" />
+                <LocalPhoneIcon />
                 <p className="customerPhone">{user.phone}</p>
               </div>
               <div className="customerDesk">
-                <MailOutlineIcon color="hex" />
+                <MailOutlineIcon />
                 <p className="customerEmail">{user.email}</p>
               </div>
             </div>
@@ -72,11 +73,11 @@ function Profile() {
               {/* եթե չունի գնումներ կատարած ուրեմ․․․ */}
               <p className="customerOrderInfo">
                 <Link className="customerOrderLink" to="/shop">Make Your first order.</Link>
-                {' '}
                 You haven&apos;t placed any orders yet.
               </p>
               {/* եթե ունի գնումներ */}
               <div className="customerOrders" />
+              <div>Delete profile</div>
             </div>
           </div>
         </div>

@@ -1,67 +1,31 @@
-const data = [
+import collection from './assets/img/site/collection.png';
+import ring from './assets/img/site/ring.png';
+import bracelets from './assets/img/site/bracelets.png';
+import necklace from './assets/img/site/necklace.png';
+import earring from './assets/img/site/earring.png';
+
+const menu = [
   {
     id: 1,
-    title: 'ring',
-    label: 'ring',
-    children: [
-      {
-        id: 1,
-        title: 'ceramic',
-        label: 'ceramic',
-        children: [],
-      },
-      {
-        id: 2,
-        title: 'simple',
-        label: 'simple',
-        children: [],
-      },
-      {
-        id: 3,
-        title: 'chain',
-        label: 'chain',
-        children: [],
-      },
-    ],
-  },
-  {
+    name: 'collection',
+    src: collection,
+  }, {
     id: 2,
-    title: 'collection',
-    label: 'collection',
-    children: [],
-  },
-  {
+    name: 'ring',
+    src: ring,
+  }, {
     id: 3,
-    title: 'neckless',
-    label: 'neckless',
-    children: [
-      {
-        id: 1,
-        title: 'simple',
-        label: 'simple_neck',
-        children: [],
-      },
-      {
-        id: 2,
-        title: 'nominal',
-        label: 'nominal',
-        children: [],
-      },
-    ],
-  },
-  {
-    id: 3,
-    title: 'earrings',
-    label: 'earrings',
-    children: [],
-  },
-  {
+    name: 'bracelets',
+    src: bracelets,
+  }, {
     id: 4,
-    title: 'bracelets',
-    label: 'bracelets',
-    children: [],
+    name: 'necklace',
+    src: necklace,
+  }, {
+    id: 5,
+    name: 'earring',
+    src: earring,
   },
-
 ];
 
-export default data;
+export default menu;

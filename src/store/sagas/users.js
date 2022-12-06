@@ -12,12 +12,13 @@ import {
   FORGET_USER_PASSWORD_FAIL,
   NEW_USER_PASSWORD_REQUEST,
   NEW_USER_PASSWORD_SUCCESS,
-  NEW_USER_PASSWORD_FAIL,
+  NEW_USER_PASSWORD_FAIL, DELETE_USER_REQUEST, DELETE_USER_SUCCESS, DELETE_USER_FAIL,
   // GET_USERS_LIST_FAIL,
   // GET_USERS_LIST_REQUEST,
   // GET_USERS_LIST_SUCCESS, getUsersListRequest,
 } from '../actions/users';
 import Api from '../../Api';
+import Account from '../../helpers/Account';
 
 // function* handleUserLoginRequest() {
 //   try {
@@ -49,6 +50,24 @@ function* handleCreateUserRequest(action) {
     });
   }
 }
+
+function* handleDeleteUserRequest(action) {
+  try {
+    yield call(Api.deleteUser, action.payload.data);
+    Account.logout();
+    toast.success('User is deleted successfully');
+    yield put({
+      type: DELETE_USER_SUCCESS,
+      payload: {},
+    });
+  } catch (e) {
+    yield put({
+      type: DELETE_USER_FAIL,
+      payload: { error: e.response },
+    });
+  }
+}
+
 function* handleUserLoginRequest(action) {
   try {
     const { formData, remember } = action.payload;
@@ -64,6 +83,7 @@ function* handleUserLoginRequest(action) {
     });
   }
 }
+
 function* handleUserForgetPasswordRequest(action) {
   try {
     const { data } = yield call(Api.forgetPass, action.payload.email);
@@ -99,4 +119,5 @@ export default function* watcher() {
   yield takeLatest(FORGET_USER_PASSWORD_REQUEST, handleUserForgetPasswordRequest);
   yield takeLatest(NEW_USER_PASSWORD_REQUEST, handleUserNewPasswordRequest);
   yield takeLatest(CREATE_USER_REQUEST, handleCreateUserRequest);
+  yield takeLatest(DELETE_USER_REQUEST, handleDeleteUserRequest);
 }
