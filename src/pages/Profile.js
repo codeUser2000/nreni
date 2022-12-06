@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
+import PersonIcon from '@mui/icons-material/Person';
 import Wrapper from '../components/Wrapper';
 
 function Profile() {
@@ -38,6 +39,7 @@ function Profile() {
               <div className="customerDesk">
                 {/* <i className="fa-solid fa-user customerIcon"></i> */}
                 <p className="customerName">
+                  {PersonIcon}
                   {user.firstName}
                   {' '}
                   {user.lastName}
