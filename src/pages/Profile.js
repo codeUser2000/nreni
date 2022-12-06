@@ -47,6 +47,7 @@ function Profile() {
               {' '}
               ?)
             </p>
+            <div className="deleteProfile">Delete profile</div>
             <div className="customerDetails">
               <h4 className="customerTitle">user info</h4>
               <div className="customerDesk">
@@ -71,11 +72,11 @@ function Profile() {
               {/* եթե չունի գնումներ կատարած ուրեմ․․․ */}
               <p className="customerOrderInfo">
                 <Link className="customerOrderLink" to="/shop">Make Your first order.</Link>
+                {' '}
                 You haven&apos;t placed any orders yet.
               </p>
               {/* եթե ունի գնումներ */}
               <div className="customerOrders" />
-              <div>Delete profile</div>
             </div>
           </div>
         </div>
