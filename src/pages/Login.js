@@ -82,8 +82,9 @@ function Login() {
                 : <VisibilityOffIcon onClick={() => setShow(true)} />}
             </label>
             <Link className="forgotPassword" to="/passwordReset">Forgot password?</Link>
-            <label htmlFor="remember">
+            <label htmlFor="remember" className="containerCheck">
               <input type="checkbox" id="remember" checked={remember} onChange={() => setRemember(!remember)} />
+              <span className="checkmark" />
               {' '}
               Remember me
             </label>
