@@ -836,7 +836,7 @@ span {
     position: absolute;
 }
 
-
+.checkmarkFilter,
 .checkmark {
     top: 0;
     left: 0;
@@ -847,12 +847,17 @@ span {
     background-color: #ffece5;
 }
 
+.checkmarkFilter {
+    background-color: #fff;
+}
 
+.containerCheck input:checked ~ .checkmarkFilter,
 .containerCheck input:checked ~ .checkmark {
     background-color: #c31e39;
     border: none;
 }
 
+.checkmarkFilter:after,
 .checkmark:after {
     top: 0;
     left: 0;
@@ -861,10 +866,12 @@ span {
     position: absolute;
 }
 
+.containerCheck input:checked ~ .checkmarkFilter:after,
 .containerCheck input:checked ~ .checkmark:after {
     display: block;
 }
 
+.containerCheck .checkmarkFilter:after,
 .containerCheck .checkmark:after {
     top: 2px;
     left: 6px;
@@ -1194,9 +1201,9 @@ span {
 }
 
 .shopAsideSubtitle {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 500;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     text-transform: capitalize;
 }
 
@@ -1251,8 +1258,8 @@ span {
     display: flex;
     font-size: 19px;
     font-weight: 300;
-    padding: 10px 0;
     align-items: center;
+    padding-bottom: 10px;
     text-transform: capitalize;
 }
 
@@ -1260,14 +1267,29 @@ span {
     width: 20px;
     height: 20px;
     object-fit: cover;
+    margin: 0 5px 0 20px;
 }
 
 .rc-slider-handle,
 .rc-slider-track {
-
     background-color: #c31e39;
+    border: 1px solid #c31e39;
 }
 
+.rc-slider-handle:hover {
+    border-color: #ffece5;
+}
+
+.rc-slider-handle:focus-visible {
+    border-color: #ffece5;
+    box-shadow: 0 0 0 3px #ffece5;
+}
+
+.rc-slider-handle.rc-slider-handle.rc-slider-handle.rc-slider-handle {
+    cursor: grabbing;
+    border-color: #ffece5;
+    box-shadow: 0 0 5px #ffece5;
+}
 
 .shopProductsRow {
     width: 100%;

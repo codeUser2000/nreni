@@ -66,7 +66,7 @@ function Filter() {
                 type="checkbox"
                 checked={categories.includes(m.name)}
               />
-              <span className="checkmark" />
+              <span className="checkmarkFilter" />
               <img className="shopLabelsIcon" src={m.src} alt="" />
               {' '}
               {' '}

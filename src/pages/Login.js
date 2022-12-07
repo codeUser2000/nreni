@@ -47,7 +47,7 @@ function Login() {
           <figure className="logInBanner">
             <figcaption className="logInBannerFigcaption">
               <Link to="/home" className="loginPageLogo">
-                <img src={logo} alt="nreni" className="loginPageLogoImg"/>
+                <img src={logo} alt="nreni" className="loginPageLogoImg" />
                 <p className="loginPageLogoName">NRENI</p>
               </Link>
               <h2 className="loginBannerTitle">
@@ -71,7 +71,7 @@ function Login() {
                 onChange={(ev) => handleChange('email', ev.target.value)}
               />
             </label>
-            <label htmlFor="loginPass" style={{ display: 'flex' }} className='loginFormLabel'>
+            <label htmlFor="loginPass" style={{ display: 'flex' }} className="loginFormLabel">
               <input
                 id="loginPass"
                 type={show ? 'text' : 'password'}
@@ -81,8 +81,8 @@ function Login() {
                 onChange={(ev) => handleChange('password', ev.target.value)}
               />
               {show
-                ? <RemoveRedEyeIcon fontSize="small" onClick={() => setShow(false)}/>
-                : <VisibilityOffIcon fontSize="small" onClick={() => setShow(true)}/>}
+                ? <RemoveRedEyeIcon fontSize="small" onClick={() => setShow(false)} />
+                : <VisibilityOffIcon fontSize="small" onClick={() => setShow(true)} />}
             </label>
             <div className="loginBottom">
               <label htmlFor="remember" className="containerCheck">
@@ -92,7 +92,7 @@ function Login() {
                   checked={remember}
                   onChange={() => setRemember(!remember)}
                 />
-                <span className="checkmark"/>
+                <span className="checkmark" />
                 Remember me
               </label>
               <Link className="forgotPassword" to="/passwordReset">Forgot password?</Link>
