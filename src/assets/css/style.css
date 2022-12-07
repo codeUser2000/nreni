@@ -901,6 +901,10 @@ figure {
     display: block;
 }
 
+p{
+    margin-bottom: 0;
+}
+
 .containerCheck .checkmarkFilter:after,
 .containerCheck .checkmark:after {
     top: 4px;
