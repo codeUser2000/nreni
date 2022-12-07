@@ -11,12 +11,12 @@ body {
     font-size: 16px;
 }
 
-.navbar{
+.navbar {
     background-color: #ffece5 !important;
     padding: 0;
 }
 
-.navLink.active{
+.navLink.active {
     color: #c31e39;
 }
 
@@ -84,8 +84,9 @@ span {
     height: 45px;
     object-fit: cover;
 }
+
 figure {
-     margin: 0;
+    margin: 0;
 }
 
 .logoName {
@@ -149,12 +150,12 @@ figure {
 }
 
 
-.navbar-nav .dropdown-menu{
+.navbar-nav .dropdown-menu {
     background: transparent;
     border: none;
 }
 
-.navbar-nav{
+.navbar-nav {
     flex-direction: row;
 }
 
@@ -269,6 +270,14 @@ figure {
     color: #ffece5;
 }
 
+.slider-control-centerleft,
+.slider-control-centerright {
+    display: none;
+}
+
+.slider-control-bottomcenter {
+    position: absolute;
+}
 
 /*HOME*/
 
@@ -905,6 +914,10 @@ figure {
     transform: rotate(45deg);
 }
 
+.containerCheck .checkmarkFilter:after {
+    top: 4px;
+    left: 8px;
+}
 
 /*RESET PASSWORD*/
 .pasResetTitle {
