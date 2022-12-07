@@ -3,6 +3,7 @@ import 'rc-slider/assets/index.css';
 import Wrapper from '../components/Wrapper';
 import ShopSection from '../components/ShopSection';
 import Filter from '../components/Filter';
+import productData from '../productData';
 import Product from '../components/Product';
 
 function Shop() {
@@ -13,7 +14,13 @@ function Shop() {
         <div className="container">
           <div className="row">
             <Filter />
-            <Product />
+            <section className="shopSection">
+              <div className="shopProductsRow">
+                {productData.map((n) => (
+                  <Product key={n.id} data={n} />
+                ))}
+              </div>
+            </section>
           </div>
         </div>
       </div>
