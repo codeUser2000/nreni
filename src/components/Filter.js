@@ -57,8 +57,6 @@ function Filter() {
         <div className="shopBtCategory">
           <h3 className="shopAsideSubtitle">type of goods</h3>
           {menu.map((m) => (
-            // eslint-disable-next-line max-len
-            // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions
             <label key={m.id} htmlFor={m.name} className="shopLabels containerCheck">
               <input
                 id={m.name}

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 import PersonIcon from '@mui/icons-material/Person';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
-import EmailIcon from '@mui/icons-material/MailOutline';
+import MailIcon from '@mui/icons-material/Mail';
 import Wrapper from '../components/Wrapper';
 import Account from '../helpers/Account';
 
@@ -52,7 +52,7 @@ function Profile() {
             <div className="customerDetails">
               <h4 className="customerTitle">user info</h4>
               <div className="customerDesk">
-                <PersonIcon />
+                <PersonIcon style={{ fill: '#c31e39' }}/>
                 <p className="customerName">
                   {user.firstName}
                   {' '}
@@ -60,11 +60,11 @@ function Profile() {
                 </p>
               </div>
               <div className="customerDesk">
-                <LocalPhoneIcon />
+                <LocalPhoneIcon style={{ fill: '#c31e39' }}/>
                 <p className="customerPhone">{user.phone}</p>
               </div>
               <div className="customerDesk">
-                <EmailIcon />
+                <MailIcon style={{ fill: '#c31e39' }} />
                 <p className="customerEmail">{user.email}</p>
               </div>
             </div>
