@@ -11,6 +11,15 @@ body {
     font-size: 16px;
 }
 
+.navbar{
+    background-color: #ffece5 !important;
+    padding: 0;
+}
+
+.navLink.active{
+    color: #c31e39;
+}
+
 .wrapper {
     width: 100%;
     margin: 0 auto;
@@ -75,12 +84,16 @@ span {
     height: 45px;
     object-fit: cover;
 }
+figure {
+     margin: 0;
+}
 
 .logoName {
     font-size: 27px;
     letter-spacing: 1px;
     color: #000;
     margin-left: 5px;
+    margin-bottom: 0;
     line-height: 70px;
     font-weight: 700;
     text-transform: uppercase;
@@ -92,6 +105,7 @@ span {
     display: flex;
     text-align: right;
     margin-right: 5px;
+    margin-bottom: 0 !important;
     align-items: center;
 }
 
@@ -128,13 +142,20 @@ span {
 }
 
 .subMenu {
-    opacity: 0;
     padding: 10px;
-    display: none;
     text-align: left;
-    visibility: hidden;
     position: absolute;
     background-color: rgba(255, 236, 229, 0.62);
+}
+
+
+.navbar-nav .dropdown-menu{
+    background: transparent;
+    border: none;
+}
+
+.navbar-nav{
+    flex-direction: row;
 }
 
 .subList {
