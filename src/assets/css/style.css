@@ -1291,6 +1291,12 @@ figure {
     margin: 0 5px 0 20px;
 }
 
+.shopPriceMax input,
+.shopPriceMin input {
+    padding-right: 5px;
+}
+
+
 .rc-slider-handle,
 .rc-slider-track {
     background-color: #c31e39;
