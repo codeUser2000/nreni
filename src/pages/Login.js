@@ -61,14 +61,17 @@ function Login() {
           </figure>
           <form onSubmit={handleSubmit} className="loginForm">
             <h2 className="loginFormTitle">Login</h2>
-            <input
-              type="email"
-              className="loginFormInput"
-              placeholder=" Type your email"
-              value={form.email}
-              onChange={(ev) => handleChange('email', ev.target.value)}
-            />
-            <label htmlFor="loginPass" style={{ display: 'flex' }}>
+            <label htmlFor="email" className="loginFormLabel">
+              <input
+                id="email"
+                type="email"
+                className="loginFormInput"
+                placeholder=" Type your email"
+                value={form.email}
+                onChange={(ev) => handleChange('email', ev.target.value)}
+              />
+            </label>
+            <label htmlFor="loginPass" style={{ display: 'flex' }} className='loginFormLabel'>
               <input
                 id="loginPass"
                 type={show ? 'text' : 'password'}
@@ -81,7 +84,7 @@ function Login() {
                 ? <RemoveRedEyeIcon fontSize="small" onClick={() => setShow(false)}/>
                 : <VisibilityOffIcon fontSize="small" onClick={() => setShow(true)}/>}
             </label>
-            <div className="loginBorder">
+            <div className="loginBottom">
               <label htmlFor="remember" className="containerCheck">
                 <input
                   type="checkbox"
@@ -90,7 +93,6 @@ function Login() {
                   onChange={() => setRemember(!remember)}
                 />
                 <span className="checkmark"/>
-                {' '}
                 Remember me
               </label>
               <Link className="forgotPassword" to="/passwordReset">Forgot password?</Link>

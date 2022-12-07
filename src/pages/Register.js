@@ -31,12 +31,12 @@ function Register() {
     const passReg = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
     if (
       !formData.firstName
-            || !formData.password
-            || !formData.lastName
-            || !formData.email
-            || !formData.birthYear
-            || !password2
-            || !formData.phone) {
+      || !formData.password
+      || !formData.lastName
+      || !formData.email
+      || !formData.birthYear
+      || !password2
+      || !formData.phone) {
       toast.error('Please fill all gaps');
       return;
     }
@@ -81,30 +81,40 @@ function Register() {
           </figure>
           <form onSubmit={handleSubmit} className=" regForm">
             <h2 className=" regFormTitle">Sign Up</h2>
-            <input
-              type=" text"
-              className=" regFormInput"
-              placeholder="Your first name"
-              value={formData.firstName}
-              onChange={(ev) => handleChange('firstName', ev.target.value)}
-            />
-            <input
-              type=" text"
-              className=" regFormInput"
-              placeholder="Your last name"
-              value={formData.lastName}
-              onChange={(ev) => handleChange('lastName', ev.target.value)}
-            />
-            <input
-              type=" email"
-              className=" regFormInput"
-              placeholder="Your email"
-              value={formData.email}
-              onChange={(ev) => handleChange('email', ev.target.value)}
-            />
+            <label htmlFor="firstName" className="regFormLabel">
+              <input
+                type=" text"
+                id="firstName"
+                className=" regFormInput"
+                placeholder="Your First Name"
+                value={formData.firstName}
+                onChange={(ev) => handleChange('firstName', ev.target.value)}
+              />
+            </label>
+            <label htmlFor="lastName" className="regFormLabel">
+              <input
+                type=" text"
+                id="lastName"
+                className=" regFormInput"
+                placeholder="Your Last Name"
+                value={formData.lastName}
+                onChange={(ev) => handleChange('lastName', ev.target.value)}
+              />
+            </label>
+            <label htmlFor="email" className="regFormLabel">
+              <input
+                type=" email"
+                id="email"
+                className=" regFormInput"
+                placeholder="Your Email"
+                value={formData.email}
+                onChange={(ev) => handleChange('email', ev.target.value)}
+              />
+            </label>
             <PhoneInput
               international
               value={formData.phone}
+              placeholder="Your Phone Number"
               onChange={(ev) => handleChange('phone', ev)}
             />
             <DatePicker
@@ -113,12 +123,12 @@ function Register() {
               dateFormat="yyyy/dd/MM"
               onChange={(ev) => handleChange('birthYear', ev)}
             />
-            <label htmlFor="RegPass" style={{ display: 'flex' }}>
+            <label htmlFor="RegPass" style={{ display: 'flex' }} className="regFormLabel">
               <input
                 id="RegPass"
                 type={show ? 'text' : 'password'}
                 className="regFormInput"
-                placeholder="Type your password"
+                placeholder="Type Password"
                 value={formData.password}
                 onChange={(ev) => handleChange('password', ev.target.value)}
               />
@@ -126,14 +136,16 @@ function Register() {
                 ? <RemoveRedEyeIcon fontSize="small" onClick={() => setShow(false)} />
                 : <VisibilityOffIcon fontSize="small" onClick={() => setShow(true)} />}
             </label>
-            <input
-              type={show ? 'text' : 'password'}
-              className=" regFormInput"
-              placeholder="Confirm Your password"
-              value={password2}
-              onChange={(ev) => setPassword2(ev.target.value)}
-            />
-
+            <label htmlFor="confirmPas" className="regFormLabel">
+              <input
+                id="confirmPas"
+                type={show ? 'text' : 'password'}
+                className=" regFormInput"
+                placeholder="Confirm Your Password"
+                value={password2}
+                onChange={(ev) => setPassword2(ev.target.value)}
+              />
+            </label>
             <button
               type="submit"
               className="regFormBtn"
