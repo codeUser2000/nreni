@@ -40,8 +40,7 @@ body {
     align-items: start;
 }
 
-.row,
-.bannerRow {
+.row {
     width: 100%;
     display: flex;
     align-items: center;
@@ -207,8 +206,13 @@ figure {
 }
 
 .bannerRow {
+    width: 100%;
+    display: flex;
     padding: 40px;
+    align-items: center;
+    flex-direction: row;
     background-color: #c31e39;
+    justify-content: space-between;
 }
 
 .bannerDesk {
@@ -230,12 +234,13 @@ figure {
 
 .bannerTitle {
     width: 100%;
-    font-size: 72px;
+    font-size: 55px;
     font-weight: bold;
 }
 
 .bannerSlogan {
     width: 100%;
+    font-size: 20px;
     font-weight: 400;
 }
 
@@ -270,17 +275,26 @@ figure {
     color: #ffece5;
 }
 
+.slider-container {
+    position: relative;
+}
+
 .slider-control-centerleft,
 .slider-control-centerright {
     display: none;
 }
 
-.slider-control-bottomcenter {
-    position: absolute;
+.paging-dot {
+    width: 9px;
+    height: 9px;
+    margin-right: 2px;
+}
+
+.active .paging-item {
+    fill: #c31e39;
 }
 
 /*HOME*/
-
 .home {
     width: 100%;
     padding: 100px 0 100px;
@@ -700,6 +714,7 @@ figure {
 .regBannerTitle,
 .loginBannerTitle {
     width: 100%;
+    font-size: 22px;
     font-weight: 700;
     text-align: center;
     margin-bottom: 10px;
@@ -914,10 +929,6 @@ figure {
     transform: rotate(45deg);
 }
 
-.containerCheck .checkmarkFilter:after {
-    top: 4px;
-    left: 8px;
-}
 
 /*RESET PASSWORD*/
 .pasResetTitle {

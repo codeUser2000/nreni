@@ -52,6 +52,7 @@ function Login() {
               </Link>
               <h2 className="loginBannerTitle">
                 Welcome to
+                {' '}
                 <span>SILVER NRENI</span>
                 {' '}
                 page
