@@ -3,7 +3,10 @@ import qs from 'query-string';
 import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-function SliderValue({ min, max }) {
+function SliderValue({
+  min,
+  max,
+}) {
   const location = useLocation();
   const query = qs.parse(location.search);
   return (
@@ -15,6 +18,7 @@ function SliderValue({ min, max }) {
           value={query?.sliderPrice?.split('_')[0]}
           defaultValue={min}
           type="text"
+          className="priceInput"
           readOnly
         />
       </div>
@@ -26,6 +30,7 @@ function SliderValue({ min, max }) {
           value={query?.sliderPrice?.split('_')[1]}
           defaultValue={max}
           type="text"
+          className="priceInput"
           readOnly
         />
       </div>

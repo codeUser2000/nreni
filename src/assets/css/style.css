@@ -916,7 +916,7 @@ figure {
     display: block;
 }
 
-p{
+p {
     margin-bottom: 0;
 }
 
@@ -1302,6 +1302,7 @@ p{
     font-weight: 300;
     text-transform: capitalize;
 }
+
 
 .shopLabels {
     display: flex;
