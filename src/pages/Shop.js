@@ -17,17 +17,17 @@ function Shop() {
 
   const observer = useRef();
 
-  const { hasMore } = useScrolling(pageNumber);
+  useScrolling(pageNumber);
 
   const lastProductRef = useCallback((node) => {
     if (observer.current) observer.current.disconnect();
     observer.current = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting && hasMore) {
+      if (entries[0].isIntersecting) {
         setPageNumber(pageNumber + 1);
       }
     });
     if (node) observer.current.observe(node);
-  }, [hasMore]);
+  }, []);
 
   const productData = useSelector((state) => state.product.productsData);
 

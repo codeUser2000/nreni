@@ -4,15 +4,13 @@ import { getProductDataRequest } from '../store/actions/product';
 
 export default function useScrolling(pageNumber) {
   const [loading, setLoading] = useState(true);
-  const [hasMore, setHasMore] = useState(false);
   const productData = useSelector((state) => state.product.productsData);
   const dispatch = useDispatch();
   useEffect(() => {
-    console.log(89987);
     setLoading(true);
     dispatch(getProductDataRequest(pageNumber));
     setLoading(false);
-    setHasMore(productData.length > 0);
+    console.log(89987, pageNumber, productData);
   }, [pageNumber]);
-  return { loading, hasMore };
+  return { loading };
 }
