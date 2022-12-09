@@ -1,5 +1,3 @@
-import Api from '../../Api';
-
 export const GET_PRODUCT_DATA_REQUEST = 'GET_PRODUCT_DATA_REQUEST';
 
 export const GET_PRODUCT_DATA_SUCCESS = 'GET_PRODUCT_DATA_SUCCESS';

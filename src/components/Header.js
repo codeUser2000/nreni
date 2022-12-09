@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import {
   Container, Nav, Navbar, NavDropdown,
@@ -20,10 +20,8 @@ function Header() {
         <Container>
           <Navbar.Brand href="/home">
             <figure className="logo">
-              <Link to="/" className="logoLink">
-                <img src={logo} alt="nreni" className="logoImg" />
-                <p className="logoName">NRENI</p>
-              </Link>
+              <img src={logo} alt="nreni" className="logoImg" />
+              <p className="logoName">NRENI</p>
             </figure>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />

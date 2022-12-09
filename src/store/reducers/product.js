@@ -28,6 +28,11 @@ export default function reducer(state = initialState, action) {
     case GET_PRODUCT_DATA_SUCCESS:
     {
       const { productsData } = action.payload;
+      productsData.map((p) => {
+        // p.avatar.split("\").join('/');
+       console.log(p);
+      });
+
       return {
         ...state,
         productsDataStatus: 'ok',

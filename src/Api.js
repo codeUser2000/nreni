@@ -17,7 +17,11 @@ api.interceptors.request.use(
 
 class Api {
   static getData() {
-    return api.get('/products');
+    return api.get('/products/products', {
+      headers: {
+        'Content-Type': 'image/jpeg',
+      },
+    });
   }
 
   static deleteUser(data) {
