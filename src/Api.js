@@ -16,8 +16,8 @@ api.interceptors.request.use(
 );
 
 class Api {
-  static getData() {
-    return api.get('/products/products', {
+  static getData(page = 1) {
+    return api.get(`/products/products?page=${page}`, {
       headers: {
         'Content-Type': 'image/jpeg',
       },

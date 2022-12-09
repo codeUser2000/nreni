@@ -6,9 +6,9 @@ import {
 } from '../actions/product';
 import Api from '../../Api';
 
-function* handleGetProductsRequest() {
+function* handleGetProductsRequest(action) {
   try {
-    const { data } = yield call(Api.getData);
+    const { data } = yield call(Api.getData, action.payload.page);
     yield put({
       type: GET_PRODUCT_DATA_SUCCESS,
       payload: { productsData: data.product },

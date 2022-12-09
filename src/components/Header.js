@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import React, { useCallback } from 'react';
+import { NavLink } from 'react-router-dom';
 import {
   Container, Nav, Navbar, NavDropdown,
 } from 'react-bootstrap';

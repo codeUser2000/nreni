@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import instagram from '../assets/img/site/instagram.png';
 import facebook from '../assets/img/site/facebook.png';
 import telegram from '../assets/img/site/telegram.png';
-import pinterest from '../assets/img/site/pinterest.png';
 import footerImg1 from '../assets/img/post/footer1.jpg';
 import footerImg2 from '../assets/img/post/footer2.jpg';
 import footerImg3 from '../assets/img/post/footer3.jpg';

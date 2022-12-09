@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import image from '../assets/img/post/shopProduct1.jpg';
 
 function ShopProduct({ data }) {
+  const { REACT_APP_API_URL } = process.env;
   return (
     <div className="shopProduct">
       <figure className="shopProductItem">
-        <img src={image} alt="" className="shopProductImg" />
+        <img src={REACT_APP_API_URL + data.avatar} alt="" className="shopProductImg" />
         <figcaption className="shopProductInfo">
           <h3 className="shopProductTitle">{data.title}</h3>
           <p className="shopProductPrice">
@@ -16,7 +16,7 @@ function ShopProduct({ data }) {
             {data.id}
           </p>
           <div className="shopProductLabel">
-            <Link to={`/shop/${data.id}`} className="linkToSinglePage">Buy now</Link>
+            <Link to={`/single/${data.id}`} className="linkToSinglePage">Buy now</Link>
           </div>
         </figcaption>
       </figure>

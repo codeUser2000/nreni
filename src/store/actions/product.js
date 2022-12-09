@@ -3,10 +3,10 @@ export const GET_PRODUCT_DATA_REQUEST = 'GET_PRODUCT_DATA_REQUEST';
 export const GET_PRODUCT_DATA_SUCCESS = 'GET_PRODUCT_DATA_SUCCESS';
 export const GET_PRODUCT_DATA_FAIL = 'GET_PRODUCT_DATA_FAIL';
 
-export function getProductDataRequest() {
+export function getProductDataRequest(page) {
   return {
     type: GET_PRODUCT_DATA_REQUEST,
-    payload: {},
+    payload: { page },
   };
 }
 
