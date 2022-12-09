@@ -13,9 +13,14 @@ function Filter() {
   const navigate = useNavigate();
   const productData = useSelector((state) => state.product.productsData);
   const query = qs.parse(location.search, { arrayFormat: 'comma' });
-  const numberArr = productData.map((l) => +l.price);
-  const max = _.max(numberArr);
-  const min = _.min(numberArr);
+  let max = 0;
+  let min = 0;
+  if (productData.length) {
+    const numberArr = productData.map((l) => +l.price);
+    max = _.max(numberArr);
+    min = _.min(numberArr);
+  }
+
   const handleFilter = useCallback((param) => {
     if (query.filter && query.filter.includes(param)) {
       const paramNameArr = _.isArray(query.filter) ? query.filter : [query.filter];

@@ -14,27 +14,35 @@ import useScrolling from '../helpers/useScrolling';
 
 function Shop() {
   const [pageNumber, setPageNumber] = useState(1);
+
   const observer = useRef();
+
   const { hasMore } = useScrolling(pageNumber);
+
   const lastProductRef = useCallback((node) => {
     if (observer.current) observer.current.disconnect();
     observer.current = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting && hasMore) {
-        alert(5);
         setPageNumber(pageNumber + 1);
       }
     });
     if (node) observer.current.observe(node);
   }, [hasMore]);
+
   const productData = useSelector((state) => state.product.productsData);
+
   const location = useLocation();
+
   let data = [...productData];
+
   const query = qs.parse(location.search, { arrayFormat: 'comma' });
 
   const categoryArr = _.isArray(query.filter) ? query.filter : [query.filter];
+
   if (!_.isEmpty(_.compact(categoryArr))) {
     data = data.filter((p) => categoryArr.includes(p.categories.type));
   }
+
   if (query.sliderPrice) {
     const arr = [];
     const [min, max] = query.sliderPrice.split('_');
