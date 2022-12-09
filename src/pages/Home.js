@@ -4,7 +4,7 @@ import Carousel from 'nuka-carousel';
 import { Link } from 'react-router-dom';
 import Wrapper from '../components/Wrapper';
 import MyCarouselComp from '../components/MyCarouselComp';
-import img from '../assets/img/post/banner.jpg';
+import img from '../assets/img/post/banner.jpeg';
 import ring from '../assets/img/post/ring.jpg';
 import chainRing from '../assets/img/post/chainRing.jpg';
 import necklace from '../assets/img/post/necklace.jpg';

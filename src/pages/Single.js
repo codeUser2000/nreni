@@ -25,7 +25,6 @@ function Single() {
       <Helmet>
         <title>Single</title>
       </Helmet>
-      {/* eslint-disable-next-line array-callback-return,consistent-return */}
       <main className="single">
         <div className="container">
           <h1 className="singleTitle">We hope You&apos;ll like it !</h1>
@@ -34,25 +33,14 @@ function Single() {
               <img src={REACT_APP_API_URL + single.avatar} className="singleImg" alt="" />
             </figure>
             <div className="singleInfo">
-              <h2 className="singleInfoTitle">{single.title}</h2>
-              <p className="singleInfoPrice">
-                $
+              <h2 className="singleInfoPrice">
                 {single.price}
-              </p>
-              <p className="singleInfoPrice">
+                ֏
+              </h2>
+              <p className="singleInfoTitle">{single.title}</p>
+              <p className="singleInfoDescription">
                 {single.description}
               </p>
-              {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-              <label htmlFor="sizeLabel" className="singleInfoLabel">Select a size: </label>
-              <select id="sizeLabel" className="singleSizeSelect">
-                <option>XXS</option>
-                <option>XS</option>
-                <option>S</option>
-                <option>M</option>
-                <option>L</option>
-                <option>XL</option>
-                <option>XXL</option>
-              </select>
               <div className="singleInfoQuantity">
                 <button type="button" onClick={() => setCount(count - 1)} className="singleBtnM">-</button>
                 <input value={count < 1 ? setCount(1) : count} className="singleInfoInput" type="text" />

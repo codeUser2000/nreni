@@ -7,6 +7,7 @@ function MyCarouselComp(props) {
       <div className="container">
         <div className="bannerRow">
           <div className="bannerDesk">
+            <h1 className="bannerTitle">SILVER NRENI</h1>
             <h3 className="bannerSlogan">
               The best
               {' '}
@@ -14,14 +15,6 @@ function MyCarouselComp(props) {
               {' '}
               silver you can get
             </h3>
-            <h1 className="bannerTitle">SILVER NRENI</h1>
-            <p className="bannerInfo">
-              Jewelry is a very personal thing... It should tell a story about the person
-              who's wearing it!
-              <br />
-              {' '}
-              Aesthetic and stylish. The most suitable gifts here for your loved ones
-            </p>
             <button type="button" className="bannerBtn">
               <Link className="bannerLink" to="/shop">
                 Shop now
@@ -38,3 +31,11 @@ function MyCarouselComp(props) {
 }
 
 export default MyCarouselComp;
+
+// <p className="bannerInfo">
+//   Jewelry is a very personal thing... It should tell a story about the person
+//   who's wearing it!
+//   <br />
+//   {' '}
+//   Aesthetic and stylish. The most suitable gifts here for your loved ones
+// </p>

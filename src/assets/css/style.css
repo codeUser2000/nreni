@@ -1355,7 +1355,7 @@ p {
     gap: 15px;
 }
 
-.logo{
+.logo {
     display: flex;
     align-items: center;
 }
@@ -1388,6 +1388,14 @@ p {
 .shopProductTitle {
     font-size: 21px;
     font-weight: 500;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+}
+
+.newProductPrice,
+.shopProductPrice {
+    font-size: 18px;
+    font-weight: 600;
     margin-bottom: 5px;
     text-transform: capitalize;
 }
@@ -1475,19 +1483,26 @@ p {
 }
 
 .singleInfoTitle {
-    font-size: 30px;
+    font-size: 23px;
     font-weight: 500;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     text-transform: capitalize;
 }
 
 .singleInfoPrice {
     color: black;
-    font-size: 23px;
+    font-size: 27px;
     font-weight: 700;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     letter-spacing: 1px;
     background-color: #ffece5;
+}
+
+.singleInfoDescription {
+    color: black;
+    font-size: 17px;
+    font-weight: 400;
+    margin-bottom: 20px;
 }
 
 .singleInfoLabel {

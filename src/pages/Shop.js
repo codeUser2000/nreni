@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import 'rc-slider/assets/index.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import qs from 'query-string';
 import _ from 'lodash';
 import Wrapper from '../components/Wrapper';
