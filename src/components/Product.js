@@ -10,7 +10,7 @@ function Product({ data }) {
         <figcaption className="shopProductInfo">
           <h3 className="shopProductTitle">{data.title}</h3>
           <div className="shopProductLabel">
-            <Link to={`/shop/${data.id}`} className="linkToSinglePage">Buy now</Link>
+            <Link to={`/single/${data.id}`} className="linkToSinglePage">Buy now</Link>
           </div>
         </figcaption>
       </figure>

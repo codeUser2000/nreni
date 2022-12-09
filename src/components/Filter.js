@@ -4,15 +4,18 @@ import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import qs from 'query-string';
 import _ from 'lodash';
+import { useSelector } from 'react-redux';
 import SliderValue from './SliderValue';
 import menu from '../data';
 
 function Filter() {
   const location = useLocation();
   const navigate = useNavigate();
+  const productData = useSelector((state) => state.product.productsData);
   const query = qs.parse(location.search, { arrayFormat: 'comma' });
-  const min = 100;
-  const max = 1900;
+  const numberArr = productData.map((l) => +l.price);
+  const max = _.max(numberArr);
+  const min = _.min(numberArr);
   const handleFilter = useCallback((param) => {
     if (query.filter && query.filter.includes(param)) {
       const paramNameArr = _.isArray(query.filter) ? query.filter : [query.filter];

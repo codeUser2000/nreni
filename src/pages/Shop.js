@@ -1,6 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'rc-slider/assets/index.css';
 import { useDispatch, useSelector } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router-dom';
+import qs from 'query-string';
+import _ from 'lodash';
 import Wrapper from '../components/Wrapper';
 import ShopSection from '../components/ShopSection';
 import Filter from '../components/Filter';
@@ -10,10 +13,26 @@ import { getProductDataRequest } from '../store/actions/product';
 function Shop() {
   const dispatch = useDispatch();
   const productData = useSelector((state) => state.product.productsData);
+  const location = useLocation();
+  let data = [...productData];
+  const query = qs.parse(location.search, { arrayFormat: 'comma' });
   useEffect(() => {
     dispatch(getProductDataRequest());
   }, []);
-  console.log(productData, 7876767);
+  const categoryArr = _.isArray(query.filter) ? query.filter : [query.filter];
+  if (!_.isEmpty(_.compact(categoryArr))) {
+    data = data.filter((p) => categoryArr.includes(p.categories.type));
+  }
+  if (query.sliderPrice) {
+    const arr = [];
+    const [min, max] = query.sliderPrice.split('_');
+    const a = data.filter((f) => +f.price >= min && +f.price <= max);
+    if (!_.isEmpty(a)) {
+      arr.push(a);
+    }
+    data = arr.flat(1);
+  }
+
   return (
     <Wrapper>
       <div className="shop">
@@ -23,8 +42,8 @@ function Shop() {
             <Filter />
             <section className="shopSection">
               <div className="shopProductsRow">
-                {productData.length
-                  ? productData.map((n) => (
+                {data.length
+                  ? data.map((n) => (
                     <Product key={n.id} data={n} />
                   )) : 'loading...'}
               </div>
