@@ -14,11 +14,8 @@ import useScrolling from '../helpers/useScrolling';
 
 function Shop() {
   const [pageNumber, setPageNumber] = useState(1);
-
   const observer = useRef();
-
   useScrolling(pageNumber);
-
   const lastProductRef = useCallback((node) => {
     if (observer.current) observer.current.disconnect();
     observer.current = new IntersectionObserver((entries) => {
