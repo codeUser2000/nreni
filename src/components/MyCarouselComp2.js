@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import banner from '../assets/img/post/banner.jpeg'
 
-function MyCarouselComponent() {
+function MyCarouselComp2() {
   return (
     <div className="bannerRow">
       <figure className="bannerFigure">
@@ -22,4 +22,4 @@ function MyCarouselComponent() {
   );
 }
 
-export default MyCarouselComponent;
+export default MyCarouselComp2;

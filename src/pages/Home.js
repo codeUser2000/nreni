@@ -7,7 +7,8 @@ import NewProduct from '../components/NewProduct';
 import newProduct from '../newProduct';
 import Blockquote from '../components/Blockquote';
 import Assortment from '../components/Assortment';
-import MyCarouselComponent from '../components/MyCarouselComponent';
+import MyCarouselComp2 from '../components/MyCarouselComp2';
+import MyCarouselComp3 from '../components/MyCarouselComp3';
 
 function Home() {
   return (
@@ -26,7 +27,8 @@ function Home() {
                 wrapAround="true"
               >
                 <MyCarouselComp />
-                <MyCarouselComponent />
+                <MyCarouselComp2 />
+                <MyCarouselComp3 />
               </Carousel>
             </div>
           </div>

@@ -249,7 +249,7 @@ figure {
 
 .banner2Info {
     color: #ffece5;
-    font-size: 35px;
+    font-size: 30px;
     font-weight: 400;
     margin-bottom: 35px;
 }
@@ -300,7 +300,7 @@ figure {
     width: 10px;
     height: 10px;
     border-radius: 0;
-    margin-right: 15px;
+    margin-right: 10px;
     background-color: #ffece5;
     border: 2px solid #ffffff;
 }
