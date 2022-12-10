@@ -13,6 +13,7 @@ import earring from '../assets/img/post/earring.jpg';
 import bracelet from '../assets/img/post/bracelet.jpg';
 import NewProduct from '../components/NewProduct';
 import newProduct from '../newProduct';
+import Blockquote from '../components/Blockquote';
 
 function Home() {
   return (
@@ -103,6 +104,7 @@ function Home() {
                 ))}
               </div>
             </section>
+            <Blockquote />
           </div>
         </main>
       </div>
