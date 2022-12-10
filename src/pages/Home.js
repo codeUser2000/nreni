@@ -1,16 +1,17 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import Carousel from 'nuka-carousel';
+import { useSelector } from 'react-redux';
 import Wrapper from '../components/Wrapper';
 import MyCarouselComp from '../components/MyCarouselComp';
 import NewProduct from '../components/NewProduct';
-import newProduct from '../newProduct';
 import Blockquote from '../components/Blockquote';
 import Assortment from '../components/Assortment';
 import MyCarouselComp2 from '../components/MyCarouselComp2';
 import MyCarouselComp3 from '../components/MyCarouselComp3';
 
 function Home() {
+  const productData = useSelector((state) => state.product.productsData);
   return (
     <Wrapper>
       <Helmet>
@@ -39,9 +40,12 @@ function Home() {
             <section className="new">
               <h2 className="newTitle">New jewelery</h2>
               <div className="newJewelryRow">
-                {newProduct.map((n) => (
-                  <NewProduct key={n.id} data={n} />
-                ))}
+                {productData.map((n, index) => {
+                  if (index < 3) {
+                    return <NewProduct key={n.id} data={n} />;
+                  }
+                  return true;
+                })}
               </div>
             </section>
             <Blockquote />
