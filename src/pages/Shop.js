@@ -40,15 +40,15 @@ function Shop() {
     data = data.filter((p) => categoryArr.includes(p.categories.type));
   }
 
-  if (query.sliderPrice) {
-    const arr = [];
-    const [min, max] = query.sliderPrice.split('_');
-    const a = data.filter((f) => +f.price >= min && +f.price <= max);
-    if (!_.isEmpty(a)) {
-      arr.push(a);
-    }
-    data = arr.flat(1);
-  }
+  // if (query.sliderPrice) {
+  //   const arr = [];
+  //   const [min, max] = query.sliderPrice.split('_');
+  //   const a = data.filter((f) => +f.price >= min && +f.price <= max);
+  //   if (!_.isEmpty(a)) {
+  //     arr.push(a);
+  //   }
+  //   data = arr.flat(1);
+  // }
 
   return (
     <Wrapper>
