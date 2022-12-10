@@ -63,7 +63,7 @@ function Shop() {
                   ? data.map((n, index) => {
                     if (index + 1 === data.length) {
                       return (
-                        <div key={n.id} ref={lastProductRef}>
+                        <div key={n.id} style={{ width: 'calc(100% / 3 - 10px)' }} ref={lastProductRef}>
                           <Product style={{ width: `${100}%` }} data={n} />
                         </div>
                       );
