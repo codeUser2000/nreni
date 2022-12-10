@@ -207,23 +207,18 @@ figure {
 
 .bannerRow {
     width: 100%;
-    display: flex;
     padding: 40px;
+    display: flex;
+    position: relative;
     align-items: center;
     flex-direction: row;
     background-color: #c31e39;
     justify-content: space-between;
 }
 
-.bannerDesk {
-    width: 50%;
-    color: #ffece5;
-    margin-right: 10px;
-}
-
+.bannerDesk,
 .bannerFigure {
-    width: 50%;
-    height: 100%;
+    width: calc(100% / 2 - 30px);
 }
 
 .bannerImg {
@@ -232,22 +227,25 @@ figure {
     object-fit: cover;
 }
 
-.bannerTitle {
-    width: 100%;
-    font-size: 55px;
-    font-weight: bold;
+.bannerDesk {
+    padding: 20px;
+    color: #ffece5;
+    margin-right: 10px;
 }
 
-.bannerSlogan {
-    width: 100%;
-    font-size: 20px;
-    font-weight: 400;
+.bannerTitle {
+    color: #ffece5;
+    font-size: 50px;
+    font-weight: 500;
+    margin-bottom: 35px;
 }
+
 
 .bannerInfo {
-    width: 100%;
+    color: #ffece5;
     font-size: 18px;
-    margin-bottom: 20px;
+    font-weight: 400;
+    margin-bottom: 40px;
 }
 
 .bannerBtn {
@@ -275,6 +273,7 @@ figure {
     color: #ffece5;
 }
 
+
 .slider-container {
     position: relative;
 }
@@ -284,14 +283,24 @@ figure {
     display: none;
 }
 
-.paging-dot {
-    width: 9px;
-    height: 9px;
-    margin-right: 2px;
+.slider-control-bottomcenter {
+    top: 50%;
+    right: 30px;
+    position: absolute;
+    transform: rotate(90deg);
 }
 
-.active .paging-item {
-    fill: #c31e39;
+.paging-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 0;
+    margin-right: 15px;
+    background-color: #ffece5;
+    border: 2px solid #ffffff;
+}
+
+.paging-dot circle {
+    display: none;
 }
 
 /*HOME*/
@@ -733,6 +742,7 @@ figure {
     margin-bottom: 20px;
     transition: all 0.4s;
 }
+
 .aboutCleanLink:hover {
     color: black;
 }
