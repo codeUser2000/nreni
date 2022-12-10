@@ -12,7 +12,6 @@ function Cart() {
               <thead className="cartTableThead">
                 <tr className="cartTableTheadTitles">
                   <td>Description</td>
-                  <td>size</td>
                   <td>Quantity</td>
                   <td>Price</td>
                   <td className="">remove</td>
@@ -32,9 +31,6 @@ function Cart() {
                         </p>
                       </div>
                     </div>
-                  </td>
-                  <td>
-                    <p className="cartTableSize">s</p>
                   </td>
                   <td>
                     <div className="cartTableQuantity">
@@ -65,9 +61,6 @@ function Cart() {
                         </p>
                       </div>
                     </div>
-                  </td>
-                  <td>
-                    <p className="cartTableSize">xl</p>
                   </td>
                   <td>
                     <div className="cartTableQuantity">

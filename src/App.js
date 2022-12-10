@@ -16,6 +16,7 @@ import Confirm from './pages/Confirm';
 import Profile from './pages/Profile';
 import PasswordReset from './pages/PasswordReset';
 import NewPassword from './pages/NewPassword';
+import Cleaning from './pages/Cleaning';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class App extends Component {
@@ -29,6 +30,7 @@ class App extends Component {
             <Route path="/shop" element={<Shop />} />
             <Route path="/single/:itemId" element={<Single />} />
             <Route path="/about" element={<About />} />
+            <Route path="/clean" element={<Cleaning />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />

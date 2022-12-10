@@ -6,7 +6,7 @@
 
 body {
     background: #fff;
-    color: #000;
+    color: #4a4a4a;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
 }
@@ -91,7 +91,7 @@ figure {
 .logoName {
     font-size: 27px;
     letter-spacing: 1px;
-    color: #000;
+    color: #4a4a4a;
     margin-left: 5px;
     margin-bottom: 0;
     line-height: 70px;
@@ -118,7 +118,7 @@ figure {
 
 .navLink {
     font-size: 19px;
-    color: #000;
+    color: #4a4a4a;
     font-weight: 400;
     text-decoration: none;
     transition: all 0.4s;
@@ -181,7 +181,7 @@ figure {
 }
 
 .navList:hover .subMenu .subLangName {
-    color: black;
+    color: #4a4a4a;
     transition: all 0.4s;
 }
 
@@ -479,7 +479,7 @@ figure {
 }
 
 .homeAboutDesk {
-    padding: 20px;
+    padding: 30px 50px;
     background-color: #ffece5;
     width: calc(100% / 2 - 5px);
 }
@@ -489,17 +489,19 @@ figure {
     font-weight: 100;
     font-size: 30px;
     padding: 10px 0 30px;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 
 
 .homeAboutInfo {
-    font-size: 17px;
-    font-weight: 100;
+    color: #4a4a4a;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
 }
 
 .homeAboutLink {
-    color: black;
+    color: #4a4a4a;
     transition: all 0.4s;
 }
 
@@ -508,12 +510,27 @@ figure {
 }
 
 /*newProducts card style you can find in shop css*/
+.new {
+    width: 100%;
+    margin-bottom: 150px;
+}
+
 .newTitle {
     color: #c31e39;
-    font-size: 34px;
+    font-size: 50px;
+    font-weight: 400;
     text-align: center;
-    margin-bottom: 40px;
-    text-transform: uppercase;
+    margin-bottom: 30px;
+    text-transform: capitalize;
+}
+
+.newInfo {
+    color: #c31e39;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 90px;
+    text-transform: capitalize;
 }
 
 .newJewelryRow {
@@ -524,6 +541,74 @@ figure {
     justify-content: space-between;
 }
 
+
+.blockquote {
+    width: 100%;
+    padding: 0 100px;
+}
+
+.blockquoteTitle {
+    color: #c31e39;
+    font-size: 50px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: capitalize;
+}
+
+.blockquoteInfo {
+    color: #c31e39;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 90px;
+    text-transform: capitalize;
+}
+
+.quotesBlock {
+    padding: 35px 75px;
+    background-color: #ffece5;
+}
+
+
+.quoteSymbol {
+    color: #c31e39;
+    font-size: 70px;
+    font-weight: 600;
+    /*text-align: center;*/
+    margin-bottom: -15px;
+}
+
+.quote {
+    color: #4a4a4a;
+    padding: 0 95px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 35px;
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.blockquoteBtm {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.thePerson {
+    color: #c31e39;
+    font-size: 17px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.quoteLine {
+    width: calc(100% / 3);
+    border: 1px solid #c31e39;
+    background-color: rgba(195, 30, 57, 0.76);
+
+}
 
 /*ABOUT*/
 .aboutCleaning,
@@ -536,10 +621,11 @@ figure {
 .aboutCleaningMainTitle,
 .aboutMainTitle {
     color: #c31e39;
-    font-size: 34px;
+    font-size: 50px;
+    font-weight: 400;
     text-align: center;
-    margin-bottom: 40px;
-    text-transform: uppercase;
+    margin-bottom: 30px;
+    text-transform: capitalize;
 }
 
 .aboutCleaningBlock,
@@ -549,6 +635,7 @@ figure {
     margin-bottom: 90px;
     background-color: #ffece5;
 }
+
 
 .aboutDesk {
     width: 100%;
@@ -560,9 +647,11 @@ figure {
 .aboutTitle {
     color: #c31e39;
     font-weight: 100;
-    margin-bottom: 25px;
-    text-transform: uppercase;
+    font-size: 28px;
+    padding: 10px 0 30px;
+    text-transform: capitalize;
 }
+
 
 .aboutCleaningInfo,
 .aboutInfo {
@@ -606,9 +695,8 @@ figure {
     background-color: #c31e39;
 }
 
-.aboutCleanLink2,
-.aboutCleanLink {
-    color: black;
+.aboutCleanLink2 {
+    color: #4a4a4a;
     font-size: 17px;
     margin-bottom: 20px;
     transition: all 0.4s;
@@ -616,10 +704,6 @@ figure {
 
 .aboutCleanLink2:hover {
     color: #c31e39;
-}
-
-.aboutCleanLink:hover {
-    color: #ffece5;
 }
 
 .aboutCleanFigure {
@@ -636,12 +720,22 @@ figure {
 }
 
 .aboutCleanTitle {
+    color: #ffece5;
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 15px;
     text-transform: uppercase;
 }
 
+.aboutCleanLink {
+    color: #ffece5;
+    font-size: 17px;
+    margin-bottom: 20px;
+    transition: all 0.4s;
+}
+.aboutCleanLink:hover {
+    color: black;
+}
 
 /*LOGIN & REGISTRATION*/
 .registrationPage,
@@ -695,7 +789,7 @@ figure {
 
 .regPageLogoName,
 .loginPageLogoName {
-    color: #000;
+    color: #4a4a4a;
     font-size: 21px;
     margin-left: 5px;
     font-weight: 700;
@@ -723,7 +817,7 @@ figure {
 .regBannerInfo,
 .loginBannerInfo {
     right: 0;
-    color: #000;
+    color: #4a4a4a;
     font-size: 14px;
     margin-left: 5px;
     font-weight: 300;
@@ -770,7 +864,7 @@ figure {
     width: 100%;
     margin-bottom: 20px;
     transition: all 0.4s;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #4a4a4a;
 }
 
 .loginFormInput:focus,
@@ -793,7 +887,7 @@ figure {
 
 
 .forgotPassword {
-    color: black;
+    color: #4a4a4a;
     font-weight: 400;
     text-align: right;
     transition: all 0.4s;
@@ -825,7 +919,7 @@ figure {
 
 .regFormLink,
 .loginFormLink {
-    color: #000;
+    color: #4a4a4a;
     font-weight: 400;
     text-align: center;
     transition: all 0.4s;
@@ -861,7 +955,7 @@ figure {
 
 .loginBottom {
     width: 100%;
-    color: black;
+    color: #4a4a4a;
     display: flex;
     justify-content: space-between;
 }
@@ -888,7 +982,7 @@ figure {
     width: 20px;
     height: 20px;
     position: absolute;
-    border: 1px solid black;
+    border: 1px solid #4a4a4a;
     background-color: #ffece5;
 }
 
@@ -936,7 +1030,7 @@ p {
 
 /*RESET PASSWORD*/
 .pasResetTitle {
-    color: #000;
+    color: #4a4a4a;
     font-size: 19px;
     font-weight: 600;
     letter-spacing: 1px;
@@ -982,7 +1076,7 @@ p {
 }
 
 .resetPasInfo {
-    color: black;
+    color: #4a4a4a;
     font-size: 18px;
     font-weight: 400;
     transition: all 0.4s;
@@ -999,7 +1093,7 @@ p {
     margin: 0 auto 30px;
     transition: all 0.6s;
     background-color: #ffece5;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #4a4a4a;
 }
 
 
@@ -1071,7 +1165,7 @@ p {
 }
 
 .contactLogoName {
-    color: #000;
+    color: #4a4a4a;
     font-size: 21px;
     margin-left: 5px;
     font-weight: 700;
@@ -1103,7 +1197,7 @@ p {
 }
 
 .contactLink {
-    color: black;
+    color: #4a4a4a;
     transition: all 0.4s;
     text-decoration: none;
 }
@@ -1120,7 +1214,7 @@ p {
 }
 
 .contactInfo {
-    color: #000;
+    color: #4a4a4a;
     font-size: 16px;
     font-weight: 300;
     letter-spacing: 1px;
@@ -1137,7 +1231,7 @@ p {
     margin: 0 auto 20px;
     transition: all 0.6s;
     background-color: #ffece5;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #4a4a4a;
 }
 
 .contactMessage:focus,
@@ -1224,13 +1318,13 @@ p {
 
 .shopAside {
     width: 30%;
-    color: black;
+    color: #4a4a4a;
     padding: 70px 30px;
 }
 
 .shopSection {
     width: 70%;
-    color: black;
+    color: #4a4a4a;
     padding: 70px 20px;
 }
 
@@ -1290,7 +1384,7 @@ p {
 .shopPriceSpan {
     top: 50%;
     left: 12px;
-    color: black;
+    color: #4a4a4a;
     position: absolute;
     transform: translateY(-50%);
 }
@@ -1402,7 +1496,7 @@ p {
 
 .linkToSinglePage {
     width: 50%;
-    color: black;
+    color: #4a4a4a;
     font-size: 14px;
     font-weight: 700;
     padding: 10px 20px;
@@ -1490,7 +1584,7 @@ p {
 }
 
 .singleInfoPrice {
-    color: black;
+    color: #4a4a4a;
     font-size: 27px;
     font-weight: 700;
     margin-bottom: 10px;
@@ -1499,7 +1593,7 @@ p {
 }
 
 .singleInfoDescription {
-    color: black;
+    color: #4a4a4a;
     font-size: 17px;
     font-weight: 400;
     margin-bottom: 20px;
@@ -1520,7 +1614,7 @@ p {
     width: 175px;
     display: flex;
     flex-direction: row;
-    border: 1px solid #000000;
+    border: 1px solid #4a4a4a000;
 }
 
 .singleBtnM,
@@ -1585,7 +1679,7 @@ p {
     font-size: 20px;
     font-weight: 600;
     text-transform: capitalize;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #4a4a4a;
 }
 
 .cartTableTheadTitles {
@@ -1597,14 +1691,14 @@ p {
 }
 
 .cartTableTbody {
-    color: black;
+    color: #4a4a4a;
     font-size: 18px;
     letter-spacing: 1px;
 }
 
 .cartTableTbodyTr {
     height: 150px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #4a4a4a;
 }
 
 .cartTableProduct {
@@ -1644,7 +1738,7 @@ p {
     width: 150px;
     display: flex;
     flex-direction: row;
-    border: 1px solid black;
+    border: 1px solid #4a4a4a;
 }
 
 .cartTableBtnM,
@@ -1762,7 +1856,7 @@ p {
 }
 
 .customerInactive {
-    color: black;
+    color: #4a4a4a;
     transition: all 0.4s;
     text-transform: uppercase;
 }
@@ -1799,7 +1893,7 @@ p {
 }
 
 .customerOrderLink {
-    color: black;
+    color: #4a4a4a;
     transition: all 0.4s;
 }
 
@@ -1861,7 +1955,7 @@ p {
 
 .footerSocLink,
 .footerNavLink {
-    color: #000;
+    color: #4a4a4a;
     font-weight: 400;
     text-decoration: none;
     text-transform: capitalize;
@@ -1869,7 +1963,7 @@ p {
 
 
 .footerLink {
-    color: black;
+    color: #4a4a4a;
     transition: all 0.4s;
 }
 
@@ -1940,7 +2034,7 @@ p {
 }
 
 .footerTel {
-    color: black;
+    color: #4a4a4a;
     margin-bottom: 15px;
     text-decoration: none;
     transition: all 0.4s;
