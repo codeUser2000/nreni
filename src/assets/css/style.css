@@ -240,12 +240,18 @@ figure {
     margin-bottom: 35px;
 }
 
-
 .bannerInfo {
     color: #ffece5;
     font-size: 18px;
     font-weight: 400;
     margin-bottom: 40px;
+}
+
+.banner2Info {
+    color: #ffece5;
+    font-size: 35px;
+    font-weight: 400;
+    margin-bottom: 35px;
 }
 
 .bannerBtn {

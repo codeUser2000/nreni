@@ -9,7 +9,7 @@ function MyCarouselComponent() {
         <img className="bannerImg" src={banner} alt="" />
       </figure>
       <div className="bannerDesk">
-        <p className="bannerInfo">
+        <p className="banner2Info">
             The best ARMENIAN silver you can get
         </p>
         <button className="bannerBtn">
