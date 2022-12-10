@@ -1,16 +1,35 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import { Link } from 'react-router-dom';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
+import { useDispatch } from 'react-redux';
 import logo from '../assets/img/logo/logo.png';
+import { createBlockquoteRequest } from '../store/actions/blockquote';
 
 function Contact() {
+  const dispatch = useDispatch();
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    message: '',
+  });
+  const handleChange = useCallback((key, value) => {
+    formData[key] = value;
+    setFormData({ ...formData });
+  }, [formData]);
+
+  const handleSubmit = useCallback(async (ev) => {
+    ev.preventDefault();
+    await dispatch(createBlockquoteRequest(formData));
+  }, [formData]);
   return (
     <div className="contact">
       <div className="container">
         <div className="contactPage">
           <div className="contactMap">
+            {/* eslint-disable-next-line jsx-a11y/iframe-has-title */}
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d90881.32719971998!2d43.77036588656032!3d40.78432312656732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4041fb8b9b34fc9f%3A0x4f4bed0e45f99102!2z0JPRjtC80YDQuCwg0JDRgNC80LXQvdC40Y8!5e1!3m2!1sru!2s!4v1666984351817!5m2!1sru!2s"
               allowFullScreen=""
@@ -26,12 +45,14 @@ function Contact() {
               <p className="contactLogoName">NRENI</p>
             </Link>
             <h2 className="contactTitle">Get In Touch</h2>
-            <form action="" className="contactForm">
+            <form onSubmit={handleSubmit} className="contactForm">
               <p className="contactInfo">Leave us a message!</p>
-              <input className="contactInput" type="text" placeholder="Your First Name" />
-              <input className="contactInput" type="text" placeholder="Your Last Name" />
-              <input className="contactInput" type="email" placeholder="Your Email" />
+              <input className="contactInput" onChange={(ev) => handleChange('firstName', ev.target.value)} value={formData.firstName} type="text" placeholder="Your First Name" />
+              <input className="contactInput" onChange={(ev) => handleChange('lastName', ev.target.value)} value={formData.lastName} type="text" placeholder="Your Last Name" />
+              <input className="contactInput" onChange={(ev) => handleChange('email', ev.target.value)} value={formData.email} type="email" placeholder="Your Email" />
               <textarea
+                value={formData.message}
+                onChange={(ev) => handleChange('message', ev.target.value)}
                 className="contactMessage"
                 name="text"
                 placeholder="Write your message here"

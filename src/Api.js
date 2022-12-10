@@ -28,6 +28,10 @@ class Api {
     return api.post('/users/deleteUser', data);
   }
 
+  static setBlockquote(data) {
+    return api.post('/users/blockquote', data);
+  }
+
   static login(data) {
     return api.post('/users/login', data);
   }

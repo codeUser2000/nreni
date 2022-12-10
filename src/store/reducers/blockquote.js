@@ -14,6 +14,7 @@ const initialState = {
   blockquoteDataStatus: '',
 };
 
+// eslint-disable-next-line default-param-last
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case GET_BLOCKQUOTE_DATA_REQUEST: {
@@ -27,10 +28,6 @@ export default function reducer(state = initialState, action) {
     case GET_BLOCKQUOTE_DATA_SUCCESS:
     {
       const { blockquotesData } = action.payload;
-      blockquotesData.map((q) => {
-        console.log(q);
-      });
-
       return {
         ...state,
         blockquotesDataStatus: 'ok',
