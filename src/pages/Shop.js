@@ -23,13 +23,15 @@ function Shop() {
   const pagination = useSelector((state) => state.product.pagination);
   const query = qs.parse(location.search, { arrayFormat: 'comma' });
   useEffect(() => {
-    if (query.sliderPrice && pageNumber !== 1) {
-      const [min, max] = query.sliderPrice.split('_');
-      dispatch(getProductDataRequest(1, min, max));
-      return;
-    }
     dispatch(getProductDataRequest(pageNumber));
   }, [pageNumber]);
+  useEffect(() => {
+    if (query.sliderPrice && pageNumber !== 1) {
+      setPageNumber(1);
+      const [min, max] = query.sliderPrice.split('_');
+      dispatch(getProductDataRequest(1, min, max));
+    }
+  }, []);
   // const categoryArr = _.isArray(query.filter) ? query.filter : [query.filter];
 
   // if (!_.isEmpty(_.compact(categoryArr))) {
