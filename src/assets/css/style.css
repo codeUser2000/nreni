@@ -144,7 +144,6 @@ figure {
 .subMenu {
     padding: 10px;
     text-align: left;
-    position: absolute;
     background-color: rgba(255, 236, 229, 0.62);
 }
 

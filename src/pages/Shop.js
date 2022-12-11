@@ -55,7 +55,7 @@ function Shop() {
                 {productData.length
                   ? productData.map((n) => (
                     <Product key={n.id} data={n} />
-                  )) : 'loading...'}
+                  )) : 'no data...'}
               </div>
               <Pagination count={+pagination} page={pageNumber} onChange={handleChange} />
             </section>
