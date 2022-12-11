@@ -1630,7 +1630,7 @@ p {
     width: 175px;
     display: flex;
     flex-direction: row;
-    border: 1px solid #4a4a4a000;
+    border: 1px solid #4a4a4a;
 }
 
 .singleBtnM,
