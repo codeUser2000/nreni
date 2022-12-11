@@ -26,7 +26,7 @@ function Shop() {
     dispatch(getProductDataRequest(pageNumber));
   }, [pageNumber]);
   useEffect(() => {
-    if (query.sliderPrice && pageNumber !== 1) {
+    if (query.sliderPrice) {
       setPageNumber(1);
       const [min, max] = query.sliderPrice.split('_');
       dispatch(getProductDataRequest(1, min, max));
@@ -39,7 +39,6 @@ function Shop() {
   // }
 
   const handleChange = useCallback((ev, value) => {
-    console.log(pagination);
     setPageNumber(value);
     dispatch(getProductDataRequest(pageNumber));
   }, [pagination]);
