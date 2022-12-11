@@ -10,12 +10,12 @@ import {
 } from '../actions/blockquote';
 import Api from '../../Api';
 
-function* handleGetBlockquotesRequest(action) {
+function* handleGetBlockquotesRequest() {
   try {
-    const { data } = yield call(Api.getData, action.payload.page);
+    const { data } = yield call(Api.getBlockquote);
     yield put({
       type: GET_BLOCKQUOTE_DATA_SUCCESS,
-      payload: { productsData: data.product },
+      payload: { quote: data.quote },
     });
   } catch (e) {
     yield put({

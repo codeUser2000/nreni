@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import banner from '../assets/img/post/banner.jpeg';
 
-function MyCarouselComp() {
+function MyCarouselComp({ data }) {
   return (
     <div className="bannerRow">
       <figure className="bannerFigure">
@@ -11,8 +11,7 @@ function MyCarouselComp() {
       <div className="bannerDesk">
         <h1 className="bannerTitle">SILVER NRENI</h1>
         <p className="bannerInfo">
-          Jewelry is a very personal thing... It should tell a story about the person who's wearing it!
-          We sell aesthetic and stylish jewelry. The most suitable gifts here for your loved ones
+          {data}
         </p>
         <button className="bannerBtn">
           <Link className="bannerLink" to="/contact">

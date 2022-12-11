@@ -32,6 +32,10 @@ class Api {
     return api.post('/users/blockquote', data);
   }
 
+  static getBlockquote() {
+    return api.get('/users/getBlockquote');
+  }
+
   static login(data) {
     return api.post('/users/login', data);
   }
