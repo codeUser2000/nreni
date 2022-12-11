@@ -1033,7 +1033,7 @@ p {
 .containerCheck .checkmarkFilter:after,
 .containerCheck .checkmark:after {
     top: 4px;
-    left: 8px;
+    left: 7px;
     width: 5px;
     height: 10px;
     border: solid white;

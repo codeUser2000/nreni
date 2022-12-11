@@ -11,7 +11,7 @@ function* handleGetProductsRequest(action) {
     const { data } = yield call(Api.getData, action.payload);
     yield put({
       type: GET_PRODUCT_DATA_SUCCESS,
-      payload: { productsData: data.product, productPrice: data.productPrice[0] },
+      payload: { data },
     });
   } catch (e) {
     yield put({
