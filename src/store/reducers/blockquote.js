@@ -28,7 +28,6 @@ export default function reducer(state = initialState, action) {
     case GET_BLOCKQUOTE_DATA_SUCCESS:
     {
       const { quote } = action.payload;
-      console.log(quote)
       return {
         ...state,
         blockquotesDataStatus: 'ok',

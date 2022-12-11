@@ -8,10 +8,10 @@ import Api from '../../Api';
 
 function* handleGetProductsRequest(action) {
   try {
-    const { data } = yield call(Api.getData, action.payload.page);
+    const { data } = yield call(Api.getData, action.payload);
     yield put({
       type: GET_PRODUCT_DATA_SUCCESS,
-      payload: { productsData: data.product },
+      payload: { productsData: data.product, productPrice: data.productPrice[0] },
     });
   } catch (e) {
     yield put({

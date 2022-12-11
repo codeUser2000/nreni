@@ -4,21 +4,22 @@ import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import qs from 'query-string';
 import _ from 'lodash';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import SliderValue from './SliderValue';
 import menu from '../data';
+import { getProductDataRequest } from '../store/actions/product';
 
 function Filter() {
   const location = useLocation();
   const navigate = useNavigate();
-  const productData = useSelector((state) => state.product.productsData);
+  const dispatch = useDispatch();
+  const productPrice = useSelector((state) => state.product.productPrice);
   const query = qs.parse(location.search, { arrayFormat: 'comma' });
   let max = 0;
   let min = 0;
-  if (productData.length) {
-    const numberArr = productData.map((l) => +l.price);
-    max = _.max(numberArr);
-    min = _.min(numberArr);
+  if (!_.isEmpty(productPrice)) {
+    max = +productPrice.maxPrice;
+    min = +productPrice.minPrice;
   }
 
   const handleFilter = useCallback((param) => {
@@ -39,12 +40,13 @@ function Filter() {
       arrayFormat: 'comma',
       skipEmptyString: true,
     })}`);
+    dispatch(getProductDataRequest(1, val[0], val[1]));
   }, [location.search]);
   const categories = _.isArray(query.filter) ? query.filter : [query.filter];
   return (
     <aside className="shopAside">
       <h2 className="shopAsideTitle">Filters</h2>
-      <form action="">
+      <form>
         <div className="shopBtCategory">
           <h3 className="shopAsideSubtitle">price</h3>
           <Slider

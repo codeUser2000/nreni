@@ -12,6 +12,7 @@ const initialState = {
   productsDataStatus: '',
   productData: {},
   productDataStatus: '',
+  productPrice: {},
 };
 
 // eslint-disable-next-line default-param-last
@@ -20,17 +21,19 @@ export default function reducer(state = initialState, action) {
     case GET_PRODUCT_DATA_REQUEST: {
       return {
         ...state,
+        productsData: [],
         productsDataStatus: 'request',
       };
     }
 
     case GET_PRODUCT_DATA_SUCCESS:
     {
-      const { productsData } = action.payload;
+      const { productsData, productPrice } = action.payload;
       return {
         ...state,
         productsDataStatus: 'ok',
         productsData: [...state.productsData, ...productsData],
+        productPrice,
       };
     }
     case GET_PRODUCT_DATA_FAIL:

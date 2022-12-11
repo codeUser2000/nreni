@@ -1,53 +1,36 @@
 import React, {
-  useCallback, useRef, useState,
+  useEffect,
+  // useState,
 } from 'react';
 import 'rc-slider/assets/index.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import qs from 'query-string';
-import _ from 'lodash';
+// import _ from 'lodash';
 import Wrapper from '../components/Wrapper';
 import ShopSection from '../components/ShopSection';
 import Filter from '../components/Filter';
 import Product from '../components/Product';
-import useScrolling from '../helpers/useScrolling';
+import { getProductDataRequest } from '../store/actions/product';
 
 function Shop() {
-  const [pageNumber, setPageNumber] = useState(1);
-  const observer = useRef();
-  useScrolling(pageNumber);
-  const lastProductRef = useCallback((node) => {
-    if (observer.current) observer.current.disconnect();
-    observer.current = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        setPageNumber(pageNumber + 1);
-      }
-    });
-    if (node) observer.current.observe(node);
-  }, []);
-
-  const productData = useSelector((state) => state.product.productsData);
-
+  // const [pageNumber, setPageNumber] = useState(1);
   const location = useLocation();
-
-  let data = [...productData];
-
+  const dispatch = useDispatch();
+  const productData = useSelector((state) => state.product.productsData);
   const query = qs.parse(location.search, { arrayFormat: 'comma' });
+  useEffect(() => {
+    if (query.sliderPrice) {
+      const [min, max] = query.sliderPrice.split('_');
+      dispatch(getProductDataRequest(1, min, max));
+      return;
+    }
+    dispatch(getProductDataRequest(1));
+  }, []);
+  // const categoryArr = _.isArray(query.filter) ? query.filter : [query.filter];
 
-  const categoryArr = _.isArray(query.filter) ? query.filter : [query.filter];
-
-  if (!_.isEmpty(_.compact(categoryArr))) {
-    data = data.filter((p) => categoryArr.includes(p.categories.type));
-  }
-
-  // if (query.sliderPrice) {
-  //   const arr = [];
-  //   const [min, max] = query.sliderPrice.split('_');
-  //   const a = data.filter((f) => +f.price >= min && +f.price <= max);
-  //   if (!_.isEmpty(a)) {
-  //     arr.push(a);
-  //   }
-  //   data = arr.flat(1);
+  // if (!_.isEmpty(_.compact(categoryArr))) {
+  //   data = data.filter((p) => categoryArr.includes(p.categories.type));
   // }
 
   return (
@@ -59,17 +42,10 @@ function Shop() {
             <Filter />
             <section className="shopSection">
               <div className="shopProductsRow">
-                {data.length
-                  ? data.map((n, index) => {
-                    if (index + 1 === data.length) {
-                      return (
-                        <div key={n.id} style={{ width: 'calc(100% / 3 - 10px)' }} ref={lastProductRef}>
-                          <Product style={{ width: `${100}%` }} data={n} />
-                        </div>
-                      );
-                    }
-                    return <Product key={n.id} data={n} />;
-                  }) : 'loading...'}
+                {productData.length
+                  ? productData.map((n) => (
+                    <Product key={n.id} data={n} />
+                  )) : 'loading...'}
               </div>
             </section>
           </div>

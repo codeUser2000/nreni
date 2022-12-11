@@ -16,8 +16,9 @@ api.interceptors.request.use(
 );
 
 class Api {
-  static getData(page = 1) {
-    return api.get(`/products/products?page=${page}`, {
+  static getData(data) {
+    console.log(data);
+    return api.get(`/products/products?page=${data.page}${data.min ? `&min=${data.min}` : ''}${data.max ? `&max=${data.max}` : ''}`, {
       headers: {
         'Content-Type': 'image/jpeg',
       },
