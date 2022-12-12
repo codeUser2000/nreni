@@ -16,7 +16,7 @@ function Home() {
   const quote = useSelector((state) => state.blockquote.blockquotesData);
   useEffect(() => {
     dispatch(getBlockquoteDataRequest());
-    dispatch(getProductDataRequest());
+    dispatch(getProductDataRequest(1));
   }, []);
   return (
     <Wrapper>
