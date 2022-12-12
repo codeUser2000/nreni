@@ -10,8 +10,9 @@ function Product({ data, style }) {
         <figcaption className="shopProductInfo">
           <h3 className="shopProductTitle">{data.title}</h3>
           <h4 className="shopProductPrice">
+            $
+            {' '}
             {data.price}
-            ֏
           </h4>
           <div className="shopProductLabel">
             <Link to={`/single/${data.id}`} className="linkToSinglePage">Buy now</Link>

@@ -7,7 +7,6 @@ import 'rc-slider/assets/index.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import qs from 'query-string';
-// import _ from 'lodash';
 import { Pagination } from '@mui/material';
 import Wrapper from '../components/Wrapper';
 import ShopSection from '../components/ShopSection';

@@ -10,8 +10,7 @@ function NewProduct({ data }) {
         <figcaption className="newProductInfo">
           <h3 className="newProductTitle">{data.title}</h3>
           <h3 className="newProductPrice">
-            {data.price}
-            ֏
+           $ {data.price}
           </h3>
           <div className="newProductLabel">
             <Link to={`/single/${data.id}`} className="linkToSinglePage">Buy now</Link>

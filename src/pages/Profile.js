@@ -52,7 +52,7 @@ function Profile() {
             <div className="customerDetails">
               <h4 className="customerTitle">user info</h4>
               <div className="customerDesk">
-                <PersonIcon style={{ fill: '#c31e39' }}/>
+                <PersonIcon style={{ fill: '#c31e39' }} />
                 <p className="customerName">
                   {user.firstName}
                   {' '}
@@ -60,7 +60,7 @@ function Profile() {
                 </p>
               </div>
               <div className="customerDesk">
-                <LocalPhoneIcon style={{ fill: '#c31e39' }}/>
+                <LocalPhoneIcon style={{ fill: '#c31e39' }} />
                 <p className="customerPhone">{user.phone}</p>
               </div>
               <div className="customerDesk">

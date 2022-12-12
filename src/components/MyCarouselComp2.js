@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import banner from '../assets/img/post/banner.jpeg'
+import banner from '../assets/img/post/banner.jpeg';
 
 function MyCarouselComp2() {
   return (
@@ -10,7 +10,7 @@ function MyCarouselComp2() {
       </figure>
       <div className="bannerDesk">
         <p className="banner2Info">
-            The best ARMENIAN silver you can get
+          The best ARMENIAN silver you can get
         </p>
         <button className="bannerBtn">
           <Link className="bannerLink" to="/contact">

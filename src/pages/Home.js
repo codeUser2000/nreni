@@ -9,6 +9,7 @@ import Blockquote from '../components/Blockquote';
 import Assortment from '../components/Assortment';
 import { getBlockquoteDataRequest } from '../store/actions/blockquote';
 import { getProductDataRequest } from '../store/actions/product';
+import HomeAbout from '../components/HomeAbout';
 
 function Home() {
   const dispatch = useDispatch();
@@ -33,8 +34,9 @@ function Home() {
                 pauseOnHover="true"
                 wrapAround="true"
               >
-                <MyCarouselComp data={'Jewelry is a very personal thing... It should tell a story about the person who\'s wearing it!\n'
-                + '          We sell aesthetic and stylish jewelry. The most suitable gifts here for your loved ones'}
+                <MyCarouselComp
+                  data={'Jewelry is a very personal thing... It should tell a story about the person who\'s wearing it!\n'
+                                        + '          We sell aesthetic and stylish jewelry. The most suitable gifts here for your loved ones'}
                 />
                 <MyCarouselComp data="The best ARMENIAN silver you can get" />
                 <MyCarouselComp data="The best ARMENIAN silver you can get" />
@@ -45,6 +47,7 @@ function Home() {
         <main className="home">
           <div className="container">
             <Assortment />
+            <HomeAbout />
             <section className="new">
               <h2 className="newTitle">New jewelery</h2>
               <div className="newJewelryRow">
@@ -64,6 +67,7 @@ function Home() {
                 dragging="true"
                 pauseOnHover="true"
                 wrapAround="true"
+                cellSpacing={20}
               >
                 {quote.map((n, index) => {
                   if (index < 3) {

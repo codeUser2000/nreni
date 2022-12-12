@@ -8,7 +8,7 @@ body {
     background: #fff;
     color: #4a4a4a;
     font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+    font-size: 17px;
 }
 
 .navbar {
@@ -241,7 +241,7 @@ figure {
 
 .bannerInfo {
     color: #ffece5;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 400;
     margin-bottom: 40px;
 }
@@ -279,23 +279,23 @@ figure {
 }
 
 
-.slider-container {
+.banner .slider-container {
     position: relative;
 }
 
-.slider-control-centerleft,
-.slider-control-centerright {
+.banner .slider-control-centerleft,
+.banner .slider-control-centerright {
     display: none;
 }
 
-.slider-control-bottomcenter {
+.banner .slider-control-bottomcenter {
     top: 50%;
     right: 30px;
     position: absolute;
     transform: rotate(90deg);
 }
 
-.paging-dot {
+.banner .paging-dot {
     width: 10px;
     height: 10px;
     border-radius: 0;
@@ -304,7 +304,7 @@ figure {
     border: 2px solid #ffffff;
 }
 
-.paging-dot circle {
+.banner .paging-dot circle {
     display: none;
 }
 
@@ -384,6 +384,7 @@ figure {
 
 .assortmentLink {
     color: #c31e39;
+    font-size: 17px;
     font-weight: 700;
     transition: all 0.4s;
     text-decoration: none;
@@ -493,6 +494,7 @@ figure {
 }
 
 .homeAboutDesk {
+    height: max-content;
     padding: 30px 50px;
     background-color: #ffece5;
     width: calc(100% / 2 - 5px);
@@ -509,7 +511,7 @@ figure {
 
 .homeAboutInfo {
     color: #4a4a4a;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 400;
     line-height: 25px;
 }
@@ -596,7 +598,7 @@ figure {
 .quote {
     color: #4a4a4a;
     padding: 0 95px;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 400;
     line-height: 35px;
     text-align: center;
@@ -623,6 +625,37 @@ figure {
     background-color: rgba(195, 30, 57, 0.76);
 
 }
+
+
+.blockquote .slider-container {
+    position: relative;
+}
+
+.blockquote .slider-control-centerleft,
+.blockquote .slider-control-centerright {
+    display: none;
+}
+
+
+.blockquote .slider-control-bottomcenter {
+    bottom: 0;
+    position: absolute;
+}
+
+.blockquote .paging-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 0;
+    margin-right: 10px;
+    background-color: #ffece5;
+    border: 3px solid #c31e39;
+}
+
+
+.blockquote .paging-dot circle {
+    display: none;
+}
+
 
 /*ABOUT*/
 .aboutCleaning,
@@ -661,7 +694,7 @@ figure {
 .aboutTitle {
     color: #c31e39;
     font-weight: 100;
-    font-size: 28px;
+    font-size: 30px;
     padding: 10px 0 30px;
     text-transform: capitalize;
 }
@@ -735,7 +768,7 @@ figure {
 
 .aboutCleanTitle {
     color: #ffece5;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: bold;
     margin-bottom: 15px;
     text-transform: uppercase;
@@ -854,7 +887,7 @@ figure {
 
 
 .loginFormTitle {
-    font-size: 25px;
+    font-size: 23px;
     font-weight: 700;
     text-align: center;
     margin-bottom: 100px;
@@ -894,13 +927,6 @@ figure {
 }
 
 
-/*.regFormInput:focus ~ .regFormLabel {*/
-/*    border-bottom: 2px solid #c31e39;*/
-/*    animation: input 1.5s ease-in-out 0s forwards;*/
-
-/*}*/
-
-
 .forgotPassword {
     color: #4a4a4a;
     font-weight: 400;
@@ -917,6 +943,7 @@ figure {
 .loginFormBtn {
     height: 40px;
     color: #ffece5;
+    font-size: 17px;
     font-weight: 700;
     border-radius: 50px;
     margin-bottom: 100px;
@@ -949,7 +976,7 @@ figure {
 
 
 .regFormTitle {
-    font-size: 25px;
+    font-size: 23px;
     font-weight: 700;
     text-align: center;
     margin-bottom: 20px;
@@ -1083,7 +1110,7 @@ p {
 }
 
 .resetPasTitle {
-    font-size: 25px;
+    font-size: 23px;
     font-weight: 700;
     text-align: center;
     margin-bottom: 20px;
@@ -1092,7 +1119,7 @@ p {
 
 .resetPasInfo {
     color: #4a4a4a;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 400;
     transition: all 0.4s;
     margin: 15px 0 30px;
@@ -1196,7 +1223,7 @@ p {
 
 .contactTitle {
     color: #c31e39;
-    font-size: 25px;
+    font-size: 23px;
     font-weight: 700;
     text-align: center;
     margin-bottom: 30px;
@@ -1231,7 +1258,7 @@ p {
 
 .contactInfo {
     color: #4a4a4a;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 300;
     letter-spacing: 1px;
     margin-bottom: 15px;
@@ -1319,7 +1346,7 @@ p {
 
 .shopTitle {
     width: 100%;
-    font-size: 54px;
+    font-size: 50px;
     font-weight: bold;
     font-family: 'Fuzzy Bubbles', sans-serif;
 }
@@ -1353,14 +1380,15 @@ p {
 }
 
 .shopAsideTitle {
+    color: #c31e39;
     font-size: 30px;
-    font-weight: 800;
+    font-weight: 700;
     margin-bottom: 45px;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 
 .shopAsideSubtitle {
-    font-size: 22px;
+    font-size: 23px;
     font-weight: 500;
     margin-bottom: 20px;
     text-transform: capitalize;
@@ -1388,7 +1416,7 @@ p {
 .shopPrices input {
     height: 30px;
     width: 100%;
-    font-size: 16px;
+    font-size: 17px;
     padding-left: 5px;
 }
 
@@ -1504,7 +1532,7 @@ p {
 
 .newProductPrice,
 .shopProductPrice {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 600;
     margin-bottom: 5px;
     text-transform: capitalize;
@@ -1645,7 +1673,7 @@ p {
 .singleInfoInput {
     height: 40px;
     border: none;
-    font-size: 16px;
+    font-size: 17px;
     text-align: center;
     width: calc(100% / 3);
 }
@@ -1708,7 +1736,7 @@ p {
 
 .cartTableTbody {
     color: #4a4a4a;
-    font-size: 18px;
+    font-size: 17px;
     letter-spacing: 1px;
 }
 
@@ -1898,7 +1926,7 @@ p {
 
 .customerOrderInfo {
     padding: 20px;
-    font-size: 18px;
+    font-size: 17px;
     border-radius: 6px;
     margin-bottom: 50px;
     background-color: #ffece5;
@@ -1927,7 +1955,7 @@ p {
 
 .customerDesk {
     display: flex;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 400;
     flex-direction: row;
     margin-bottom: 10px;
@@ -1946,7 +1974,6 @@ p {
 .footer {
     width: 100%;
     padding: 100px;
-    font-size: 17px;
     background-color: #ffece5;
 }
 
@@ -1954,52 +1981,34 @@ p {
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .footerBlock {
-    width: calc(100% / 4 - 30px);
+    width: calc(100% / 4 - 20px);
 }
 
 
 .footerTitle {
     font-size: 23px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-}
-
-.footerSocLink,
-.footerNavLink {
-    color: #4a4a4a;
-    font-weight: 400;
-    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 30px;
     text-transform: capitalize;
-}
-
-
-.footerLink {
-    color: #4a4a4a;
-    transition: all 0.4s;
-}
-
-.footerLink:hover {
-    color: #c31e39;
 }
 
 .footerGallery {
     width: 100%;
     height: 200px;
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.footerFigure {
-    width: calc(100% / 3);
-    height: calc(100% / 2);
+.footerItem {
+    width: calc(100% / 3 - 1px);
+    height: calc(100% / 2 - 1px);
 }
 
 .footerImg {
@@ -2007,58 +2016,81 @@ p {
     height: 100%;
     object-fit: cover;
     object-position: right;
-
 }
 
-.footerSocIcon {
-    width: 20px;
-    height: 20px;
-    object-fit: cover;
+.footerInfo {
+    color: #4a4a4a;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 25px;
+    padding-right: 25px;
 }
 
-.footerSocBlock {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-}
-
-.footerSocDesk {
-    margin: 10px 0 10px;
-    font-weight: bold;
-}
-
-.footerSocList {
-    margin-right: 15px;
-}
-
-.footerSocList,
-.footerNavList {
-    margin-bottom: 5px;
-    list-style-type: none;
-}
-
-.footerSocLink,
-.footerNavLink {
-    margin-bottom: 20px;
-    text-decoration: none;
+.footerLink {
+    color: #4a4a4a;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 25px;
     transition: all 0.4s;
 }
 
-.footerSocLink:hover,
+.footerLink:hover {
+    color: #c31e39;
+}
+
+.footerNav {
+    width: 100%;
+    padding: 0;
+}
+
+.footerNavList {
+    list-style-type: none;
+}
+
+.footerContactLink,
+.footerNavLink {
+    color: #4a4a4a;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 25px;
+    transition: all 0.4s;
+    text-decoration: none;
+}
+
+.footerContactLink:hover,
 .footerNavLink:hover {
     color: #c31e39;
 }
 
-.footerTel {
+.footerSocDesk {
     color: #4a4a4a;
-    margin-bottom: 15px;
-    text-decoration: none;
-    transition: all 0.4s;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 10px 0 10px;
 }
 
-.footerTel:hover {
-    color: #c31e39;
+.footerSocBlock {
+    width: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
 }
+
+.footerSocList {
+    margin-right: 15px;
+    list-style-type: none;
+}
+
+.footerSocLink {
+    text-decoration: none;
+}
+
+.footerSocIcon {
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+}
+
 
 @media only screen and (max-width: 600px) {
     body {
