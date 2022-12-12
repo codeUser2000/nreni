@@ -2059,3 +2059,9 @@ p {
 .footerTel:hover {
     color: #c31e39;
 }
+
+@media only screen and (max-width: 600px) {
+    body {
+        background-color: lightblue;
+    }
+}
