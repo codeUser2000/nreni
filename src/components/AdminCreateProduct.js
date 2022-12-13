@@ -1,6 +1,6 @@
 import React from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
-import img from '../assets/img/post/necklace.jpg';
+import img from '../assets/img/post/chainRing.jpg';
 
 function AdminCreateProduct() {
   return (
@@ -15,34 +15,36 @@ function AdminCreateProduct() {
             <td>image</td>
             <td>name</td>
             <td>description</td>
-            <td>categoryId</td>
-            <td>Price</td>
+            <td>category</td>
+            <td>price</td>
             <td>actions</td>
           </tr>
         </thead>
         <tbody className="adminTableTbody">
           <tr>
             <td>
-              <figure>
-                <img src={img} alt="" style={{ width: 70, height: 70, objectFit: 'cover' }} />
+              <figure className="adminTableItem">
+                <img src={img} alt="" className="adminTableImg" />
               </figure>
             </td>
             <td>
-              <p>necklace</p>
+              <p className="adminTableName">chain ring</p>
             </td>
             <td>
-              <p>Lorem Ipsum is simply dummy text.</p>
+              <p className="adminTableDesc">Lorem Ipsum is simply dummy text.</p>
             </td>
             <td>
-              3
+              <p className="adminTableCategory">rings</p>
             </td>
             <td>
-              $ 25.00
+              <p className="adminTablePrice"> $ 25.00</p>
             </td>
             <td>
-              <button>View</button>
-              <button>delete</button>
-              <button>update</button>
+              <div className="adminTableBtnRow">
+                <button className="adminTableView">View</button>
+                <button className="adminTableDelete">delete</button>
+                <button className="adminTableUpdate">update</button>
+              </div>
             </td>
           </tr>
         </tbody>
