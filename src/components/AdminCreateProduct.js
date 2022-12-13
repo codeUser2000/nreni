@@ -15,6 +15,7 @@ function AdminCreateProduct() {
             <td>image</td>
             <td>name</td>
             <td>description</td>
+            <td>categoryId</td>
             <td>Price</td>
             <td>actions</td>
           </tr>
@@ -31,6 +32,9 @@ function AdminCreateProduct() {
             </td>
             <td>
               <p>Lorem Ipsum is simply dummy text.</p>
+            </td>
+            <td>
+              3
             </td>
             <td>
               $ 25.00
