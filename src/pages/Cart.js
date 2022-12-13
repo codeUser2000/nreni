@@ -1,5 +1,6 @@
 import React from 'react';
 import Wrapper from '../components/Wrapper';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 function Cart() {
   return (
@@ -44,7 +45,7 @@ function Cart() {
                   </td>
                   <td>
                     <button type="button" className="cartTableBtnR">
-                      <i className="fa-solid fa-trash cartTableIcon" />
+                      <DeleteIcon/>
                     </button>
                   </td>
                 </tr>
@@ -74,7 +75,7 @@ function Cart() {
                   </td>
                   <td>
                     <button type="button" className="cartTableBtnR">
-                      <i className="fa-solid fa-trash cartTableIcon" />
+                      <DeleteIcon/>
                     </button>
                   </td>
                 </tr>

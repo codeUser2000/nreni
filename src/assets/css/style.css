@@ -2107,7 +2107,7 @@ p {
 
 .adminMain .container,
 .adminHeader .container {
-    max-width: 1450px;
+    max-width: 1500px;
 }
 
 .adminRow {
@@ -2122,13 +2122,13 @@ p {
 }
 
 .adminMenu {
-    width: 20%;
+    width: 15%;
     padding-top: 15px;
     border: 2px solid #c31e39;
 }
 
 .adminSection {
-    width: 80%;
+    width: 85%;
     padding-top: 15px;
     border: 2px solid #c31e39;
 }

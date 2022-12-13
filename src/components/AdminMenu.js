@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PersonIcon from '@mui/icons-material/Person';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
+import AdminCreateProduct from './AdminCreateProduct';
 
 function AdminMenu() {
   return (
@@ -10,7 +11,7 @@ function AdminMenu() {
       <p className="adminMenuTitle">menu</p>
       <ul className="adminMenuBlock">
         <li className="adminMenuList">
-          <Link to="" className="adminMenuLink">
+          <Link to={<AdminCreateProduct />} className="adminMenuLink">
             <ProductionQuantityLimitsIcon style={{ fill: '#c31e39', marginRight: '5px' }} />
             products
           </Link>
