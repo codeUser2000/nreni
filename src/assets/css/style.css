@@ -2097,3 +2097,65 @@ p {
         background-color: lightblue;
     }
 }
+
+
+/*ADMIN*/
+.adminHeader {
+    width: 100%;
+    background-color: #ffece5;
+}
+
+.adminMain .container,
+.adminHeader .container {
+    max-width: 1450px;
+}
+
+.adminRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.AdminMainRow {
+    display: flex;
+    flex-direction: row;
+}
+
+.adminMenu {
+    width: 20%;
+    padding-top: 15px;
+    border: 2px solid #c31e39;
+}
+
+.adminSection {
+    width: 80%;
+    padding-top: 15px;
+    border: 2px solid #c31e39;
+}
+
+.adminMenuTitle {
+    color: #4a4a4a;
+    font-size: 20px;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+}
+
+.adminMenuBlock {
+    width: 100%;
+    padding: 0;
+}
+
+.adminMenuList {
+    list-style-type: none;
+}
+
+.adminMenuLink {
+    color: #4a4a4a;
+    transition: all 0.4s;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+.adminMenuLink:hover {
+    color: #c31e39;
+}

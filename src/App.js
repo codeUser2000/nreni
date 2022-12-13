@@ -17,6 +17,7 @@ import Profile from './pages/Profile';
 import PasswordReset from './pages/PasswordReset';
 import NewPassword from './pages/NewPassword';
 import Cleaning from './pages/Cleaning';
+import Admin from "./pages/Admin";
 
 // eslint-disable-next-line react/prefer-stateless-function
 class App extends Component {
@@ -41,6 +42,7 @@ class App extends Component {
             <Route path="/newPassword" element={<NewPassword />} />
             <Route path="*" element={<Navigate to="/not-found" />} />
             <Route path="/not-found" element={<NotFound />} />
+            <Route path="/admin" element={<Admin />} />
           </Routes>
         </BrowserRouter>
         <ToastContainer closeOnClick hideProgressBar />
