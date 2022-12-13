@@ -2133,7 +2133,7 @@ p {
     border: 2px solid #c31e39;
 }
 
-.adminMenuTitle {
+.adminTitle {
     color: #4a4a4a;
     font-size: 20px;
     margin-bottom: 15px;
@@ -2158,4 +2158,23 @@ p {
 
 .adminMenuLink:hover {
     color: #c31e39;
+}
+
+.adminProductsBlock{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+.adminTable {
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.adminTableThead {
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: capitalize;
+    border-bottom: 1px solid #4a4a4a;
 }

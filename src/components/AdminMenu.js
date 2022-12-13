@@ -8,7 +8,7 @@ import AdminCreateProduct from './AdminCreateProduct';
 function AdminMenu() {
   return (
     <aside className="adminMenu">
-      <p className="adminMenuTitle">menu</p>
+      <p className="adminTitle">menu</p>
       <ul className="adminMenuBlock">
         <li className="adminMenuList">
           <Link to={<AdminCreateProduct />} className="adminMenuLink">
