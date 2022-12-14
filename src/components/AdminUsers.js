@@ -33,7 +33,7 @@ function AdminUsers() {
               <p className="adminTableRole">customer</p>
             </td>
             <td>
-              <button className="adminUserTableBtn">delete</button>
+              <button className="adminUserDelete">delete</button>
             </td>
           </tr>
         </tbody>

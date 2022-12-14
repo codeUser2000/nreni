@@ -6,9 +6,9 @@ import AdminCreateProduct from './AdminCreateProduct';
 function AdminSection() {
   return (
     <section className="adminSection">
-       {/*<AdminProduct/>*/}
-       <AdminUsers />
-      {/*<AdminCreateProduct />*/}
+      {/* <AdminProduct/> */}
+      <AdminUsers />
+      {/* <AdminCreateProduct /> */}
     </section>
   );
 }
