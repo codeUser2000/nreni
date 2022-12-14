@@ -2194,16 +2194,15 @@ p {
 
 .adminTableThead td {
     padding: 5px;
-    background-color: #e8e8e8;
-    border: 1px solid #4a4a4a;
+    background-color: #fff;
 }
 
 .adminTableThead tr {
-    border: 1px solid #4a4a4a;
+    border-bottom: 1px solid #4a4a4a;
 }
 
 .adminTableTbody td {
-    padding: 5px;
+    padding: 10px 5px 10px;
 }
 
 .adminTableTheadTitles {
@@ -2216,8 +2215,8 @@ p {
 .adminTableTbody tr {
     font-size: 16px;
     font-weight: 400;
-    background-color: #e8e8e8;
-    border: 1px solid #4a4a4a;
+    background-color: #fff;
+    border-bottom: 1px solid #4a4a4a;
 }
 
 
@@ -2240,6 +2239,11 @@ p {
     justify-content: space-between;
 }
 
+.adminTableName {
+    text-transform: capitalize;
+}
+
+.adminUserTableBtn,
 .adminTableView,
 .adminTableDelete,
 .adminTableUpdate {
@@ -2260,11 +2264,13 @@ p {
     background-color: #e8e8e8;
 }
 
+.adminUserTableBtn,
 .adminTableDelete {
     background-color: #c31e39;
     border: 2px solid #c31e39;
 }
 
+.adminUserTableBtn:hover,
 .adminTableDelete:hover {
     color: #c31e39;
     background-color: #e8e8e8;
@@ -2277,5 +2283,66 @@ p {
 
 .adminTableUpdate:hover {
     color: darkslateblue;
+    background-color: #e8e8e8;
+}
+
+.adminUserTableBtn {
+    width: 50%;
+}
+
+.adminTableRole {
+    color: cadetblue;
+}
+
+.adminEditProduct {
+    width: 100%;
+    display: flex;
+    padding: 25px;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.adminForm,
+.adminFormItem {
+    width: calc(100% / 2 - 50px);
+}
+
+.adminForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.adminFormFigure {
+    width: 70%;
+    height: 500px;
+}
+
+.adminFormImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.adminForm input {
+    border: none;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #4a4a4a;
+}
+
+.adminForm input:focus {
+    outline: none;
+}
+
+.adminFormBtn {
+    color: #ffece5;
+    border-radius: 50px;
+    transition: all 0.4s;
+    background-color: #c31e39;
+    border: 2px solid #c31e39;
+    text-transform: capitalize;
+}
+
+.adminFormBtn:hover {
+    color: #c31e39;
     background-color: #e8e8e8;
 }
