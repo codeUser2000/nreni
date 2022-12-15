@@ -11,7 +11,7 @@ function AdminMenu() {
       <p className="adminTitle">menu</p>
       <ul className="adminMenuBlock">
         <li className="adminMenuList">
-          <Link to={<AdminProduct />} className="adminMenuLink">
+          <Link to="" className="adminMenuLink">
             <ProductionQuantityLimitsIcon style={{ fill: '#c31e39', marginRight: '5px' }} />
             products
           </Link>
