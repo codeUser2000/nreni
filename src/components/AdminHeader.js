@@ -19,7 +19,7 @@ function AdminHeader() {
                 <Link to="/admin" className="navLink">admin</Link>
               </li>
               <li className="navList">
-                <Link href="/home" className="navLink">logout</Link>
+                <Link to="/home" className="navLink">logout</Link>
               </li>
             </ul>
           </nav>

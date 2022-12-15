@@ -2122,12 +2122,16 @@ p {
 }
 
 .adminMenu {
-    width: 12%;
+    width: 20%;
     padding-top: 15px;
     margin-right: 2px;
     /*border-right: 2px solid #4a4a4a;*/
 }
 
+
+.adminProducts{
+    width: 100%;
+}
 
 .adminSection {
     width: 88%;
@@ -2159,7 +2163,8 @@ p {
     text-transform: capitalize;
 }
 
-.adminMenuLink:hover {
+.adminMenuLink:hover,
+.adminMenuLink.active{
     color: #c31e39;
 }
 
