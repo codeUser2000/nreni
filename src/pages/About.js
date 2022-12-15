@@ -10,6 +10,7 @@ function About() {
       <main className="about">
         <div className="container">
           <h1 className="aboutMainTitle">advice & info</h1>
+          <p className="aboutMainInfo">we give you useful information on how to use silver and how to keep it clean</p>
           <AboutSilverJewelry />
           <AboutSterlingSilver />
           <AboutSilverOldJewelry />

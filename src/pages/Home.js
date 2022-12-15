@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import Carousel from 'nuka-carousel';
 import { useDispatch, useSelector } from 'react-redux';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import Wrapper from '../components/Wrapper';
 import MyCarouselComp from '../components/MyCarouselComp';
 import NewProduct from '../components/NewProduct';
@@ -10,7 +12,7 @@ import Assortment from '../components/Assortment';
 import { getBlockquoteDataRequest } from '../store/actions/blockquote';
 import { getProductDataRequest } from '../store/actions/product';
 import HomeAbout from '../components/HomeAbout';
-import MyCarouselComp2 from "../components/MyCarouselComp2";
+import MyCarouselComp2 from '../components/MyCarouselComp2';
 
 function Home() {
   const dispatch = useDispatch();
@@ -40,7 +42,6 @@ function Home() {
                                         + '          We sell aesthetic and stylish jewelry. The most suitable gifts here for your loved ones'}
                 />
                 <MyCarouselComp2 />
-                {/*<MyCarouselComp data="The best ARMENIAN silver you can get" />*/}
               </Carousel>
             </div>
           </div>
@@ -51,13 +52,41 @@ function Home() {
             <HomeAbout />
             <section className="new">
               <h2 className="newTitle">New jewelery</h2>
+              <p className="newHomeInfo">
+                Showcasing our creativity and expert craftsmanship at its
+                best.
+              </p>
               <div className="newJewelryRow">
-                {productData.map((n, index) => {
-                  if (index < 3) {
-                    return <NewProduct key={n.id} data={n} />;
-                  }
-                  return true;
-                })}
+                <Carousel
+                  dragging="true"
+                  pauseOnHover="true"
+                  wrapAround="true"
+                  slidesToShow={3}
+                  cellSpacing={20}
+                  defaultControlsConfig={{
+                    prevButtonText: <ArrowBackIosNewIcon />,
+                    nextButtonText: <ArrowForwardIosIcon />,
+                    nextButtonStyle: {
+                      color: '#ffece5',
+                      borderRadius: '50%',
+                      marginRight: -15,
+                      backgroundColor: '#c31e39',
+                    },
+                    prevButtonStyle: {
+                      color: '#ffece5',
+                      borderRadius: '50%',
+                      marginLeft: -15,
+                      backgroundColor: '#c31e39',
+                    },
+                  }}
+                >
+                  {productData.map((n) => (
+                    // if (index < 3) {
+                    <NewProduct key={n.id} data={n} />
+                    // }
+                    // return true;
+                  ))}
+                </Carousel>
               </div>
             </section>
             <blockquote className="blockquote">

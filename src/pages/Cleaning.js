@@ -11,6 +11,7 @@ function Cleaning() {
       <main className="aboutCleaning">
         <div className="container">
           <h1 className="aboutCleaningMainTitle">clean silver jewelry</h1>
+          <p className="aboutCleaningMainInfo">we answer your question "How to clean blackened silver?"</p>
           <SterlingSilverTarnish />
           <HowSilverTarnish />
           <HowCleanSilver />

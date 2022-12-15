@@ -3,12 +3,13 @@ import { NavLink } from 'react-router-dom';
 import {
   Container, Nav, Navbar, NavDropdown,
 } from 'react-bootstrap';
+import LocalMallIcon from '@mui/icons-material/LocalMall';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import logo from '../assets/img/logo/logo.png';
-import login from '../assets/img/site/user.png';
-import cart from '../assets/img/site/cart.png';
-import us from '../assets/img/site/usa.png';
+// import login from '../assets/img/site/user.png';
 import russian from '../assets/img/site/russian.png';
 import arm from '../assets/img/site/armenia.png';
+import us from '../assets/img/site/usa.png';
 
 function Header() {
   const handleLangChange = useCallback((lang) => {
@@ -42,19 +43,19 @@ function Header() {
                 </li>
                 <li className="navList">
                   <NavLink to="/cart" className="navLink">
-                    <img className="navImg" src={cart} alt="" />
+                    <LocalMallIcon />
                   </NavLink>
                 </li>
                 <li className="navList">
                   {sessionStorage.getItem('token')
                     ? (
                       <NavLink to="/profile" className="navLink">
-                        <img className="navImg" src={login} alt="" />
+                        <AccountCircleIcon />
                       </NavLink>
                     )
                     : (
                       <NavLink to="/login" className="navLink">
-                        <img className="navImg" src={login} alt="" />
+                        <AccountCircleIcon />
                       </NavLink>
                     )}
                 </li>

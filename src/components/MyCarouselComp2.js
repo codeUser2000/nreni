@@ -6,12 +6,15 @@ function MyCarouselComp2() {
   return (
     <div className="bannerRow">
       <div className="bannerDesk">
-        <p className="banner2Info">
-          The best ARMENIAN silver you can get
+        <p className="banner2Info">The best ARMENIAN silver you can get</p>
+        <p className="bannerDiscounts">
+          Christmas discounts
+            {' '}
+          <span>40%</span>
         </p>
         <button className="bannerBtn">
-          <Link className="bannerLink" to="/shop">
-            shop now
+          <Link className="bannerLink" to="/register">
+            join us now
           </Link>
         </button>
       </div>

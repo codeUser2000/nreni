@@ -89,7 +89,7 @@ figure {
 }
 
 .logoName {
-    font-size: 27px;
+    font-size: 25px;
     letter-spacing: 1px;
     color: #4a4a4a;
     margin-left: 5px;
@@ -238,11 +238,16 @@ figure {
     object-fit: cover;
 }
 
+.bannerImg {
+    border-radius: 5px;
+}
+
 .bannerDesk {
     padding: 20px;
     color: #ffece5;
     margin-right: 10px;
 }
+
 
 .bannerTitle {
     color: #ffece5;
@@ -258,11 +263,25 @@ figure {
     margin-bottom: 40px;
 }
 
+.bannerDiscounts,
 .banner2Info {
     color: #ffece5;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 400;
-    margin-bottom: 35px;
+    margin-bottom: 20px;
+}
+
+.bannerDiscounts {
+    font-size: 22px;
+}
+
+.bannerDiscounts span {
+    padding: 10px;
+    color: #ffece5;
+    font-size: 30px;
+    font-weight: 600;
+    border-radius: 50%;
+    border: 5px solid #ffece5;
 }
 
 .bannerBtn {
@@ -353,7 +372,7 @@ figure {
 
 .assortmentInfo {
     color: #c31e39;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 100;
     text-align: center;
     text-transform: uppercase;
@@ -550,6 +569,15 @@ figure {
     text-transform: capitalize;
 }
 
+.newHomeInfo {
+    color: #c31e39;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 90px;
+    text-transform: capitalize;
+}
+
 .newInfo {
     color: #c31e39;
     font-size: 20px;
@@ -559,12 +587,9 @@ figure {
     text-transform: capitalize;
 }
 
-.newJewelryRow {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+
+.new .paging-dot {
+    display: none;
 }
 
 
@@ -632,7 +657,7 @@ figure {
 .quoteLine {
     width: calc(100% / 3);
     border: 1px solid #c31e39;
-    background-color: rgba(195, 30, 57, 0.76);
+    background-color: #c31e39;
 
 }
 
@@ -682,6 +707,16 @@ figure {
     font-weight: 400;
     text-align: center;
     margin-bottom: 30px;
+    text-transform: capitalize;
+}
+
+.aboutCleaningMainInfo,
+.aboutMainInfo {
+    color: #c31e39;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 90px;
     text-transform: capitalize;
 }
 
@@ -848,7 +883,7 @@ figure {
 .regPageLogoName,
 .loginPageLogoName {
     color: #4a4a4a;
-    font-size: 21px;
+    font-size: 20px;
     margin-left: 5px;
     font-weight: 700;
     letter-spacing: 1px;
@@ -897,7 +932,7 @@ figure {
 
 
 .loginFormTitle {
-    font-size: 23px;
+    font-size: 22px;
     font-weight: 700;
     text-align: center;
     margin-bottom: 100px;
@@ -986,7 +1021,7 @@ figure {
 
 
 .regFormTitle {
-    font-size: 23px;
+    font-size: 22px;
     font-weight: 700;
     text-align: center;
     margin-bottom: 20px;
@@ -1120,7 +1155,7 @@ p {
 }
 
 .resetPasTitle {
-    font-size: 23px;
+    font-size: 22px;
     font-weight: 700;
     text-align: center;
     margin-bottom: 20px;
@@ -1217,7 +1252,7 @@ p {
 
 .contactLogoName {
     color: #4a4a4a;
-    font-size: 21px;
+    font-size: 20px;
     margin-left: 5px;
     font-weight: 700;
     letter-spacing: 1px;
@@ -1232,7 +1267,7 @@ p {
 
 .contactTitle {
     color: #c31e39;
-    font-size: 23px;
+    font-size: 22px;
     font-weight: 700;
     text-align: center;
     margin-bottom: 30px;
@@ -1397,7 +1432,7 @@ p {
 }
 
 .shopAsideSubtitle {
-    font-size: 23px;
+    font-size: 22px;
     font-weight: 500;
     margin-bottom: 20px;
     text-transform: capitalize;
@@ -1518,6 +1553,10 @@ p {
     width: calc(100% / 3 - 10px);
 }
 
+.newProduct {
+    width: 100%;
+}
+
 .newProductImg,
 .shopProductImg {
     width: 100%;
@@ -1533,7 +1572,7 @@ p {
 
 .newProductTitle,
 .shopProductTitle {
-    font-size: 21px;
+    font-size: 20px;
     font-weight: 500;
     margin-bottom: 5px;
     text-transform: capitalize;
@@ -1630,7 +1669,7 @@ p {
 }
 
 .singleInfoTitle {
-    font-size: 23px;
+    font-size: 22px;
     font-weight: 500;
     margin-bottom: 5px;
     text-transform: capitalize;
@@ -1638,7 +1677,7 @@ p {
 
 .singleInfoPrice {
     color: #4a4a4a;
-    font-size: 27px;
+    font-size: 25px;
     font-weight: 700;
     margin-bottom: 10px;
     letter-spacing: 1px;
@@ -1710,10 +1749,11 @@ p {
 
 .cartTitle {
     color: #c31e39;
-    font-size: 34px;
+    font-size: 50px;
+    font-weight: 400;
     text-align: center;
-    margin-bottom: 40px;
-    text-transform: uppercase;
+    margin-bottom: 30px;
+    text-transform: capitalize;
 }
 
 .cartTable {
@@ -1993,7 +2033,7 @@ p {
 
 
 .footerTitle {
-    font-size: 23px;
+    font-size: 22px;
     font-weight: 600;
     margin-bottom: 30px;
     text-transform: capitalize;
