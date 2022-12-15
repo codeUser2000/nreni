@@ -13,9 +13,9 @@ import {
   NEW_USER_PASSWORD_REQUEST,
   NEW_USER_PASSWORD_SUCCESS,
   NEW_USER_PASSWORD_FAIL, DELETE_USER_REQUEST, DELETE_USER_SUCCESS, DELETE_USER_FAIL,
-  // GET_USERS_LIST_FAIL,
-  // GET_USERS_LIST_REQUEST,
-  // GET_USERS_LIST_SUCCESS, getUsersListRequest,
+  GET_USERS_LIST_FAIL,
+  GET_USERS_LIST_REQUEST,
+  GET_USERS_LIST_SUCCESS,
 } from '../actions/users';
 import Api from '../../Api';
 import Account from '../../helpers/Account';
@@ -113,6 +113,20 @@ function* handleUserNewPasswordRequest(action) {
     });
   }
 }
+function* handleUsersRequest(action) {
+  try {
+    const { data } = yield call(Api.getUser, action.payload.page);
+    yield put({
+      type: GET_USERS_LIST_SUCCESS,
+      payload: { data },
+    });
+  } catch (e) {
+    yield put({
+      type: GET_USERS_LIST_FAIL,
+      payload: { error: e.response },
+    });
+  }
+}
 
 export default function* watcher() {
   yield takeLatest(LOGIN_USER_REQUEST, handleUserLoginRequest);
@@ -120,4 +134,5 @@ export default function* watcher() {
   yield takeLatest(NEW_USER_PASSWORD_REQUEST, handleUserNewPasswordRequest);
   yield takeLatest(CREATE_USER_REQUEST, handleCreateUserRequest);
   yield takeLatest(DELETE_USER_REQUEST, handleDeleteUserRequest);
+  yield takeLatest(GET_USERS_LIST_REQUEST, handleUsersRequest);
 }

@@ -20,6 +20,17 @@ export function createUserRequest(data) {
   };
 }
 
+export const GET_USERS_LIST_REQUEST = 'GET_USERS_LIST_REQUEST';
+export const GET_USERS_LIST_SUCCESS = 'GET_USERS_LIST_SUCCESS';
+export const GET_USERS_LIST_FAIL = 'GET_USERS_LIST_FAIL';
+
+export function getUserData(page) {
+  return {
+    type: GET_USERS_LIST_REQUEST,
+    payload: { page },
+  };
+}
+
 export const DELETE_USER_REQUEST = 'DELETE_USER_REQUEST';
 export const DELETE_USER_SUCCESS = 'DELETE_USER_SUCCESS';
 export const DELETE_USER_FAIL = 'DELETE_USER_FAIL';

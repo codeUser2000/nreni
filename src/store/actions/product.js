@@ -1,5 +1,4 @@
 export const GET_PRODUCT_DATA_REQUEST = 'GET_PRODUCT_DATA_REQUEST';
-
 export const GET_PRODUCT_DATA_SUCCESS = 'GET_PRODUCT_DATA_SUCCESS';
 export const GET_PRODUCT_DATA_FAIL = 'GET_PRODUCT_DATA_FAIL';
 
@@ -9,14 +8,14 @@ export function getProductDataRequest(page, min, max) {
     payload: { page, min, max },
   };
 }
+export const CREATE_PRODUCT_REQUEST = 'CREATE_PRODUCT_REQUEST';
+export const CREATE_PRODUCT_SUCCESS = 'CREATE_PRODUCT_SUCCESS';
+export const CREATE_PRODUCT_FAIL = 'CREATE_PRODUCT_FAIL';
 
-export const GET_SINGLE_PRODUCT_DATA_REQUEST = 'GET_SINGLE_PRODUCT_DATA_REQUEST';
-export const GET_SINGLE_PRODUCT_DATA_SUCCESS = 'GET_SINGLE_PRODUCT_DATA_SUCCESS';
-export const GET_SINGLE_PRODUCT_DATA_FAIL = 'GET_SINGLE_PRODUCT_DATA_FAIL';
-
-export function getSingleProductDataRequest(id) {
+export function createProductRequest(data) {
+  console.log(data);
   return {
-    type: GET_SINGLE_PRODUCT_DATA_REQUEST,
-    payload: { id },
+    type: CREATE_PRODUCT_REQUEST,
+    payload: { data },
   };
 }

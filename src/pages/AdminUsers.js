@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import AdminWrapper from '../components/AdminWrapper';
+import { getUserData } from '../store/actions/users';
 
 function AdminUsers() {
+  const users = useSelector((state) => state.users.usersData);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getUserData(1));
+  }, []);
   return (
     <AdminWrapper>
       <div className="adminProducts">
@@ -18,26 +25,28 @@ function AdminUsers() {
             </tr>
           </thead>
           <tbody className="adminTableTbody">
-            <tr>
-              <td>
-                <p className="adminTableName">naira</p>
-              </td>
-              <td>
-                <p className="adminTableName">hovhannisyan</p>
-              </td>
-              <td>
-                <p>+374 94 257256</p>
-              </td>
-              <td>
-                <p>hovhannisya03@mail.ru</p>
-              </td>
-              <td>
-                <p className="adminTableRole">customer</p>
-              </td>
-              <td>
-                <button className="adminUserDelete">delete</button>
-              </td>
-            </tr>
+            {users.length ? users.map((u) => (
+              <tr key={u.id}>
+                <td>
+                  <p className="adminTableName">{u.firstName}</p>
+                </td>
+                <td>
+                  <p className="adminTableName">{u.lastName}</p>
+                </td>
+                <td>
+                  <p>{u.phone}</p>
+                </td>
+                <td>
+                  <p>{u.email}</p>
+                </td>
+                <td>
+                  <p className="adminTableRole">customer</p>
+                </td>
+                <td>
+                  <button type="button" className="adminUserDelete">delete</button>
+                </td>
+              </tr>
+            )) : null}
           </tbody>
         </table>
       </div>

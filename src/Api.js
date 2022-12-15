@@ -36,12 +36,20 @@ class Api {
     return api.get('/users/getBlockquote');
   }
 
+  static getUser(page) {
+    return api.get(`/users/list?page=${page || 1}`);
+  }
+
   static login(data) {
     return api.post('/users/login', data);
   }
 
   static createProduct(data) {
-    return api.post('/products/createProducts', data);
+    return api.post('/products/createProducts', data, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
   }
 
   static forgetPass(email) {
