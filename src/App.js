@@ -19,6 +19,7 @@ import NewPassword from './pages/NewPassword';
 import Cleaning from './pages/Cleaning';
 import AdminProduct from './pages/AdminProduct';
 import AdminUsers from './pages/AdminUsers';
+import AdminCreateProduct from './pages/AdminCreateProduct';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class App extends Component {
@@ -45,6 +46,7 @@ class App extends Component {
             <Route path="/not-found" element={<NotFound />} />
             {/* <Route path="/admin" element={<Admin />} /> */}
             <Route path="/adminProduct" element={<AdminProduct />} />
+            <Route path="/adminCreateProduct" element={<AdminCreateProduct />} />
             <Route path="/adminUsers" element={<AdminUsers />} />
           </Routes>
         </BrowserRouter>

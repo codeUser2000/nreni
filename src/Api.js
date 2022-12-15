@@ -17,7 +17,6 @@ api.interceptors.request.use(
 
 class Api {
   static getData(data) {
-    console.log(data);
     return api.get(`/products/products?page=${data.page}${data.min ? `&min=${data.min}` : ''}${data.max ? `&max=${data.max}` : ''}`, {
       headers: {
         'Content-Type': 'image/jpeg',
@@ -39,6 +38,10 @@ class Api {
 
   static login(data) {
     return api.post('/users/login', data);
+  }
+
+  static createProduct(data) {
+    return api.post('/products/createProducts', data);
   }
 
   static forgetPass(email) {

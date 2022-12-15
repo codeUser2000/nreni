@@ -1,16 +1,22 @@
-import React from 'react';
-import img from '../assets/img/post/chainRing.jpg';
-import img1 from '../assets/img/post/nameNecklace.jpg';
-import img2 from '../assets/img/post/bracelet.jpg';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import AdminWrapper from '../components/AdminWrapper';
+import { getProductDataRequest } from '../store/actions/product';
 
 function AdminProduct() {
+  const dispatch = useDispatch();
+  const productsData = useSelector((state) => state.product.productsData);
+  const { REACT_APP_API_URL } = process.env;
+  useEffect(() => {
+    dispatch(getProductDataRequest(1));
+  }, []);
   return (
     <AdminWrapper>
       <div className="adminProducts">
         <div className="adminProductsBlock">
           <p className="adminTitle">Products</p>
-          <button type="button" className="adminProductsBtn">Create</button>
+          <Link to="/adminCreateProduct" className="adminProductsBtn">Create</Link>
         </div>
         <table className="adminTable">
           <thead className="adminTableThead">
@@ -24,84 +30,37 @@ function AdminProduct() {
             </tr>
           </thead>
           <tbody className="adminTableTbody">
-            <tr>
-              <td>
-                <figure className="adminTableItem">
-                  <img src={img1} alt="" className="adminTableImg" />
-                </figure>
-              </td>
-              <td>
-                <p className="adminTableName">name necklace</p>
-              </td>
-              <td>
-                <p className="adminTableDesc">Lorem Ipsum is simply dummy text.</p>
-              </td>
-              <td>
-                <p className="adminTableCategory">necklaces</p>
-              </td>
-              <td>
-                <p className="adminTablePrice">$14.00</p>
-              </td>
-              <td>
-                <div className="adminTableBtnRow">
-                  <button type="button" className="adminTableView">View</button>
-                  <button type="button" className="adminTableDelete">delete</button>
-                  <button type="button" className="adminTableUpdate">update</button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <figure className="adminTableItem">
-                  <img src={img2} alt="" className="adminTableImg" />
-                </figure>
-              </td>
-              <td>
-                <p className="adminTableName">bracelet</p>
-              </td>
-              <td>
-                <p className="adminTableDesc">Lorem Ipsum is simply dummy text.</p>
-              </td>
-              <td>
-                <p className="adminTableCategory">bracelets</p>
-              </td>
-              <td>
-                <p className="adminTablePrice">$28.00</p>
-              </td>
-              <td>
-                <div className="adminTableBtnRow">
-                  <button type="button" className="adminTableView">View</button>
-                  <button type="button" className="adminTableDelete">delete</button>
-                  <button type="button" className="adminTableUpdate">update</button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <figure className="adminTableItem">
-                  <img src={img} alt="" className="adminTableImg" />
-                </figure>
-              </td>
-              <td>
-                <p className="adminTableName">chain ring</p>
-              </td>
-              <td>
-                <p className="adminTableDesc">Lorem Ipsum is simply dummy text.</p>
-              </td>
-              <td>
-                <p className="adminTableCategory">rings</p>
-              </td>
-              <td>
-                <p className="adminTablePrice"> $ 25.00</p>
-              </td>
-              <td>
-                <div className="adminTableBtnRow">
-                  <button type="button" className="adminTableView">View</button>
-                  <button type="button" className="adminTableDelete">delete</button>
-                  <button type="button" className="adminTableUpdate">update</button>
-                </div>
-              </td>
-            </tr>
+            {productsData.map((p) => (
+              <tr key={p.id}>
+                <td>
+                  <figure className="adminTableItem">
+                    <img src={REACT_APP_API_URL + p.avatar} alt="" className="adminTableImg" />
+                  </figure>
+                </td>
+                <td>
+                  <p className="adminTableName">{p.title}</p>
+                </td>
+                <td>
+                  <p className="adminTableDesc">{p.description}</p>
+                </td>
+                <td>
+                  <p className="adminTableCategory">{p.categories.type}</p>
+                </td>
+                <td>
+                  <p className="adminTablePrice">
+                    $
+                    {p.price}
+                  </p>
+                </td>
+                <td>
+                  <div className="adminTableBtnRow">
+                    <button type="button" className="adminTableView">View</button>
+                    <button type="button" className="adminTableDelete">delete</button>
+                    <button type="button" className="adminTableUpdate">update</button>
+                  </div>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
