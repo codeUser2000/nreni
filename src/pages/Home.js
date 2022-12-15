@@ -10,6 +10,7 @@ import Assortment from '../components/Assortment';
 import { getBlockquoteDataRequest } from '../store/actions/blockquote';
 import { getProductDataRequest } from '../store/actions/product';
 import HomeAbout from '../components/HomeAbout';
+import MyCarouselComp2 from "../components/MyCarouselComp2";
 
 function Home() {
   const dispatch = useDispatch();
@@ -38,8 +39,8 @@ function Home() {
                   data={'Jewelry is a very personal thing... It should tell a story about the person who\'s wearing it!\n'
                                         + '          We sell aesthetic and stylish jewelry. The most suitable gifts here for your loved ones'}
                 />
-                <MyCarouselComp data="The best ARMENIAN silver you can get" />
-                <MyCarouselComp data="The best ARMENIAN silver you can get" />
+                <MyCarouselComp2 />
+                {/*<MyCarouselComp data="The best ARMENIAN silver you can get" />*/}
               </Carousel>
             </div>
           </div>

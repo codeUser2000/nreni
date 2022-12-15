@@ -53,7 +53,7 @@ function Contact() {
                 onChange={(ev) => handleChange('message', ev.target.value)}
                 className="contactMessage"
                 name="text"
-                placeholder="Write your message here"
+                placeholder="Your opinion about us․․․ Write your message here"
               />
               <button type="submit" className="contactBtn">SEND</button>
             </form>

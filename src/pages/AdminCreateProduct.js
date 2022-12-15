@@ -11,7 +11,15 @@ function AdminCreateProduct() {
           <input type="file" />
           <input type="text" placeholder="Type Product Name" />
           <input type="text" placeholder="Type Product Description" />
-          <input type="text" placeholder="Type Product Category" />
+          <input type="number" placeholder="Type Product Discount" />
+          <select className="adminSelect">
+            <option>rings</option>
+            <option>bracelets</option>
+            <option>necklaces</option>
+            <option>earrings</option>
+            <option>collection</option>
+          </select>
+
           <input type="text" placeholder="Type Product Price" />
           <button type="submit" className="adminFormBtn">Create</button>
         </form>

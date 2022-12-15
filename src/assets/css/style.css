@@ -215,11 +215,23 @@ figure {
     justify-content: space-between;
 }
 
-.bannerDesk,
-.bannerFigure {
+
+.bannerDesk {
     width: calc(100% / 2 - 30px);
 }
 
+.banner2Figure,
+.bannerFigure {
+    height: 500px;
+    width: calc(100% / 2 - 30px);
+}
+
+.banner2Img {
+    border-radius: 50%;
+    border: 15px solid #ffece5;
+}
+
+.banner2Img,
 .bannerImg {
     width: 100%;
     height: 100%;
@@ -289,10 +301,8 @@ figure {
 }
 
 .banner .slider-control-bottomcenter {
-    top: 50%;
-    right: 30px;
+    bottom: 0;
     position: absolute;
-    transform: rotate(90deg);
 }
 
 .banner .paging-dot {
@@ -1165,7 +1175,6 @@ p {
 /*CONTACT*/
 .contact {
     width: 100%;
-    height: 100vh;
     padding: 100px;
     background-color: #c31e39;
 }
@@ -1286,7 +1295,7 @@ p {
 
 
 .contactMessage {
-    resize: none;
+    /*height: 100px;*/
     padding-top: 5px;
     margin-bottom: 20px;
 }
@@ -1646,12 +1655,6 @@ p {
 .singleInfoLabel {
     font-size: 19px;
     font-weight: 500;
-}
-
-.singleSizeSelect {
-    height: 20px;
-    text-align: center;
-    margin: 0 0 25px 15px;
 }
 
 .singleInfoQuantity {
@@ -2129,7 +2132,7 @@ p {
 }
 
 
-.adminProducts{
+.adminProducts {
     width: 100%;
 }
 
@@ -2164,7 +2167,7 @@ p {
 }
 
 .adminMenuLink:hover,
-.adminMenuLink.active{
+.adminMenuLink.active {
     color: #c31e39;
 }
 
@@ -2328,12 +2331,22 @@ p {
     object-fit: cover;
 }
 
+.adminSelect,
 .adminForm input {
     border: none;
     margin-bottom: 20px;
     border-bottom: 1px solid #4a4a4a;
 }
 
+.adminSelect {
+    text-transform: capitalize;
+}
+
+.adminSelect option {
+    text-transform: capitalize;
+}
+
+.adminSelect:focus,
 .adminForm input:focus {
     outline: none;
 }

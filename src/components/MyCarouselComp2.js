@@ -1,22 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import banner from '../assets/img/post/banner.jpeg';
+import banner2 from '../assets/img/post/banner2.jpg';
 
-function MyCarouselComp2({ data }) {
+function MyCarouselComp2() {
   return (
-    <div className="banner2Row">
-      <div className="banner2Desk">
+    <div className="bannerRow">
+      <div className="bannerDesk">
         <p className="banner2Info">
-          {data}
+          The best ARMENIAN silver you can get
         </p>
-        <button className="banner2Btn">
-          <Link className="banner2Link" to="/shop">
-            Shop now
+        <button className="bannerBtn">
+          <Link className="bannerLink" to="/shop">
+            shop now
           </Link>
         </button>
       </div>
       <figure className="banner2Figure">
-        <img className="banner2Img" src={banner} alt="" />
+        <img className="banner2Img" src={banner2} alt="" />
       </figure>
     </div>
   );
