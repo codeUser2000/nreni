@@ -10,7 +10,7 @@ function AdminMenu() {
       <p className="adminTitle">menu</p>
       <ul className="adminMenuBlock">
         <li className="adminMenuList">
-          <NavLink to="/adminProduct" className="adminMenuLink">
+          <NavLink to="/admin-product" className="adminMenuLink">
             <ProductionQuantityLimitsIcon style={{ fill: '#c31e39', marginRight: '5px' }} />
             products
           </NavLink>
@@ -22,7 +22,7 @@ function AdminMenu() {
           </NavLink>
         </li>
         <li className="adminMenuList">
-          <NavLink to="/adminUsers" className="adminMenuLink">
+          <NavLink to="/admin-users" className="adminMenuLink">
             <PersonIcon style={{ fill: '#c31e39', marginRight: '5px' }} />
             users
           </NavLink>

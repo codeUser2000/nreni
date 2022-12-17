@@ -40,14 +40,14 @@ class App extends Component {
             <Route path="/cart" element={<Cart />} />
             <Route path="/confirm" element={<Confirm />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/passwordReset" element={<PasswordReset />} />
-            <Route path="/newPassword" element={<NewPassword />} />
+            <Route path="/password-reset" element={<PasswordReset />} />
+            <Route path="/new-password" element={<NewPassword />} />
             <Route path="*" element={<Navigate to="/not-found" />} />
             <Route path="/not-found" element={<NotFound />} />
             {/* <Route path="/admin" element={<Admin />} /> */}
-            <Route path="/adminProduct" element={<AdminProduct />} />
-            <Route path="/adminCreateProduct" element={<AdminCreateProduct />} />
-            <Route path="/adminUsers" element={<AdminUsers />} />
+            <Route path="/admin-product" element={<AdminProduct />} />
+            <Route path="/admin-create-product" element={<AdminCreateProduct />} />
+            <Route path="/admin-users" element={<AdminUsers />} />
           </Routes>
         </BrowserRouter>
         <ToastContainer closeOnClick hideProgressBar />

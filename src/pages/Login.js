@@ -96,7 +96,7 @@ function Login() {
                 <span className="checkmark" />
                 Remember me
               </label>
-              <Link className="forgotPassword" to="/passwordReset">Forgot password?</Link>
+              <Link className="forgotPassword" to="/password-reset">Forgot password?</Link>
             </div>
             <button type="submit" className="loginFormBtn">LOGIN</button>
             <Link to="/register" className="loginFormLink">Or sign up Using</Link>

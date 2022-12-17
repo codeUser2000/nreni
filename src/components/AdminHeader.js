@@ -16,7 +16,7 @@ function AdminHeader() {
           <nav className="nav">
             <ul className="navBlock">
               <li className="navList">
-                <Link to="/admin" className="navLink">admin</Link>
+                <Link to="/admin-product" className="navLink">admin</Link>
               </li>
               <li className="navList">
                 <Link to="/home" className="navLink">logout</Link>

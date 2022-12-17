@@ -16,7 +16,7 @@ function AdminProduct() {
       <div className="adminProducts">
         <div className="adminProductsBlock">
           <p className="adminTitle">Products</p>
-          <Link to="/adminCreateProduct" className="adminProductsBtn">Create</Link>
+          <Link to="/admin-create-product" className="adminProductsBtn">Create</Link>
         </div>
         <table className="adminTable">
           <thead className="adminTableThead">
