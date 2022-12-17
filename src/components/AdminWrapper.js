@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router';
 import AdminHeader from './AdminHeader';
 import AdminMenu from './AdminMenu';
+import Account from '../helpers/Account';
 
 function AdminWrapper({ children }) {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!Account.getAdminToken()) {
+      navigate('/login');
+    }
+  }, []);
   return (
     <>
       <AdminHeader />
