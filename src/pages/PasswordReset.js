@@ -15,12 +15,9 @@ function PasswordReset() {
 
   return (
     <>
-      <Helmet>
-        <title>Reset password</title>
-      </Helmet>
       <header className="header">
         <div className="container">
-          <div className="row">
+          <div className="pasResetRow">
             <figure className="logo">
               <Link to="/home" className="logoLink">
                 <img src={logo} alt="nreni" className="logoImg" />
@@ -42,7 +39,10 @@ function PasswordReset() {
                 send you a link to get into your
                 account.
               </p>
-              <input type="email" onChange={(ev) => setEmail(ev.target.value)} className="resetPasInput" placeholder="Type your email" />
+              <input type="email"
+                     onChange={(ev) => setEmail(ev.target.value)}
+                     className="resetPasInput"
+                     placeholder="Type Your Email" />
               <button type="submit" className="resetPasBtn">Send instructions</button>
             </form>
           </div>

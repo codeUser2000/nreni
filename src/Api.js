@@ -68,6 +68,10 @@ class Api {
     return api.get('/users/confirm');
   }
 
+  static adminLogin() {
+    return api.post('/admin');
+  }
+
   // static getCategoryData(category) {
   //   return api.get(`shop/${category}`);
   // }

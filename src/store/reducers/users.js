@@ -9,6 +9,9 @@ import {
   CREATE_USER_SUCCESS,
   FORGET_USER_PASSWORD_SUCCESS,
   FORGET_USER_PASSWORD_FAIL,
+  LOGIN_ADMIN_REQUEST,
+  LOGIN_ADMIN_SUCCESS,
+  LOGIN_ADMIN_FAIL,
 } from '../actions/users';
 
 import Account from '../../helpers/Account';
@@ -16,6 +19,8 @@ import Account from '../../helpers/Account';
 const initialState = {
   usersData: [],
   usersDataStatus: '',
+  adminData: [],
+  adminDataStatus: '',
 };
 // eslint-disable-next-line default-param-last
 export default function reducer(state = initialState, action) {
@@ -53,6 +58,21 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         usersDataStatus: 'fail',
+      };
+    }
+    case LOGIN_ADMIN_SUCCESS: {
+      const { data, remember } = action.payload;
+      Account.setAdminToken(data.token, remember, data.user);
+      return {
+        ...state,
+        adminDataStatus: 'ok',
+      };
+    }
+    case LOGIN_ADMIN_FAIL: {
+      toast.error('Login or password is wrong');
+      return {
+        ...state,
+        adminDataStatus: 'fail',
       };
     }
     case FORGET_USER_PASSWORD_SUCCESS: {

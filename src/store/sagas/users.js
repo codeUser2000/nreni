@@ -16,24 +16,12 @@ import {
   GET_USERS_LIST_FAIL,
   GET_USERS_LIST_REQUEST,
   GET_USERS_LIST_SUCCESS,
+  LOGIN_ADMIN_REQUEST,
+  LOGIN_ADMIN_SUCCESS,
+  LOGIN_ADMIN_FAIL,
 } from '../actions/users';
 import Api from '../../Api';
 import Account from '../../helpers/Account';
-
-// function* handleUserLoginRequest() {
-//   try {
-//     const { data } = yield call(Api.login);
-//     yield put({
-//       type: GET_USERS_LIST_SUCCESS,
-//       payload: { data: data.results },
-//     });
-//   } catch (e) {
-//     yield put({
-//       type: GET_USERS_LIST_FAIL,
-//       payload: { error: e.message },
-//     });
-//   }
-// }
 
 function* handleCreateUserRequest(action) {
   try {
@@ -71,7 +59,7 @@ function* handleDeleteUserRequest(action) {
 function* handleUserLoginRequest(action) {
   try {
     const { formData, remember } = action.payload;
-    const { data } = yield call(Api.login, formData);
+    const { data } = yield call(Api.adminLogin, formData);
     yield put({
       type: LOGIN_USER_SUCCESS,
       payload: { data, remember },
@@ -79,6 +67,22 @@ function* handleUserLoginRequest(action) {
   } catch (e) {
     yield put({
       type: LOGIN_USER_FAIL,
+      payload: { error: e.response },
+    });
+  }
+}
+
+function* handleAdminLoginRequest(action) {
+  try {
+    const { formData, remember } = action.payload;
+    const { data } = yield call(Api.login, formData);
+    yield put({
+      type: LOGIN_ADMIN_SUCCESS,
+      payload: { data, remember },
+    });
+  } catch (e) {
+    yield put({
+      type: LOGIN_ADMIN_FAIL,
       payload: { error: e.response },
     });
   }
@@ -113,6 +117,7 @@ function* handleUserNewPasswordRequest(action) {
     });
   }
 }
+
 function* handleUsersRequest(action) {
   try {
     const { data } = yield call(Api.getUser, action.payload.page);
@@ -130,6 +135,7 @@ function* handleUsersRequest(action) {
 
 export default function* watcher() {
   yield takeLatest(LOGIN_USER_REQUEST, handleUserLoginRequest);
+  yield takeLatest(LOGIN_ADMIN_REQUEST, handleAdminLoginRequest);
   yield takeLatest(FORGET_USER_PASSWORD_REQUEST, handleUserForgetPasswordRequest);
   yield takeLatest(NEW_USER_PASSWORD_REQUEST, handleUserNewPasswordRequest);
   yield takeLatest(CREATE_USER_REQUEST, handleCreateUserRequest);

@@ -62,3 +62,16 @@ export function newUserPasswordRequest(data) {
     payload: { data },
   };
 }
+
+
+export const LOGIN_ADMIN_REQUEST = 'LOGIN_ADMIN_REQUEST';
+export const LOGIN_ADMIN_SUCCESS = 'LOGIN_ADMIN_SUCCESS';
+export const LOGIN_ADMIN_FAIL = 'LOGIN_ADMIN_FAIL';
+
+export function adminLoginRequest(data, remember) {
+  return {
+    type: LOGIN_ADMIN_REQUEST,
+    payload: { formData: data, remember },
+  };
+}
+

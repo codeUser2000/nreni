@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/img/logo/logo.png';
+import Account from '../helpers/Account';
 
 function AdminHeader() {
+  const handleLogout = useCallback(() => {
+    Account.logoutAdmin();
+    window.location.reload(false);
+  }, []);
+
   return (
     <header className="adminHeader">
       <div className="container">
@@ -19,7 +25,12 @@ function AdminHeader() {
                 <Link to="/admin-product" className="navLink">admin</Link>
               </li>
               <li className="navList">
-                <Link to="/home" className="navLink">logout</Link>
+                <p
+                  className="navLink"
+                  onClick={handleLogout}
+                >
+                  logout
+                </p>
               </li>
             </ul>
           </nav>

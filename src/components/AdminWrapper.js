@@ -8,7 +8,7 @@ function AdminWrapper({ children }) {
   const navigate = useNavigate();
   useEffect(() => {
     if (!Account.getAdminToken()) {
-      navigate('/login');
+      navigate('/admin');
     }
   }, []);
   return (
