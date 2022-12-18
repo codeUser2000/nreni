@@ -1,4 +1,5 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
+import { toast } from 'react-toastify';
 import {
   GET_PRODUCT_DATA_FAIL,
   GET_PRODUCT_DATA_REQUEST,
@@ -6,6 +7,9 @@ import {
   CREATE_PRODUCT_REQUEST,
   CREATE_PRODUCT_SUCCESS,
   CREATE_PRODUCT_FAIL,
+  DELETE_PRODUCT_FAIL,
+  DELETE_PRODUCT_REQUEST,
+  DELETE_PRODUCT_SUCCESS,
 } from '../actions/product';
 import Api from '../../Api';
 
@@ -26,6 +30,7 @@ function* handleGetProductsRequest(action) {
 function* handleCreateProductsRequest(action) {
   try {
     const { data } = yield call(Api.createProduct, action.payload.data);
+    toast.success('Product is created');
     yield put({
       type: CREATE_PRODUCT_SUCCESS,
       payload: { data },
@@ -37,8 +42,23 @@ function* handleCreateProductsRequest(action) {
     });
   }
 }
+function* handleDeleteProductsRequest(action) {
+  try {
+    yield call(Api.deleteProduct, action.payload.id);
+    yield put({
+      type: DELETE_PRODUCT_SUCCESS,
+      payload: {},
+    });
+  } catch (e) {
+    yield put({
+      type: DELETE_PRODUCT_FAIL,
+      payload: { error: e.message },
+    });
+  }
+}
 
 export default function* watcher() {
   yield takeLatest(GET_PRODUCT_DATA_REQUEST, handleGetProductsRequest);
   yield takeLatest(CREATE_PRODUCT_REQUEST, handleCreateProductsRequest);
+  yield takeLatest(DELETE_PRODUCT_REQUEST, handleDeleteProductsRequest);
 }

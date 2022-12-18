@@ -19,3 +19,14 @@ export function createProductRequest(data) {
     payload: { data },
   };
 }
+
+export const DELETE_PRODUCT_REQUEST = 'DELETE_PRODUCT_REQUEST';
+export const DELETE_PRODUCT_SUCCESS = 'DELETE_PRODUCT_SUCCESS';
+export const DELETE_PRODUCT_FAIL = 'DELETE_PRODUCT_FAIL';
+
+export function deleteProductRequest(id) {
+  return {
+    type: DELETE_PRODUCT_REQUEST,
+    payload: { id },
+  };
+}

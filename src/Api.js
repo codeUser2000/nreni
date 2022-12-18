@@ -24,14 +24,6 @@ class Api {
     });
   }
 
-  static deleteUser(email) {
-    return api.post('/users/delete', { email });
-  }
-
-  static setBlockquote(data) {
-    return api.post('/users/blockquote', data);
-  }
-
   static getBlockquote() {
     return api.get('/users/getBlockquote');
   }
@@ -40,8 +32,16 @@ class Api {
     return api.get(`/users/list?page=${page || 1}`);
   }
 
-  static login(data) {
-    return api.post('/users/login', data);
+  static deleteUser(email) {
+    return api.post('/users/delete', { email });
+  }
+
+  static deleteProduct(id) {
+    return api.post('/products/delete', { id });
+  }
+
+  static setBlockquote(data) {
+    return api.post('/users/blockquote', data);
   }
 
   static createProduct(data) {
@@ -56,16 +56,20 @@ class Api {
     );
   }
 
+  static register(data) {
+    return api.post('/users/register', data);
+  }
+
+  static login(data) {
+    return api.post('/users/login', data);
+  }
+
   static forgetPass(email) {
     return api.post('/users/forget', { email });
   }
 
   static setNewPassword(data) {
     return api.post('/users/newPassword', data);
-  }
-
-  static register(data) {
-    return api.post('/users/register', data);
   }
 
   static confirm() {
