@@ -24,8 +24,8 @@ class Api {
     });
   }
 
-  static deleteUser(data) {
-    return api.post('/users/deleteUser', data);
+  static deleteUser(email) {
+    return api.post('/users/delete', { email });
   }
 
   static setBlockquote(data) {
@@ -45,7 +45,6 @@ class Api {
   }
 
   static createProduct(data) {
-    console.log(data);
     return api.post(
       '/products/createProducts',
       data,

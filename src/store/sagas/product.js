@@ -25,9 +25,7 @@ function* handleGetProductsRequest(action) {
 }
 function* handleCreateProductsRequest(action) {
   try {
-    console.log(action.payload.data);
     const { data } = yield call(Api.createProduct, action.payload.data);
-    console.log(data);
     yield put({
       type: CREATE_PRODUCT_SUCCESS,
       payload: { data },

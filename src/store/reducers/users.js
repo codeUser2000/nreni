@@ -21,6 +21,7 @@ const initialState = {
   usersDataStatus: '',
   adminData: [],
   adminDataStatus: '',
+  pagination: 0,
 };
 // eslint-disable-next-line default-param-last
 export default function reducer(state = initialState, action) {
@@ -36,6 +37,7 @@ export default function reducer(state = initialState, action) {
         ...state,
         usersDataStatus: 'ok',
         usersData: action.payload.data.user,
+        pagination: +action.payload.data.totalPages,
       };
     }
     case GET_USERS_LIST_FAIL: {
@@ -54,7 +56,7 @@ export default function reducer(state = initialState, action) {
       };
     }
     case LOGIN_USER_FAIL: {
-      toast.error('Login or password is wrong');
+      toast.error(action.payload.error.data.message);
       return {
         ...state,
         usersDataStatus: 'fail',

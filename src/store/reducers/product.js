@@ -10,7 +10,7 @@ const initialState = {
   productData: {},
   productDataStatus: '',
   productPrice: {},
-  pagination: '',
+  pagination: 0,
 };
 
 // eslint-disable-next-line default-param-last
@@ -33,7 +33,7 @@ export default function reducer(state = initialState, action) {
         productsDataStatus: 'ok',
         productsData: data.product,
         productPrice: data.productPrice[0],
-        pagination: data.totalPages,
+        pagination: +data.totalPages,
       };
     }
     case GET_PRODUCT_DATA_FAIL:

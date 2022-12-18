@@ -39,10 +39,24 @@ function* handleCreateUserRequest(action) {
   }
 }
 
+function* handleUsersRequest(action) {
+  try {
+    const { data } = yield call(Api.getUser, action.payload.page);
+    yield put({
+      type: GET_USERS_LIST_SUCCESS,
+      payload: { data },
+    });
+  } catch (e) {
+    yield put({
+      type: GET_USERS_LIST_FAIL,
+      payload: { error: e.response },
+    });
+  }
+}
+
 function* handleDeleteUserRequest(action) {
   try {
-    yield call(Api.deleteUser, action.payload.data);
-    Account.logout();
+    yield call(Api.deleteUser, action.payload.email);
     toast.success('User is deleted successfully');
     yield put({
       type: DELETE_USER_SUCCESS,
@@ -113,21 +127,6 @@ function* handleUserNewPasswordRequest(action) {
   } catch (e) {
     yield put({
       type: NEW_USER_PASSWORD_FAIL,
-      payload: { error: e.response },
-    });
-  }
-}
-
-function* handleUsersRequest(action) {
-  try {
-    const { data } = yield call(Api.getUser, action.payload.page);
-    yield put({
-      type: GET_USERS_LIST_SUCCESS,
-      payload: { data },
-    });
-  } catch (e) {
-    yield put({
-      type: GET_USERS_LIST_FAIL,
       payload: { error: e.response },
     });
   }

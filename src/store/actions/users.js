@@ -35,10 +35,10 @@ export const DELETE_USER_REQUEST = 'DELETE_USER_REQUEST';
 export const DELETE_USER_SUCCESS = 'DELETE_USER_SUCCESS';
 export const DELETE_USER_FAIL = 'DELETE_USER_FAIL';
 
-export function deleteUserRequest(data) {
+export function deleteUserRequest(email) {
   return {
     type: DELETE_USER_REQUEST,
-    payload: { data },
+    payload: { email },
   };
 }
 
@@ -63,7 +63,6 @@ export function newUserPasswordRequest(data) {
   };
 }
 
-
 export const LOGIN_ADMIN_REQUEST = 'LOGIN_ADMIN_REQUEST';
 export const LOGIN_ADMIN_SUCCESS = 'LOGIN_ADMIN_SUCCESS';
 export const LOGIN_ADMIN_FAIL = 'LOGIN_ADMIN_FAIL';
@@ -74,4 +73,3 @@ export function adminLoginRequest(data, remember) {
     payload: { formData: data, remember },
   };
 }
-

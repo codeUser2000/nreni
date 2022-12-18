@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { Pagination } from '@mui/material';
 import AdminWrapper from '../components/AdminWrapper';
 import { getProductDataRequest } from '../store/actions/product';
 
@@ -8,9 +9,15 @@ function AdminProduct() {
   const dispatch = useDispatch();
   const productsData = useSelector((state) => state.product.productsData);
   const { REACT_APP_API_URL } = process.env;
+  const [pageNumber, setPageNumber] = useState(1);
+  const pagination = useSelector((state) => state.product.pagination);
   useEffect(() => {
-    dispatch(getProductDataRequest(1));
-  }, []);
+    dispatch(getProductDataRequest(pageNumber));
+  }, [pageNumber]);
+  const handleChange = useCallback((ev, value) => {
+    setPageNumber(value);
+    dispatch(getProductDataRequest(pageNumber));
+  }, [pagination]);
   return (
     <AdminWrapper>
       <div className="adminProducts">
@@ -63,6 +70,7 @@ function AdminProduct() {
             ))}
           </tbody>
         </table>
+        <Pagination count={+pagination} page={pageNumber} onChange={handleChange} />
       </div>
     </AdminWrapper>
   );
