@@ -506,7 +506,7 @@ figure {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    align-items: end;
+    align-items: flex-end;
     flex-direction: row;
     margin-bottom: 150px;
     justify-content: space-between;

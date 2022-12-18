@@ -59,7 +59,7 @@ function* handleDeleteUserRequest(action) {
 function* handleUserLoginRequest(action) {
   try {
     const { formData, remember } = action.payload;
-    const { data } = yield call(Api.adminLogin, formData);
+    const { data } = yield call(Api.login, formData);
     yield put({
       type: LOGIN_USER_SUCCESS,
       payload: { data, remember },
@@ -75,7 +75,7 @@ function* handleUserLoginRequest(action) {
 function* handleAdminLoginRequest(action) {
   try {
     const { formData, remember } = action.payload;
-    const { data } = yield call(Api.login, formData);
+    const { data } = yield call(Api.adminLogin, formData);
     yield put({
       type: LOGIN_ADMIN_SUCCESS,
       payload: { data, remember },

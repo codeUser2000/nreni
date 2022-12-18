@@ -25,7 +25,7 @@ function Register() {
     formData[key] = value;
     setFormData({ ...formData });
   }, [formData]);
-  const handleSubmit = useCallback(async (ev) => {
+  const handleSubmit = useCallback((ev) => {
     ev.preventDefault();
     const emailReg = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
     const passReg = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
@@ -58,7 +58,7 @@ function Register() {
         return;
       }
     }
-    await dispatch(createUserRequest(formData));
+    dispatch(createUserRequest(formData));
   }, [formData, password2]);
   return (
     <div className="registrationPage">
@@ -71,7 +71,8 @@ function Register() {
                 <p className=" regPageLogoName">NRENI</p>
               </Link>
               <h2 className=" regBannerTitle">
-                Welcome to{' '}
+                Welcome to
+                {' '}
                 <span>SILVER NRENI</span>
                 {' '}
                 page

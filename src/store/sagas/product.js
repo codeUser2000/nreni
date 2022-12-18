@@ -3,6 +3,9 @@ import {
   GET_PRODUCT_DATA_FAIL,
   GET_PRODUCT_DATA_REQUEST,
   GET_PRODUCT_DATA_SUCCESS,
+  CREATE_PRODUCT_REQUEST,
+  CREATE_PRODUCT_SUCCESS,
+  CREATE_PRODUCT_FAIL,
 } from '../actions/product';
 import Api from '../../Api';
 
@@ -20,7 +23,24 @@ function* handleGetProductsRequest(action) {
     });
   }
 }
+function* handleCreateProductsRequest(action) {
+  try {
+    console.log(action.payload.data);
+    const { data } = yield call(Api.createProduct, action.payload.data);
+    console.log(data);
+    yield put({
+      type: CREATE_PRODUCT_SUCCESS,
+      payload: { data },
+    });
+  } catch (e) {
+    yield put({
+      type: CREATE_PRODUCT_FAIL,
+      payload: { error: e.message },
+    });
+  }
+}
 
 export default function* watcher() {
   yield takeLatest(GET_PRODUCT_DATA_REQUEST, handleGetProductsRequest);
+  yield takeLatest(CREATE_PRODUCT_REQUEST, handleCreateProductsRequest);
 }

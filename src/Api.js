@@ -5,8 +5,8 @@ const { REACT_APP_API_URL } = process.env;
 const api = axios.create({
   baseURL: REACT_APP_API_URL,
   headers: {
-    Authorization: Account.getToken(),
-    'Content-type': 'application/json',
+    Authorization: Account.getToken() || Account.getAdminToken(),
+    'Content-Type': 'application/json',
   },
 });
 
@@ -45,11 +45,16 @@ class Api {
   }
 
   static createProduct(data) {
-    return api.post('/products/createProducts', data, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
+    console.log(data);
+    return api.post(
+      '/products/createProducts',
+      data,
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
       },
-    });
+    );
   }
 
   static forgetPass(email) {
@@ -68,8 +73,8 @@ class Api {
     return api.get('/users/confirm');
   }
 
-  static adminLogin() {
-    return api.post('/admin');
+  static adminLogin(data) {
+    return api.post('/admin', data);
   }
 
   // static getCategoryData(category) {
