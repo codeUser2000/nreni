@@ -23,13 +23,11 @@ class Account {
     }
   }
 
-  static setAdminToken(token, remember, profile) {
+  static setAdminToken(token, remember) {
     if (remember) {
       localStorage.setItem('adminToken', token);
-      localStorage.setItem('profile', JSON.stringify(profile));
     } else {
       sessionStorage.setItem('adminToken', token);
-      sessionStorage.setItem('profile', JSON.stringify(profile));
     }
   }
 
