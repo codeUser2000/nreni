@@ -13,7 +13,6 @@ const initialState = {
   pagination: 0,
 };
 
-// eslint-disable-next-line default-param-last
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case GET_PRODUCT_DATA_REQUEST: {
@@ -27,7 +26,6 @@ export default function reducer(state = initialState, action) {
     case GET_PRODUCT_DATA_SUCCESS:
     {
       const { data } = action.payload;
-      console.log(data);
       return {
         ...state,
         productsDataStatus: 'ok',

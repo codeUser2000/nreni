@@ -36,8 +36,16 @@ class Api {
     return api.post('/users/delete', { email });
   }
 
+  static userSelfDelete(email) {
+    return api.post('/users/deleteSelf', { email });
+  }
+
   static deleteProduct(id) {
     return api.post('/products/delete', { id });
+  }
+
+  static updateProduct(data) {
+    return api.post('/products/update', { data });
   }
 
   static setBlockquote(data) {

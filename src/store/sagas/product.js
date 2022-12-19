@@ -10,6 +10,9 @@ import {
   DELETE_PRODUCT_FAIL,
   DELETE_PRODUCT_REQUEST,
   DELETE_PRODUCT_SUCCESS,
+  UPDATE_PRODUCT_REQUEST,
+  UPDATE_PRODUCT_SUCCESS,
+  UPDATE_PRODUCT_FAIL,
 } from '../actions/product';
 import Api from '../../Api';
 
@@ -27,6 +30,7 @@ function* handleGetProductsRequest(action) {
     });
   }
 }
+
 function* handleCreateProductsRequest(action) {
   try {
     const { data } = yield call(Api.createProduct, action.payload.data);
@@ -42,6 +46,7 @@ function* handleCreateProductsRequest(action) {
     });
   }
 }
+
 function* handleDeleteProductsRequest(action) {
   try {
     yield call(Api.deleteProduct, action.payload.id);
@@ -57,8 +62,24 @@ function* handleDeleteProductsRequest(action) {
   }
 }
 
+function* handleUpdateProductsRequest(action) {
+  try {
+    yield call(Api.updateProduct, action.payload.data);
+    yield put({
+      type: UPDATE_PRODUCT_SUCCESS,
+      payload: {},
+    });
+  } catch (e) {
+    yield put({
+      type: UPDATE_PRODUCT_FAIL,
+      payload: { error: e.message },
+    });
+  }
+}
+
 export default function* watcher() {
   yield takeLatest(GET_PRODUCT_DATA_REQUEST, handleGetProductsRequest);
   yield takeLatest(CREATE_PRODUCT_REQUEST, handleCreateProductsRequest);
   yield takeLatest(DELETE_PRODUCT_REQUEST, handleDeleteProductsRequest);
+  yield takeLatest(UPDATE_PRODUCT_REQUEST, handleUpdateProductsRequest);
 }

@@ -18,10 +18,10 @@ function AdminLogin() {
 
   useEffect(() => {
     if (adminDataStatus === 'ok') {
-      navigate('/admin-create-product');
+      navigate('/admin-product');
     }
     if (Account.getAdminToken()) {
-      navigate('/admin-create-product');
+      navigate('/admin-product');
     }
   }, [adminDataStatus]);
 
