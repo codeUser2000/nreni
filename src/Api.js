@@ -5,7 +5,7 @@ const { REACT_APP_API_URL } = process.env;
 const api = axios.create({
   baseURL: REACT_APP_API_URL,
   headers: {
-    Authorization: Account.getToken() || Account.getAdminToken(),
+    Authorization: Account.getAdminToken() || Account.getToken(),
     'Content-Type': 'application/json',
   },
 });
