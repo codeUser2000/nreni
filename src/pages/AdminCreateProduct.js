@@ -3,7 +3,6 @@ import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import img from '../assets/img/post/about2.jpg';
 import AdminWrapper from '../components/AdminWrapper';
-import Api from '../Api';
 import { createProductRequest } from '../store/actions/product';
 
 function AdminCreateProduct() {
@@ -27,7 +26,7 @@ function AdminCreateProduct() {
 
       if (!file.type.startsWith('image/')) {
         toast.error('Your file should be image');
-        return;
+        return; '';
       }
       const fileReader = new FileReader();
       fileReader.onload = (ev) => {

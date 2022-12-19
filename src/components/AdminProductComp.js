@@ -34,7 +34,9 @@ function AdminProductComp({ data }) {
       <td>
         <div className="adminTableBtnRow">
           <button type="button" className="adminTableView">View</button>
-          <button type="button" onClick={() => handleDelete(data.id)} className="adminTableDelete">delete</button>
+          <button type="button" onClick={() => handleDelete(data.id)} className="adminTableDelete">
+            delete
+          </button>
           <button type="button" className="adminTableUpdate">update</button>
         </div>
       </td>

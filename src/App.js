@@ -17,10 +17,10 @@ import Profile from './pages/Profile';
 import PasswordReset from './pages/PasswordReset';
 import NewPassword from './pages/NewPassword';
 import Cleaning from './pages/Cleaning';
-import AdminProduct from './pages/AdminProduct';
 import AdminUsers from './pages/AdminUsers';
 import AdminCreateProduct from './pages/AdminCreateProduct';
 import AdminLogin from './pages/AdminLogin';
+import AdminProduct from './pages/AdminProduct';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class App extends Component {
