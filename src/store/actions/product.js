@@ -13,7 +13,6 @@ export const CREATE_PRODUCT_SUCCESS = 'CREATE_PRODUCT_SUCCESS';
 export const CREATE_PRODUCT_FAIL = 'CREATE_PRODUCT_FAIL';
 
 export function createProductRequest(data) {
-  console.log(data);
   return {
     type: CREATE_PRODUCT_REQUEST,
     payload: { data },
@@ -28,5 +27,16 @@ export function deleteProductRequest(id) {
   return {
     type: DELETE_PRODUCT_REQUEST,
     payload: { id },
+  };
+}
+
+export const UPDATE_PRODUCT_REQUEST = 'UPDATE_PRODUCT_REQUEST';
+export const UPDATE_PRODUCT_SUCCESS = 'UPDATE_PRODUCT_SUCCESS';
+export const UPDATE_PRODUCT_FAIL = 'UPDATE_PRODUCT_FAIL';
+
+export function updateProductRequest(data) {
+  return {
+    type: UPDATE_PRODUCT_REQUEST,
+    payload: { data },
   };
 }

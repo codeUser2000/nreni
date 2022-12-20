@@ -17,8 +17,11 @@ function AdminLogin() {
   const adminDataStatus = useSelector((state) => state.users.adminDataStatus);
 
   useEffect(() => {
+    if (adminDataStatus === 'ok') {
+      navigate('/admin-create-product');
+    }
     if (Account.getAdminToken()) {
-      navigate('/admin-products');
+      navigate('/admin-create-product');
     }
   }, [adminDataStatus]);
 

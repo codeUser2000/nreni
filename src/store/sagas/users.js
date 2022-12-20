@@ -19,9 +19,11 @@ import {
   LOGIN_ADMIN_REQUEST,
   LOGIN_ADMIN_SUCCESS,
   LOGIN_ADMIN_FAIL,
+  DELETE_USER_SELF_REQUEST,
+  DELETE_USER_SELF_SUCCESS,
+  DELETE_USER_SELF_FAIL,
 } from '../actions/users';
 import Api from '../../Api';
-import Account from '../../helpers/Account';
 
 function* handleCreateUserRequest(action) {
   try {
@@ -65,6 +67,22 @@ function* handleDeleteUserRequest(action) {
   } catch (e) {
     yield put({
       type: DELETE_USER_FAIL,
+      payload: { error: e.response },
+    });
+  }
+}
+
+function* handleDeleteUserSelfRequest(action) {
+  try {
+    yield call(Api.userSelfDelete, action.payload.email);
+    toast.success('You are deleted successfully');
+    yield put({
+      type: DELETE_USER_SELF_SUCCESS,
+      payload: {},
+    });
+  } catch (e) {
+    yield put({
+      type: DELETE_USER_SELF_FAIL,
       payload: { error: e.response },
     });
   }
@@ -140,4 +158,5 @@ export default function* watcher() {
   yield takeLatest(CREATE_USER_REQUEST, handleCreateUserRequest);
   yield takeLatest(DELETE_USER_REQUEST, handleDeleteUserRequest);
   yield takeLatest(GET_USERS_LIST_REQUEST, handleUsersRequest);
+  yield takeLatest(DELETE_USER_SELF_REQUEST, handleDeleteUserSelfRequest);
 }
