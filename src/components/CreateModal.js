@@ -1,11 +1,13 @@
 import React, { useCallback, useState } from 'react';
-import { toast } from 'react-toastify';
+import Modal from 'react-modal';
 import { useDispatch } from 'react-redux';
-import img from '../assets/img/post/about2.jpg';
-import AdminWrapper from '../components/AdminWrapper';
+import { toast } from 'react-toastify';
 import { createProductRequest } from '../store/actions/product';
+import img from '../assets/img/post/about2.jpg';
 
-function AdminCreateProduct() {
+function CreateModal({
+  show, setShow,
+}) {
   const [formData, setFormData] = useState({
     avatar: '',
     title: '',
@@ -26,7 +28,7 @@ function AdminCreateProduct() {
 
       if (!file.type.startsWith('image/')) {
         toast.error('Your file should be image');
-        return; '';
+        return;
       }
       const fileReader = new FileReader();
       fileReader.onload = (ev) => {
@@ -43,7 +45,32 @@ function AdminCreateProduct() {
   }, [formData]);
 
   return (
-    <AdminWrapper>
+    <Modal
+      onRequestClose={() => setShow(false)}
+      isOpen={show}
+      style={{
+        overlay: {
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(0, 0, 0, 0.75)',
+        },
+        content: {
+          position: 'absolute',
+          margin: 'auto',
+          border: '1px solid #ccc',
+          background: '#fff',
+          overflow: 'auto',
+          WebkitOverflowScrolling: 'touch',
+          borderRadius: '4px',
+          outline: 'none',
+          padding: '20px',
+        },
+      }}
+    >
+      <div onClick={() => setShow(false)}>hello</div>
       <div className="adminEditProduct">
         <form className="adminForm" onSubmit={handleSubmit}>
           <p className="adminTitle">create a product</p>
@@ -91,8 +118,8 @@ function AdminCreateProduct() {
           </figure>
         </div>
       </div>
-    </AdminWrapper>
+    </Modal>
   );
 }
 
-export default AdminCreateProduct;
+export default CreateModal;

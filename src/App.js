@@ -18,7 +18,6 @@ import PasswordReset from './pages/PasswordReset';
 import NewPassword from './pages/NewPassword';
 import Cleaning from './pages/Cleaning';
 import AdminUsers from './pages/AdminUsers';
-import AdminCreateProduct from './pages/AdminCreateProduct';
 import AdminLogin from './pages/AdminLogin';
 import AdminProduct from './pages/AdminProduct';
 
@@ -47,7 +46,6 @@ class App extends Component {
             <Route path="/not-found" element={<NotFound />} />
             <Route path="/admin" element={<AdminLogin />} />
             <Route path="/admin-product" element={<AdminProduct />} />
-            <Route path="/admin-create-product" element={<AdminCreateProduct />} />
             <Route path="/admin-users" element={<AdminUsers />} />
           </Routes>
         </BrowserRouter>

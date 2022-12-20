@@ -39,10 +39,12 @@ function PasswordReset() {
                 send you a link to get into your
                 account.
               </p>
-              <input type="email"
-                     onChange={(ev) => setEmail(ev.target.value)}
-                     className="resetPasInput"
-                     placeholder="Type Your Email" />
+              <input
+                type="email"
+                onChange={(ev) => setEmail(ev.target.value)}
+                className="resetPasInput"
+                placeholder="Type Your Email"
+              />
               <button type="submit" className="resetPasBtn">Send instructions</button>
             </form>
           </div>

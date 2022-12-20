@@ -5,11 +5,13 @@ import { Pagination } from '@mui/material';
 import AdminWrapper from '../components/AdminWrapper';
 import { getProductDataRequest } from '../store/actions/product';
 import AdminProductComp from '../components/AdminProductComp';
+import CreateModal from '../components/CreateModal';
 
 function AdminProduct() {
   const dispatch = useDispatch();
   const productsData = useSelector((state) => state.product.productsData);
   const [pageNumber, setPageNumber] = useState(1);
+  const [show, setShow] = useState(false);
   const pagination = useSelector((state) => state.product.pagination);
   useEffect(() => {
     dispatch(getProductDataRequest(pageNumber));
@@ -24,7 +26,7 @@ function AdminProduct() {
       <div className="adminProducts">
         <div className="adminProductsBlock">
           <p className="adminTitle">Products</p>
-          <Link to="/admin-create-product" className="adminProductsBtn">Create</Link>
+          <p onClick={() => setShow(true)} className="adminProductsBtn">Create</p>
         </div>
         <table className="adminTable">
           <thead className="adminTableThead">
@@ -45,6 +47,7 @@ function AdminProduct() {
         </table>
         <Pagination count={+pagination} page={pageNumber} onChange={handleChange} />
       </div>
+      <CreateModal show={show} setShow={setShow} />
     </AdminWrapper>
   );
 }
