@@ -45,7 +45,12 @@ class Api {
   }
 
   static updateProduct(data) {
-    return api.post('/products/update', { data });
+    console.log(data);
+    return api.post('/products/update', data, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
   }
 
   static setBlockquote(data) {

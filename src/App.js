@@ -42,7 +42,7 @@ class App extends Component {
             <Route path="/profile" element={<Profile />} />
             <Route path="/password-reset" element={<PasswordReset />} />
             <Route path="/new-password" element={<NewPassword />} />
-            <Route path="*" element={<Navigate to="/not-found" />} />
+            {/*<Route path="*" element={<Navigate to="/not-found" />} />*/}
             <Route path="/not-found" element={<NotFound />} />
             <Route path="/admin" element={<AdminLogin />} />
             <Route path="/admin-product" element={<AdminProduct />} />
