@@ -35,6 +35,7 @@ function* handleCreateProductsRequest(action) {
   try {
     const { data } = yield call(Api.createProduct, action.payload.data);
     toast.success('Product is created');
+    console.log(data, 'saga');
     yield put({
       type: CREATE_PRODUCT_SUCCESS,
       payload: { data },
@@ -78,7 +79,6 @@ function* handleUpdateProductsRequest(action) {
 }
 
 export default function* watcher() {
-
   yield takeLatest(CREATE_PRODUCT_REQUEST, handleCreateProductsRequest);
   yield takeLatest(DELETE_PRODUCT_REQUEST, handleDeleteProductsRequest);
   yield takeLatest(UPDATE_PRODUCT_REQUEST, handleUpdateProductsRequest);

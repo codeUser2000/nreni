@@ -1,4 +1,5 @@
 import {
+  CREATE_PRODUCT_SUCCESS,
   GET_PRODUCT_DATA_FAIL,
   GET_PRODUCT_DATA_REQUEST,
   GET_PRODUCT_DATA_SUCCESS,
@@ -22,6 +23,14 @@ export default function reducer(state = initialState, action) {
         productsDataStatus: 'request',
       };
     }
+
+    // case CREATE_PRODUCT_SUCCESS: {
+    //   console.log(action.payload.data.product);
+    //   return {
+    //     ...state,
+    //     productsData: [action.payload.data.product, ...state.productsData],
+    //   };
+    // }
 
     case GET_PRODUCT_DATA_SUCCESS:
     {

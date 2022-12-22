@@ -40,3 +40,4 @@ export function updateProductRequest(data) {
     payload: { data },
   };
 }
+

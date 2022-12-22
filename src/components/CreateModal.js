@@ -13,6 +13,8 @@ import img from '../assets/img/logo/logo.png';
 function CreateModal({
   show, setShow, data,
 }) {
+  const { REACT_APP_API_URL } = process.env;
+
   const [formData, setFormData] = useState({
     avatar: '',
     title: '',
@@ -23,9 +25,8 @@ function CreateModal({
   });
   const dispatch = useDispatch();
   const handleChange = useCallback((key, value) => {
-    formData[key] = value;
-    setFormData({ ...formData });
-  }, [formData]);
+    setFormData((prev) => ({ ...prev, [key]: value }));
+  }, []);
 
   const handleFile = useCallback((ev) => {
     [...ev.target.files].forEach((file) => {
@@ -44,15 +45,15 @@ function CreateModal({
     });
   }, []);
 
-  const handleSubmit = useCallback((ev) => {
+  const handleSubmit = useCallback(async (ev) => {
     ev.preventDefault();
     if (!_.isEmpty(data)) {
-      console.log(formData);
-      dispatch(updateProductRequest(formData));
+      await dispatch(updateProductRequest(formData));
     } else {
-      dispatch(createProductRequest(formData));
+      await dispatch(createProductRequest(formData));
     }
-    dispatch(getProductDataRequest(1));
+
+    await dispatch(getProductDataRequest(1));
     setFormData({
       avatar: '',
       title: '',
@@ -146,7 +147,15 @@ function CreateModal({
         </form>
         <div className="adminFormItem">
           <figure className="adminFormFigure">
-            <img src={formData.avatar._src ? formData.avatar._src : img} alt="" className="adminFormImg" />
+            <img
+              src={formData.avatar._src
+                ? formData.avatar._src
+                : formData.avatar
+                  ? `${REACT_APP_API_URL}${formData.avatar}`
+                  : img}
+              alt=""
+              className="adminFormImg"
+            />
           </figure>
         </div>
       </div>

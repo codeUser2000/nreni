@@ -14,13 +14,13 @@ function AdminProductComp({ data }) {
     dispatch(deleteProductRequest(id));
     dispatch(getProductDataRequest(1));
   }, []);
-
+  console.log(REACT_APP_API_URL);
   return (
     <>
       <tr>
         <td>
           <figure className="adminTableItem">
-            <img src={REACT_APP_API_URL + data.avatar} alt="" className="adminTableImg" />
+            <img src={`${REACT_APP_API_URL}${data.avatar}`} alt="a" className="adminTableImg" />
           </figure>
         </td>
         <td>
