@@ -10,7 +10,7 @@ function MyCarouselComp2() {
         <p className="bannerDiscounts">
           Christmas discounts
           {' '}
-          <span>40%</span>
+          <span>35%</span>
         </p>
         <button className="bannerBtn">
           <Link className="bannerLink" to="/register">
