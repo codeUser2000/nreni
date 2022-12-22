@@ -20,6 +20,7 @@ import Cleaning from './pages/Cleaning';
 import AdminUsers from './pages/AdminUsers';
 import AdminLogin from './pages/AdminLogin';
 import AdminProduct from './pages/AdminProduct';
+import ComplateRegistration from './pages/ComplateRegistration';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class App extends Component {
@@ -42,11 +43,12 @@ class App extends Component {
             <Route path="/profile" element={<Profile />} />
             <Route path="/password-reset" element={<PasswordReset />} />
             <Route path="/new-password" element={<NewPassword />} />
-            {/*<Route path="*" element={<Navigate to="/not-found" />} />*/}
+            {/* <Route path="*" element={<Navigate to="/not-found" />} /> */}
             <Route path="/not-found" element={<NotFound />} />
             <Route path="/admin" element={<AdminLogin />} />
             <Route path="/admin-product" element={<AdminProduct />} />
             <Route path="/admin-users" element={<AdminUsers />} />
+            <Route path="/complete" element={<ComplateRegistration />} />
           </Routes>
         </BrowserRouter>
         <ToastContainer closeOnClick hideProgressBar />

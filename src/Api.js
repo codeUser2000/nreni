@@ -104,6 +104,10 @@ class Api {
     return api.post('/cart/cart', data);
   }
 
+  static confirmToken(data) {
+    return api.post('/users/confirm', data);
+  }
+
   static deleteCartItem(id) {
     return api.post('/cart/deleteCartItem', { id });
   }
