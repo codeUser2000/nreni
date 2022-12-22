@@ -16,7 +16,7 @@ function CreateModal({
   const { REACT_APP_API_URL } = process.env;
 
   const [formData, setFormData] = useState({
-    avatar: '',
+    avatar: {},
     title: '',
     description: '',
     categoryId: '',
@@ -53,9 +53,9 @@ function CreateModal({
       await dispatch(createProductRequest(formData));
     }
 
-    await dispatch(getProductDataRequest(1));
+    //await dispatch(getProductDataRequest(1));
     setFormData({
-      avatar: '',
+      avatar: {},
       title: '',
       description: '',
       categoryId: '',

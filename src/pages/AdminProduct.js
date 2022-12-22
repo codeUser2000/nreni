@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { Pagination } from '@mui/material';
 import AdminWrapper from '../components/AdminWrapper';
 import { getProductDataRequest } from '../store/actions/product';
@@ -18,9 +17,9 @@ function AdminProduct() {
   useEffect(() => {
     dispatch(getProductDataRequest(pageNumber));
   }, [pageNumber]);
-  const handleChange = useCallback((ev, value) => {
+  const handleChange = useCallback(async (ev, value) => {
     setPageNumber(value);
-    dispatch(getProductDataRequest(pageNumber));
+    await dispatch(getProductDataRequest(pageNumber));
   }, [pagination]);
 
   return (

@@ -2,7 +2,7 @@ import {
   CREATE_PRODUCT_SUCCESS,
   GET_PRODUCT_DATA_FAIL,
   GET_PRODUCT_DATA_REQUEST,
-  GET_PRODUCT_DATA_SUCCESS,
+  GET_PRODUCT_DATA_SUCCESS, UPDATE_PRODUCT_REQUEST, UPDATE_PRODUCT_SUCCESS,
 } from '../actions/product';
 
 const initialState = {
@@ -24,13 +24,20 @@ export default function reducer(state = initialState, action) {
       };
     }
 
-    // case CREATE_PRODUCT_SUCCESS: {
-    //   console.log(action.payload.data.product);
-    //   return {
-    //     ...state,
-    //     productsData: [action.payload.data.product, ...state.productsData],
-    //   };
-    // }
+    case CREATE_PRODUCT_SUCCESS: {
+      return {
+        ...state,
+        productsData: [...action.payload.data.products],
+        pagination: +action.payload.data.totalPages,
+      };
+    }
+    case UPDATE_PRODUCT_SUCCESS: {
+      return {
+        ...state,
+        productsData: [...action.payload.data.products],
+        pagination: +action.payload.data.totalPages,
+      };
+    }
 
     case GET_PRODUCT_DATA_SUCCESS:
     {

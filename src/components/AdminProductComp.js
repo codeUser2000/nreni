@@ -10,9 +10,9 @@ function AdminProductComp({ data }) {
   const [show, setShow] = useState(false);
   const [productData, setProductData] = useState({});
 
-  const handleDelete = useCallback((id) => {
-    dispatch(deleteProductRequest(id));
-    dispatch(getProductDataRequest(1));
+  const handleDelete = useCallback(async (id) => {
+    await dispatch(deleteProductRequest(id));
+    await dispatch(getProductDataRequest(1));
   }, []);
   console.log(REACT_APP_API_URL);
   return (
