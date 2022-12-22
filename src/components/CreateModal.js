@@ -1,12 +1,17 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
-import { createProductRequest } from '../store/actions/product';
-import img from '../assets/img/post/about2.jpg';
+import _ from 'lodash';
+import {
+  createProductRequest,
+  getProductDataRequest,
+  updateProductRequest,
+} from '../store/actions/product';
+import img from '../assets/img/logo/logo.png';
 
 function CreateModal({
-  show, setShow,
+  show, setShow, data,
 }) {
   const [formData, setFormData] = useState({
     avatar: '',
@@ -31,23 +36,45 @@ function CreateModal({
         return;
       }
       const fileReader = new FileReader();
-      fileReader.onload = (ev) => {
-        file._src = ev.target.result;
+      fileReader.onload = (e) => {
+        file._src = e.target.result;
       };
       fileReader.readAsDataURL(file);
-      console.log(file.name);
       handleChange('avatar', file);
     });
   }, []);
+
   const handleSubmit = useCallback((ev) => {
     ev.preventDefault();
-    dispatch(createProductRequest(formData));
-  }, [formData]);
+    if (!_.isEmpty(data)) {
+      console.log(formData);
+      dispatch(updateProductRequest(formData));
+    } else {
+      dispatch(createProductRequest(formData));
+    }
+    dispatch(getProductDataRequest(1));
+    setFormData({
+      avatar: '',
+      title: '',
+      description: '',
+      categoryId: '',
+      discount: '',
+      price: '',
+    });
+    setShow(false);
+  }, [formData, data]);
+
+  useEffect(() => {
+    if (!_.isEmpty(data)) {
+      setFormData(data);
+    }
+  }, [data]);
 
   return (
     <Modal
       onRequestClose={() => setShow(false)}
       isOpen={show}
+      ariaHideApp={false}
       style={{
         overlay: {
           position: 'fixed',
@@ -70,6 +97,8 @@ function CreateModal({
         },
       }}
     >
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, */}
+      {/* jsx-a11y/no-static-element-interactions */}
       <div onClick={() => setShow(false)}>hello</div>
       <div className="adminEditProduct">
         <form className="adminForm" onSubmit={handleSubmit}>
@@ -96,7 +125,8 @@ function CreateModal({
             value={formData.discount}
             onChange={(ev) => handleChange('discount', ev.target.value)}
           />
-          <select className="adminSelect" onChange={(ev) => handleChange('categoryId', ev.target.value)}>
+          <select className="adminSelect" value={formData.categoryId} onChange={(ev) => handleChange('categoryId', ev.target.value)}>
+            <option value="">Choose category</option>
             <option value="1">rings</option>
             <option value="2">bracelets</option>
             <option value="3">necklaces</option>
@@ -114,7 +144,7 @@ function CreateModal({
         </form>
         <div className="adminFormItem">
           <figure className="adminFormFigure">
-            <img src={img} alt="" className="adminFormImg" />
+            <img src={formData.avatar._src ? formData.avatar._src : img} alt="" className="adminFormImg" />
           </figure>
         </div>
       </div>
