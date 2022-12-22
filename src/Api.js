@@ -101,7 +101,11 @@ class Api {
   // }
 
   static getCart(data) {
-    return api.post('/cart', data);
+    return api.post('/cart/cart', data);
+  }
+
+  static deleteCartItem(id) {
+    return api.post('/cart/deleteCartItem', { id });
   }
 }
 
