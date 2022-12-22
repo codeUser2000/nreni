@@ -6,17 +6,13 @@ import {
 } from '../actions/cart';
 import Api from '../../Api';
 
-export default function* watcher() {
-  // eslint-disable-next-line no-use-before-define
-  yield takeLatest(GET_CART_DATA_REQUEST, handleGetProductsRequest);
-}
 
-function* handleGetProductsRequest() {
+function* handleGetCartRequest() {
   try {
-    const { data } = yield call(Api.getCartDate);
+    const { data } = yield call(Api.getCart);
     yield put({
       type: GET_CART_DATA_SUCCESS,
-      payload: { productsData: data },
+      payload: { data: data.data },
     });
   } catch (e) {
     yield put({
@@ -24,4 +20,8 @@ function* handleGetProductsRequest() {
       payload: { error: e.message },
     });
   }
+}
+
+export default function* watcher() {
+  yield takeLatest(GET_CART_DATA_REQUEST, handleGetCartRequest);
 }

@@ -5,37 +5,34 @@ import {
 } from '../actions/cart';
 
 const initialState = {
-  productsData: [],
-  productsDataStatus: '',
-  productData: {},
-  productDataStatus: '',
+  cartData: [],
+  cartDataStatus: '',
 };
 
-// eslint-disable-next-line default-param-last
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case GET_CART_DATA_REQUEST: {
       return {
         ...state,
-        productsData: [],
-        productsDataStatus: 'request',
+        cartData: [],
+        cartDataStatus: 'request',
       };
     }
 
     case GET_CART_DATA_SUCCESS:
     {
-      const { productsData } = action.payload;
+      const { data } = action.payload;
       return {
         ...state,
-        productsDataStatus: 'ok',
-        productsData,
+        cartDataStatus: 'ok',
+        cartData: data,
       };
     }
     case GET_CART_DATA_FAIL:
     {
       return {
         ...state,
-        productsDataStatus: 'fail',
+        cartDataStatus: 'fail',
       };
     }
     default: {

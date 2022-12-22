@@ -45,7 +45,6 @@ class Api {
   }
 
   static updateProduct(data) {
-    console.log(data);
     return api.post('/products/update', data, {
       headers: {
         'Content-Type': 'multipart/form-data',
@@ -100,6 +99,10 @@ class Api {
   // static getCartDate(category) {
   //   return api.get(`shop/${category}`);
   // }
+
+  static getCart(data) {
+    return api.post('/cart', data);
+  }
 }
 
 export default Api;
