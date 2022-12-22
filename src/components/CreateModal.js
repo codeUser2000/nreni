@@ -72,7 +72,9 @@ function CreateModal({
 
   return (
     <Modal
-      onRequestClose={() => setShow(false)}
+      onRequestClose={() => {
+        setShow(false);
+      }}
       isOpen={show}
       ariaHideApp={false}
       style={{

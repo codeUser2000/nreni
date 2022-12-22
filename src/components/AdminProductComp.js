@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { deleteProductRequest, updateProductRequest, getProductDataRequest } from '../store/actions/product';
+import { deleteProductRequest, getProductDataRequest } from '../store/actions/product';
 import CreateModal from './CreateModal';
 
 function AdminProductComp({ data }) {

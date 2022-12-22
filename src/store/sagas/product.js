@@ -78,8 +78,8 @@ function* handleUpdateProductsRequest(action) {
 }
 
 export default function* watcher() {
-  yield takeLatest(GET_PRODUCT_DATA_REQUEST, handleGetProductsRequest);
   yield takeLatest(CREATE_PRODUCT_REQUEST, handleCreateProductsRequest);
   yield takeLatest(DELETE_PRODUCT_REQUEST, handleDeleteProductsRequest);
   yield takeLatest(UPDATE_PRODUCT_REQUEST, handleUpdateProductsRequest);
+  yield takeLatest(GET_PRODUCT_DATA_REQUEST, handleGetProductsRequest);
 }
