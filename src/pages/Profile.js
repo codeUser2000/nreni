@@ -11,7 +11,7 @@ function Profile() {
   const navigate = useNavigate();
   const [user, setUser] = useState({});
   useEffect(() => {
-    if (!Account.getToken()) {
+    if (!Account.getToken() || Account.getToken() === 'undefined') {
       navigate('/login');
     } else {
       setUser(JSON.parse(Account.getProfile()));

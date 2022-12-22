@@ -20,10 +20,7 @@ function Login() {
     password: '',
   });
   useEffect(() => {
-    if (userDataStatus === 'ok') {
-      navigate('/profile');
-    }
-    if (Account.getToken()) {
+    if (Account.getToken() && Account.getToken() !== 'undefined') {
       navigate('/profile');
     }
   }, [userDataStatus]);
