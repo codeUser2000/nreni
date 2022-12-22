@@ -19,6 +19,13 @@ function Single() {
   const handleProductAdd = useCallback(() => {
   }, []);
 
+  const handleProductCountChange = useCallback((operator) => {
+    if (operator === 'add' && count <= single.countProduct) {
+      setCount(count + 1);
+    } else if (operator === 'delete' && count >= 0) {
+      setCount(count - 1);
+    }
+  }, [single]);
   return (
     <Wrapper>
       <Helmet>
@@ -41,9 +48,9 @@ function Single() {
                 {single.description}
               </p>
               <div className="singleInfoQuantity">
-                <button type="button" onClick={() => setCount(count - 1)} className="singleBtnM">-</button>
+                <button type="button" onClick={() => handleProductCountChange('delete')} className="singleBtnM">-</button>
                 <input value={count < 1 ? setCount(1) : count} className="singleInfoInput" type="text" />
-                <button type="button" onClick={() => setCount(count + 1)} className="singleBtnP">+</button>
+                <button type="button" onClick={() => handleProductCountChange('add')} className="singleBtnP">+</button>
               </div>
               <button type="button" onClick={handleProductAdd} className="singleInfoBtn">
                 Add to cart

@@ -5,7 +5,6 @@ import { toast } from 'react-toastify';
 import _ from 'lodash';
 import {
   createProductRequest,
-  getProductDataRequest,
   updateProductRequest,
 } from '../store/actions/product';
 import img from '../assets/img/logo/logo.png';
@@ -22,6 +21,7 @@ function CreateModal({
     categoryId: '',
     discount: '',
     price: '',
+    countProduct: 0,
   });
   const dispatch = useDispatch();
   const handleChange = useCallback((key, value) => {
@@ -52,8 +52,6 @@ function CreateModal({
     } else {
       await dispatch(createProductRequest(formData));
     }
-
-    //await dispatch(getProductDataRequest(1));
     setFormData({
       avatar: {},
       title: '',
@@ -61,6 +59,7 @@ function CreateModal({
       categoryId: '',
       discount: '',
       price: '',
+      countProduct: 0,
     });
     setShow(false);
   }, [formData, data]);
@@ -100,8 +99,8 @@ function CreateModal({
         },
       }}
     >
-      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, */}
-      {/* jsx-a11y/no-static-element-interactions */}
+      {/* eslint-disable-next-line max-len */}
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
       <div onClick={() => setShow(false)}>hello</div>
       <div className="adminEditProduct">
         <form className="adminForm" onSubmit={handleSubmit}>
@@ -127,6 +126,12 @@ function CreateModal({
             placeholder="Type Product Discount"
             value={formData.discount}
             onChange={(ev) => handleChange('discount', ev.target.value)}
+          />
+          <input
+            type="number"
+            placeholder="Type Product Count"
+            value={formData.countProduct}
+            onChange={(ev) => handleChange('countProduct', ev.target.value)}
           />
           <select className="adminSelect" value={formData.categoryId} onChange={(ev) => handleChange('categoryId', ev.target.value)}>
             <option value="">Choose category</option>

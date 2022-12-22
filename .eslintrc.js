@@ -22,5 +22,6 @@ module.exports = {
     'react/prop-types': 0,
     'import/no-named-as-default': 0,
     'no-underscore-dangle': 'off',
+    'no-nested-ternary': 'off',
   },
 };
