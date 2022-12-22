@@ -17,7 +17,6 @@ function Single() {
     }
   }, [params]);
   const handleProductAdd = useCallback(() => {
-
   }, []);
 
   return (

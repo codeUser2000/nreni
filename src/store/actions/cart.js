@@ -8,3 +8,14 @@ export function getCartDataRequest() {
     payload: {},
   };
 }
+
+export const DELETE_CART_ITEM_REQUEST = 'DELETE_CART_ITEM_REQUEST';
+export const DELETE_CART_ITEM_SUCCESS = 'DELETE_CART_ITEM_SUCCESS';
+export const DELETE_CART_ITEM_FAIL = 'DELETE_CART_ITEM_FAIL';
+
+export function deleteCartItemRequest(id) {
+  return {
+    type: DELETE_CART_ITEM_REQUEST,
+    payload: { id },
+  };
+}
