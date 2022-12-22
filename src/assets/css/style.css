@@ -216,14 +216,11 @@ figure {
 }
 
 
-.bannerDesk {
-    width: calc(100% / 2 - 30px);
-}
 
 .banner2Figure,
 .bannerFigure {
     height: 500px;
-    width: calc(100% / 2 - 30px);
+    width: calc(100% / 2 - 15px);
 }
 
 .banner2Img {
@@ -243,11 +240,17 @@ figure {
 }
 
 .bannerDesk {
+    width: calc(100% / 2 - 15px);
     padding: 20px;
     color: #ffece5;
     margin-right: 10px;
 }
 
+.banner2Desk {
+    width: calc(100% / 2 - 15px);
+    padding: 20px;
+    color: #ffece5;
+}
 
 .bannerTitle {
     color: #ffece5;

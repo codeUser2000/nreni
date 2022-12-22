@@ -5,11 +5,11 @@ import banner2 from '../assets/img/post/banner2.jpg';
 function MyCarouselComp2() {
   return (
     <div className="bannerRow">
-      <div className="bannerDesk">
+      <div className="banner2Desk">
         <p className="banner2Info">The best ARMENIAN silver you can get</p>
         <p className="bannerDiscounts">
           Christmas discounts
-            {' '}
+          {' '}
           <span>40%</span>
         </p>
         <button className="bannerBtn">
