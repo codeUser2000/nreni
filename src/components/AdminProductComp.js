@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { deleteProductRequest, getProductDataRequest } from '../store/actions/product';
+import { deleteProductRequest } from '../store/actions/product';
 import CreateModal from './CreateModal';
 
 function AdminProductComp({ data }) {
@@ -12,9 +12,7 @@ function AdminProductComp({ data }) {
 
   const handleDelete = useCallback(async (id) => {
     await dispatch(deleteProductRequest(id));
-    await dispatch(getProductDataRequest(1));
   }, []);
-  console.log(REACT_APP_API_URL);
   return (
     <>
       <tr>

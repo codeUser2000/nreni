@@ -104,6 +104,10 @@ class Api {
     return api.post('/cart/cart', data);
   }
 
+  static getSingle(id) {
+    return api.get(`/products/singleProduct?id=${id}`);
+  }
+
   static confirmToken(data) {
     return api.post('/users/confirm', data);
   }

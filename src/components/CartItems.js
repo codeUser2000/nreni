@@ -1,25 +1,33 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { deleteCartItemRequest, getCartDataRequest } from '../store/actions/cart';
 
 function CartItems() {
+  const { REACT_APP_API_URL } = process.env;
   const [count, setCount] = useState(0);
-  const cart = useSelector((state) => state.cart.cartData);
+  const [cart, setCart] = useState([]);
+  const dispatch = useDispatch();
+  // const cart = useSelector((state) => state.cart.cartData);
 
   const handleDelete = useCallback((id) => {
     dispatch(deleteCartItemRequest(id));
     dispatch(getCartDataRequest(1));
   }, []);
 
+  useEffect(() => {
+    if (localStorage.getItem('cartItem')) {
+      setCart(JSON.parse(localStorage.getItem('cartItem')));
+    }
+  }, []);
   return (
     <>
       {cart.map((c) => (
-        <tr className="cartTableTbodyTr">
+        <tr key={c.id} className="cartTableTbodyTr">
           <td>
             <div className="cartTableProduct">
               <figure className="cartTableItem">
-                <img className="cartTableImg" src={c.img} alt="" />
+                <img className="cartTableImg" src={REACT_APP_API_URL + c.avatar} alt="" />
               </figure>
               <div className="cartTableDesk">
                 <h4 className="cartTableTitle">{c.title}</h4>
@@ -41,7 +49,8 @@ function CartItems() {
               <input
                 type="text"
                 className="cartTableInput"
-                value={count < 1 ? setCount(1) : count}
+                value={count}
+                onChange={() => true}
               />
               <button
                 type="button"

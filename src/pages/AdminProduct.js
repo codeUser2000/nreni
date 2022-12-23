@@ -13,7 +13,6 @@ function AdminProduct() {
   const [show, setShow] = useState(false);
   const pagination = useSelector((state) => state.product.pagination);
 
-  console.log(productsData,66);
   useEffect(() => {
     dispatch(getProductDataRequest(pageNumber));
   }, [pageNumber]);

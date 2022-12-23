@@ -1,27 +1,27 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import { useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import qs from 'query-string';
 import logo from '../assets/img/logo/logo.png';
 import { newUserPasswordRequest } from '../store/actions/users';
 
 function NewPassword() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const location = useLocation();
+  const query = qs.parse(location.search);
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [show, setShow] = useState(false);
   const [password2, setPassword2] = useState('');
   useEffect(() => {
-    if (!localStorage.getItem('user')) {
-      navigate('/login');
-    }
-    setEmail(JSON.parse(localStorage.getItem('user')).email);
-  }, []);
+    setEmail(query.email);
+  }, [query]);
 
   const handleSubmit = useCallback((ev) => {
     ev.preventDefault();
@@ -30,7 +30,6 @@ function NewPassword() {
       return;
     }
     dispatch(newUserPasswordRequest({ password, email }));
-    localStorage.removeItem('user');
     navigate('/login');
   }, [password, password2, email]);
 

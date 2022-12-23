@@ -1,5 +1,5 @@
 import {
-  CREATE_PRODUCT_SUCCESS,
+  CREATE_PRODUCT_SUCCESS, DELETE_PRODUCT_SUCCESS,
   GET_PRODUCT_DATA_FAIL,
   GET_PRODUCT_DATA_REQUEST,
   GET_PRODUCT_DATA_SUCCESS, UPDATE_PRODUCT_REQUEST, UPDATE_PRODUCT_SUCCESS,
@@ -14,6 +14,7 @@ const initialState = {
   pagination: 0,
 };
 
+// eslint-disable-next-line default-param-last
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case GET_PRODUCT_DATA_REQUEST: {
@@ -32,6 +33,13 @@ export default function reducer(state = initialState, action) {
       };
     }
     case UPDATE_PRODUCT_SUCCESS: {
+      return {
+        ...state,
+        productsData: [...action.payload.data.products],
+        pagination: +action.payload.data.totalPages,
+      };
+    }
+    case DELETE_PRODUCT_SUCCESS: {
       return {
         ...state,
         productsData: [...action.payload.data.products],

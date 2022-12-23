@@ -73,6 +73,7 @@ function Filter() {
                 onClick={() => handleFilter(m.name)}
                 type="checkbox"
                 checked={categories.includes(m.name)}
+                onChange={() => true}
               />
               <span className="checkmarkFilter" />
               <img className="shopLabelsIcon" src={m.src} alt="" />
