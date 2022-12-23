@@ -1,8 +1,8 @@
 import React from 'react';
 import Wrapper from '../components/Wrapper';
 import AboutSilverJewelry from '../components/AboutSilverJewelry';
-import AboutSterlingSilver from '../components/AboutSterlingSilver';
 import AboutSilverOldJewelry from '../components/AboutSilverOldJewelry';
+import data from '../aboutData';
 
 function About() {
   return (
@@ -12,8 +12,9 @@ function About() {
           <h1 className="aboutMainTitle">advice & info</h1>
           <p className="aboutMainInfo">we give you useful information on how to use silver and how to keep it clean</p>
           <AboutSilverJewelry />
-          <AboutSterlingSilver />
-          <AboutSilverOldJewelry />
+          {data.map((d) => (
+            <AboutSilverOldJewelry key={d.id} data={d} />
+          ))}
         </div>
       </main>
     </Wrapper>
