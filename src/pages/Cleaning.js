@@ -1,5 +1,4 @@
 import React from 'react';
-import _ from 'lodash';
 import Wrapper from '../components/Wrapper';
 import SterlingSilverTarnish from '../components/SterlingSilverTarnish';
 import aboutClean from '../aboutClean';
@@ -12,7 +11,7 @@ function Cleaning() {
           <h1 className="aboutCleaningMainTitle">clean silver jewelry</h1>
           <p className="aboutCleaningMainInfo">we answer your question "How to clean blackened silver?"</p>
           {aboutClean.map((a) => (
-            <SterlingSilverTarnish key={_.uniqueId()} data={a} />
+            <SterlingSilverTarnish key={a.id} data={a} />
           ))}
         </div>
       </main>

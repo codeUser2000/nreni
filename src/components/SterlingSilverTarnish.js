@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'lodash';
 
 function SterlingSilverTarnish({ data }) {
   return (
@@ -11,7 +12,7 @@ function SterlingSilverTarnish({ data }) {
             ? (
               <ul className="aboutCleaningList">
                 {data.list.map((l) => (
-                  <li>{l}</li>
+                  <li key={_.uniqueId()}>{l}</li>
                 ))}
               </ul>
             ) : null}
