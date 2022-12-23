@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { deleteCartItemRequest, getCartDataRequest } from '../store/actions/cart';
+import Account from '../helpers/Account';
 
 function CartItems() {
   const { REACT_APP_API_URL } = process.env;
@@ -16,6 +17,9 @@ function CartItems() {
   }, []);
 
   useEffect(() => {
+    if (Account.getToken()) {
+      return;
+    }
     if (localStorage.getItem('cartItem')) {
       setCart(JSON.parse(localStorage.getItem('cartItem')));
     }

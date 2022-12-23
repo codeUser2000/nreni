@@ -2,6 +2,9 @@ import {
   GET_BLOCKQUOTE_DATA_REQUEST,
   GET_BLOCKQUOTE_DATA_SUCCESS,
   GET_BLOCKQUOTE_DATA_FAIL,
+  DELETE_BLOCKQUOTE_SUCCESS,
+  DELETE_BLOCKQUOTE_REQUEST,
+  DELETE_BLOCKQUOTE_FAIL,
   // GET_SINGLE_BLOCKQUOTE_DATA_REQUEST,
   // GET_SINGLE_BLOCKQUOTE_DATA_SUCCESS,
   // GET_SINGLE_BLOCKQUOTE_DATA_FAIL,
@@ -10,8 +13,7 @@ import {
 const initialState = {
   blockquotesData: [],
   blockquotesDataStatus: '',
-  blockquoteData: {},
-  blockquoteDataStatus: '',
+  pagination: 0,
 };
 
 export default function reducer(state = initialState, action) {
@@ -40,28 +42,29 @@ export default function reducer(state = initialState, action) {
         blockquotesDataStatus: 'fail',
       };
     }
-    // case GET_SINGLE_BLOCKQUOTE_DATA_REQUEST: {
-    //   return {
-    //     ...state,
-    //     blockquotesData: [],
-    //     blockquotesDataStatus: 'request',
-    //   };
-    // }
-    // case GET_SINGLE_BLOCKQUOTE_DATA_SUCCESS: {
-    //   const { blockquoteData } = action.payload;
-    //
-    //   return {
-    //     ...state,
-    //     blockquoteDataStatus: 'ok',
-    //     blockquoteData,
-    //   };
-    // }
-    // case GET_SINGLE_BLOCKQUOTE_DATA_FAIL: {
-    //   return {
-    //     ...state,
-    //     blockquoteDataStatus: 'fail',
-    //   };
-    // }
+    case DELETE_BLOCKQUOTE_REQUEST: {
+      return {
+        ...state,
+        blockquotesData: [],
+        blockquotesDataStatus: 'request',
+      };
+    }
+    case DELETE_BLOCKQUOTE_SUCCESS: {
+      const { blockquotes, totalPages } = action.payload.data;
+
+      return {
+        ...state,
+        blockquoteDataStatus: 'ok',
+        blockquotesData: [...blockquotes],
+        pagination: +totalPages,
+      };
+    }
+    case DELETE_BLOCKQUOTE_FAIL: {
+      return {
+        ...state,
+        blockquoteDataStatus: 'fail',
+      };
+    }
     default: {
       return {
         ...state,

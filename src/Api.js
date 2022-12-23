@@ -32,8 +32,8 @@ class Api {
     return api.get('/users/getBlockquote');
   }
 
-  static deleteBlockquote() {
-    return api.post('/users/deleteBlockquote');
+  static deleteBlockquote(id) {
+    return api.post('/users/deleteBlockquote', { id });
   }
 
   static getUser(page) {

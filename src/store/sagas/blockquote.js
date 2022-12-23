@@ -12,7 +12,6 @@ import {
   DELETE_BLOCKQUOTE_FAIL,
 } from '../actions/blockquote';
 import Api from '../../Api';
-import {DELETE_USER_FAIL, DELETE_USER_SUCCESS} from "../actions/users";
 
 function* handleGetBlockquotesRequest() {
   try {
@@ -47,11 +46,11 @@ function* handleCreateBlockquoteRequest(action) {
 
 function* handleDeleteBlockquoteRequest(action) {
   try {
-    yield call(Api.deleteBlockquote, action.payload.id);
+    const { data } = yield call(Api.deleteBlockquote, action.payload.id);
     toast.success('Quote is deleted successfully');
     yield put({
       type: DELETE_BLOCKQUOTE_SUCCESS,
-      payload: {},
+      payload: { data },
     });
   } catch (e) {
     yield put({

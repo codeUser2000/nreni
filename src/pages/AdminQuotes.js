@@ -13,9 +13,8 @@ function AdminQuotes() {
   useEffect(() => {
     dispatch(getBlockquoteDataRequest(1));
   }, []);
-  const handleDelete = useCallback((email) => {
-    dispatch(deleteBlockquoteRequest(email));
-    dispatch(getBlockquoteDataRequest(1));
+  const handleDelete = useCallback(async (id) => {
+    await dispatch(deleteBlockquoteRequest(id));
   }, []);
     // const handleChange = useCallback((ev, value) => {
     //   setPage(value);
@@ -50,18 +49,18 @@ function AdminQuotes() {
                 <td>
                   <div className="adminQuoteBtn">
                     <button
-                        type="button"
-                        className="adminQuoteDelete"
-                        onClick={() => handleDelete(q.id)}
-                      >
-                                      delete
-                      </button>
+                      type="button"
+                      className="adminQuoteDelete"
+                      onClick={() => handleDelete(q.id)}
+                    >
+                      delete
+                    </button>
                     <button
-                        type="button"
-                        className="adminQuoteView"
-                      >
-                                      view
-                      </button>
+                      type="button"
+                      className="adminQuoteView"
+                    >
+                      view
+                    </button>
                   </div>
                 </td>
               </tr>
