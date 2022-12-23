@@ -16,6 +16,7 @@ import Api from '../../Api';
 function* handleGetBlockquotesRequest() {
   try {
     const { data } = yield call(Api.getBlockquote);
+    console.log(data.quote);
     yield put({
       type: GET_BLOCKQUOTE_DATA_SUCCESS,
       payload: { quote: data.quote },
@@ -59,6 +60,7 @@ function* handleDeleteBlockquoteRequest(action) {
     });
   }
 }
+
 export default function* watcher() {
   yield takeLatest(CREATE_BLOCKQUOTE_REQUEST, handleCreateBlockquoteRequest);
   yield takeLatest(DELETE_BLOCKQUOTE_REQUEST, handleDeleteBlockquoteRequest);

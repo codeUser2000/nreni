@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import Carousel from 'nuka-carousel';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import Wrapper from '../components/Wrapper';
@@ -10,9 +10,18 @@ import NewProduct from '../components/NewProduct';
 import Assortment from '../components/Assortment';
 import HomeAbout from '../components/HomeAbout';
 import MyCarouselComp2 from '../components/MyCarouselComp2';
+import { getProductDataRequest } from '../store/actions/product';
+import { getBlockquoteDataRequest } from '../store/actions/blockquote';
+import Blockquote from '../components/Blockquote';
 
 function Home() {
   const productData = useSelector((state) => state.product.productsData);
+  const quote = useSelector((state) => state.blockquote.blockquotesData);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getProductDataRequest(1));
+    dispatch(getBlockquoteDataRequest());
+  }, []);
   return (
     <Wrapper>
       <Helmet>
@@ -72,10 +81,7 @@ function Home() {
                   }}
                 >
                   {productData.map((n) => (
-                    // if (index < 3) {
                     <NewProduct key={n.id} data={n} />
-                    // }
-                    // return true;
                   ))}
                 </Carousel>
               </div>
@@ -90,7 +96,9 @@ function Home() {
                 wrapAround="true"
                 cellSpacing={20}
               >
-                <p>Our quotes will be here soon!</p>
+                {quote.length ? quote.map((n) => (
+                  <Blockquote key={n.id} data={n} />
+                )) : <p>Our quotes will be here soon!</p>}
               </Carousel>
             </blockquote>
           </div>
