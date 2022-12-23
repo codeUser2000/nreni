@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PersonIcon from '@mui/icons-material/Person';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
+import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 
 function AdminMenu() {
@@ -16,7 +17,7 @@ function AdminMenu() {
           </NavLink>
         </li>
         <li className="adminMenuList">
-          <NavLink to="" className="adminMenuLink">
+          <NavLink to="/admin-orders" className="adminMenuLink">
             <LocalMallIcon style={{ fill: '#c31e39', marginRight: '5px' }} />
             orders
           </NavLink>
@@ -25,6 +26,12 @@ function AdminMenu() {
           <NavLink to="/admin-users" className="adminMenuLink">
             <PersonIcon style={{ fill: '#c31e39', marginRight: '5px' }} />
             users
+          </NavLink>
+        </li>
+        <li className="adminMenuList">
+          <NavLink to="/admin-quotes" className="adminMenuLink">
+            <FormatQuoteIcon style={{ fill: '#c31e39', marginRight: '5px' }} />
+            Quotes
           </NavLink>
         </li>
       </ul>

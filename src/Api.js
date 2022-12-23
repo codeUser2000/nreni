@@ -24,8 +24,16 @@ class Api {
     });
   }
 
+  static setBlockquote(data) {
+    return api.post('/users/blockquote', data);
+  }
+
   static getBlockquote() {
     return api.get('/users/getBlockquote');
+  }
+
+  static deleteBlockquote() {
+    return api.post('/users/deleteBlockquote');
   }
 
   static getUser(page) {
@@ -50,10 +58,6 @@ class Api {
         'Content-Type': 'multipart/form-data',
       },
     });
-  }
-
-  static setBlockquote(data) {
-    return api.post('/users/blockquote', data);
   }
 
   static createProduct(data) {
@@ -91,14 +95,6 @@ class Api {
   static adminLogin(data) {
     return api.post('/admin', data);
   }
-
-  // static getCategoryData(category) {
-  //   return api.get(`shop/${category}`);
-  // }
-  //
-  // static getCartDate(category) {
-  //   return api.get(`shop/${category}`);
-  // }
 
   static getCart(data) {
     return api.post('/cart/cart', data);

@@ -26,7 +26,13 @@ function AdminProduct() {
       <div className="adminProducts">
         <div className="adminProductsBlock">
           <p className="adminTitle">Products</p>
-          <p onClick={() => setShow(true)} className="adminProductsBtn">Create</p>
+          <button
+            type="button"
+            onClick={() => setShow(true)}
+            className="adminProductsBtn"
+          >
+            Create
+          </button>
         </div>
         <table className="adminTable">
           <thead className="adminTableThead">

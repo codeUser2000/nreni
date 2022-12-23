@@ -1,5 +1,4 @@
 import React from 'react';
-import DeleteIcon from '@mui/icons-material/Delete';
 import Wrapper from '../components/Wrapper';
 import CartItems from '../components/CartItems';
 

@@ -1,27 +1,18 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 import Carousel from 'nuka-carousel';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import Wrapper from '../components/Wrapper';
 import MyCarouselComp from '../components/MyCarouselComp';
 import NewProduct from '../components/NewProduct';
-import Blockquote from '../components/Blockquote';
 import Assortment from '../components/Assortment';
-import { getBlockquoteDataRequest } from '../store/actions/blockquote';
-import { getProductDataRequest } from '../store/actions/product';
 import HomeAbout from '../components/HomeAbout';
 import MyCarouselComp2 from '../components/MyCarouselComp2';
 
 function Home() {
-  const dispatch = useDispatch();
   const productData = useSelector((state) => state.product.productsData);
-  const quote = useSelector((state) => state.blockquote.blockquotesData);
-  useEffect(() => {
-    dispatch(getBlockquoteDataRequest());
-    dispatch(getProductDataRequest(1));
-  }, []);
   return (
     <Wrapper>
       <Helmet>
@@ -99,12 +90,7 @@ function Home() {
                 wrapAround="true"
                 cellSpacing={20}
               >
-                {quote.map((n, index) => {
-                  if (index < 3) {
-                    return <Blockquote key={n.id} data={n} />;
-                  }
-                  return true;
-                })}
+                <p>Our quotes will be here soon!</p>
               </Carousel>
             </blockquote>
           </div>

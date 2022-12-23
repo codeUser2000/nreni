@@ -35,7 +35,6 @@ function* handleCreateProductsRequest(action) {
   try {
     const { data } = yield call(Api.createProduct, action.payload.data);
     toast.success('Product is created');
-    console.log(data, 'saga');
     yield put({
       type: CREATE_PRODUCT_SUCCESS,
       payload: { data },

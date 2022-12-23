@@ -5,7 +5,6 @@ function Confirm() {
   useEffect(() => {
     (async () => {
       const { data } = await Api.confirm();
-      console.log(data);
     })();
   }, []);
   return (

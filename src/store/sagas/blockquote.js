@@ -7,8 +7,12 @@ import {
   CREATE_BLOCKQUOTE_SUCCESS,
   CREATE_BLOCKQUOTE_FAIL,
   CREATE_BLOCKQUOTE_REQUEST,
+  DELETE_BLOCKQUOTE_REQUEST,
+  DELETE_BLOCKQUOTE_SUCCESS,
+  DELETE_BLOCKQUOTE_FAIL,
 } from '../actions/blockquote';
 import Api from '../../Api';
+import {DELETE_USER_FAIL, DELETE_USER_SUCCESS} from "../actions/users";
 
 function* handleGetBlockquotesRequest() {
   try {
@@ -41,7 +45,23 @@ function* handleCreateBlockquoteRequest(action) {
   }
 }
 
+function* handleDeleteBlockquoteRequest(action) {
+  try {
+    yield call(Api.deleteBlockquote, action.payload.id);
+    toast.success('Quote is deleted successfully');
+    yield put({
+      type: DELETE_BLOCKQUOTE_SUCCESS,
+      payload: {},
+    });
+  } catch (e) {
+    yield put({
+      type: DELETE_BLOCKQUOTE_FAIL,
+      payload: { error: e.response },
+    });
+  }
+}
 export default function* watcher() {
   yield takeLatest(CREATE_BLOCKQUOTE_REQUEST, handleCreateBlockquoteRequest);
+  yield takeLatest(DELETE_BLOCKQUOTE_REQUEST, handleDeleteBlockquoteRequest);
   yield takeLatest(GET_BLOCKQUOTE_DATA_REQUEST, handleGetBlockquotesRequest);
 }

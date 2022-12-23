@@ -216,7 +216,6 @@ figure {
 }
 
 
-
 .banner2Figure,
 .bannerFigure {
     height: 500px;
@@ -2187,9 +2186,11 @@ p {
     /*border-right: 2px solid #4a4a4a;*/
 }
 
-
+.adminQuotes,
+.adminOrders,
 .adminProducts {
     width: 100%;
+    padding: 25px 25px 25px 0;
 }
 
 .adminSection {
@@ -2227,6 +2228,7 @@ p {
     color: #c31e39;
 }
 
+.adminOrdersBlock,
 .adminProductsBlock {
     display: flex;
     margin-bottom: 20px;
@@ -2252,6 +2254,7 @@ p {
 .adminTable {
     width: 100%;
     margin: 0 auto;
+    color: #4a4a4a;
     border-spacing: 3px 10px;
     border-collapse: collapse;
 }
@@ -2304,6 +2307,10 @@ p {
 }
 
 .adminTableName {
+    text-transform: capitalize;
+}
+
+.adminTableCategory {
     text-transform: capitalize;
 }
 
@@ -2451,4 +2458,80 @@ p {
 .adminRemember {
     width: 100%;
     margin-bottom: 35px;
+}
+
+
+.adminOrderItem {
+    width: 70px;
+    height: 70px;
+    margin-right: 15px;
+}
+
+.adminOrderImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.orderCustomerName,
+.adminOrderCount,
+.adminOrderName {
+    color: #4a4a4a;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+.orderCustomerName {
+    font-weight: 600;
+}
+
+.adminOrder {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.adminOrderCustomer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.adminQuoteBtn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.adminQuoteDelete {
+    color: #ffece5;
+    padding: 0 5px 0;
+    margin-right: 10px;
+    border-radius: 50px;
+    transition: all 0.4s;
+    background-color: #c31e39;
+    border: 2px solid #c31e39;
+    text-transform: capitalize;
+}
+
+.adminQuoteView {
+    color: #ffece5;
+    padding: 0 5px 0;
+    border-radius: 50px;
+    transition: all 0.4s;
+    background-color: green;
+    border: 2px solid green;
+    text-transform: capitalize;
+}
+
+.adminQuoteDelete:hover {
+    color: #c31e39;
+    background-color: #e8e8e8;
+}
+
+.adminQuoteView:hover {
+    color: green;
+    background-color: #e8e8e8;
 }
