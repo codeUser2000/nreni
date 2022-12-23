@@ -64,7 +64,7 @@ function AdminQuotes() {
                   </div>
                 </td>
               </tr>
-            )) : null}
+            )) : 'loading...'}
           </tbody>
         </table>
         {/* <Pagination count={+pagination} page={page} onChange={handleChange} /> */}
