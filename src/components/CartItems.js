@@ -55,6 +55,7 @@ function CartItems() {
                 className="cartTableInput"
                 value={count}
                 onChange={() => true}
+                readOnly
               />
               <button
                 type="button"
@@ -66,7 +67,7 @@ function CartItems() {
             </div>
           </td>
           <td className="cartTablePrice">
-            {c.price}
+            {+c.price * c.count}
           </td>
           <td>
             <button type="button" className="cartTableBtnR">

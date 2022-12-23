@@ -11,9 +11,10 @@ function Cart() {
       return;
     }
     if (localStorage.getItem('cartItem')) {
-      let count;
+      let count = 0;
       JSON.parse(localStorage.getItem('cartItem')).map((c) => {
-        count = c.count * +c.price;
+        count += +c.count * +c.price;
+        return true;
       });
       setTotal(count);
     }
