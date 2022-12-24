@@ -44,7 +44,7 @@ function Filter() {
   }, [location.search]);
   const categories = _.isArray(query.filter) ? query.filter : [query.filter];
   return (
-    <aside className="shopAside">
+    <aside className="shopAside col-md-4">
       <h2 className="shopAsideTitle">Filters</h2>
       <form>
         <div className="shopBtCategory">

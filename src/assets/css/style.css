@@ -38,6 +38,7 @@ body {
 
 .shop .row {
     align-items: start;
+    margin: 0 auto;
 }
 
 .row {
@@ -724,7 +725,6 @@ figure {
 
 .aboutCleaningBlock,
 .aboutBlock {
-    width: 90%;
     padding: 50px;
     margin-bottom: 90px;
     background-color: #ffece5;
@@ -751,7 +751,7 @@ figure {
 .aboutInfo {
     width: 50%;
     font-weight: 100;
-    font-size: 17px;
+    font-size: 1.5vw;
 }
 
 .aboutCleaningFigure,
@@ -1399,13 +1399,13 @@ p {
 
 .shopTitle {
     width: 100%;
-    font-size: 50px;
+    font-size:  6.5vw;
     font-weight: bold;
     font-family: 'Fuzzy Bubbles', sans-serif;
 }
 
 .shopSlogan {
-    font-size: 19px;
+    font-size: 2vw;
     font-weight: 300;
     letter-spacing: 1px;
     margin-bottom: 15px;
@@ -1413,13 +1413,11 @@ p {
 
 
 .shopAside {
-    width: 30%;
     color: #4a4a4a;
     padding: 70px 30px;
 }
 
 .shopSection {
-    width: 70%;
     color: #4a4a4a;
     padding: 70px 20px;
 }
@@ -1543,7 +1541,7 @@ p {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 15px;
+    justify-content: center;
 }
 
 .logo {
@@ -1556,10 +1554,10 @@ p {
     padding: 20px;
     overflow: hidden;
     position: relative;
-    margin-bottom: 40px;
     transition: all 0.5s;
     background-color: #ffece5;
-    width: calc(100% / 3 - 10px);
+    margin: 10px 0 40px;
+    border: 4px solid white;
 }
 
 .newProduct {
@@ -2034,11 +2032,9 @@ p {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: flex-start;
 }
 
-.footerBlock {
-    width: calc(100% / 4 - 20px);
-}
 
 
 .footerTitle {
@@ -2072,9 +2068,9 @@ p {
 
 .footerInfo {
     color: #4a4a4a;
-    font-size: 17px;
+    font-size: 1.5vw;
     font-weight: 400;
-    line-height: 25px;
+    line-height: 1.5vw;
     padding-right: 25px;
 }
 
@@ -2141,13 +2137,6 @@ p {
     width: 25px;
     height: 25px;
     object-fit: cover;
-}
-
-
-@media only screen and (max-width: 600px) {
-    body {
-        background-color: lightblue;
-    }
 }
 
 

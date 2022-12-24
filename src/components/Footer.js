@@ -14,8 +14,8 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="container">
-        <div className="footerRow">
-          <div className="footerBlock">
+        <div className="footerRow row">
+          <div className="footerBlock col-lg-3 col-sm-4">
             <h3 className="footerTitle">our jewelry</h3>
             <div className="footerGallery">
               <figure className="footerItem">
@@ -38,7 +38,7 @@ function Footer() {
               </figure>
             </div>
           </div>
-          <div className="footerBlock">
+          <div className="footerBlock col-lg-3 col-sm-4">
             <h3 className="footerTitle">about us</h3>
             <p className="footerInfo">
               Nreni has been working as an online store since 2020. In 2 years, we managed to
@@ -48,7 +48,7 @@ function Footer() {
               <Link className="footerLink" to="/about">Learn more.</Link>
             </p>
           </div>
-          <div className="footerBlock">
+          <div className="footerBlock col-lg-3 col-sm-4">
             <h3 className="footerTitle">Information</h3>
             <ul className="footerNav">
               <li className="footerNavList">
@@ -65,7 +65,7 @@ function Footer() {
               </li>
             </ul>
           </div>
-          <div className="footerBlock">
+          <div className="footerBlock col-lg-3 col-sm-4">
             <h3 className="footerTitle">Contact</h3>
             <div className="footerContact">
               <LocationOnIcon style={{ fill: '#c31e39', marginLeft: '-1px' }} />
@@ -80,7 +80,7 @@ function Footer() {
               <LocalPhoneIcon style={{ fill: '#c31e39' }} />
               <Link className="footerContactLink" to="tel:+37498804824">+374 (98) 804824</Link>
             </div>
-            <br/>
+            <br />
             <p className="footerSocDesk">Follow us</p>
             <ul className="footerSocBlock">
               <li className="footerSocList">

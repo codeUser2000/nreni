@@ -4,11 +4,11 @@ import Footer from './Footer';
 
 function Wrapper(props) {
   return (
-    <div>
+    <>
       <Header />
       {props.children}
       <Footer />
-    </div>
+    </>
   );
 }
 

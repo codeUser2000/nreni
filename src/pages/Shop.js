@@ -49,8 +49,8 @@ function Shop() {
         <div className="container">
           <div className="row">
             <Filter />
-            <section className="shopSection">
-              <div className="shopProductsRow">
+            <section className="shopSection col-md-8">
+              <div className="shopProductsRow row">
                 {productData.length
                   ? productData.map((n) => {
                     if (n.countProduct > 0) {

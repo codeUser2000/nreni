@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function Product({ data, style }) {
   const { REACT_APP_API_URL } = process.env;
   return (
-    <div style={style || {}} className="shopProduct">
+    <div style={style || {}} className="shopProduct col-md-4">
       <figure className="shopProductItem">
         <img src={REACT_APP_API_URL + data.avatar} alt="" className="shopProductImg" />
         <figcaption className="shopProductInfo">
