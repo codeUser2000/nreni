@@ -5,13 +5,14 @@ import {
 } from 'react-bootstrap';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { useSelector } from 'react-redux';
 import logo from '../assets/img/logo/logo.png';
-// import login from '../assets/img/site/user.png';
 import russian from '../assets/img/site/russian.png';
 import arm from '../assets/img/site/armenia.png';
 import us from '../assets/img/site/usa.png';
 
 function Header() {
+  const cartData = useSelector((state) => state.cart.cartData);
   const handleLangChange = useCallback((lang) => {
     localStorage.setItem('lang', lang);
   }, []);
@@ -44,6 +45,7 @@ function Header() {
                 <li className="navList">
                   <NavLink to="/cart" className="navLink">
                     <LocalMallIcon />
+                    {cartData ? cartData.length : 0}
                   </NavLink>
                 </li>
                 <li className="navList">
@@ -63,6 +65,8 @@ function Header() {
                 <li className="navList">
                   <NavDropdown title="Languages" id="basic-nav-dropdown">
                     <ul className="subMenu">
+                      {/* eslint-disable-next-line max-len */}
+                      {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
                       <li className="subList" onClick={() => handleLangChange('us')}>
                         <img className="subLanguageIcons" src={us} alt="" />
                         <p className="subLangName">English</p>

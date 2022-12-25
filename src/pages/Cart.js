@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 // import DeleteIcon from '@mui/icons-material/Delete';
 import Wrapper from '../components/Wrapper';
 import CartItems from '../components/CartItems';
@@ -19,6 +19,10 @@ function Cart() {
       setTotal(count);
     }
   }, []);
+
+  const handleCount = useCallback((operator, product) => {
+    console.log(operator, product);
+  }, []);
   return (
     <Wrapper>
       <div className="cart">
@@ -35,7 +39,7 @@ function Cart() {
                 </tr>
               </thead>
               <tbody className="cartTableTbody">
-                <CartItems />
+                <CartItems setTotal={setTotal} handleCount={handleCount} />
               </tbody>
             </table>
             <div className="orderSummaryDetails">

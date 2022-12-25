@@ -2,6 +2,7 @@ import {
   GET_CART_DATA_REQUEST,
   GET_CART_DATA_SUCCESS,
   GET_CART_DATA_FAIL,
+  GET_LOCAL_CART_DATA,
 } from '../actions/cart';
 
 const initialState = {
@@ -9,6 +10,7 @@ const initialState = {
   cartDataStatus: '',
 };
 
+// eslint-disable-next-line default-param-last
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case GET_CART_DATA_REQUEST: {
@@ -33,6 +35,14 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         cartDataStatus: 'fail',
+      };
+    }
+    case GET_LOCAL_CART_DATA: {
+      const { data } = action.payload;
+      return {
+        ...state,
+        cartDataStatus: 'ok',
+        cartData: data,
       };
     }
     default: {

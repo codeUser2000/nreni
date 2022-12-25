@@ -1,19 +1,33 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useDispatch } from 'react-redux';
-import { deleteCartItemRequest, getCartDataRequest } from '../store/actions/cart';
+// import { deleteCartItemRequest, getCartDataRequest } from '../store/actions/cart';
 import Account from '../helpers/Account';
+import Utils from '../helpers/Utils';
+import { getLocalCartData } from '../store/actions/cart';
 
-function CartItems() {
+function CartItems({ handleCount, setTotal }) {
   const { REACT_APP_API_URL } = process.env;
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
   const [cart, setCart] = useState([]);
   const dispatch = useDispatch();
   // const cart = useSelector((state) => state.cart.cartData);
 
   const handleDelete = useCallback((id) => {
-    dispatch(deleteCartItemRequest(id));
-    dispatch(getCartDataRequest(1));
+    if (Account.getToken()) {
+      // dispatch(deleteCartItemRequest(id));
+      // dispatch(getCartDataRequest(1));
+    } else {
+      Utils.deleteFromCart(id);
+      let count = 0;
+      setCart(JSON.parse(localStorage.getItem('cartItem')));
+      JSON.parse(localStorage.getItem('cartItem')).map((c) => {
+        count += +c.count * +c.price;
+        return true;
+      });
+      setTotal(count);
+      dispatch(getLocalCartData());
+    }
   }, []);
 
   useEffect(() => {
@@ -46,21 +60,21 @@ function CartItems() {
               <button
                 type="button"
                 className="cartTableBtnM"
-                onClick={() => setCount(count - 1)}
+                onClick={() => handleCount('minus', c)}
               >
                 -
               </button>
               <input
                 type="text"
                 className="cartTableInput"
-                value={count}
+                value={c.count}
                 onChange={() => true}
                 readOnly
               />
               <button
                 type="button"
                 className="cartTableBtnP"
-                onClick={() => setCount(count + 1)}
+                onClick={() => handleCount('add', c)}
               >
                 +
               </button>

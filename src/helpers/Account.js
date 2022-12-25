@@ -1,5 +1,4 @@
 import { Navigate } from 'react-router';
-import { toast } from 'react-toastify';
 
 class Account {
   static getToken() {
@@ -56,28 +55,6 @@ class Account {
       return <Navigate to="/login" replace />;
     }
     return false;
-  }
-
-  static setCart(product) {
-    let productData;
-    if (JSON.parse(localStorage.getItem('cartItem')) && JSON.parse(localStorage.getItem('cartItem')) !== 'undefined') {
-      const existProduct = JSON.parse(localStorage.getItem('cartItem')).filter((c) => +c.id === +product.id);
-      if (existProduct.length) {
-        const filterData = JSON.parse(localStorage.getItem('cartItem')).filter((c) => +c.id !== +product.id);
-        if (existProduct[0].count + product.count > product.countProduct) {
-          toast.error('no');
-          return;
-        }
-        product.count = existProduct[0].count + product.count;
-        filterData.push(product);
-        productData = filterData;
-      } else {
-        productData = [...JSON.parse(localStorage.getItem('cartItem')), product];
-      }
-    } else {
-      productData = [product];
-    }
-    localStorage.setItem('cartItem', JSON.stringify(productData));
   }
 }
 

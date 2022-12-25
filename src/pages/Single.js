@@ -1,11 +1,14 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import { useDispatch } from 'react-redux';
 import Wrapper from '../components/Wrapper';
 import Api from '../Api';
-import Account from '../helpers/Account';
+import Utils from '../helpers/Utils';
+import { getLocalCartData } from '../store/actions/cart';
 
 function Single() {
   const params = useParams();
+  const dispatch = useDispatch();
   const { REACT_APP_API_URL } = process.env;
   const [count, setCount] = useState(1);
   const [single, setSingle] = useState({});
@@ -17,7 +20,8 @@ function Single() {
   }, []);
   const handleProductAdd = useCallback((data) => {
     data.count = count;
-    Account.setCart(data);
+    Utils.setCart(data);
+    dispatch(getLocalCartData());
   }, [count]);
 
   const handleProductCountChange = useCallback((operator) => {

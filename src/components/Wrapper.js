@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import Header from './Header';
 import Footer from './Footer';
+import { getLocalCartData } from '../store/actions/cart';
 
-function Wrapper(props) {
+function Wrapper({ children }) {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getLocalCartData());
+  }, []);
   return (
     <>
       <Header />
-      {props.children}
+      {children}
       <Footer />
     </>
   );
