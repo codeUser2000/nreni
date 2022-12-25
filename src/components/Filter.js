@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
@@ -34,15 +34,21 @@ function Filter() {
     navigate(`?${qs.stringify(query, { arrayFormat: 'comma' })}`);
   }, [location.search]);
 
+  const categories = _.isArray(query.filter) ? query.filter : [query.filter];
   const handleChange = useCallback((val) => {
     query.sliderPrice = val.join('_');
     navigate(`?${qs.stringify(query, {
       arrayFormat: 'comma',
       skipEmptyString: true,
     })}`);
-    dispatch(getProductDataRequest(1, val[0], val[1]));
   }, [location.search]);
-  const categories = _.isArray(query.filter) ? query.filter : [query.filter];
+
+  useEffect(() => {
+    if (!_.isEmpty(query)) {
+      const [minV, maxV] = query.sliderPrice.split('_');
+      dispatch(getProductDataRequest(1, minV, maxV, categories));
+    }
+  }, [location.search]);
   return (
     <aside className="shopAside col-md-4">
       <h2 className="shopAsideTitle">Filters</h2>

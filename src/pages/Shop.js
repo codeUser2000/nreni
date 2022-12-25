@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import qs from 'query-string';
 import { Pagination } from '@mui/material';
+import _ from 'lodash';
 import Wrapper from '../components/Wrapper';
 import ShopSection from '../components/ShopSection';
 import Filter from '../components/Filter';
@@ -24,18 +25,14 @@ function Shop() {
   useEffect(() => {
     dispatch(getProductDataRequest(pageNumber));
   }, [pageNumber]);
+  const categoryArr = _.isArray(query.filter) ? query.filter : [query.filter];
   useEffect(() => {
     if (query.sliderPrice) {
       setPageNumber(1);
       const [min, max] = query.sliderPrice.split('_');
-      dispatch(getProductDataRequest(1, min, max));
+      dispatch(getProductDataRequest(1, min, max, categoryArr));
     }
   }, []);
-  // const categoryArr = _.isArray(query.filter) ? query.filter : [query.filter];
-
-  // if (!_.isEmpty(_.compact(categoryArr))) {
-  //   data = data.filter((p) => categoryArr.includes(p.categories.type));
-  // }
 
   const handleChange = useCallback((ev, value) => {
     setPageNumber(value);

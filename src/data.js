@@ -18,7 +18,7 @@ const menu = [
     src: ring,
   }, {
     id: 3,
-    name: 'bracelets',
+    name: 'bracelet',
     src: bracelets,
   }, {
     id: 4,

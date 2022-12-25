@@ -2,10 +2,14 @@ export const GET_PRODUCT_DATA_REQUEST = 'GET_PRODUCT_DATA_REQUEST';
 export const GET_PRODUCT_DATA_SUCCESS = 'GET_PRODUCT_DATA_SUCCESS';
 export const GET_PRODUCT_DATA_FAIL = 'GET_PRODUCT_DATA_FAIL';
 
-export function getProductDataRequest(page, min, max) {
+export function getProductDataRequest(page, min, max, filter) {
+  console.log(page, min, max, filter);
+  const filterArr = filter?.join(',');
   return {
     type: GET_PRODUCT_DATA_REQUEST,
-    payload: { page, min, max },
+    payload: {
+      page, min, max, filterArr,
+    },
   };
 }
 export const CREATE_PRODUCT_REQUEST = 'CREATE_PRODUCT_REQUEST';
