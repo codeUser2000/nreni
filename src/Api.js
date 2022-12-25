@@ -15,13 +15,17 @@ api.interceptors.request.use(
   (config) => config,
 );
 
+
+
 class Api {
   static getData(data) {
-    console.log(!!data.filterArr);
+    let source;
     return api.get(`/products/products?page=${data.page}${data.min ? `&min=${data.min}` : ''}${data.max ? `&max=${data.max}` : ''}${data.filterArr ? `&filter=${data.filterArr}` : ''}`, {
       headers: {
         'Content-Type': 'image/jpeg',
       },
+      // eslint-disable-next-line no-return-assign
+      cancelToken: new axios.CancelToken((c) => source = c),
     });
   }
 
