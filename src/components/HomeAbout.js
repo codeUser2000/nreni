@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import homeAbout from '../assets/img/post/homeAbout.jpg';
 
 function HomeAbout() {
+  console.log(9);
   return (
     <div className="homeAbout">
       <figure className="homeAboutItem">
