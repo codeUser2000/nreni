@@ -45,7 +45,7 @@ function Filter() {
 
   useEffect(() => {
     if (!_.isEmpty(query)) {
-      const [minV, maxV] = query.sliderPrice.split('_');
+      const [minV, maxV] = query.sliderPrice?.split('_') || [min, max];
       dispatch(getProductDataRequest(1, minV, maxV, categories));
     }
   }, [location.search]);
