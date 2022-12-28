@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import _ from 'lodash';
+import CloseIcon from '@mui/icons-material/Close';
 import {
   createProductRequest,
   updateProductRequest,
@@ -13,7 +14,6 @@ function CreateModal({
   show, setShow, data,
 }) {
   const { REACT_APP_API_URL } = process.env;
-
   const [formData, setFormData] = useState({
     avatar: {},
     title: '',
@@ -101,10 +101,14 @@ function CreateModal({
     >
       {/* eslint-disable-next-line max-len */}
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
-      <div onClick={() => setShow(false)}>hello</div>
+      <div className="d-flex justify-content-end" onClick={() => setShow(false)}><CloseIcon /></div>
       <div className="adminEditProduct">
         <form className="adminForm" onSubmit={handleSubmit}>
-          <p className="adminTitle">create a product</p>
+          <p className="adminTitle">
+            {!_.isEmpty(data) ? 'update' : 'create'}
+            {' '}
+            a product
+          </p>
           <input
             type="file"
             onChange={handleFile}
@@ -148,14 +152,16 @@ function CreateModal({
             value={formData.price}
             onChange={(ev) => handleChange('price', ev.target.value)}
           />
-          <button type="submit" className="adminFormBtn">Create</button>
+          <button type="submit" className="adminFormBtn">
+            {!_.isEmpty(data) ? 'update' : 'create'}
+          </button>
         </form>
         <div className="adminFormItem">
           <figure className="adminFormFigure">
             <img
               src={formData.avatar._src
                 ? formData.avatar._src
-                : formData.avatar
+                : !_.isEmpty(formData.avatar)
                   ? `${REACT_APP_API_URL}${formData.avatar}`
                   : img}
               alt=""

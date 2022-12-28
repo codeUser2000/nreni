@@ -16,7 +16,6 @@ import Api from '../../Api';
 function* handleGetBlockquotesRequest() {
   try {
     const { data } = yield call(Api.getBlockquote);
-    console.log(data.quote);
     yield put({
       type: GET_BLOCKQUOTE_DATA_SUCCESS,
       payload: { quote: data.quote },
