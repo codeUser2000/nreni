@@ -3,7 +3,6 @@ export const GET_PRODUCT_DATA_SUCCESS = 'GET_PRODUCT_DATA_SUCCESS';
 export const GET_PRODUCT_DATA_FAIL = 'GET_PRODUCT_DATA_FAIL';
 
 export function getProductDataRequest(page, min, max, filter) {
-  console.log(page, min, max, filter);
   const filterArr = filter?.join(',');
   return {
     type: GET_PRODUCT_DATA_REQUEST,
