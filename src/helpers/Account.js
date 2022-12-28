@@ -38,7 +38,6 @@ class Account {
     } else if (sessionStorage.getItem('token')) {
       sessionStorage.removeItem('token');
       sessionStorage.removeItem('profile');
-      // eslint-disable-next-line react/react-in-jsx-scope
       return <Navigate to="/login" replace />;
     }
     return false;
@@ -51,7 +50,6 @@ class Account {
     } else if (sessionStorage.getItem('adminToken')) {
       sessionStorage.removeItem('adminToken');
       sessionStorage.removeItem('profile');
-      // eslint-disable-next-line react/react-in-jsx-scope
       return <Navigate to="/login" replace />;
     }
     return false;

@@ -50,9 +50,26 @@ function Single() {
                 {single.description}
               </p>
               <div className="singleInfoQuantity">
-                <button type="button" onClick={() => handleProductCountChange('delete')} className="singleBtnM">-</button>
-                <input value={count < 1 ? setCount(1) : count} className="singleInfoInput" type="text" onChange={() => true} />
-                <button type="button" onClick={() => handleProductCountChange('add')} className="singleBtnP">+</button>
+                <button
+                  type="button"
+                  className="singleBtnM"
+                  onClick={() => handleProductCountChange('delete')}
+                >
+                  -
+                </button>
+                <input
+                  type="text"
+                  className="singleInfoInput"
+                  onChange={() => true}
+                  value={count < 1 ? setCount(1) : count}
+                />
+                <button
+                  type="button"
+                  onClick={() => handleProductCountChange('add')}
+                  className="singleBtnP"
+                >
+                  +
+                </button>
               </div>
               <button type="button" onClick={() => handleProductAdd(single)} className="singleInfoBtn">
                 Add to cart

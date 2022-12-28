@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useState } from 'react';
-// import DeleteIcon from '@mui/icons-material/Delete';
 import Wrapper from '../components/Wrapper';
 import CartItems from '../components/CartItems';
 import Account from '../helpers/Account';
@@ -8,7 +7,7 @@ function Cart() {
   const [total, setTotal] = useState(0);
   useEffect(() => {
     if (Account.getToken()) {
-      return;
+      return true;
     }
     if (localStorage.getItem('cartItem')) {
       let count = 0;

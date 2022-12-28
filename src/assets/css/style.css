@@ -1400,7 +1400,7 @@ p {
 
 .shopTitle {
     width: 100%;
-    font-size:  6.5vw;
+    font-size: 6.5vw;
     font-weight: bold;
     font-family: 'Fuzzy Bubbles', sans-serif;
 }
@@ -1659,7 +1659,7 @@ p {
 
 .singleItem {
     width: calc(100% / 2);
-    height: 350px;
+    height: 450px;
     object-fit: cover;
     margin-right: 40px;
 }
@@ -2035,7 +2035,6 @@ p {
     justify-content: space-between;
     align-items: flex-start;
 }
-
 
 
 .footerTitle {

@@ -9,17 +9,21 @@ function AdminUsers() {
   const dispatch = useDispatch();
   const [pageNumber, setPageNumber] = useState(1);
   const pagination = useSelector((state) => state.users.pagination);
+
   useEffect(() => {
     dispatch(getUserData(1));
   }, []);
+
   const handleDelete = useCallback((email) => {
     dispatch(deleteUserRequest(email));
     dispatch(getUserData(1));
   }, []);
+
   const handleChange = useCallback((ev, value) => {
     setPageNumber(value);
     dispatch(getUserData(pageNumber));
   }, [pagination]);
+
   return (
     <AdminWrapper>
       <div className="adminProducts">

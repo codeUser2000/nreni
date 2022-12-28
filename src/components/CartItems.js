@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useDispatch } from 'react-redux';
-// import { deleteCartItemRequest, getCartDataRequest } from '../store/actions/cart';
 import Account from '../helpers/Account';
 import Utils from '../helpers/Utils';
 import { getLocalCartData } from '../store/actions/cart';
@@ -81,7 +80,10 @@ function CartItems({ handleCount, setTotal }) {
             </div>
           </td>
           <td className="cartTablePrice">
+            $
+            {' '}
             {+c.price * c.count}
+            .00
           </td>
           <td>
             <button type="button" className="cartTableBtnR">

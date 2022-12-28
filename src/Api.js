@@ -15,8 +15,6 @@ api.interceptors.request.use(
   (config) => config,
 );
 
-
-
 class Api {
   static getData(data) {
     let source;
