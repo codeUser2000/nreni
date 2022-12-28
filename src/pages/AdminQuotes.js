@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { Pagination } from '@mui/material';
 import AdminWrapper from '../components/AdminWrapper';
 import { deleteBlockquoteRequest, getBlockquoteDataRequest } from '../store/actions/blockquote';
 
