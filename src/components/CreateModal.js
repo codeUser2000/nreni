@@ -65,7 +65,6 @@ function CreateModal({
   }, [formData, data]);
 
   useEffect(() => {
-    console.log(formData.avatar);
     if (!_.isEmpty(data)) {
       setFormData(data);
     }
