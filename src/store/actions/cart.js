@@ -23,7 +23,6 @@ export function deleteCartItemRequest(id) {
 export const GET_LOCAL_CART_DATA = 'GET_LOCAL_CART_DATA';
 export function getLocalCartData() {
   const data = JSON.parse(localStorage.getItem('cartItem'));
-  console.log(data);
   return {
     type: GET_LOCAL_CART_DATA,
     payload: { data },
