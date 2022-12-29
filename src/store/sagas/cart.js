@@ -14,7 +14,7 @@ import {
 
 function* handleAddToCartRequest(action) {
   try {
-    const { data } = yield call(Api.addToCart, action.payload.productId);
+    const { data } = yield call(Api.addToCart, action.payload.product);
     toast.success('The product has been added to the card');
     yield put({
       type: ADD_TO_CART_SUCCESS,

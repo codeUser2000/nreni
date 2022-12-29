@@ -9,7 +9,7 @@ const api = axios.create({
     'Content-Type': 'application/json',
   },
 });
-
+console.log(Account.getAdminToken());
 api.interceptors.request.use(
   // eslint-disable-next-line no-unused-vars
   (config) => config,
@@ -107,8 +107,8 @@ class Api {
     return api.post('/users/confirm', data);
   }
 
-  static addToCart(productId) {
-    return api.post('/cart/addToCart', productId);
+  static addToCart(data) {
+    return api.post('/cart/addToCart', { productId: data.id, quantity: data.count, price: +data.price * data.count });
   }
 
   static deleteFromCart(productId) {

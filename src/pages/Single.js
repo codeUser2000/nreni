@@ -4,7 +4,8 @@ import { useDispatch } from 'react-redux';
 import Wrapper from '../components/Wrapper';
 import Api from '../Api';
 import Utils from '../helpers/Utils';
-import { getLocalCartData } from '../store/actions/cart';
+import { addToCartRequest, getLocalCartData } from '../store/actions/cart';
+import Account from '../helpers/Account';
 
 function Single() {
   const params = useParams();
@@ -20,10 +21,14 @@ function Single() {
     })();
   }, []);
 
-  const handleProductAdd = useCallback((data) => {
+  const handleProductAdd = useCallback(async (data) => {
     data.count = count;
-    Utils.setCart(data);
-    dispatch(getLocalCartData());
+    if (Account.getToken()) {
+      console.log(data);
+      await dispatch(addToCartRequest(data));
+    }
+    // Utils.setCart(data);
+    // dispatch(getLocalCartData());
   }, [count]);
 
   const handleProductCountChange = useCallback((operator) => {
