@@ -1,45 +1,68 @@
-import { takeLatest, call, put } from 'redux-saga/effects';
-import {
-  GET_CART_DATA_REQUEST,
-  GET_CART_DATA_SUCCESS,
-  GET_CART_DATA_FAIL,
-  DELETE_CART_ITEM_REQUEST,
-  DELETE_CART_ITEM_SUCCESS,
-  DELETE_CART_ITEM_FAIL,
-} from '../actions/cart';
+import { toast } from 'react-toastify';
+import { call, put, takeLatest } from 'redux-saga/effects';
 import Api from '../../Api';
+import {
+  ADD_TO_CART_FAIL,
+  ADD_TO_CART_REQUEST,
+  ADD_TO_CART_SUCCESS,
+  DELETE_FROM_CART_FAIL,
+  DELETE_FROM_CART_REQUEST,
+  DELETE_FROM_CART_SUCCESS, GET_CART_ITEM_LIST_FAIL,
+  GET_CART_ITEM_LIST_REQUEST, GET_CART_ITEM_LIST_SUCCESS,
 
-function* handleGetCartRequest() {
+} from '../actions/cart';
+
+function* handleAddToCartRequest(action) {
   try {
-    const { data } = yield call(Api.getCart);
+    const { data } = yield call(Api.addToCart, action.payload.productId);
+    toast.success('The product has been added to the card');
     yield put({
-      type: GET_CART_DATA_SUCCESS,
-      payload: { data: data.data },
+      type: ADD_TO_CART_SUCCESS,
+      payload: { data },
     });
   } catch (e) {
+    toast.error('Something went wrong :(');
     yield put({
-      type: GET_CART_DATA_FAIL,
+      type: ADD_TO_CART_FAIL,
       payload: { error: e.message },
     });
   }
 }
 
-function* handleDeleteCartItemRequest(action) {
+function* handleDeleteFromCartRequest(action) {
   try {
-    yield call(Api.deleteCartItem, action.payload.id);
+    yield call(Api.deleteFromCart, action.payload.id);
+    toast.success('The product has been successfully deleted from the card:)');
     yield put({
-      type: DELETE_CART_ITEM_SUCCESS,
+      type: DELETE_FROM_CART_SUCCESS,
       payload: {},
     });
   } catch (e) {
+    toast.error('Something went wrong :(');
     yield put({
-      type: DELETE_CART_ITEM_FAIL,
+      type: DELETE_FROM_CART_FAIL,
       payload: { error: e.message },
+    });
+  }
+}
+
+function* handleCartItemsRequest(action) {
+  try {
+    const { data } = yield call(Api.getCartItemsList, action.payload.page);
+    yield put({
+      type: GET_CART_ITEM_LIST_SUCCESS,
+      payload: { data },
+    });
+  } catch (e) {
+    yield put({
+      type: GET_CART_ITEM_LIST_FAIL,
+      payload: { error: e.response },
     });
   }
 }
 
 export default function* watcher() {
-  yield takeLatest(GET_CART_DATA_REQUEST, handleGetCartRequest);
-  yield takeLatest(DELETE_CART_ITEM_REQUEST, handleDeleteCartItemRequest);
+  yield takeLatest(ADD_TO_CART_REQUEST, handleAddToCartRequest);
+  yield takeLatest(GET_CART_ITEM_LIST_REQUEST, handleCartItemsRequest);
+  yield takeLatest(DELETE_FROM_CART_REQUEST, handleDeleteFromCartRequest);
 }

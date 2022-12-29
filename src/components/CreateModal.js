@@ -11,7 +11,9 @@ import {
 import img from '../assets/img/logo/logo.png';
 
 function CreateModal({
-  show, setShow, data,
+  show,
+  setShow,
+  data,
 }) {
   const { REACT_APP_API_URL } = process.env;
   const [formData, setFormData] = useState({
@@ -25,7 +27,10 @@ function CreateModal({
   });
   const dispatch = useDispatch();
   const handleChange = useCallback((key, value) => {
-    setFormData((prev) => ({ ...prev, [key]: value }));
+    setFormData((prev) => ({
+      ...prev,
+      [key]: value,
+    }));
   }, []);
 
   const handleFile = useCallback((ev) => {
@@ -137,7 +142,11 @@ function CreateModal({
             value={formData.countProduct}
             onChange={(ev) => handleChange('countProduct', ev.target.value)}
           />
-          <select className="adminSelect" value={formData.categoryId} onChange={(ev) => handleChange('categoryId', ev.target.value)}>
+          <select
+            className="adminSelect"
+            value={formData.categoryId}
+            onChange={(ev) => handleChange('categoryId', ev.target.value)}
+          >
             <option value="">Choose category</option>
             <option value="1">rings</option>
             <option value="2">bracelets</option>

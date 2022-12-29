@@ -12,12 +12,14 @@ function Single() {
   const { REACT_APP_API_URL } = process.env;
   const [count, setCount] = useState(1);
   const [single, setSingle] = useState({});
+
   useEffect(() => {
     (async () => {
       const { data } = await Api.getSingle(params.itemId);
       setSingle(data.product);
     })();
   }, []);
+
   const handleProductAdd = useCallback((data) => {
     data.count = count;
     Utils.setCart(data);
@@ -31,6 +33,7 @@ function Single() {
       setCount(+count - 1);
     }
   }, [single, count]);
+
   return (
     <Wrapper>
       <main className="single">
@@ -71,7 +74,11 @@ function Single() {
                   +
                 </button>
               </div>
-              <button type="button" onClick={() => handleProductAdd(single)} className="singleInfoBtn">
+              <button
+                type="button"
+                onClick={() => handleProductAdd(single)}
+                className="singleInfoBtn"
+              >
                 Add to cart
               </button>
             </div>

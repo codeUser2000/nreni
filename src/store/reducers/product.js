@@ -14,7 +14,6 @@ const initialState = {
   pagination: 0,
 };
 
-// eslint-disable-next-line default-param-last
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case GET_PRODUCT_DATA_REQUEST: {

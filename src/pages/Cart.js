@@ -1,20 +1,27 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Wrapper from '../components/Wrapper';
 import CartItems from '../components/CartItems';
 import Account from '../helpers/Account';
+import { getCartItemListRequest } from '../store/actions/cart';
 
 function Cart() {
+  const dispatch = useDispatch();
+  // const { REACT_APP_API_URL } = process.env;
   const [total, setTotal] = useState(0);
+
   useEffect(() => {
     if (Account.getToken()) {
-      return true;
+      console.log(777);
+      // dispatch(getCartItemListRequest(1));
     }
     if (localStorage.getItem('cartItem')) {
       let count = 0;
-      JSON.parse(localStorage.getItem('cartItem')).map((c) => {
-        count += +c.count * +c.price;
-        return true;
-      });
+      JSON.parse(localStorage.getItem('cartItem'))
+        .map((c) => {
+          count += +c.count * +c.price;
+          return true;
+        });
       setTotal(count);
     }
   }, []);
@@ -30,15 +37,15 @@ function Cart() {
             <h2 className="cartTitle">shopping cart</h2>
             <table className="cartTable">
               <thead className="cartTableThead">
-                <tr className="cartTableTheadTitles">
-                  <td>Description</td>
-                  <td>Quantity</td>
-                  <td>Price</td>
-                  <td className="">remove</td>
-                </tr>
+              <tr className="cartTableTheadTitles">
+                <td>Description</td>
+                <td>Quantity</td>
+                <td>Price</td>
+                <td className="">remove</td>
+              </tr>
               </thead>
               <tbody className="cartTableTbody">
-                <CartItems setTotal={setTotal} handleCount={handleCount} />
+              <CartItems setTotal={setTotal} handleCount={handleCount}/>
               </tbody>
             </table>
             <div className="orderSummaryDetails">

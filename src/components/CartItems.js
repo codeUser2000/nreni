@@ -3,7 +3,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { useDispatch } from 'react-redux';
 import Account from '../helpers/Account';
 import Utils from '../helpers/Utils';
-import { getLocalCartData } from '../store/actions/cart';
+import { getCartItemListRequest, getLocalCartData } from '../store/actions/cart';
 
 function CartItems({ handleCount, setTotal }) {
   const { REACT_APP_API_URL } = process.env;
@@ -31,7 +31,7 @@ function CartItems({ handleCount, setTotal }) {
 
   useEffect(() => {
     if (Account.getToken()) {
-      return;
+      dispatch(getCartItemListRequest(1));
     }
     if (localStorage.getItem('cartItem')) {
       setCart(JSON.parse(localStorage.getItem('cartItem')));

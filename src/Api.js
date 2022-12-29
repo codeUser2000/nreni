@@ -99,10 +99,6 @@ class Api {
     return api.post('/admin', data);
   }
 
-  static getCart(data) {
-    return api.post('/cart/cart', data);
-  }
-
   static getSingle(id) {
     return api.get(`/products/singleProduct?id=${id}`);
   }
@@ -111,8 +107,16 @@ class Api {
     return api.post('/users/confirm', data);
   }
 
-  static deleteCartItem(id) {
-    return api.post('/cart/deleteCartItem', { id });
+  static addToCart(productId) {
+    return api.post('/cart/addToCart', productId);
+  }
+
+  static deleteFromCart(productId) {
+    return api.post('/cart/deleteFromCart', { productId });
+  }
+
+  static getCartItemsList(page) {
+    return api.get(`/cart/cartItemList?page=${page || 1}`);
   }
 }
 

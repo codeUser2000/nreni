@@ -1,30 +1,42 @@
-export const GET_CART_DATA_REQUEST = 'GET_CART_DATA_REQUEST';
-export const GET_CART_DATA_SUCCESS = 'GET_CART_DATA_SUCCESS';
-export const GET_CART_DATA_FAIL = 'GET_CART_DATA_FAIL';
-
-export function getCartDataRequest() {
-  return {
-    type: GET_CART_DATA_REQUEST,
-    payload: {},
-  };
-}
-
-export const DELETE_CART_ITEM_REQUEST = 'DELETE_CART_ITEM_REQUEST';
-export const DELETE_CART_ITEM_SUCCESS = 'DELETE_CART_ITEM_SUCCESS';
-export const DELETE_CART_ITEM_FAIL = 'DELETE_CART_ITEM_FAIL';
-
-export function deleteCartItemRequest(id) {
-  return {
-    type: DELETE_CART_ITEM_REQUEST,
-    payload: { id },
-  };
-}
-
 export const GET_LOCAL_CART_DATA = 'GET_LOCAL_CART_DATA';
+
 export function getLocalCartData() {
   const data = JSON.parse(localStorage.getItem('cartItem'));
   return {
     type: GET_LOCAL_CART_DATA,
     payload: { data },
+  };
+}
+
+export const GET_CART_ITEM_LIST_REQUEST = 'GET_CART_ITEM_LIST_REQUEST';
+export const GET_CART_ITEM_LIST_SUCCESS = 'GET_CART_ITEM_LIST_SUCCESS';
+export const GET_CART_ITEM_LIST_FAIL = 'GET_CART_ITEM_LIST_FAIL';
+
+export function getCartItemListRequest() {
+  return {
+    type: GET_CART_ITEM_LIST_REQUEST,
+    payload: {},
+  };
+}
+
+export const ADD_TO_CART_REQUEST = 'ADD_TO_CART_REQUEST';
+export const ADD_TO_CART_SUCCESS = 'CREATE_CART_SUCCESS';
+export const ADD_TO_CART_FAIL = 'CREATE_CART_FAIL';
+
+export function addToCartRequest(productId) {
+  return {
+    type: ADD_TO_CART_REQUEST,
+    payload: { productId },
+  };
+}
+
+export const DELETE_FROM_CART_REQUEST = 'DELETE_FROM_CART_REQUEST';
+export const DELETE_FROM_CART_SUCCESS = 'DELETE_FROM_CART_SUCCESS';
+export const DELETE_FROM_CART_FAIL = 'DELETE_FROM_CART_FAIL';
+
+export function deleteFromCartRequest(productId) {
+  return {
+    type: DELETE_FROM_CART_REQUEST,
+    payload: { productId },
   };
 }
