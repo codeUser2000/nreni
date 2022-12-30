@@ -5,25 +5,24 @@ const { REACT_APP_API_URL } = process.env;
 const api = axios.create({
   baseURL: REACT_APP_API_URL,
   headers: {
-    Authorization: Account.getAdminToken() || Account.getToken(),
     'Content-Type': 'application/json',
   },
 });
-console.log(Account.getAdminToken());
 api.interceptors.request.use(
   // eslint-disable-next-line no-unused-vars
-  (config) => config,
+  (config) => {
+    config.headers = { Authorization: Account.getAdminToken() || Account.getToken() };
+    return config;
+  },
+  (err) => Promise.reject(err),
 );
 
 class Api {
   static getData(data) {
-    let source;
     return api.get(`/products/products?page=${data.page}${data.min ? `&min=${data.min}` : ''}${data.max ? `&max=${data.max}` : ''}${data.filterArr ? `&filter=${data.filterArr}` : ''}`, {
       headers: {
         'Content-Type': 'image/jpeg',
       },
-      // eslint-disable-next-line no-return-assign
-      cancelToken: new axios.CancelToken((c) => source = c),
     });
   }
 
@@ -108,7 +107,9 @@ class Api {
   }
 
   static addToCart(data) {
-    return api.post('/cart/addToCart', { productId: data.id, quantity: data.count, price: +data.price * data.count });
+    return api.post('/cart/addToCart', {
+      productId: data.id, quantity: data.count, price: +data.price * data.count, cartId: 2,
+    });
   }
 
   static deleteFromCart(productId) {
