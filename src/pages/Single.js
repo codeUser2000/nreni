@@ -22,13 +22,18 @@ function Single() {
   }, []);
 
   const handleProductAdd = useCallback(async (data) => {
-    data.count = count;
     if (Account.getToken()) {
-      console.log(data);
-      await dispatch(addToCartRequest(data));
+      const product = {
+        quantity: count, price: +data.price * count, product: data,
+      };
+      await dispatch(addToCartRequest(product));
+    } else {
+      const product = {
+        id: new Date(), quantity: count, price: +data.price * count, product: data,
+      };
+      Utils.setCart(product);
+      dispatch(getLocalCartData());
     }
-    // Utils.setCart(data);
-    // dispatch(getLocalCartData());
   }, [count]);
 
   const handleProductCountChange = useCallback((operator) => {

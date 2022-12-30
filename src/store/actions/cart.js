@@ -12,10 +12,10 @@ export const GET_CART_ITEM_LIST_REQUEST = 'GET_CART_ITEM_LIST_REQUEST';
 export const GET_CART_ITEM_LIST_SUCCESS = 'GET_CART_ITEM_LIST_SUCCESS';
 export const GET_CART_ITEM_LIST_FAIL = 'GET_CART_ITEM_LIST_FAIL';
 
-export function getCartItemListRequest() {
+export function getCartItemListRequest(page, cartId) {
   return {
     type: GET_CART_ITEM_LIST_REQUEST,
-    payload: {},
+    payload: { page, cartId },
   };
 }
 

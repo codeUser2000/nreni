@@ -33,6 +33,15 @@ class Utils {
     const filteredProduct = allProduct.filter((c) => c.id !== id);
     localStorage.setItem('cartItem', JSON.stringify(filteredProduct));
   }
+
+  static totalPrice(data) {
+    let count = 0;
+    data.map((c) => {
+      count += +c.quantity * +c.price;
+      return true;
+    });
+    return count;
+  }
 }
 
 export default Utils;

@@ -4,6 +4,7 @@ import Wrapper from '../components/Wrapper';
 import CartItems from '../components/CartItems';
 import Account from '../helpers/Account';
 import { getCartItemListRequest } from '../store/actions/cart';
+import Utils from '../helpers/Utils';
 
 function Cart() {
   const dispatch = useDispatch();
@@ -12,17 +13,10 @@ function Cart() {
 
   useEffect(() => {
     if (Account.getToken()) {
-      console.log(777);
-      // dispatch(getCartItemListRequest(1));
+      dispatch(getCartItemListRequest(1));
     }
     if (localStorage.getItem('cartItem')) {
-      let count = 0;
-      JSON.parse(localStorage.getItem('cartItem'))
-        .map((c) => {
-          count += +c.count * +c.price;
-          return true;
-        });
-      setTotal(count);
+      setTotal(Utils.totalPrice(JSON.parse(localStorage.getItem('cartItem'))));
     }
   }, []);
 
@@ -37,15 +31,15 @@ function Cart() {
             <h2 className="cartTitle">shopping cart</h2>
             <table className="cartTable">
               <thead className="cartTableThead">
-              <tr className="cartTableTheadTitles">
-                <td>Description</td>
-                <td>Quantity</td>
-                <td>Price</td>
-                <td className="">remove</td>
-              </tr>
+                <tr className="cartTableTheadTitles">
+                  <td>Description</td>
+                  <td>Quantity</td>
+                  <td>Price</td>
+                  <td className="">remove</td>
+                </tr>
               </thead>
               <tbody className="cartTableTbody">
-              <CartItems setTotal={setTotal} handleCount={handleCount}/>
+                <CartItems setTotal={setTotal} handleCount={handleCount} />
               </tbody>
             </table>
             <div className="orderSummaryDetails">

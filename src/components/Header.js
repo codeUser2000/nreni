@@ -13,6 +13,7 @@ import us from '../assets/img/site/usa.png';
 
 function Header() {
   const cartData = useSelector((state) => state.cart.cartData);
+  const cartDataToken = useSelector((state) => state.cart.userCartData);
   const handleLangChange = useCallback((lang) => {
     localStorage.setItem('lang', lang);
   }, []);
@@ -45,7 +46,7 @@ function Header() {
                 <li className="navList">
                   <NavLink to="/cart" className="navLink">
                     <LocalMallIcon />
-                    {cartData ? cartData.length : 0}
+                    {cartData ? cartData.length : cartDataToken ? cartDataToken.length : 0}
                   </NavLink>
                 </li>
                 <li className="navList">

@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Account from '../helpers/Account';
 import Utils from '../helpers/Utils';
 import { getCartItemListRequest, getLocalCartData } from '../store/actions/cart';
@@ -10,7 +10,7 @@ function CartItems({ handleCount, setTotal }) {
   // const [count, setCount] = useState(0);
   const [cart, setCart] = useState([]);
   const dispatch = useDispatch();
-  // const cart = useSelector((state) => state.cart.cartData);
+  const cartToken = useSelector((state) => state.cart.userCartData);
 
   const handleDelete = useCallback((id) => {
     if (Account.getToken()) {
@@ -21,7 +21,7 @@ function CartItems({ handleCount, setTotal }) {
       let count = 0;
       setCart(JSON.parse(localStorage.getItem('cartItem')));
       JSON.parse(localStorage.getItem('cartItem')).map((c) => {
-        count += +c.count * +c.price;
+        count += +c.product.quantity * +c.price;
         return true;
       });
       setTotal(count);
@@ -30,13 +30,20 @@ function CartItems({ handleCount, setTotal }) {
   }, []);
 
   useEffect(() => {
-    if (Account.getToken()) {
-      dispatch(getCartItemListRequest(1));
-    }
-    if (localStorage.getItem('cartItem')) {
-      setCart(JSON.parse(localStorage.getItem('cartItem')));
-    }
+    (async () => {
+      if (Account.getToken()) {
+        await dispatch(getCartItemListRequest(1));
+      } else if (localStorage.getItem('cartItem')) {
+        setCart(JSON.parse(localStorage.getItem('cartItem')));
+      }
+    })();
   }, []);
+  useEffect(() => {
+    if (Account.getToken()) {
+      setCart(cartToken);
+      setTotal(Utils.totalPrice(cartToken));
+    }
+  }, [cartToken]);
   return (
     <>
       {cart.map((c) => (
@@ -44,12 +51,12 @@ function CartItems({ handleCount, setTotal }) {
           <td>
             <div className="cartTableProduct">
               <figure className="cartTableItem">
-                <img className="cartTableImg" src={REACT_APP_API_URL + c.avatar} alt="" />
+                <img className="cartTableImg" src={REACT_APP_API_URL + c.product.avatar} alt="" />
               </figure>
               <div className="cartTableDesk">
-                <h4 className="cartTableTitle">{c.title}</h4>
+                <h4 className="cartTableTitle">{c.product.title}</h4>
                 <p className="cartTableInfo">
-                  {c.description}
+                  {c.product.description}
                 </p>
               </div>
             </div>
@@ -66,7 +73,7 @@ function CartItems({ handleCount, setTotal }) {
               <input
                 type="text"
                 className="cartTableInput"
-                value={c.count}
+                value={c.quantity}
                 onChange={() => true}
                 readOnly
               />
@@ -82,7 +89,7 @@ function CartItems({ handleCount, setTotal }) {
           <td className="cartTablePrice">
             $
             {' '}
-            {+c.price * c.count}
+            {+c.price * +c.quantity}
             .00
           </td>
           <td>

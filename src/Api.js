@@ -107,8 +107,12 @@ class Api {
   }
 
   static addToCart(data) {
+    console.log(data);
     return api.post('/cart/addToCart', {
-      productId: data.id, quantity: data.count, price: +data.price * data.count, cartId: 2,
+      productId: data.product.id,
+      quantity: data.quantity,
+      price: data.price,
+      cartId: 1,
     });
   }
 
@@ -116,8 +120,8 @@ class Api {
     return api.post('/cart/deleteFromCart', { productId });
   }
 
-  static getCartItemsList(page) {
-    return api.get(`/cart/cartItemList?page=${page || 1}`);
+  static getCartItemsList(page, cartId) {
+    return api.get(`/cart/cartItemList?cartId=${cartId || 1}?page=${page || 1}`);
   }
 }
 
