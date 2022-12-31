@@ -21,7 +21,7 @@ import {
   LOGIN_ADMIN_FAIL,
   DELETE_USER_SELF_REQUEST,
   DELETE_USER_SELF_SUCCESS,
-  DELETE_USER_SELF_FAIL,
+  DELETE_USER_SELF_FAIL, GET_USER_PROFILE_REQUEST, GET_USER_PROFILE_SUCCESS, GET_USER_PROFILE_FAIL,
 } from '../actions/users';
 import Api from '../../Api';
 
@@ -120,6 +120,21 @@ function* handleAdminLoginRequest(action) {
   }
 }
 
+function* handleUserProfileRequest() {
+  try {
+    const { data } = yield call(Api.getUserProfile);
+    yield put({
+      type: GET_USER_PROFILE_SUCCESS,
+      payload: { data },
+    });
+  } catch (e) {
+    yield put({
+      type: GET_USER_PROFILE_FAIL,
+      payload: { error: e.response },
+    });
+  }
+}
+
 function* handleUserForgetPasswordRequest(action) {
   try {
     const { data } = yield call(Api.forgetPass, action.payload.email);
@@ -158,5 +173,6 @@ export default function* watcher() {
   yield takeLatest(CREATE_USER_REQUEST, handleCreateUserRequest);
   yield takeLatest(DELETE_USER_REQUEST, handleDeleteUserRequest);
   yield takeLatest(GET_USERS_LIST_REQUEST, handleUsersRequest);
+  yield takeLatest(GET_USER_PROFILE_REQUEST, handleUserProfileRequest);
   yield takeLatest(DELETE_USER_SELF_REQUEST, handleDeleteUserSelfRequest);
 }

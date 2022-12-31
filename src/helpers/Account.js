@@ -9,17 +9,11 @@ class Account {
     return localStorage.getItem('adminToken') || sessionStorage.getItem('adminToken') || '';
   }
 
-  static getProfile() {
-    return localStorage.getItem('profile') || sessionStorage.getItem('profile') || '';
-  }
-
-  static setTokenAndProfile(token, remember, profile) {
+  static setToken(token, remember) {
     if (remember) {
       localStorage.setItem('token', token);
-      localStorage.setItem('profile', JSON.stringify(profile));
     } else {
       sessionStorage.setItem('token', token);
-      sessionStorage.setItem('profile', JSON.stringify(profile));
     }
   }
 
@@ -34,10 +28,8 @@ class Account {
   static logout() {
     if (localStorage.getItem('token')) {
       localStorage.removeItem('token');
-      localStorage.removeItem('profile');
     } else if (sessionStorage.getItem('token')) {
       sessionStorage.removeItem('token');
-      sessionStorage.removeItem('profile');
       return <Navigate to="/login" replace />;
     }
     return false;
@@ -46,11 +38,9 @@ class Account {
   static logoutAdmin() {
     if (localStorage.getItem('adminToken')) {
       localStorage.removeItem('adminToken');
-      localStorage.removeItem('profile');
     } else if (sessionStorage.getItem('adminToken')) {
       sessionStorage.removeItem('adminToken');
-      sessionStorage.removeItem('profile');
-      return <Navigate to="/login" replace />;
+      return <Navigate to="/admin" replace />;
     }
     return false;
   }

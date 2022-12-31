@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { useNavigate } from 'react-router';
+import _ from 'lodash';
 import logo from '../assets/img/logo/logo.png';
 import { userLoginRequest } from '../store/actions/users';
 import Account from '../helpers/Account';
@@ -12,7 +13,7 @@ import Account from '../helpers/Account';
 function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const userDataStatus = useSelector((state) => state.users.usersDataStatus);
+  const user = useSelector((state) => state.users.singleUserData);
   const [show, setShow] = useState(false);
   const [remember, setRemember] = useState(false);
   const [form, setForm] = useState({
@@ -20,17 +21,18 @@ function Login() {
     password: '',
   });
   useEffect(() => {
-    if (Account.getToken() && Account.getToken() !== 'undefined') {
+    if (Account.getToken() && Account.getToken() !== 'undefined' && !_.isEmpty(user)) {
       navigate('/profile');
     }
-  }, [userDataStatus]);
+  }, [user]);
   const handleSubmit = useCallback(async (ev) => {
     ev.preventDefault();
     if (!form.email || !form.password) {
       toast.error('Enter email and password');
       return;
     }
-    dispatch(userLoginRequest(form, remember));
+    await dispatch(userLoginRequest(form, remember));
+    // window.location.reload();
   }, [form, remember]);
   const handleChange = useCallback((key, value) => {
     form[key] = value;

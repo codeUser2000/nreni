@@ -9,9 +9,8 @@ import {
   CREATE_USER_SUCCESS,
   FORGET_USER_PASSWORD_SUCCESS,
   FORGET_USER_PASSWORD_FAIL,
-  LOGIN_ADMIN_REQUEST,
   LOGIN_ADMIN_SUCCESS,
-  LOGIN_ADMIN_FAIL,
+  LOGIN_ADMIN_FAIL, GET_USER_PROFILE_REQUEST, GET_USER_PROFILE_SUCCESS, GET_USER_PROFILE_FAIL,
 } from '../actions/users';
 
 import Account from '../../helpers/Account';
@@ -22,6 +21,8 @@ const initialState = {
   adminData: [],
   adminDataStatus: '',
   pagination: 0,
+  singleUserData: {},
+  singleUserDataStatus: '',
 };
 // eslint-disable-next-line default-param-last
 export default function reducer(state = initialState, action) {
@@ -47,9 +48,31 @@ export default function reducer(state = initialState, action) {
         usersData: [],
       };
     }
+
+    case GET_USER_PROFILE_REQUEST: {
+      return {
+        ...state,
+        singleUserDataStatus: 'request',
+      };
+    }
+    case GET_USER_PROFILE_SUCCESS: {
+      return {
+        ...state,
+        singleUserDataStatus: 'ok',
+        singleUserData: action.payload.data.user,
+      };
+    }
+    case GET_USER_PROFILE_FAIL: {
+      return {
+        ...state,
+        singleUserDataStatus: 'fail',
+        singleUserData: {},
+      };
+    }
+
     case LOGIN_USER_SUCCESS: {
       const { data, remember } = action.payload;
-      Account.setTokenAndProfile(data.token, remember, data.user);
+      Account.setToken(data.token, remember);
       return {
         ...state,
         usersDataStatus: 'ok',
@@ -62,6 +85,7 @@ export default function reducer(state = initialState, action) {
         usersDataStatus: 'fail',
       };
     }
+
     case LOGIN_ADMIN_SUCCESS: {
       const { data, remember } = action.payload;
       Account.setAdminToken(data.token, remember, data.user);
@@ -77,9 +101,9 @@ export default function reducer(state = initialState, action) {
         adminDataStatus: 'fail',
       };
     }
+
     case FORGET_USER_PASSWORD_SUCCESS: {
       toast.success('Please check your mail');
-      localStorage.setItem('user', JSON.stringify(action.payload.data));
       return {
         ...state,
         usersDataStatus: 'ok',
@@ -92,8 +116,9 @@ export default function reducer(state = initialState, action) {
         usersDataStatus: 'fail',
       };
     }
+
     case CREATE_USER_SUCCESS: {
-      Account.setTokenAndProfile(action.payload.data.token);
+      Account.setToken(action.payload.data.token);
       return {
         ...state,
         usersDataStatus: 'ok',
@@ -111,6 +136,7 @@ export default function reducer(state = initialState, action) {
         usersDataStatus: 'fail',
       };
     }
+
     default: {
       return {
         ...state,

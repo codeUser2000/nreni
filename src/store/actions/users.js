@@ -52,6 +52,7 @@ export function forgetUserPasswordRequest(email) {
     payload: { email },
   };
 }
+
 export const NEW_USER_PASSWORD_REQUEST = 'NEW_USER_PASSWORD_REQUEST';
 export const NEW_USER_PASSWORD_SUCCESS = 'NEW_USER_PASSWORD_SUCCESS';
 export const NEW_USER_PASSWORD_FAIL = 'NEW_USER_PASSWORD_FAIL';
@@ -82,5 +83,16 @@ export function deleteUserSelfRequest(email) {
   return {
     type: DELETE_USER_SELF_REQUEST,
     payload: { email },
+  };
+}
+
+export const GET_USER_PROFILE_REQUEST = 'GET_USER_PROFILE_REQUEST';
+export const GET_USER_PROFILE_SUCCESS = 'GET_USER_PROFILE_SUCCESS';
+export const GET_USER_PROFILE_FAIL = 'GET_USER_PROFILE_FAIL';
+
+export function getUserProfileRequest() {
+  return {
+    type: GET_USER_PROFILE_REQUEST,
+    payload: {},
   };
 }

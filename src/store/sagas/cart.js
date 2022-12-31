@@ -14,7 +14,7 @@ import {
 
 function* handleAddToCartRequest(action) {
   try {
-    const { data } = yield call(Api.addToCart, action.payload.product);
+    const { data } = yield call(Api.addToCart, action.payload.product, action.payload.cartId);
     toast.success('The product has been added to the card');
     yield put({
       type: ADD_TO_CART_SUCCESS,
@@ -48,8 +48,8 @@ function* handleDeleteFromCartRequest(action) {
 
 function* handleCartItemsRequest(action) {
   try {
-    const { data } = yield call(Api.getCartItemsList, action.payload.page);
-    console.log(data);
+    const { data } = yield call(Api.getCartItemsList, action.payload.page, action.payload.cartId);
+    console.log(action.payload);
     yield put({
       type: GET_CART_ITEM_LIST_SUCCESS,
       payload: { data },

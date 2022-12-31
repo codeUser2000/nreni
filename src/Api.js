@@ -26,16 +26,20 @@ class Api {
     });
   }
 
+  static getUserProfile() {
+    return api.get('/users/profile');
+  }
+
   static setBlockquote(data) {
-    return api.post('/users/blockquote', data);
+    return api.post('/blockquote/blockquote', data);
   }
 
   static getBlockquote() {
-    return api.get('/users/getBlockquote');
+    return api.get('/blockquote/getBlockquote');
   }
 
   static deleteBlockquote(id) {
-    return api.post('/users/deleteBlockquote', { id });
+    return api.post('/blockquote/deleteBlockquote', { id });
   }
 
   static getUser(page) {
@@ -106,13 +110,13 @@ class Api {
     return api.post('/users/confirm', data);
   }
 
-  static addToCart(data) {
+  static addToCart(data, cartId) {
     console.log(data);
     return api.post('/cart/addToCart', {
       productId: data.product.id,
       quantity: data.quantity,
       price: data.price,
-      cartId: 1,
+      cartId,
     });
   }
 
@@ -121,7 +125,8 @@ class Api {
   }
 
   static getCartItemsList(page, cartId) {
-    return api.get(`/cart/cartItemList?cartId=${cartId || 1}?page=${page || 1}`);
+    console.log(cartId);
+    return api.get(`/cart/cartItemList?cartId=${cartId}?page=${page || 1}`);
   }
 }
 

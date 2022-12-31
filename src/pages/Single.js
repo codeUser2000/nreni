@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Wrapper from '../components/Wrapper';
 import Api from '../Api';
 import Utils from '../helpers/Utils';
@@ -13,7 +13,7 @@ function Single() {
   const { REACT_APP_API_URL } = process.env;
   const [count, setCount] = useState(1);
   const [single, setSingle] = useState({});
-
+  const user = useSelector((state) => state.users.singleUserData);
   useEffect(() => {
     (async () => {
       const { data } = await Api.getSingle(params.itemId);
@@ -26,7 +26,8 @@ function Single() {
       const product = {
         quantity: count, price: +data.price * count, product: data,
       };
-      await dispatch(addToCartRequest(product));
+      await dispatch(addToCartRequest(product, user.cart.id));
+      console.log(user);
     } else {
       const product = {
         id: new Date(), quantity: count, price: +data.price * count, product: data,
@@ -34,7 +35,7 @@ function Single() {
       Utils.setCart(product);
       dispatch(getLocalCartData());
     }
-  }, [count]);
+  }, [count, user]);
 
   const handleProductCountChange = useCallback((operator) => {
     if (operator === 'add' && +count < +single.countProduct) {

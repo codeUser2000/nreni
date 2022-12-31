@@ -1,22 +1,32 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import {
   Container, Nav, Navbar, NavDropdown,
 } from 'react-bootstrap';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import logo from '../assets/img/logo/logo.png';
 import russian from '../assets/img/site/russian.png';
 import arm from '../assets/img/site/armenia.png';
 import us from '../assets/img/site/usa.png';
+import Account from '../helpers/Account';
+import { getUserProfileRequest } from '../store/actions/users';
 
 function Header() {
+  const dispatch = useDispatch();
   const cartData = useSelector((state) => state.cart.cartData);
   const cartDataToken = useSelector((state) => state.cart.userCartData);
   const handleLangChange = useCallback((lang) => {
     localStorage.setItem('lang', lang);
   }, []);
+  useEffect(() => {
+    (async () => {
+      if (Account.getToken() && Account.getToken() !== 'undefined') {
+        await dispatch(getUserProfileRequest());
+      }
+    })();
+  },[]);
   return (
     <header className="header">
       <Navbar bg="light" expand="lg">
@@ -46,7 +56,7 @@ function Header() {
                 <li className="navList">
                   <NavLink to="/cart" className="navLink">
                     <LocalMallIcon />
-                    {cartData ? cartData.length : cartDataToken ? cartDataToken.length : 0}
+                    {cartData.length ? cartData.length : cartDataToken ? cartDataToken.length : 0}
                   </NavLink>
                 </li>
                 <li className="navList">
@@ -72,10 +82,14 @@ function Header() {
                         <img className="subLanguageIcons" src={us} alt="" />
                         <p className="subLangName">English</p>
                       </li>
+                      {/* eslint-disable-next-line max-len */}
+                      {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
                       <li className="subList" onClick={() => handleLangChange('arm')}>
                         <img className="subLanguageIcons" src={arm} alt="" />
                         <p className="subLangName">Հայերեն</p>
                       </li>
+                      {/* eslint-disable-next-line max-len */}
+                      {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
                       <li className="subList" onClick={() => handleLangChange('ru')}>
                         <img className="subLanguageIcons" src={russian} alt="" />
                         <p className="subLangName">Русский</p>
