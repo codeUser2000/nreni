@@ -12,6 +12,7 @@ import arm from '../assets/img/site/armenia.png';
 import us from '../assets/img/site/usa.png';
 import Account from '../helpers/Account';
 import { getUserProfileRequest } from '../store/actions/users';
+// import { getCartItemListRequest } from '../store/actions/cart';
 
 function Header() {
   const dispatch = useDispatch();
@@ -24,9 +25,10 @@ function Header() {
     (async () => {
       if (Account.getToken() && Account.getToken() !== 'undefined') {
         await dispatch(getUserProfileRequest());
+        // await dispatch(getCartItemListRequest(1, 1));
       }
     })();
-  },[]);
+  }, []);
   return (
     <header className="header">
       <Navbar bg="light" expand="lg">
@@ -56,7 +58,6 @@ function Header() {
                 <li className="navList">
                   <NavLink to="/cart" className="navLink">
                     <LocalMallIcon />
-                    {cartData.length ? cartData.length : cartDataToken ? cartDataToken.length : 0}
                   </NavLink>
                 </li>
                 <li className="navList">

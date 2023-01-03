@@ -47,6 +47,8 @@ function Filter() {
     if (!_.isEmpty(query)) {
       const [minV, maxV] = query.sliderPrice?.split('_') || [min, max];
       dispatch(getProductDataRequest(1, minV, maxV, categories));
+    } else {
+      dispatch(getProductDataRequest(1));
     }
   }, [location.search]);
   return (

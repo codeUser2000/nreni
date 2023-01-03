@@ -4,7 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import _ from 'lodash';
 import Account from '../helpers/Account';
 import Utils from '../helpers/Utils';
-import { getCartItemListRequest, getLocalCartData } from '../store/actions/cart';
+import {
+  deleteFromCartRequest,
+  getCartItemListRequest,
+  getLocalCartData
+} from '../store/actions/cart';
 
 function CartItems({ handleCount, setTotal }) {
   const { REACT_APP_API_URL } = process.env;
@@ -14,17 +18,17 @@ function CartItems({ handleCount, setTotal }) {
   const cartToken = useSelector((state) => state.cart.userCartData);
   const user = useSelector((state) => state.users.singleUserData);
 
-  const handleDelete = useCallback((id) => {
+  const handleDelete = useCallback(async (id) => {
     if (Account.getToken()) {
-      // dispatch(deleteCartItemRequest(id));
-      // dispatch(getCartDataRequest(1));
+      await dispatch(deleteFromCartRequest(id, user.cart.id));
+      await dispatch(getCartItemListRequest(1, user.cart.id));
     } else {
       Utils.deleteFromCart(id);
       setCart(JSON.parse(localStorage.getItem('cartItem')));
       setTotal(Utils.totalPrice(JSON.parse(localStorage.getItem('cartItem'))));
       dispatch(getLocalCartData());
     }
-  }, []);
+  }, [user]);
 
   useEffect(() => {
     (async () => {
@@ -89,8 +93,7 @@ function CartItems({ handleCount, setTotal }) {
           <td className="cartTablePrice">
             $
             {' '}
-            {+c.price * +c.quantity}
-            .00
+            {+c.price}
           </td>
           <td>
             <button type="button" className="cartTableBtnR">

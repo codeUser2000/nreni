@@ -27,7 +27,6 @@ function Single() {
         quantity: count, price: +data.price * count, product: data,
       };
       await dispatch(addToCartRequest(product, user.cart.id));
-      console.log(user);
     } else {
       const product = {
         id: new Date(), quantity: count, price: +data.price * count, product: data,

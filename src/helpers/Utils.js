@@ -6,16 +6,17 @@ class Utils {
   }
 
   static setCart(product) {
+    console.log(product);
     let productData;
     if (JSON.parse(localStorage.getItem('cartItem')) && JSON.parse(localStorage.getItem('cartItem')) !== 'undefined') {
-      const existProduct = JSON.parse(localStorage.getItem('cartItem')).filter((c) => +c.id === +product.id);
+      const existProduct = JSON.parse(localStorage.getItem('cartItem')).filter((c) => +c.product.id === +product.product.id);
       if (existProduct.length) {
-        const filterData = JSON.parse(localStorage.getItem('cartItem')).filter((c) => +c.id !== +product.id);
-        if (existProduct[0].count + product.count > product.countProduct) {
+        const filterData = JSON.parse(localStorage.getItem('cartItem')).filter((c) => +c.product.id !== +product.product.id);
+        if (existProduct[0].quantity + product.quantity > product.product.countProduct) {
           toast.error('no');
           return;
         }
-        product.count = existProduct[0].count + product.count;
+        product.quantity = existProduct[0].quantity + product.quantity;
         filterData.push(product);
         productData = filterData;
       } else {
@@ -37,7 +38,7 @@ class Utils {
   static totalPrice(data) {
     let count = 0;
     data.map((c) => {
-      count += +c.quantity * +c.price;
+      count += +c.price;
       return true;
     });
     return count;

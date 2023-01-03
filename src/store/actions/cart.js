@@ -34,9 +34,9 @@ export const DELETE_FROM_CART_REQUEST = 'DELETE_FROM_CART_REQUEST';
 export const DELETE_FROM_CART_SUCCESS = 'DELETE_FROM_CART_SUCCESS';
 export const DELETE_FROM_CART_FAIL = 'DELETE_FROM_CART_FAIL';
 
-export function deleteFromCartRequest(productId) {
+export function deleteFromCartRequest(productId, cartId) {
   return {
     type: DELETE_FROM_CART_REQUEST,
-    payload: { productId },
+    payload: { productId, cartId },
   };
 }
