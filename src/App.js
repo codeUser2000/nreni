@@ -5,7 +5,7 @@ import {
 import { ToastContainer } from 'react-toastify';
 import Home from './pages/Home';
 import About from './pages/About';
-import Shop from './pages/Shop';
+// import Shop from './pages/Shop';
 import NotFound from './pages/NotFound';
 import Single from './pages/Single';
 import Contact from './pages/Contact';
@@ -24,6 +24,9 @@ import CompleteRegistration from './pages/CompleteRegistration';
 import AdminOrders from './pages/AdminOrders';
 import AdminQuotes from './pages/AdminQuotes';
 
+const LazyShop = React.lazy(() => import('./pages/Shop'));
+
+// eslint-disable-next-line react/prefer-stateless-function
 class App extends Component {
   render() {
     return (
@@ -32,7 +35,14 @@ class App extends Component {
           <Routes>
             <Route path="/" element={<Navigate to="/home" />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/shop" element={<Shop />} />
+            <Route
+              path="/shop"
+              element={(
+                <React.Suspense fallback="Loading....">
+                  <LazyShop />
+                </React.Suspense>
+            )}
+            />
             <Route path="/single/:itemId" element={<Single />} />
             <Route path="/about" element={<About />} />
             <Route path="/clean" element={<Cleaning />} />
