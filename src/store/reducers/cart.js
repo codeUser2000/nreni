@@ -36,7 +36,6 @@ export default function reducer(state = initialState, action) {
 
     case GET_CART_ITEM_LIST_SUCCESS: {
       const { cartItem } = action.payload.data;
-      console.log(cartItem);
       return {
         ...state,
         userCartDataStatus: 'ok',

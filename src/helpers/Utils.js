@@ -5,22 +5,43 @@ class Utils {
 
   }
 
-  static setCart(product) {
-    console.log(product);
-    let productData;
-    if (JSON.parse(localStorage.getItem('cartItem')) && JSON.parse(localStorage.getItem('cartItem')) !== 'undefined') {
-      const existProduct = JSON.parse(localStorage.getItem('cartItem')).filter((c) => +c.product.id === +product.product.id);
-      if (existProduct.length) {
-        const filterData = JSON.parse(localStorage.getItem('cartItem')).filter((c) => +c.product.id !== +product.product.id);
-        if (existProduct[0].quantity + product.quantity > product.product.countProduct) {
-          toast.error('no');
+  static changeCount(cart, product, opp) {
+    cart.map((c) => {
+      if (+c.product.id === +product.product.id) {
+        if (opp === '+' && +c.quantity + 1 <= +product.product.countProduct) {
+          c.quantity += 1;
+          c.price += +c.product.price;
+        } else if (opp === '-' && +product.quantity > 1) {
+          c.quantity -= 1;
+          c.price -= +c.product.price;
+        } else {
+          toast.error('you cant add product');
           return;
         }
-        product.quantity = existProduct[0].quantity + product.quantity;
-        filterData.push(product);
-        productData = filterData;
-      } else {
-        productData = [...JSON.parse(localStorage.getItem('cartItem')), product];
+      }
+      // eslint-disable-next-line consistent-return
+      return c;
+    });
+    localStorage.setItem('cartItem', JSON.stringify(cart));
+  }
+
+  static setCart(product) {
+    let productData;
+    const cart = JSON.parse(localStorage.getItem('cartItem'));
+    if (cart && cart !== 'undefined') {
+      productData = cart.map((c) => {
+        if (+c.product.id === +product.product.id) {
+          if (+c.quantity + +product.quantity > +product.product.countProduct) {
+            toast.error('no');
+            return;
+          }
+          c.quantity += product.quantity;
+        }
+        // eslint-disable-next-line consistent-return
+        return c;
+      });
+      if (cart.filter((c) => +c.product.id !== +product.product.id)) {
+        productData = [...cart, product];
       }
     } else {
       productData = [product];

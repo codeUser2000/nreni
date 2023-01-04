@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Wrapper from '../components/Wrapper';
 import CartItems from '../components/CartItems';
@@ -20,9 +20,6 @@ function Cart() {
     }
   }, []);
 
-  const handleCount = useCallback((operator, product) => {
-    console.log(operator, product);
-  }, []);
   return (
     <Wrapper>
       <div className="cart">
@@ -39,7 +36,7 @@ function Cart() {
                 </tr>
               </thead>
               <tbody className="cartTableTbody">
-                <CartItems setTotal={setTotal} handleCount={handleCount} />
+                <CartItems setTotal={setTotal} />
               </tbody>
             </table>
             <div className="orderSummaryDetails">

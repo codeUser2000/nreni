@@ -49,7 +49,6 @@ function* handleDeleteFromCartRequest(action) {
 function* handleCartItemsRequest(action) {
   try {
     const { data } = yield call(Api.getCartItemsList, action.payload.page, action.payload.cartId);
-    console.log(action.payload);
     yield put({
       type: GET_CART_ITEM_LIST_SUCCESS,
       payload: { data },

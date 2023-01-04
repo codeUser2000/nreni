@@ -7,17 +7,21 @@ import Utils from '../helpers/Utils';
 import {
   deleteFromCartRequest,
   getCartItemListRequest,
-  getLocalCartData
+  getLocalCartData,
 } from '../store/actions/cart';
 
-function CartItems({ handleCount, setTotal }) {
+function CartItems({ setTotal }) {
   const { REACT_APP_API_URL } = process.env;
-  // const [count, setCount] = useState(0);
   const [cart, setCart] = useState([]);
   const dispatch = useDispatch();
   const cartToken = useSelector((state) => state.cart.userCartData);
   const user = useSelector((state) => state.users.singleUserData);
-
+  const handleCount = useCallback((operator, product) => {
+    const newCart = cart.filter((c) => c.id === product.id);
+    Utils.changeCount(cart, newCart[0], operator);
+    setCart(JSON.parse(localStorage.getItem('cartItem')));
+    setTotal(Utils.totalPrice(JSON.parse(localStorage.getItem('cartItem'))));
+  }, [cart]);
   const handleDelete = useCallback(async (id) => {
     if (Account.getToken()) {
       await dispatch(deleteFromCartRequest(id, user.cart.id));
@@ -26,13 +30,12 @@ function CartItems({ handleCount, setTotal }) {
       Utils.deleteFromCart(id);
       setCart(JSON.parse(localStorage.getItem('cartItem')));
       setTotal(Utils.totalPrice(JSON.parse(localStorage.getItem('cartItem'))));
-      dispatch(getLocalCartData());
+      await dispatch(getLocalCartData());
     }
   }, [user]);
 
   useEffect(() => {
     (async () => {
-      console.log(user);
       if (Account.getToken()) {
         if (!_.isEmpty(user)) {
           await dispatch(getCartItemListRequest(1, user?.cart?.id));
@@ -70,7 +73,7 @@ function CartItems({ handleCount, setTotal }) {
               <button
                 type="button"
                 className="cartTableBtnM"
-                onClick={() => handleCount('minus', c)}
+                onClick={() => handleCount('-', c)}
               >
                 -
               </button>
@@ -84,7 +87,7 @@ function CartItems({ handleCount, setTotal }) {
               <button
                 type="button"
                 className="cartTableBtnP"
-                onClick={() => handleCount('add', c)}
+                onClick={() => handleCount('+', c)}
               >
                 +
               </button>
