@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 import PersonIcon from '@mui/icons-material/Person';
@@ -14,6 +14,8 @@ function Profile() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.users.singleUserData);
+  const userStatus = useSelector((state) => state.users.singleUserDataStatus);
+
   useEffect(() => {
     (async () => {
       if (!Account.getToken() || Account.getToken() === 'undefined') {
@@ -24,10 +26,10 @@ function Profile() {
     })();
   }, []);
   useEffect(() => {
-    if (_.isEmpty(user)) {
+    if (_.isEmpty(user) && !userStatus) {
       navigate('/login');
     }
-  }, [user]);
+  }, [user, userStatus]);
   const handleLogout = useCallback(() => {
     Account.logout();
     window.location.reload(false);

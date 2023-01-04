@@ -14,6 +14,7 @@ function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.users.singleUserData);
+  const userStatus = useSelector((state) => state.users.usersDataStatus);
   const [show, setShow] = useState(false);
   const [remember, setRemember] = useState(false);
   const [form, setForm] = useState({
@@ -24,7 +25,10 @@ function Login() {
     if (Account.getToken() && Account.getToken() !== 'undefined' && !_.isEmpty(user)) {
       navigate('/profile');
     }
-  }, [user]);
+    if (userStatus === 'ok') {
+      navigate('/profile');
+    }
+  }, [user, userStatus]);
   const handleSubmit = useCallback(async (ev) => {
     ev.preventDefault();
     if (!form.email || !form.password) {
@@ -32,7 +36,6 @@ function Login() {
       return;
     }
     await dispatch(userLoginRequest(form, remember));
-    // window.location.reload();
   }, [form, remember]);
   const handleChange = useCallback((key, value) => {
     form[key] = value;
