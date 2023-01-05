@@ -12,14 +12,16 @@ import arm from '../assets/img/site/armenia.png';
 import us from '../assets/img/site/usa.png';
 import Account from '../helpers/Account';
 import { getUserProfileRequest } from '../store/actions/users';
+import Utils from '../helpers/Utils';
+import { getMenuRequest } from '../store/actions/others';
 // import { getCartItemListRequest } from '../store/actions/cart';
 
 function Header() {
   const dispatch = useDispatch();
-  const cartData = useSelector((state) => state.cart.cartData);
-  const cartDataToken = useSelector((state) => state.cart.userCartData);
-  const handleLangChange = useCallback((lang) => {
+  const menu = useSelector((state) => state.others.menuData);
+  const handleLangChange = useCallback(async (lang) => {
     localStorage.setItem('lang', lang);
+    await dispatch(getMenuRequest());
   }, []);
   useEffect(() => {
     (async () => {
@@ -43,18 +45,11 @@ function Header() {
           <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav">
             <Nav>
               <ul className="navBlock">
-                <li className="navList">
-                  <NavLink to="/home" className="navLink">Home</NavLink>
-                </li>
-                <li className="navList">
-                  <NavLink to="/shop" className="navLink">Shop</NavLink>
-                </li>
-                <li className="navList">
-                  <NavLink to="/about" className="navLink">About</NavLink>
-                </li>
-                <li className="navList">
-                  <NavLink to="/contact" className="navLink">Contact</NavLink>
-                </li>
+                {menu.length ? menu.map((m) => (
+                  <li className="navList">
+                    <NavLink to={m.link} className="navLink">{Utils.translation(m)}</NavLink>
+                  </li>
+                )) : null}
                 <li className="navList">
                   <NavLink to="/cart" className="navLink">
                     <LocalMallIcon />
@@ -73,7 +68,6 @@ function Header() {
                       </NavLink>
                     )}
                 </li>
-
                 <li className="navList">
                   <NavDropdown title="Languages" id="basic-nav-dropdown">
                     <ul className="subMenu">

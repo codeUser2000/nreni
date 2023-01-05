@@ -135,6 +135,12 @@ class Api {
   static deleteBlockquote(id) {
     return api.post('/blockquote/deleteBlockquote', { id });
   }
+
+  // --------OTHERS--------//
+
+  static getMenu() {
+    return api.get('/others/menu');
+  }
 }
 
 export default Api;
