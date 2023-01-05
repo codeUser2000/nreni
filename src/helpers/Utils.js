@@ -32,7 +32,7 @@ class Utils {
       productData = cart.map((c) => {
         if (+c.product.id === +product.product.id) {
           if (+c.quantity + +product.quantity > +product.product.countProduct) {
-            toast.error('no');
+            toast.error('You cant set new product');
             return;
           }
           c.quantity += product.quantity;
@@ -46,7 +46,7 @@ class Utils {
     } else {
       productData = [product];
     }
-    toast.success('yes');
+    toast.success('Product is set');
     localStorage.setItem('cartItem', JSON.stringify(productData));
   }
 
