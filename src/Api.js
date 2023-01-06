@@ -79,6 +79,7 @@ class Api {
   static updateProduct(data) {
     return axios({
       headers: {
+        Authorization: Account.getAdminToken(),
         'content-type': 'multipart/form-data',
       },
       method: 'post',
