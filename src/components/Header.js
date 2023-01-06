@@ -46,7 +46,7 @@ function Header() {
             <Nav>
               <ul className="navBlock">
                 {menu.length ? menu.map((m) => (
-                  <li className="navList">
+                  <li key={m.id} className="navList">
                     <NavLink to={m.link} className="navLink">{Utils.translation(m)}</NavLink>
                   </li>
                 )) : null}

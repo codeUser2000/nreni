@@ -57,115 +57,60 @@ function CartItems({ setTotal }) {
 
   return (
     <>
-      {Account.getToken()
-        ? cartToken.map((c) => (
-          <tr key={c.id} className="cartTableTbodyTr">
-            <td>
-              <div className="cartTableProduct">
-                <figure className="cartTableItem">
-                  <img className="cartTableImg" src={REACT_APP_API_URL + c.avatar} alt="" />
-                </figure>
-                <div className="cartTableDesk">
-                  <h4 className="cartTableTitle">{c.title}</h4>
-                  <p className="cartTableInfo">
-                    {c.description}
-                  </p>
-                </div>
+      {cart.map((c) => (
+        <tr key={c.id} className="cartTableTbodyTr">
+          <td>
+            <div className="cartTableProduct">
+              <figure className="cartTableItem">
+                <img className="cartTableImg" src={REACT_APP_API_URL + c.product.avatar} alt="" />
+              </figure>
+              <div className="cartTableDesk">
+                <h4 className="cartTableTitle">{c.product.title}</h4>
+                <p className="cartTableInfo">
+                  {c.product.description}
+                </p>
               </div>
-            </td>
-            <td>
-              <div className="cartTableQuantity">
-                <button
-                  type="button"
-                  className="cartTableBtnM"
-                  onClick={() => handleCount('-', c)}
-                >
-                  -
-                </button>
-                <input
-                  type="text"
-                  className="cartTableInput"
-                  value={c.quantity}
-                  onChange={() => true}
-                  readOnly
-                />
-                <button
-                  type="button"
-                  className="cartTableBtnP"
-                  onClick={() => handleCount('+', c)}
-                >
-                  +
-                </button>
-              </div>
-            </td>
-            <td className="cartTablePrice">
-              $
-              {' '}
-              {+c.price}
-            </td>
-            <td>
-              <button type="button" className="cartTableBtnR">
-                <DeleteIcon
-                  onClick={() => handleDelete(c.id)}
-                />
+            </div>
+          </td>
+          <td>
+            <div className="cartTableQuantity">
+              <button
+                type="button"
+                className="cartTableBtnM"
+                onClick={() => handleCount('-', c)}
+              >
+                -
               </button>
-            </td>
-          </tr>
-        ))
-        : cart.map((c) => (
-          <tr key={c.id} className="cartTableTbodyTr">
-            <td>
-              <div className="cartTableProduct">
-                <figure className="cartTableItem">
-                  <img className="cartTableImg" src={REACT_APP_API_URL + c.product.avatar} alt="" />
-                </figure>
-                <div className="cartTableDesk">
-                  <h4 className="cartTableTitle">{c.product.title}</h4>
-                  <p className="cartTableInfo">
-                    {c.product.description}
-                  </p>
-                </div>
-              </div>
-            </td>
-            <td>
-              <div className="cartTableQuantity">
-                <button
-                  type="button"
-                  className="cartTableBtnM"
-                  onClick={() => handleCount('-', c)}
-                >
-                  -
-                </button>
-                <input
-                  type="text"
-                  className="cartTableInput"
-                  value={c.quantity}
-                  onChange={() => true}
-                  readOnly
-                />
-                <button
-                  type="button"
-                  className="cartTableBtnP"
-                  onClick={() => handleCount('+', c)}
-                >
-                  +
-                </button>
-              </div>
-            </td>
-            <td className="cartTablePrice">
-              $
-              {' '}
-              {+c.price}
-            </td>
-            <td>
-              <button type="button" className="cartTableBtnR">
-                <DeleteIcon
-                  onClick={() => handleDelete(c.id)}
-                />
+              <input
+                type="text"
+                className="cartTableInput"
+                value={c.quantity}
+                onChange={() => true}
+                readOnly
+              />
+              <button
+                type="button"
+                className="cartTableBtnP"
+                onClick={() => handleCount('+', c)}
+              >
+                +
               </button>
-            </td>
-          </tr>
-        ))}
+            </div>
+          </td>
+          <td className="cartTablePrice">
+            $
+            {' '}
+            {+c.price}
+          </td>
+          <td>
+            <button type="button" className="cartTableBtnR">
+              <DeleteIcon
+                onClick={() => handleDelete(c.id)}
+              />
+            </button>
+          </td>
+        </tr>
+      ))}
     </>
   );
 }
