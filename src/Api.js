@@ -4,7 +4,9 @@ import Account from './helpers/Account';
 const { REACT_APP_API_URL } = process.env;
 const api = axios.create({
   baseURL: REACT_APP_API_URL,
+  Authorization: Account.getAdminToken() || Account.getToken(),
 });
+
 api.interceptors.request.use(
   // eslint-disable-next-line no-unused-vars
   (config) => {
@@ -90,6 +92,7 @@ class Api {
   static createProduct(data) {
     return axios({
       headers: {
+        Authorization: Account.getAdminToken(),
         'content-type': 'multipart/form-data',
       },
       method: 'post',
