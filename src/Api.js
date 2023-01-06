@@ -123,7 +123,6 @@ class Api {
   }
 
   static deleteFromCart(productId, cartId) {
-    console.log(productId, cartId);
     return api.post('/cart/deleteFromCart', {
       productId,
       cartId,
