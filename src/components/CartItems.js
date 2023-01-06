@@ -16,12 +16,14 @@ function CartItems({ setTotal }) {
   const dispatch = useDispatch();
   const cartToken = useSelector((state) => state.cart.userCartData);
   const user = useSelector((state) => state.users.singleUserData);
+
   const handleCount = useCallback((operator, product) => {
     const newCart = cart.filter((c) => c.id === product.id);
     Utils.changeCount(cart, newCart[0], operator);
     setCart(JSON.parse(localStorage.getItem('cartItem')));
     setTotal(Utils.totalPrice(JSON.parse(localStorage.getItem('cartItem'))));
   }, [cart]);
+
   const handleDelete = useCallback(async (id) => {
     if (Account.getToken()) {
       await dispatch(deleteFromCartRequest(id, user.cart.id));
@@ -45,68 +47,125 @@ function CartItems({ setTotal }) {
       }
     })();
   }, [user]);
+
   useEffect(() => {
     if (Account.getToken()) {
       setCart(cartToken);
       setTotal(Utils.totalPrice(cartToken));
     }
   }, [cartToken]);
+
   return (
     <>
-      {cart.map((c) => (
-        <tr key={c.id} className="cartTableTbodyTr">
-          <td>
-            <div className="cartTableProduct">
-              <figure className="cartTableItem">
-                <img className="cartTableImg" src={REACT_APP_API_URL + c.product.avatar} alt="" />
-              </figure>
-              <div className="cartTableDesk">
-                <h4 className="cartTableTitle">{c.product.title}</h4>
-                <p className="cartTableInfo">
-                  {c.product.description}
-                </p>
+      {Account.getToken()
+        ? cartToken.map((c) => (
+          <tr key={c.id} className="cartTableTbodyTr">
+            <td>
+              <div className="cartTableProduct">
+                <figure className="cartTableItem">
+                  <img className="cartTableImg" src={REACT_APP_API_URL + c.avatar} alt="" />
+                </figure>
+                <div className="cartTableDesk">
+                  <h4 className="cartTableTitle">{c.title}</h4>
+                  <p className="cartTableInfo">
+                    {c.description}
+                  </p>
+                </div>
               </div>
-            </div>
-          </td>
-          <td>
-            <div className="cartTableQuantity">
-              <button
-                type="button"
-                className="cartTableBtnM"
-                onClick={() => handleCount('-', c)}
-              >
-                -
+            </td>
+            <td>
+              <div className="cartTableQuantity">
+                <button
+                  type="button"
+                  className="cartTableBtnM"
+                  onClick={() => handleCount('-', c)}
+                >
+                  -
+                </button>
+                <input
+                  type="text"
+                  className="cartTableInput"
+                  value={c.quantity}
+                  onChange={() => true}
+                  readOnly
+                />
+                <button
+                  type="button"
+                  className="cartTableBtnP"
+                  onClick={() => handleCount('+', c)}
+                >
+                  +
+                </button>
+              </div>
+            </td>
+            <td className="cartTablePrice">
+              $
+              {' '}
+              {+c.price}
+            </td>
+            <td>
+              <button type="button" className="cartTableBtnR">
+                <DeleteIcon
+                  onClick={() => handleDelete(c.id)}
+                />
               </button>
-              <input
-                type="text"
-                className="cartTableInput"
-                value={c.quantity}
-                onChange={() => true}
-                readOnly
-              />
-              <button
-                type="button"
-                className="cartTableBtnP"
-                onClick={() => handleCount('+', c)}
-              >
-                +
+            </td>
+          </tr>
+        ))
+        : cart.map((c) => (
+          <tr key={c.id} className="cartTableTbodyTr">
+            <td>
+              <div className="cartTableProduct">
+                <figure className="cartTableItem">
+                  <img className="cartTableImg" src={REACT_APP_API_URL + c.product.avatar} alt="" />
+                </figure>
+                <div className="cartTableDesk">
+                  <h4 className="cartTableTitle">{c.product.title}</h4>
+                  <p className="cartTableInfo">
+                    {c.product.description}
+                  </p>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div className="cartTableQuantity">
+                <button
+                  type="button"
+                  className="cartTableBtnM"
+                  onClick={() => handleCount('-', c)}
+                >
+                  -
+                </button>
+                <input
+                  type="text"
+                  className="cartTableInput"
+                  value={c.quantity}
+                  onChange={() => true}
+                  readOnly
+                />
+                <button
+                  type="button"
+                  className="cartTableBtnP"
+                  onClick={() => handleCount('+', c)}
+                >
+                  +
+                </button>
+              </div>
+            </td>
+            <td className="cartTablePrice">
+              $
+              {' '}
+              {+c.price}
+            </td>
+            <td>
+              <button type="button" className="cartTableBtnR">
+                <DeleteIcon
+                  onClick={() => handleDelete(c.id)}
+                />
               </button>
-            </div>
-          </td>
-          <td className="cartTablePrice">
-            $
-            {' '}
-            {+c.price}
-          </td>
-          <td>
-            <button type="button" className="cartTableBtnR">
-              <DeleteIcon
-                onClick={() => handleDelete(c.id)}
-              />
-            </button>
-          </td>
-        </tr>
-      ))}
+            </td>
+          </tr>
+        ))}
     </>
   );
 }

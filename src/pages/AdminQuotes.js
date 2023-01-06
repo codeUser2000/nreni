@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import AdminWrapper from '../components/AdminWrapper';
 import { deleteBlockquoteRequest, getBlockquoteDataRequest } from '../store/actions/blockquote';
+import { Pagination } from '@mui/material';
 
 function AdminQuotes() {
   const dispatch = useDispatch();

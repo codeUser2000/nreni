@@ -116,11 +116,18 @@ class Api {
 
   static deleteFromCart(productId, cartId) {
     console.log(productId, cartId);
-    return api.post('/cart/deleteFromCart', { productId, cartId });
+    return api.post('/cart/deleteFromCart', {
+      productId,
+      cartId,
+    });
   }
 
   static getCartItemsList(page, cartId) {
     return api.get(`/cart/cartItemList?cartId=${cartId}?page=${page || 1}`);
+  }
+
+  static getCartItem(page) {
+    return api.get(`cart/getCartItem?page=${page || 1}`);
   }
 
   // ------BLOCKQUOTE-------//
