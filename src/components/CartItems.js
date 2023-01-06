@@ -18,10 +18,14 @@ function CartItems({ setTotal }) {
   const user = useSelector((state) => state.users.singleUserData);
 
   const handleCount = useCallback((operator, product) => {
-    const newCart = cart.filter((c) => c.id === product.id);
-    Utils.changeCount(cart, newCart[0], operator);
-    setCart(JSON.parse(localStorage.getItem('cartItem')));
-    setTotal(Utils.totalPrice(JSON.parse(localStorage.getItem('cartItem'))));
+    if (Account.getToken()) {
+      alert('Account');
+    } else {
+      const newCart = cart.filter((c) => c.id === product.id);
+      Utils.changeCount(cart, newCart[0], operator);
+      setCart(JSON.parse(localStorage.getItem('cartItem')));
+      setTotal(Utils.totalPrice(JSON.parse(localStorage.getItem('cartItem'))));
+    }
   }, [cart]);
 
   const handleDelete = useCallback(async (id) => {

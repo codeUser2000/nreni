@@ -19,7 +19,11 @@ api.interceptors.request.use(
 class Api {
   // ------USERS-------//
   static getUserProfile() {
-    return api.get('/users/profile');
+    return api.get('/users/profile', {
+      headers: {
+        Authorization: Account.getToken(),
+      },
+    });
   }
 
   static userSelfDelete(email) {
