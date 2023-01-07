@@ -7,7 +7,7 @@ import Utils from '../helpers/Utils';
 import {
   deleteFromCartRequest,
   getCartItemListRequest,
-  getLocalCartData,
+  getLocalCartData, updateCartRequest,
 } from '../store/actions/cart';
 
 function CartItems({ setTotal }) {
@@ -17,14 +17,30 @@ function CartItems({ setTotal }) {
   const cartToken = useSelector((state) => state.cart.userCartData);
   const user = useSelector((state) => state.users.singleUserData);
 
-  const handleCount = useCallback((operator, product) => {
+  const handleCount = useCallback(async (operator, product) => {
     if (Account.getToken()) {
-      alert('Account');
+      if (operator === '+' && product.product.countProduct >= product.quantity + 1) {
+        await dispatch(updateCartRequest({
+          cartId: product.cartId,
+          productId: product.product.id,
+          count: product.quantity + 1,
+        }));
+        await dispatch(getCartItemListRequest(1, user.cart.id));
+      } else if (product.quantity > 1 && operator === '-') {
+        await dispatch(updateCartRequest({
+          cartId: product.cartId,
+          productId: product.product.id,
+          count: product.quantity - 1,
+        }));
+        await dispatch(getCartItemListRequest(1, user.cart.id));
+      }
     } else {
       const newCart = cart.filter((c) => c.id === product.id);
       Utils.changeCount(cart, newCart[0], operator);
       setCart(JSON.parse(localStorage.getItem('cartItem')));
-      setTotal(Utils.totalPrice(JSON.parse(localStorage.getItem('cartItem'))));
+      if (setTotal) {
+        setTotal(Utils.totalPrice(JSON.parse(localStorage.getItem('cartItem'))));
+      }
     }
   }, [cart]);
 
@@ -35,7 +51,9 @@ function CartItems({ setTotal }) {
     } else {
       Utils.deleteFromCart(id);
       setCart(JSON.parse(localStorage.getItem('cartItem')));
-      setTotal(Utils.totalPrice(JSON.parse(localStorage.getItem('cartItem'))));
+      if (setTotal) {
+        setTotal(Utils.totalPrice(JSON.parse(localStorage.getItem('cartItem'))));
+      }
       await dispatch(getLocalCartData());
     }
   }, [user]);
@@ -44,7 +62,7 @@ function CartItems({ setTotal }) {
     (async () => {
       if (Account.getToken()) {
         if (!_.isEmpty(user)) {
-          await dispatch(getCartItemListRequest(1, user?.cart?.id));
+          await dispatch(getCartItemListRequest(1, user.cart.id));
         }
       } else if (localStorage.getItem('cartItem')) {
         setCart(JSON.parse(localStorage.getItem('cartItem')));
@@ -55,7 +73,9 @@ function CartItems({ setTotal }) {
   useEffect(() => {
     if (Account.getToken()) {
       setCart(cartToken);
-      setTotal(Utils.totalPrice(cartToken));
+      if (setTotal) {
+        setTotal(Utils.totalPrice(cartToken));
+      }
     }
   }, [cartToken]);
 

@@ -137,6 +137,10 @@ class Api {
     return api.get(`cart/getCartItem?page=${page || 1}`);
   }
 
+  static updateCart(data) {
+    return api.post('cart/updateCount', data);
+  }
+
   // ------BLOCKQUOTE-------//
   static setBlockquote(data) {
     return api.post('/blockquote/blockquote', data);

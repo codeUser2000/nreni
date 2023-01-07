@@ -40,3 +40,14 @@ export function deleteFromCartRequest(productId, cartId) {
     payload: { productId, cartId },
   };
 }
+
+export const UPDATE_CART_REQUEST = 'UPDATE_CART_REQUEST';
+export const UPDATE_CART_SUCCESS = 'UPDATE_CART_SUCCESS';
+export const UPDATE_CART_FAIL = 'UPDATE_CART_FAIL';
+
+export function updateCartRequest(data) {
+  return {
+    type: UPDATE_CART_REQUEST,
+    payload: { data },
+  };
+}
