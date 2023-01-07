@@ -101,7 +101,6 @@ function Profile() {
                       </tbody>
                     </table>
                   )
-
                   : (
                     <p className="customerOrderInfo">
                       <Link className="customerOrderLink" to="/shop">Make Your first order.</Link>
@@ -110,8 +109,6 @@ function Profile() {
                       You haven&apos;t placed any orders yet.
                     </p>
                   )}
-                {/* եթե ունի գնումներ */}
-                <div className="customerOrders" />
               </div>
             </div>
           )
