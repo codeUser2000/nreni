@@ -1,8 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Pagination } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import TaskIcon from '@mui/icons-material/Task';
 import AdminWrapper from '../components/AdminWrapper';
 import { deleteBlockquoteRequest, getBlockquoteDataRequest } from '../store/actions/blockquote';
-import { Pagination } from '@mui/material';
 
 function AdminQuotes() {
   const dispatch = useDispatch();
@@ -13,9 +15,15 @@ function AdminQuotes() {
   useEffect(() => {
     dispatch(getBlockquoteDataRequest(1));
   }, []);
+
   const handleDelete = useCallback(async (id) => {
     await dispatch(deleteBlockquoteRequest(id));
   }, []);
+
+  const handlePost = useCallback(async (id) => {
+    await dispatch(postBlockquoteRequest(id));
+  }, []);
+
   const handleChange = useCallback((ev, value) => {
     setPage(value);
     dispatch(getBlockquoteDataRequest(page));
@@ -48,19 +56,14 @@ function AdminQuotes() {
                 </td>
                 <td>
                   <div className="adminQuoteBtn">
-                    <button
-                      type="button"
-                      className="adminQuoteDelete"
-                      onClick={() => handleDelete(q.id)}
-                    >
-                      delete
-                    </button>
-                    <button
-                      type="button"
-                      className="adminQuoteView"
-                    >
-                      view
-                    </button>
+                    <span className="adminTableBtn">
+                      <DeleteIcon
+                        onClick={() => handleDelete(q.id)}
+                      />
+                    </span>
+                    <span className="adminTableBtn">
+                      <TaskIcon />
+                    </span>
                   </div>
                 </td>
               </tr>

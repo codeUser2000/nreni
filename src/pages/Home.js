@@ -86,6 +86,7 @@ function Home() {
                 </Carousel>
               </div>
             </section>
+
             <blockquote className="blockquote">
               <h2 className="blockquoteTitle">What Our Client Says</h2>
               <p className="blockquoteInfo">people&apos;s writing their opinion about our work</p>
@@ -98,7 +99,7 @@ function Home() {
               >
                 {quote.length ? quote.map((n) => (
                   <Blockquote key={n.id} data={n} />
-                )) : <p>Our quotes will be here soon!</p>}
+                )) : <p className="adminQuotes">Our quotes will be here soon!</p>}
               </Carousel>
             </blockquote>
           </div>

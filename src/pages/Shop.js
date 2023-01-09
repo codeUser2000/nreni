@@ -54,7 +54,7 @@ function Shop() {
                       return <Product key={n.id} data={n} />;
                     }
                     return true;
-                  }) : 'no data...'}
+                  }) : 'There is no any product...'}
               </div>
               <Pagination count={+pagination} page={pageNumber} onChange={handleChange} />
             </section>
