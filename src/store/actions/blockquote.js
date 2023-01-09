@@ -20,16 +20,27 @@ export function createBlockquoteRequest(data) {
   };
 }
 
-// export const GET_SINGLE_BLOCKQUOTE_DATA_REQUEST = 'GET_SINGLE_BLOCKQUOTE_DATA_REQUEST';
-// export const GET_SINGLE_BLOCKQUOTE_DATA_SUCCESS = 'GET_SINGLE_BLOCKQUOTE_DATA_SUCCESS';
-// export const GET_SINGLE_BLOCKQUOTE_DATA_FAIL = 'GET_SINGLE_BLOCKQUOTE_DATA_FAIL';
-//
-// export function getSingleBlockquoteDataRequest(id) {
-//   return {
-//     type: GET_SINGLE_BLOCKQUOTE_DATA_REQUEST,
-//     payload: { id },
-//   };
-// }
+export const GET_ADMIN_BLOCKQUOTE_DATA_REQUEST = 'GET_ADMIN_BLOCKQUOTE_DATA_REQUEST';
+export const GET_ADMIN_BLOCKQUOTE_DATA_SUCCESS = 'GET_ADMIN_BLOCKQUOTE_DATA_SUCCESS';
+export const GET_ADMIN_BLOCKQUOTE_DATA_FAIL = 'GET_ADMIN_BLOCKQUOTE_DATA_FAIL';
+
+export function getAdminBlockquoteDataRequest() {
+  return {
+    type: GET_ADMIN_BLOCKQUOTE_DATA_REQUEST,
+    payload: {},
+  };
+}
+
+export const SET_VIEW_BLOCKQUOTE_REQUEST = 'SET_VIEW_BLOCKQUOTE_REQUEST';
+export const SET_VIEW_BLOCKQUOTE_SUCCESS = 'SET_VIEW_BLOCKQUOTE_SUCCESS';
+export const SET_VIEW_BLOCKQUOTE_FAIL = 'SET_VIEW_BLOCKQUOTE_FAIL';
+
+export function setViewBlockquote(id) {
+  return {
+    type: SET_VIEW_BLOCKQUOTE_REQUEST,
+    payload: { id },
+  };
+}
 
 export const DELETE_BLOCKQUOTE_REQUEST = 'DELETE_BLOCKQUOTE_REQUEST';
 export const DELETE_BLOCKQUOTE_SUCCESS = 'DELETE_BLOCKQUOTE_SUCCESS';

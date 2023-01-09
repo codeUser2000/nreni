@@ -146,12 +146,20 @@ class Api {
     return api.post('/blockquote/blockquote', data);
   }
 
-  static getBlockquote() {
-    return api.get('/blockquote/getBlockquote');
+  static getBlockquoteUser() {
+    return api.get('/blockquote/getBlockquoteForUser');
+  }
+
+  static getBlockquoteAdmin() {
+    return api.get('/blockquote/getBlockquoteForAdmin');
   }
 
   static deleteBlockquote(id) {
     return api.post('/blockquote/deleteBlockquote', { id });
+  }
+
+  static setViewBlockquote(id) {
+    return api.post('/blockquote/setBlockquoteView', { id });
   }
 
   // --------OTHERS--------//

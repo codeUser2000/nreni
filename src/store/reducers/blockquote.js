@@ -5,11 +5,16 @@ import {
   DELETE_BLOCKQUOTE_SUCCESS,
   DELETE_BLOCKQUOTE_REQUEST,
   DELETE_BLOCKQUOTE_FAIL,
+  GET_ADMIN_BLOCKQUOTE_DATA_REQUEST,
+  GET_ADMIN_BLOCKQUOTE_DATA_SUCCESS,
+  GET_ADMIN_BLOCKQUOTE_DATA_FAIL,
 } from '../actions/blockquote';
 
 const initialState = {
   blockquotesData: [],
   blockquotesDataStatus: '',
+  blockquotesDataAdmin: [],
+  blockquotesDataStatusAdmin: '',
   pagination: 0,
 };
 
@@ -24,8 +29,7 @@ export default function reducer(state = initialState, action) {
       };
     }
 
-    case GET_BLOCKQUOTE_DATA_SUCCESS:
-    {
+    case GET_BLOCKQUOTE_DATA_SUCCESS: {
       const { quote } = action.payload;
       return {
         ...state,
@@ -33,6 +37,7 @@ export default function reducer(state = initialState, action) {
         blockquotesData: quote,
       };
     }
+
     case GET_BLOCKQUOTE_DATA_FAIL:
     {
       return {
@@ -40,11 +45,37 @@ export default function reducer(state = initialState, action) {
         blockquotesDataStatus: 'fail',
       };
     }
+
+    case GET_ADMIN_BLOCKQUOTE_DATA_REQUEST: {
+      return {
+        ...state,
+        blockquotesDataAdmin: [],
+        blockquotesDataStatusAdmin: 'request',
+      };
+    }
+
+    case GET_ADMIN_BLOCKQUOTE_DATA_SUCCESS: {
+      const { quote, totalPages } = action.payload.data;
+      return {
+        ...state,
+        blockquotesDataStatusAdmin: 'ok',
+        blockquotesDataAdmin: quote,
+        pagination: +totalPages,
+      };
+    }
+    case GET_ADMIN_BLOCKQUOTE_DATA_FAIL:
+    {
+      return {
+        ...state,
+        blockquotesDataAdmin: [],
+        blockquotesDataStatusAdmin: 'fail',
+      };
+    }
     case DELETE_BLOCKQUOTE_REQUEST: {
       return {
         ...state,
-        blockquotesData: [],
-        blockquotesDataStatus: 'request',
+        blockquotesDataAdmin: [],
+        blockquotesDataStatusAdmin: 'request',
       };
     }
     case DELETE_BLOCKQUOTE_SUCCESS: {
@@ -52,15 +83,15 @@ export default function reducer(state = initialState, action) {
 
       return {
         ...state,
-        blockquoteDataStatus: 'ok',
-        blockquotesData: [...blockquotes],
+        blockquotesDataStatusAdmin: 'ok',
+        blockquotesDataAdmin: [...blockquotes],
         pagination: +totalPages,
       };
     }
     case DELETE_BLOCKQUOTE_FAIL: {
       return {
         ...state,
-        blockquoteDataStatus: 'fail',
+        blockquotesDataStatusAdmin: 'fail',
       };
     }
     default: {
