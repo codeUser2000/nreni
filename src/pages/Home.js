@@ -90,17 +90,20 @@ function Home() {
             <blockquote className="blockquote">
               <h2 className="blockquoteTitle">What Our Client Says</h2>
               <p className="blockquoteInfo">people&apos;s writing their opinion about our work</p>
-              <Carousel
-                autoplay="true"
-                dragging="true"
-                pauseOnHover="true"
-                wrapAround="true"
-                cellSpacing={20}
-              >
-                {quote.length ? quote.map((n) => (
-                  <Blockquote key={n.id} data={n} />
-                )) : <p className="adminQuotes">Our quotes will be here soon!</p>}
-              </Carousel>
+              {quote.length
+                ? (
+                  <Carousel
+                    autoplay="true"
+                    dragging="true"
+                    pauseOnHover="true"
+                    wrapAround="true"
+                    cellSpacing={20}
+                  >
+                    {quote.map((n) => (
+                      <Blockquote key={n.id} data={n} />
+                    )) }
+                  </Carousel>
+                ) : <p className="adminQuotes d-flex justify-content-center">Our quotes will be here soon!</p> }
             </blockquote>
           </div>
         </main>
