@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Pagination } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 import AdminWrapper from '../components/AdminWrapper';
 import { deleteUserRequest, getUserData } from '../store/actions/users';
 
@@ -62,7 +63,9 @@ function AdminUsers() {
                   <p className="adminTableRole">{u.status}</p>
                 </td>
                 <td>
-                  <button type="button" onClick={() => handleDelete(u.email)} className="adminUserDelete">delete</button>
+                  <span className="adminTableBtn">
+                    <DeleteIcon onClick={() => handleDelete(u.email)} />
+                  </span>
                 </td>
               </tr>
             )) : null}

@@ -125,13 +125,14 @@ function CartItems({ setTotal }) {
             $
             {' '}
             {+c.price}
+            .00
           </td>
           <td>
-            <button type="button" className="cartTableBtnR">
+            <span className="adminTableBtn">
               <DeleteIcon
                 onClick={() => handleDelete(c.id)}
               />
-            </button>
+            </span>
           </td>
         </tr>
       ))}

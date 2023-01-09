@@ -1,32 +1,25 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Pagination } from '@mui/material';
 import AdminWrapper from '../components/AdminWrapper';
-import {
-  deleteBlockquoteRequest,
-  getAdminBlockquoteDataRequest, setViewBlockquote,
-} from '../store/actions/blockquote';
+import { deleteBlockquoteRequest, getBlockquoteDataRequest } from '../store/actions/blockquote';
+import { Pagination } from '@mui/material';
 
 function AdminQuotes() {
   const dispatch = useDispatch();
   const [page, setPage] = useState(1);
-  const pagination = useSelector((state) => state.blockquote.pagination);
-  const quote = useSelector((state) => state.blockquote.blockquotesDataAdmin);
+  const pagination = useSelector((state) => state.product.pagination);
+  const quote = useSelector((state) => state.blockquote.blockquotesData);
 
   useEffect(() => {
-    dispatch(getAdminBlockquoteDataRequest(1));
+    dispatch(getBlockquoteDataRequest(1));
   }, []);
   const handleDelete = useCallback(async (id) => {
     await dispatch(deleteBlockquoteRequest(id));
   }, []);
   const handleChange = useCallback((ev, value) => {
     setPage(value);
-    dispatch(getAdminBlockquoteDataRequest(page));
+    dispatch(getBlockquoteDataRequest(page));
   }, [pagination]);
-
-  const handleUpdate = useCallback(async (id) => {
-    await dispatch(setViewBlockquote(id));
-  }, []);
 
   return (
     <AdminWrapper>
@@ -65,14 +58,13 @@ function AdminQuotes() {
                     <button
                       type="button"
                       className="adminQuoteView"
-                      onClick={() => handleUpdate(q.id)}
                     >
                       view
                     </button>
                   </div>
                 </td>
               </tr>
-            )) : null}
+            )) : 'loading...'}
           </tbody>
         </table>
         <Pagination count={+pagination} page={page} onChange={handleChange} />

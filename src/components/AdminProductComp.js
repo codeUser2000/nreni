@@ -1,5 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 import { deleteProductRequest } from '../store/actions/product';
 import CreateModal from './CreateModal';
 
@@ -38,24 +40,19 @@ function AdminProductComp({ data }) {
         </td>
         <td>
           <div className="adminTableBtnRow">
-            <button type="button" className="adminTableView">View</button>
-            <button
-              type="button"
-              className="adminTableDelete"
-              onClick={() => handleDelete(data.id)}
-            >
-              delete
-            </button>
-            <button
-              type="button"
-              className="adminTableUpdate"
-              onClick={() => {
-                setProductData(data);
-                setShow(true);
-              }}
-            >
-              update
-            </button>
+            <span className="adminTableBtn">
+              <DeleteIcon
+                onClick={() => handleDelete(data.id)}
+              />
+            </span>
+            <span className="adminTableBtn">
+              <EditIcon
+                onClick={() => {
+                  setProductData(data);
+                  setShow(true);
+                }}
+              />
+            </span>
           </div>
         </td>
       </tr>

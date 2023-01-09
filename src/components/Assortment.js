@@ -25,7 +25,12 @@ function Assortment() {
         <div className="assortmentColumnDesk">
           <p className="assortmentInfo">Rings</p>
           <figure className="assortmentItem">
-            <img src={chainRing} alt="" className="assortmentImg" />
+            <img
+              style={{ objectPosition: 'bottom' }}
+              src={chainRing}
+              alt=""
+              className="assortmentImg"
+            />
           </figure>
         </div>
       </div>
