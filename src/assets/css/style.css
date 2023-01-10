@@ -49,10 +49,6 @@ body {
     justify-content: space-between;
 }
 
-span {
-    color: #c31e39;
-}
-
 
 [placeholder] {
     padding-right: 5px;
@@ -1515,26 +1511,29 @@ p {
     padding-right: 5px;
 }
 
-
-.rc-slider-handle,
-.rc-slider-track {
-    background-color: #c31e39;
+.rc-slider-track.rc-slider-track-1 {
+    height: 4px;
+    position: absolute;
+    border-radius: 6px;
     border: 1px solid #c31e39;
+    background: #c31e39;
 }
 
-.rc-slider-handle:hover {
-    border-color: #ffece5;
+.rc-slider-handle .rc-slider-handle-1,
+.rc-slider-handle .rc-slider-handle-2 {
+    color: #c31e39;
+    border-color: #c31e39;
+    background-color: #c31e39;
 }
 
-.rc-slider-handle:focus-visible {
-    border-color: #ffece5;
-    box-shadow: 0 0 0 3px #ffece5;
+.rc-slider-handle .rc-slider-handle-1:hover {
+    border-color: #c31e39;
+    background-color: #c31e39;
 }
 
-.rc-slider-handle.rc-slider-handle.rc-slider-handle.rc-slider-handle {
-    cursor: grabbing;
-    border-color: #ffece5;
-    box-shadow: 0 0 5px #ffece5;
+.rc-slider-handle .rc-slider-handle-1:active {
+    border-color: #c31e39;
+    background-color: #c31e39;
 }
 
 .shopProductsRow {
@@ -1676,17 +1675,38 @@ p {
     width: calc(100% / 2);
 }
 
+.productLike {
+    width: 14px;
+    height: 14px;
+}
+
+.singleMain {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.productLike {
+    position: relative;
+}
+
+.productLikeCount {
+    top: -2px;
+    right: -45px;
+    position: absolute;
+}
+
 .singleInfoTitle {
-    font-size: 22px;
-    font-weight: 500;
+    font-size: 25px;
+    font-weight: 700;
     margin-bottom: 5px;
     text-transform: capitalize;
 }
 
 .singleInfoPrice {
     color: #4a4a4a;
-    font-size: 25px;
-    font-weight: 700;
+    font-size: 22px;
+    font-weight: 500;
     margin-bottom: 10px;
     letter-spacing: 1px;
     background-color: #ffece5;
@@ -1694,7 +1714,7 @@ p {
 
 .singleInfoDescription {
     color: #4a4a4a;
-    font-size: 17px;
+    font-size: 20px;
     font-weight: 400;
     margin-bottom: 20px;
 }
@@ -2386,12 +2406,12 @@ p {
 }
 
 .adminFormFigure {
-    width: 70%;
+    width: 100%;
     height: 500px;
 }
 
 .adminFormImg {
-    width: 100%;
+    width: 80%;
     height: 100%;
     object-fit: cover;
 }

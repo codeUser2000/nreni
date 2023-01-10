@@ -1,35 +1,47 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
+import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import Wrapper from '../components/Wrapper';
 import Api from '../Api';
 import Utils from '../helpers/Utils';
 import { addToCartRequest, getLocalCartData } from '../store/actions/cart';
 import Account from '../helpers/Account';
+import { likeProductRequest } from '../store/actions/product';
 
 function Single() {
   const params = useParams();
   const dispatch = useDispatch();
   const { REACT_APP_API_URL } = process.env;
   const [count, setCount] = useState(1);
+  const [show, setShow] = useState(false);
+  const [like, setLike] = useState(0);
   const [single, setSingle] = useState({});
   const user = useSelector((state) => state.users.singleUserData);
+
   useEffect(() => {
     (async () => {
       const { data } = await Api.getSingle(params.itemId);
       setSingle(data.product);
+      setLike(data.product.like);
     })();
   }, []);
 
   const handleProductAdd = useCallback(async (data) => {
     if (Account.getToken()) {
       const product = {
-        quantity: count, price: +data.price * count, product: data,
+        quantity: count,
+        price: +data.price * count,
+        product: data,
       };
       await dispatch(addToCartRequest(product, user.cart.id));
     } else {
       const product = {
-        id: new Date(), quantity: count, price: +data.price * count, product: data,
+        id: new Date(),
+        quantity: count,
+        price: +data.price * count,
+        product: data,
       };
       Utils.setCart(product);
       dispatch(getLocalCartData());
@@ -44,6 +56,11 @@ function Single() {
     }
   }, [single, count]);
 
+  const handelProductLike = useCallback(() => {
+    setLike(+like + 1);
+    setShow(!show);
+  }, [show, like]);
+
   return (
     <Wrapper>
       <main className="single">
@@ -51,14 +68,41 @@ function Single() {
           <h1 className="singleTitle">We hope You&apos;ll like it !</h1>
           <div className="singlePage">
             <figure className="singleItem">
-              <img src={REACT_APP_API_URL + single.avatar} className="singleImg" alt="" />
+              <img src={REACT_APP_API_URL + single.avatar} className="singleImg" alt=""/>
             </figure>
             <div className="singleInfo">
-              <h2 className="singleInfoPrice">
+              <div className="singleMain">
+                <h2 className="singleInfoTitle">
+                  {single.title}
+                </h2>
+                <span className="productLike">
+                  {show
+                    ? (
+                      <FavoriteIcon
+                        style={{
+                          width: 30,
+                          height: 30,
+                          fill: '#c31e39',
+                        }}
+                        onClick={() => handelProductLike()}
+                      />
+                    )
+                    : (
+                      <HeartBrokenIcon
+                        style={{
+                          width: 30,
+                          height: 30,
+                        }}
+                        onClick={() => handelProductLike()}
+                      />
+                    )}
+                  <span className="productLikeCount">{like}</span>
+                </span>
+              </div>
+              <p className="singleInfoPrice">
+                $
                 {single.price}
-                ֏
-              </h2>
-              <p className="singleInfoTitle">{single.title}</p>
+              </p>
               <p className="singleInfoDescription">
                 {single.description}
               </p>

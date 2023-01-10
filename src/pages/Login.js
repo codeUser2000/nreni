@@ -85,7 +85,8 @@ function Login() {
               />
               {show
                 ? <RemoveRedEyeIcon fontSize="small" onClick={() => setShow(false)} />
-                : <VisibilityOffIcon fontSize="small" onClick={() => setShow(true)} />}
+                : <VisibilityOffIcon fontSize="small" onClick={() => setShow(true)} />
+              }
             </label>
             <div className="loginBottom">
               <label htmlFor="remember" className="containerCheck">
