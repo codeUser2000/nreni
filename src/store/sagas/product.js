@@ -12,7 +12,10 @@ import {
   DELETE_PRODUCT_SUCCESS,
   UPDATE_PRODUCT_REQUEST,
   UPDATE_PRODUCT_SUCCESS,
-  UPDATE_PRODUCT_FAIL, LIKE_PRODUCT_SUCCESS, LIKE_PRODUCT_FAIL, LIKE_PRODUCT_REQUEST,
+  UPDATE_PRODUCT_FAIL,
+  LIKE_PRODUCT_SUCCESS,
+  LIKE_PRODUCT_FAIL,
+  LIKE_PRODUCT_REQUEST,
 } from '../actions/product';
 import Api from '../../Api';
 
@@ -82,7 +85,7 @@ function* handleUpdateProductsRequest(action) {
 
 function* handleLikeProductRequest(action) {
   try {
-    const { data } = yield call(Api.likeProduct, action.payload.id);
+    const { data } = yield call(Api.likeProduct, action.payload.id, action.payload.like);
     yield put({
       type: LIKE_PRODUCT_SUCCESS,
       payload: { data },

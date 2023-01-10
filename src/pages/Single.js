@@ -56,10 +56,16 @@ function Single() {
     }
   }, [single, count]);
 
-  const handelProductLike = useCallback(() => {
-    setLike(+like + 1);
+  const handleProductLike = useCallback(async () => {
+    if (!show) {
+      setLike(+like + 1);
+      await dispatch(likeProductRequest(single.id, true));
+    } else {
+      setLike(+like - 1);
+      await dispatch(likeProductRequest(single.id, false));
+    }
     setShow(!show);
-  }, [show, like]);
+  }, [show, like, single]);
 
   return (
     <Wrapper>
@@ -68,14 +74,14 @@ function Single() {
           <h1 className="singleTitle">We hope You&apos;ll like it !</h1>
           <div className="singlePage">
             <figure className="singleItem">
-              <img src={REACT_APP_API_URL + single.avatar} className="singleImg" alt=""/>
+              <img src={REACT_APP_API_URL + single.avatar} className="singleImg" alt="" />
             </figure>
             <div className="singleInfo">
               <div className="singleMain">
                 <h2 className="singleInfoTitle">
                   {single.title}
                 </h2>
-                <span className="productLike">
+                <span className="productLike" onClick={() => handleProductLike()}>
                   {show
                     ? (
                       <FavoriteIcon
@@ -84,7 +90,6 @@ function Single() {
                           height: 30,
                           fill: '#c31e39',
                         }}
-                        onClick={() => handelProductLike()}
                       />
                     )
                     : (
@@ -93,7 +98,6 @@ function Single() {
                           width: 30,
                           height: 30,
                         }}
-                        onClick={() => handelProductLike()}
                       />
                     )}
                   <span className="productLikeCount">{like}</span>
