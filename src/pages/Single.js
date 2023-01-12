@@ -8,8 +8,7 @@ import Api from '../Api';
 import Utils from '../helpers/Utils';
 import { addToCartRequest, getLocalCartData } from '../store/actions/cart';
 import Account from '../helpers/Account';
-import { likeProductRequest } from '../store/actions/product';
-import { setLikeRequest } from '../store/actions/others';
+import { setLikeRequest, deleteLikeRequest } from '../store/actions/others';
 
 function Single() {
   const params = useParams();
@@ -25,7 +24,7 @@ function Single() {
     (async () => {
       const { data } = await Api.getSingle(params.itemId);
       setSingle(data.product);
-      setLike(data.product.like);
+      setLike(data.like);
     })();
   }, []);
 
@@ -63,7 +62,7 @@ function Single() {
       await dispatch(setLikeRequest(single.id));
     } else {
       setLike(+like - 1);
-      await dispatch(likeProductRequest(single.id, false));
+      await dispatch(deleteLikeRequest(single.id));
     }
     setShow(!show);
   }, [show, like, single]);
@@ -102,6 +101,7 @@ function Single() {
                       />
                     )}
                 </span>
+                <span>{like}</span>
               </div>
               <p className="singleInfoPrice">
                 $

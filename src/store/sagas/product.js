@@ -13,9 +13,6 @@ import {
   UPDATE_PRODUCT_REQUEST,
   UPDATE_PRODUCT_SUCCESS,
   UPDATE_PRODUCT_FAIL,
-  LIKE_PRODUCT_SUCCESS,
-  LIKE_PRODUCT_FAIL,
-  LIKE_PRODUCT_REQUEST,
 } from '../actions/product';
 import Api from '../../Api';
 
@@ -83,25 +80,9 @@ function* handleUpdateProductsRequest(action) {
   }
 }
 
-function* handleLikeProductRequest(action) {
-  try {
-    const { data } = yield call(Api.likeProduct, action.payload.id, action.payload.like);
-    yield put({
-      type: LIKE_PRODUCT_SUCCESS,
-      payload: { data },
-    });
-  } catch (e) {
-    yield put({
-      type: LIKE_PRODUCT_FAIL,
-      payload: { error: e.message },
-    });
-  }
-}
-
 export default function* watcher() {
   yield takeLatest(CREATE_PRODUCT_REQUEST, handleCreateProductsRequest);
   yield takeLatest(DELETE_PRODUCT_REQUEST, handleDeleteProductsRequest);
   yield takeLatest(UPDATE_PRODUCT_REQUEST, handleUpdateProductsRequest);
   yield takeLatest(GET_PRODUCT_DATA_REQUEST, handleGetProductsRequest);
-  yield takeLatest(LIKE_PRODUCT_REQUEST, handleLikeProductRequest);
 }

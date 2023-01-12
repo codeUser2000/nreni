@@ -71,6 +71,10 @@ class Api {
     return api.post('others/like', { productId });
   }
 
+  static deleteLikeProduct(productId) {
+    return api.post('others/like', { productId });
+  }
+
   // ------ADMIN-------//
   static getUser(page) {
     return api.get(`/users/list?page=${page || 1}`);

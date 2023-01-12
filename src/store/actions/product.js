@@ -45,13 +45,3 @@ export function updateProductRequest(data) {
   };
 }
 
-export const LIKE_PRODUCT_REQUEST = 'LIKE_PRODUCT_REQUEST';
-export const LIKE_PRODUCT_SUCCESS = 'LIKE_PRODUCT_SUCCESS';
-export const LIKE_PRODUCT_FAIL = 'LIKE_PRODUCT_FAIL';
-
-export function likeProductRequest(id, like) {
-  return {
-    type: LIKE_PRODUCT_REQUEST,
-    payload: { id, like },
-  };
-}
