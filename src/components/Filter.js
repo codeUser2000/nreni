@@ -66,6 +66,7 @@ function Filter() {
             value={query?.sliderPrice?.split('_')
               .map((l) => +l)}
             onChange={(val) => handleChange(val)}
+            handleStyle={{ border: '2px solid #c31e39' }}
           />
           <SliderValue
             min={min}
@@ -83,8 +84,8 @@ function Filter() {
                 checked={categories.includes(m.name)}
                 onChange={() => true}
               />
-              <span className="checkmarkFilter" />
-              <img className="shopLabelsIcon" src={m.src} alt="" />
+              <span className="checkmarkFilter"/>
+              <img className="shopLabelsIcon" src={m.src} alt=""/>
               {' '}
               {' '}
               {m.name}

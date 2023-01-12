@@ -100,7 +100,6 @@ function Single() {
                         }}
                       />
                     )}
-                  <span className="productLikeCount">{like}</span>
                 </span>
               </div>
               <p className="singleInfoPrice">

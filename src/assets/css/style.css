@@ -1515,25 +1515,29 @@ p {
     height: 4px;
     position: absolute;
     border-radius: 6px;
-    border: 1px solid #c31e39;
     background: #c31e39;
+    border: 1px solid #c31e39;
 }
 
-.rc-slider-handle .rc-slider-handle-1,
-.rc-slider-handle .rc-slider-handle-2 {
+.rc-slider-handle.rc-slider-handle-1,
+.rc-slider-handle.rc-slider-handle-2 {
     color: #c31e39;
-    border-color: #c31e39;
+    border: 2px solid #c31e39;
     background-color: #c31e39;
 }
 
-.rc-slider-handle .rc-slider-handle-1:hover {
-    border-color: #c31e39;
+.rc-slider-handle.rc-slider-handle-1:focus,
+.rc-slider-handle.rc-slider-handle-2:focus,
+.rc-slider-handle.rc-slider-handle-1:hover,
+.rc-slider-handle.rc-slider-handle-2:hover {
+    border: 2px solid #ffece5;
     background-color: #c31e39;
 }
 
-.rc-slider-handle .rc-slider-handle-1:active {
-    border-color: #c31e39;
-    background-color: #c31e39;
+.rc-slider-handle.rc-slider-handle-1:active {
+    cursor: grabbing;
+    border: 2px solid #ffece5;
+    box-shadow: 0 0 5px #ffece5;
 }
 
 .shopProductsRow {
@@ -1575,6 +1579,10 @@ p {
 .newProductInfo,
 .shopProductInfo {
     width: 100%;
+    display: flex;
+    align-items: end;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .newProductTitle,
