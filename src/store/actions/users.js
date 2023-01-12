@@ -79,10 +79,10 @@ export const DELETE_USER_SELF_REQUEST = 'DELETE_USER_SELF_REQUEST';
 export const DELETE_USER_SELF_SUCCESS = 'DELETE_USER_SELF_SUCCESS';
 export const DELETE_USER_SELF_FAIL = 'DELETE_USER_SELF_FAIL';
 
-export function deleteUserSelfRequest(email) {
+export function deleteUserSelfRequest() {
   return {
     type: DELETE_USER_SELF_REQUEST,
-    payload: { email },
+    payload: {},
   };
 }
 

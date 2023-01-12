@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import _ from 'lodash';
 import Wrapper from '../components/Wrapper';
 import Account from '../helpers/Account';
-import { getUserProfileRequest } from '../store/actions/users';
+import { deleteUserSelfRequest, getUserProfileRequest } from '../store/actions/users';
 import CartItems from '../components/CartItems';
 
 function Profile() {
@@ -26,14 +26,21 @@ function Profile() {
       }
     })();
   }, []);
+
   useEffect(() => {
     if (_.isEmpty(user) && !userStatus) {
       navigate('/login');
     }
   }, [user, userStatus]);
+
   const handleLogout = useCallback(() => {
     Account.logout();
     window.location.reload(false);
+  }, []);
+
+  const handleDelete = useCallback(async (id) => {
+    await dispatch(deleteUserSelfRequest(id));
+    navigate('/home');
   }, []);
   return (
     <Wrapper>
@@ -63,7 +70,12 @@ function Profile() {
                 {' '}
                 ?)
               </p>
-              <div className="deleteProfile">Delete profile</div>
+              <div
+                className="deleteProfile"
+                onClick={handleDelete}
+              >
+                Delete profile
+              </div>
               <div className="customerDetails">
                 <h4 className="customerTitle">user info</h4>
                 <div className="customerDesk">

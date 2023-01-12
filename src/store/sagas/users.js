@@ -24,6 +24,7 @@ import {
   DELETE_USER_SELF_FAIL, GET_USER_PROFILE_REQUEST, GET_USER_PROFILE_SUCCESS, GET_USER_PROFILE_FAIL,
 } from '../actions/users';
 import Api from '../../Api';
+import Account from '../../helpers/Account';
 
 function* handleCreateUserRequest(action) {
   try {
@@ -72,10 +73,11 @@ function* handleDeleteUserRequest(action) {
   }
 }
 
-function* handleDeleteUserSelfRequest(action) {
+function* handleDeleteUserSelfRequest() {
   try {
-    yield call(Api.userSelfDelete, action.payload.email);
+    yield call(Api.userSelfDelete);
     toast.success('You are deleted successfully');
+    Account.logout();
     yield put({
       type: DELETE_USER_SELF_SUCCESS,
       payload: {},
@@ -90,11 +92,17 @@ function* handleDeleteUserSelfRequest(action) {
 
 function* handleUserLoginRequest(action) {
   try {
-    const { formData, remember } = action.payload;
+    const {
+      formData,
+      remember
+    } = action.payload;
     const { data } = yield call(Api.login, formData);
     yield put({
       type: LOGIN_USER_SUCCESS,
-      payload: { data, remember },
+      payload: {
+        data,
+        remember
+      },
     });
   } catch (e) {
     yield put({
@@ -106,11 +114,17 @@ function* handleUserLoginRequest(action) {
 
 function* handleAdminLoginRequest(action) {
   try {
-    const { formData, remember } = action.payload;
+    const {
+      formData,
+      remember
+    } = action.payload;
     const { data } = yield call(Api.adminLogin, formData);
     yield put({
       type: LOGIN_ADMIN_SUCCESS,
-      payload: { data, remember },
+      payload: {
+        data,
+        remember
+      },
     });
   } catch (e) {
     yield put({

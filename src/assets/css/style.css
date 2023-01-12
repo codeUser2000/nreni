@@ -1576,7 +1576,10 @@ p {
     margin-bottom: 20px;
 }
 
-.newProductInfo,
+.newProductInfo {
+    width: 100%;
+}
+
 .shopProductInfo {
     width: 100%;
     display: flex;
