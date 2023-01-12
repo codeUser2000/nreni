@@ -9,6 +9,7 @@ import Utils from '../helpers/Utils';
 import { addToCartRequest, getLocalCartData } from '../store/actions/cart';
 import Account from '../helpers/Account';
 import { likeProductRequest } from '../store/actions/product';
+import { setLikeRequest } from '../store/actions/others';
 
 function Single() {
   const params = useParams();
@@ -59,7 +60,7 @@ function Single() {
   const handleProductLike = useCallback(async () => {
     if (!show) {
       setLike(+like + 1);
-      await dispatch(likeProductRequest(single.id, true));
+      await dispatch(setLikeRequest(single.id));
     } else {
       setLike(+like - 1);
       await dispatch(likeProductRequest(single.id, false));

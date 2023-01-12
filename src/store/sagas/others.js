@@ -24,7 +24,7 @@ function* handleMenuGetRequest() {
 
 function* handleSetLikeRequest(action) {
   try {
-    const { data } = yield call(Api.likeProduct, action.payload.productId, action.payload.set);
+    const { data } = yield call(Api.likeProduct, action.payload.productId);
     yield put({
       type: SET_LIKE_SUCCESS,
       payload: { data },

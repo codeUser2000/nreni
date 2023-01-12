@@ -13,9 +13,9 @@ export const SET_LIKE_REQUEST = 'SET_LIKE_REQUEST';
 export const SET_LIKE_SUCCESS = 'SET_LIKE_SUCCESS';
 export const SET_LIKE_FAIL = 'SET_LIKE_FAIL';
 
-export function setLikeRequest(productId, set) {
+export function setLikeRequest(productId) {
   return {
     type: SET_LIKE_REQUEST,
-    payload: { productId, set },
+    payload: { productId },
   };
 }
