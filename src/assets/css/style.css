@@ -1562,6 +1562,7 @@ p {
     background-color: #ffece5;
     margin: 10px 0 40px;
     border: 4px solid white;
+    height: 435px
 }
 
 .newProduct {
@@ -1596,13 +1597,8 @@ p {
     text-transform: capitalize;
 }
 
-.newProductPrice,
-.shopProductPrice {
-    font-size: 17px;
-    font-weight: 600;
-    margin-bottom: 5px;
-    text-transform: capitalize;
-}
+
+
 
 .linkToSinglePage {
     width: 50%;

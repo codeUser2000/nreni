@@ -42,19 +42,20 @@ class Utils {
   static setCart(product) {
     let productData;
     const cart = JSON.parse(localStorage.getItem('cartItem'));
-    if (cart && cart !== 'undefined') {
+    if (cart && cart.length && cart !== 'undefined') {
       productData = cart.map((c) => {
         if (+c.product.id === +product.product.id) {
           if (+c.quantity + +product.quantity > +product.product.countProduct) {
             toast.error('You cant set new product');
-            return;
+            return c;
           }
           c.quantity += product.quantity;
+          c.price = c.quantity * c.product.price;
         }
         // eslint-disable-next-line consistent-return
         return c;
       });
-      if (cart.filter((c) => +c.product.id !== +product.product.id)) {
+      if (cart.filter((c) => +c.product.id !== +product.product.id).length) {
         productData = [...cart, product];
       }
     } else {

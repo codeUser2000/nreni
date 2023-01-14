@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import classNames from 'classnames';
 
 function Product({
   data,
@@ -14,11 +15,19 @@ function Product({
         <figcaption className="shopProductInfo">
           <div className="shopProductLeft">
             <h3 className="shopProductTitle">{data.title}</h3>
-            <h4 className="shopProductPrice">
+            <h4 className={classNames('shopProductPrice', { 'text-decoration-line-through': +data.discount})}>
               $
               {' '}
               {data.price}
             </h4>
+            {+data.discount ? (
+              <h4 className="shopProductPrice">
+                $
+                {' '}
+                {/* eslint-disable-next-line no-mixed-operators */}
+                {+data.price * +data.discount / 100}
+              </h4>
+            ) : null}
           </div>
           <div className="shopProductRight">
             <FavoriteIcon

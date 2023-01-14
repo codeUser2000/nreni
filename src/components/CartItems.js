@@ -70,6 +70,8 @@ function CartItems({ setTotal }) {
     })();
   }, [user]);
 
+  console.log(cart);
+
   useEffect(() => {
     if (Account.getToken()) {
       setCart(cartToken);

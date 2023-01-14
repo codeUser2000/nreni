@@ -3,6 +3,7 @@ import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import classNames from 'classnames';
 import Wrapper from '../components/Wrapper';
 import Api from '../Api';
 import Utils from '../helpers/Utils';
@@ -30,17 +31,32 @@ function Single() {
 
   const handleProductAdd = useCallback(async (data) => {
     if (Account.getToken()) {
+      let finalPrice;
+      if (+data.discount) {
+        // eslint-disable-next-line no-mixed-operators
+        finalPrice = +data.price * +data.discount / 100 * count;
+      } else {
+        finalPrice = +data.price * count;
+      }
       const product = {
         quantity: count,
-        price: +data.price * count,
+        price: finalPrice,
         product: data,
       };
       await dispatch(addToCartRequest(product, user.cart.id));
     } else {
+      let finalPrice;
+      if (+data.discount) {
+        // eslint-disable-next-line no-mixed-operators
+        finalPrice = +data.price * +data.discount / 100 * count;
+      } else {
+        finalPrice = +data.price * count;
+      }
+
       const product = {
         id: new Date(),
         quantity: count,
-        price: +data.price * count,
+        price: finalPrice,
         product: data,
       };
       Utils.setCart(product);
@@ -103,10 +119,18 @@ function Single() {
                 </span>
                 <span>{like}</span>
               </div>
-              <p className="singleInfoPrice">
+              <p className={classNames('singleInfoPrice', { 'text-decoration-line-through': +single.discount })}>
                 $
                 {single.price}
               </p>
+              {+single.discount ? (
+                <h4 className="shopProductPrice">
+                  $
+                  {' '}
+                  {/* eslint-disable-next-line no-mixed-operators */}
+                  {+single.price * +single.discount / 100 * +count}
+                </h4>
+              ) : null}
               <p className="singleInfoDescription">
                 {single.description}
               </p>
