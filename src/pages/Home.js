@@ -6,21 +6,23 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import Wrapper from '../components/Wrapper';
 import MyCarouselComp from '../components/MyCarouselComp';
-import NewProduct from '../components/NewProduct';
 import Assortment from '../components/Assortment';
 import HomeAbout from '../components/HomeAbout';
 import MyCarouselComp2 from '../components/MyCarouselComp2';
 import { getProductDataRequest } from '../store/actions/product';
 import { getBlockquoteDataRequest } from '../store/actions/blockquote';
 import Blockquote from '../components/Blockquote';
+import Product from '../components/Product';
 
 function Home() {
   const productData = useSelector((state) => state.product.productsData);
   const quote = useSelector((state) => state.blockquote.blockquotesData);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getProductDataRequest(1));
-    dispatch(getBlockquoteDataRequest());
+    (async () => {
+      await dispatch(getProductDataRequest(1));
+      await dispatch(getBlockquoteDataRequest());
+    })();
   }, []);
   return (
     <Wrapper>
@@ -81,7 +83,7 @@ function Home() {
                   }}
                 >
                   {productData.map((n) => (
-                    <NewProduct key={n.id} data={n} />
+                    <Product key={n.id} data={n} style={{ width: `${100}%` }} />
                   ))}
                 </Carousel>
               </div>

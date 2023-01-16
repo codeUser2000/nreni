@@ -41,12 +41,14 @@ class Utils {
 
   static setCart(product) {
     let productData;
+    let error = false;
     const cart = JSON.parse(localStorage.getItem('cartItem'));
     if (cart && cart.length && cart !== 'undefined') {
       productData = cart.map((c) => {
         if (+c.product.id === +product.product.id) {
           if (+c.quantity + +product.quantity > +product.product.countProduct) {
             toast.error('You cant set new product');
+            error = true;
             return c;
           }
           c.quantity += product.quantity;
@@ -55,13 +57,16 @@ class Utils {
         // eslint-disable-next-line consistent-return
         return c;
       });
-      if (cart.filter((c) => +c.product.id !== +product.product.id).length) {
+      if (cart.filter((c) => +c.product.id !== +product.product.id)) {
+        console.log(cart.filter((c) => +c.product.id !== +product.product.id));
         productData = [...cart, product];
       }
     } else {
       productData = [product];
     }
-    toast.success('Product is set');
+    if (!error) {
+      toast.success('Product is set');
+    }
     localStorage.setItem('cartItem', JSON.stringify(productData));
   }
 

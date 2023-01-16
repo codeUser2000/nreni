@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -14,6 +14,7 @@ import { setLikeRequest, deleteLikeRequest } from '../store/actions/others';
 function Single() {
   const params = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { REACT_APP_API_URL } = process.env;
   const [count, setCount] = useState(1);
   const [show, setShow] = useState(false);
@@ -26,6 +27,8 @@ function Single() {
       const { data } = await Api.getSingle(params.itemId);
       setSingle(data.product);
       setLike(data.like);
+      const likeD = await Api.getLike();
+      console.log(likeD.data);
     })();
   }, []);
 
@@ -73,6 +76,10 @@ function Single() {
   }, [single, count]);
 
   const handleProductLike = useCallback(async () => {
+    if (!Account.getToken()) {
+      navigate('/login');
+      return;
+    }
     if (!show) {
       setLike(+like + 1);
       await dispatch(setLikeRequest(single.id));

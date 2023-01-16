@@ -27,7 +27,7 @@ function Cart() {
         <div className="container">
           <div className="cartPage">
             <h2 className="cartTitle">shopping cart</h2>
-             <table className="cartTable">
+            <table className="cartTable">
               <thead className="cartTableThead">
                 <tr className="cartTableTheadTitles">
                   <td>Description</td>
@@ -39,7 +39,7 @@ function Cart() {
               <tbody className="cartTableTbody">
                 <CartItems setTotal={setTotal} />
               </tbody>
-             </table>
+            </table>
             <div className="orderSummaryDetails">
               <div className="summery">
                 <div className="summeryDesk">

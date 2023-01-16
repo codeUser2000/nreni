@@ -127,7 +127,6 @@ function CartItems({ setTotal }) {
             $
             {' '}
             {+c.price}
-            .00
           </td>
           <td>
             <span className="adminTableBtn">
