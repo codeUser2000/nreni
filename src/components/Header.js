@@ -28,11 +28,11 @@ function Header() {
         <Container>
           <Navbar.Brand href="/home">
             <figure className="logo">
-              <img src={logo} alt="nreni" className="logoImg"/>
+              <img src={logo} alt="nreni" className="logoImg" />
               <p className="logoName">NRENI</p>
             </figure>
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav">
             <Nav>
               <ul className="navBlock">
@@ -50,19 +50,19 @@ function Header() {
                 </li>
                 <li className="navList">
                   <NavLink to="/cart" className="navLink">
-                    <LocalMallIcon/>
+                    <LocalMallIcon />
                   </NavLink>
                 </li>
                 <li className="navList">
                   {sessionStorage.getItem('token')
                     ? (
                       <NavLink to="/profile" className="navLink">
-                        <AccountCircleIcon/>
+                        <AccountCircleIcon />
                       </NavLink>
                     )
                     : (
                       <NavLink to="/login" className="navLink">
-                        <AccountCircleIcon/>
+                        <AccountCircleIcon />
                       </NavLink>
                     )}
                 </li>
