@@ -4,8 +4,9 @@ import {
   Container, Nav, Navbar,
 } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import LocalMallIcon from '@mui/icons-material/LocalMall';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
+import PermIdentityIcon from '@mui/icons-material/PermIdentity';
+import SearchIcon from '@mui/icons-material/Search';
 import logo from '../assets/img/logo/logo.png';
 import Account from '../helpers/Account';
 import { getUserProfileRequest } from '../store/actions/users';
@@ -50,21 +51,31 @@ function Header() {
                 </li>
                 <li className="navList">
                   <NavLink to="/cart" className="navLink">
-                    <LocalMallIcon />
+                    <CardGiftcardIcon />
                   </NavLink>
                 </li>
                 <li className="navList">
                   {sessionStorage.getItem('token')
                     ? (
                       <NavLink to="/profile" className="navLink">
-                        <AccountCircleIcon />
+                        <PermIdentityIcon
+                          style={{
+                            width: 28,
+                            height: 28,
+                          }}
+                        />
                       </NavLink>
                     )
                     : (
                       <NavLink to="/login" className="navLink">
-                        <AccountCircleIcon />
+                        <PermIdentityIcon />
                       </NavLink>
                     )}
+                </li>
+                <li className="navList">
+                  <NavLink to="/search" className="navLink">
+                    <SearchIcon />
+                  </NavLink>
                 </li>
               </ul>
             </Nav>

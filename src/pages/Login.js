@@ -46,22 +46,6 @@ function Login() {
     <div className="logIn">
       <div className="container">
         <div className="loginPage">
-          <figure className="logInBanner">
-            <figcaption className="logInBannerFigcaption">
-              <Link to="/home" className="loginPageLogo">
-                <img src={logo} alt="nreni" className="loginPageLogoImg" />
-                <p className="loginPageLogoName">NRENI</p>
-              </Link>
-              <h2 className="loginBannerTitle">
-                Welcome to
-                {' '}
-                <span>SILVER NRENI</span>
-                {' '}
-                page
-              </h2>
-              <p className="loginBannerInfo">Sign in to continue and success</p>
-            </figcaption>
-          </figure>
           <form onSubmit={handleSubmit} className="loginForm">
             <h2 className="loginFormTitle">Login</h2>
             <label htmlFor="email" className="loginFormLabel">
@@ -85,8 +69,7 @@ function Login() {
               />
               {show
                 ? <RemoveRedEyeIcon fontSize="small" onClick={() => setShow(false)} />
-                : <VisibilityOffIcon fontSize="small" onClick={() => setShow(true)} />
-              }
+                : <VisibilityOffIcon fontSize="small" onClick={() => setShow(true)} />}
             </label>
             <div className="loginBottom">
               <label htmlFor="remember" className="containerCheck">

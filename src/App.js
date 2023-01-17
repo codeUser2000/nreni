@@ -23,6 +23,7 @@ import AdminProduct from './pages/AdminProduct';
 import CompleteRegistration from './pages/CompleteRegistration';
 import AdminOrders from './pages/AdminOrders';
 import AdminQuotes from './pages/AdminQuotes';
+import AddNewAddresses from './components/AddNewAddresses';
 
 const LazyShop = React.lazy(() => import('./pages/Shop'));
 
@@ -61,6 +62,7 @@ class App extends Component {
             <Route path="/admin-users" element={<AdminUsers />} />
             <Route path="/admin-quotes" element={<AdminQuotes />} />
             <Route path="/complete" element={<CompleteRegistration />} />
+            <Route path="/addresses" element={<AddNewAddresses />} />
           </Routes>
         </BrowserRouter>
         <ToastContainer closeOnClick hideProgressBar />

@@ -6,7 +6,6 @@ import DatePicker from 'react-datepicker';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input';
-import logo from '../assets/img/logo/logo.png';
 import { createUserRequest } from '../store/actions/users';
 
 function Register() {
@@ -18,8 +17,8 @@ function Register() {
     lastName: '',
     email: '',
     password: '',
-    birthYear: new Date(),
-    phone: '',
+    // birthYear: new Date(),
+    // phone: '',
   });
   const handleChange = useCallback((key, value) => {
     formData[key] = value;
@@ -34,16 +33,17 @@ function Register() {
       || !formData.password
       || !formData.lastName
       || !formData.email
-      || !formData.birthYear
+      // || !formData.birthYear
       || !password2
-      || !formData.phone) {
+      // || !formData.phone
+    ) {
       toast.error('Please fill all gaps');
       return;
     }
-    if (!isValidPhoneNumber(formData.phone)) {
-      toast.error('Not valid number');
-      return;
-    }
+    // if (!isValidPhoneNumber(formData.phone)) {
+    //   toast.error('Not valid number');
+    //   return;
+    // }
     if (!emailReg.test(formData.email)) {
       toast.error('Please enter valid email');
       return;
@@ -64,22 +64,6 @@ function Register() {
     <div className="registrationPage">
       <div className="container">
         <div className="regPage">
-          <figure className="registerBanner">
-            <figcaption className=" regBannerFigcaption">
-              <Link to="/home" className=" regPageLogo">
-                <img src={logo} alt=" nreni" className=" regPageLogoImg" />
-                <p className=" regPageLogoName">NRENI</p>
-              </Link>
-              <h2 className=" regBannerTitle">
-                Welcome to
-                {' '}
-                <span>SILVER NRENI</span>
-                {' '}
-                page
-              </h2>
-              <p className=" regBannerInfo">Sign up to continue and success</p>
-            </figcaption>
-          </figure>
           <form onSubmit={handleSubmit} className=" regForm">
             <h2 className=" regFormTitle">Sign Up</h2>
             <label htmlFor="firstName" className="regFormLabel">
@@ -112,18 +96,18 @@ function Register() {
                 onChange={(ev) => handleChange('email', ev.target.value)}
               />
             </label>
-            <PhoneInput
-              international
-              value={formData.phone}
-              placeholder="Your Phone Number"
-              onChange={(ev) => handleChange('phone', ev)}
-            />
-            <DatePicker
-              className=" regFormInput"
-              selected={formData.birthYear}
-              dateFormat="yyyy/dd/MM"
-              onChange={(ev) => handleChange('birthYear', ev)}
-            />
+            {/* <PhoneInput */}
+            {/*  international */}
+            {/*  value={formData.phone} */}
+            {/*  placeholder="Your Phone Number" */}
+            {/*  onChange={(ev) => handleChange('phone', ev)} */}
+            {/* /> */}
+            {/* <DatePicker */}
+            {/*  className=" regFormInput" */}
+            {/*  selected={formData.birthYear} */}
+            {/*  dateFormat="yyyy/dd/MM" */}
+            {/*  onChange={(ev) => handleChange('birthYear', ev)} */}
+            {/* /> */}
             <label htmlFor="RegPass" style={{ display: 'flex' }} className="regFormLabel">
               <input
                 id="RegPass"

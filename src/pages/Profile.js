@@ -86,14 +86,19 @@ function Profile() {
                     {user.lastName}
                   </p>
                 </div>
-                <div className="customerDesk">
-                  <LocalPhoneIcon style={{ fill: '#c31e39' }} />
-                  <p className="customerPhone">{user.phone}</p>
-                </div>
+                {/* <div className="customerDesk"> */}
+                {/*  <LocalPhoneIcon style={{ fill: '#c31e39' }} /> */}
+                {/*  <p className="customerPhone">{user.phone}</p> */}
+                {/* </div> */}
                 <div className="customerDesk">
                   <MailIcon style={{ fill: '#c31e39' }} />
                   <p className="customerEmail">{user.email}</p>
                 </div>
+                <button
+                  className="addAddress"
+                >
+                  Add new addresses
+                </button>
               </div>
               <div className="customerOrder">
                 <h4 className="customerTitle">my orders</h4>
