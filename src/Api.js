@@ -175,10 +175,5 @@ class Api {
   }
 
   // --------OTHERS--------//
-
-  static getMenu() {
-    return api.get('/others/menu');
-  }
 }
-
 export default Api;

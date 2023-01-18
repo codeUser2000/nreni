@@ -27,8 +27,7 @@ function Single() {
       const { data } = await Api.getSingle(params.itemId);
       setSingle(data.product);
       setLike(data.like);
-      const likeD = await Api.getLike();
-      console.log(likeD.data);
+      // const likeD = await Api.getLike();
     })();
   }, []);
 

@@ -17,8 +17,6 @@ function Register() {
     lastName: '',
     email: '',
     password: '',
-    // birthYear: new Date(),
-    // phone: '',
   });
   const handleChange = useCallback((key, value) => {
     formData[key] = value;

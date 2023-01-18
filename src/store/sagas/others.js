@@ -4,28 +4,28 @@ import {
   DELETE_LIKE_FAIL,
   DELETE_LIKE_REQUEST,
   DELETE_LIKE_SUCCESS,
-  GET_MENU_FAIL,
-  GET_MENU_REQUEST,
-  GET_MENU_SUCCESS,
+  // GET_MENU_FAIL,
+  // GET_MENU_REQUEST,
+  // GET_MENU_SUCCESS,
   SET_LIKE_FAIL,
   SET_LIKE_REQUEST,
   SET_LIKE_SUCCESS,
 } from '../actions/others';
 
-function* handleMenuGetRequest() {
-  try {
-    const { data } = yield call(Api.getMenu);
-    yield put({
-      type: GET_MENU_SUCCESS,
-      payload: { data },
-    });
-  } catch (e) {
-    yield put({
-      type: GET_MENU_FAIL,
-      payload: { error: e.message },
-    });
-  }
-}
+// function* handleMenuGetRequest() {
+//   try {
+//     const { data } = yield call(Api.getMenu);
+//     yield put({
+//       type: GET_MENU_SUCCESS,
+//       payload: { data },
+//     });
+//   } catch (e) {
+//     yield put({
+//       type: GET_MENU_FAIL,
+//       payload: { error: e.message },
+//     });
+//   }
+// }
 
 function* handleSetLikeRequest(action) {
   try {
@@ -57,7 +57,7 @@ function* handleDeleteLikeRequest(action) {
 }
 
 export default function* watcher() {
-  yield takeLatest(GET_MENU_REQUEST, handleMenuGetRequest);
+  // yield takeLatest(GET_MENU_REQUEST, handleMenuGetRequest);
   yield takeLatest(SET_LIKE_REQUEST, handleSetLikeRequest);
   yield takeLatest(DELETE_LIKE_REQUEST, handleDeleteLikeRequest);
 }

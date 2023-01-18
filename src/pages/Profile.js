@@ -2,7 +2,6 @@ import React, { useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 import PersonIcon from '@mui/icons-material/Person';
-import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import MailIcon from '@mui/icons-material/Mail';
 import { useDispatch, useSelector } from 'react-redux';
 import _ from 'lodash';
@@ -94,11 +93,12 @@ function Profile() {
                   <MailIcon style={{ fill: '#c31e39' }} />
                   <p className="customerEmail">{user.email}</p>
                 </div>
-                <button
+                <Link
+                  to="/addresses"
                   className="addAddress"
                 >
                   Add new addresses
-                </button>
+                </Link>
               </div>
               <div className="customerOrder">
                 <h4 className="customerTitle">my orders</h4>

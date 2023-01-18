@@ -1,4 +1,5 @@
 import { toast } from 'react-toastify';
+import _ from 'lodash';
 
 class Utils {
   static pagination() {
@@ -57,10 +58,11 @@ class Utils {
         // eslint-disable-next-line consistent-return
         return c;
       });
-      if (cart.filter((c) => +c.product.id !== +product.product.id)) {
-        console.log(cart.filter((c) => +c.product.id !== +product.product.id));
-        productData = [...cart, product];
-      }
+      const productAddCount = cart.find((c) => +c.product.id === +product.product.id);
+
+      productData = _.isEmpty(productAddCount)
+        ? [...productData, product]
+        : productData;
     } else {
       productData = [product];
     }
