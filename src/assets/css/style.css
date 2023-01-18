@@ -939,7 +939,6 @@ figure {
 }
 
 
-.PhoneInputInput,
 .regFormInput,
 .loginFormInput {
     border: none;
@@ -1974,7 +1973,6 @@ p {
     width: 100%;
 }
 
-
 .customerWelcome {
     font-size: 20px;
     font-weight: 500;
@@ -2066,17 +2064,65 @@ p {
 }
 
 
-/*ADDRESS*/
+/*ADDRESSES*/
 .addressForm {
+    width: 70%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     flex-direction: column;
+    margin: 100px auto 0;
 }
-.addressLabel {
+
+.formGroup {
+    width: 100%;
     display: flex;
-    align-items: center;
-    flex-direction: column;
+    flex-direction: column-reverse;
+}
+
+.addressLabel {
+    color: #4a4a4a;
+    transition: all 1.0s;
+    text-transform: capitalize;
+}
+
+
+.PhoneInputInput {
+    border: none;
+    height: 20px;
+    padding-left: 5px;
+    /*margin-bottom: 15px;*/
+    transition: all 1.0s;
+    background-color: #fff;
+}
+
+.addressInput {
+    width: 100%;
+    border: none;
+    height: 20px;
+    padding-left: 5px;
+    margin-bottom: 30px;
+    transition: all 1.0s;
+    background-color: #fff;
+    border-bottom: 2px solid #4a4a4a;
+}
+
+.PhoneInputInput:focus,
+.addressInput:focus {
+    outline: none;
+    border-bottom: 2px solid #c31e39;
+}
+
+.PhoneInputInput:focus + .addressLabel,
+.addressInput:focus + .addressLabel {
+    color: #c31e39;
+}
+
+.react-datepicker__input-container input,
+.react-datepicker-ignore-onclickoutside,
+.react-datepicker-ignore-onclickoutside:focus {
+    border: none;
+    outline: none;
 }
 
 /*FOOTER*/

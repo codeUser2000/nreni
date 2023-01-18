@@ -23,11 +23,7 @@ function AddNewAddresses() {
     <Wrapper>
       <main className="profile">
         <form className="addressForm">
-          <label
-            htmlFor="firstName"
-            className="addressLabel"
-          >
-            first name
+          <div className="formGroup">
             <input
               value={form.firstName}
               onChange={(ev) => handleChange('firstName', ev.target.value)}
@@ -35,9 +31,15 @@ function AddNewAddresses() {
               id="firstName"
               className="addressInput"
             />
-          </label>
-          <label htmlFor="lastName" className="addressLabel">
-            last Name
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+            <label
+              htmlFor="firstName"
+              className="addressLabel"
+            >
+              first name
+            </label>
+          </div>
+          <div className="formGroup">
             <input
               value={form.lastName}
               onChange={(ev) => handleChange('lastName', ev.target.value)}
@@ -45,9 +47,12 @@ function AddNewAddresses() {
               id="lastName"
               className="addressInput"
             />
-          </label>
-          <label htmlFor="country" className="addressLabel">
-            Country
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+            <label htmlFor="lastName" className="addressLabel">
+              last Name
+            </label>
+          </div>
+          <div className="formGroup">
             <input
               type="text"
               id="country"
@@ -55,9 +60,12 @@ function AddNewAddresses() {
               value={form.country}
               onChange={(ev) => handleChange('country', ev.target.value)}
             />
-          </label>
-          <label htmlFor="city" className="addressLabel">
-            city
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+            <label htmlFor="country" className="addressLabel">
+              Country
+            </label>
+          </div>
+          <div className="formGroup">
             <input
               type="text"
               id="city"
@@ -65,9 +73,12 @@ function AddNewAddresses() {
               value={form.city}
               onChange={(ev) => handleChange('city', ev.target.value)}
             />
-          </label>
-          <label htmlFor="street" className="addressLabel">
-            street, apartment etc.
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+            <label htmlFor="city" className="addressLabel">
+              city
+            </label>
+          </div>
+          <div className="formGroup">
             <input
               type="text"
               id="street"
@@ -75,9 +86,12 @@ function AddNewAddresses() {
               value={form.street}
               onChange={(ev) => handleChange('street', ev.target.value)}
             />
-          </label>
-          <label htmlFor="postal" className="addressLabel">
-            postal/Zip code
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+            <label htmlFor="street" className="addressLabel">
+              street, apartment etc.
+            </label>
+          </div>
+          <div className="formGroup">
             <input
               type="text"
               id="postal"
@@ -85,24 +99,33 @@ function AddNewAddresses() {
               value={form.post}
               onChange={(ev) => handleChange('post', ev.target.value)}
             />
-          </label>
-          <label className="addressLabel">
-            phone number
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+            <label htmlFor="postal" className="addressLabel">
+              postal/Zip code
+            </label>
+          </div>
+          <div className="formGroup">
             <PhoneInput
               id="phone"
-              placeholder="Enter phone number"
               value={form.phone}
               onChange={(ev) => handleChange('phone', ev)}
             />
-          </label>
-          <label className="addressLabel">
-            date birthday
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+            <label className="addressLabel">
+              phone number
+            </label>
+          </div>
+          <div className="formGroup">
             <DatePicker
               selected={form.birthYear}
               onChange={(date) => handleChange('birthYear', date)}
               value={form.birthYear}
             />
-          </label>
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+            <label className="addressLabel">
+              date birthday
+            </label>
+          </div>
         </form>
       </main>
     </Wrapper>
