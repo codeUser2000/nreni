@@ -13,11 +13,11 @@ import {
   LOGIN_ADMIN_FAIL,
   GET_USER_PROFILE_REQUEST,
   GET_USER_PROFILE_SUCCESS,
-  GET_USER_PROFILE_FAIL, CREATE_USERS_ADDRESS_SUCCESS,
+  GET_USER_PROFILE_FAIL,
+  UPDATE_USER_SUCCESS,
 } from '../actions/users';
 
 import Account from '../../helpers/Account';
-import { CREATE_PRODUCT_SUCCESS } from '../actions/product';
 
 const initialState = {
   usersData: [],
@@ -146,12 +146,14 @@ export default function reducer(state = initialState, action) {
         usersDataStatus: 'fail',
       };
     }
-    case CREATE_USERS_ADDRESS_SUCCESS: {
+
+    case UPDATE_USER_SUCCESS: {
       return {
         ...state,
         usersData: [...action.payload.data.users],
       };
     }
+
     default: {
       return {
         ...state,

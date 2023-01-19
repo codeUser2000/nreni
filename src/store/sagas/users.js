@@ -28,7 +28,9 @@ import {
   GET_USER_PROFILE_REQUEST,
   GET_USER_PROFILE_SUCCESS,
   GET_USER_PROFILE_FAIL,
-  CREATE_USERS_ADDRESS_SUCCESS, CREATE_USERS_ADDRESS_FAIL, CREATE_USERS_ADDRESS_REQUEST,
+  UPDATE_USER_SUCCESS,
+  UPDATE_USER_FAIL,
+  UPDATE_USER_REQUEST,
 } from '../actions/users';
 import Api from '../../Api';
 import Account from '../../helpers/Account';
@@ -45,23 +47,6 @@ function* handleCreateUserRequest(action) {
     yield put({
       type: CREATE_USER_FAIL,
       payload: { error: e.response },
-    });
-  }
-}
-
-function* handleCreateUsersAddressRequest(action) {
-  try {
-    const { data } = yield call(Api.addresses, action.payload.data);
-    toast.success('Addresses is created');
-    yield put({
-      type: CREATE_USERS_ADDRESS_SUCCESS,
-      payload: { data },
-    });
-  } catch (e) {
-    toast.error('Something went wrong :(');
-    yield put({
-      type: CREATE_USERS_ADDRESS_FAIL,
-      payload: { error: e.message },
     });
   }
 }
@@ -203,15 +188,30 @@ function* handleUserNewPasswordRequest(action) {
   }
 }
 
+function* handleUpdateUsersRequest(action) {
+  try {
+    const { data } = yield call(Api.addresses, action.payload.data);
+    yield put({
+      type: UPDATE_USER_SUCCESS,
+      payload: { data },
+    });
+  } catch (e) {
+    yield put({
+      type: UPDATE_USER_FAIL,
+      payload: { error: e.message },
+    });
+  }
+}
+
 export default function* watcher() {
   yield takeLatest(LOGIN_USER_REQUEST, handleUserLoginRequest);
   yield takeLatest(LOGIN_ADMIN_REQUEST, handleAdminLoginRequest);
   yield takeLatest(FORGET_USER_PASSWORD_REQUEST, handleUserForgetPasswordRequest);
   yield takeLatest(NEW_USER_PASSWORD_REQUEST, handleUserNewPasswordRequest);
   yield takeLatest(CREATE_USER_REQUEST, handleCreateUserRequest);
-  yield takeLatest(CREATE_USERS_ADDRESS_REQUEST, handleCreateUsersAddressRequest);
   yield takeLatest(DELETE_USER_REQUEST, handleDeleteUserRequest);
   yield takeLatest(GET_USERS_LIST_REQUEST, handleUsersRequest);
   yield takeLatest(GET_USER_PROFILE_REQUEST, handleUserProfileRequest);
   yield takeLatest(DELETE_USER_SELF_REQUEST, handleDeleteUserSelfRequest);
+  yield takeLatest(UPDATE_USER_REQUEST, handleUpdateUsersRequest);
 }

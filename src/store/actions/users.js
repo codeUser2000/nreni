@@ -23,17 +23,6 @@ export function createUserRequest(data) {
   };
 }
 
-export const CREATE_USERS_ADDRESS_REQUEST = 'CREATE_USERS_ADDRESS_REQUEST';
-export const CREATE_USERS_ADDRESS_SUCCESS = 'CREATE_USERS_ADDRESS_SUCCESS';
-export const CREATE_USERS_ADDRESS_FAIL = 'CREATE_USERS_ADDRESS_FAIL';
-
-export function createUsersAddressRequest(data) {
-  return {
-    type: CREATE_USERS_ADDRESS_REQUEST,
-    payload: { data },
-  };
-}
-
 export const GET_USERS_LIST_REQUEST = 'GET_USERS_LIST_REQUEST';
 export const GET_USERS_LIST_SUCCESS = 'GET_USERS_LIST_SUCCESS';
 export const GET_USERS_LIST_FAIL = 'GET_USERS_LIST_FAIL';
@@ -111,5 +100,17 @@ export function getUserProfileRequest() {
   return {
     type: GET_USER_PROFILE_REQUEST,
     payload: {},
+  };
+}
+
+
+export const UPDATE_USER_REQUEST = 'UPDATE_USER_REQUEST';
+export const UPDATE_USER_SUCCESS = 'UPDATE_PRODUCT_SUCCESS';
+export const UPDATE_USER_FAIL = 'UPDATE_PRODUCT_FAIL';
+
+export function updateUserRequest(data) {
+  return {
+    type: UPDATE_USER_REQUEST,
+    payload: { data },
   };
 }
