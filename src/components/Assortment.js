@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import img from '../assets/img/post/banner.jpeg';
 import ring from '../assets/img/post/ring.jpg';
 import chainRing from '../assets/img/post/chainRing.jpg';
@@ -10,7 +11,12 @@ import bracelet from '../assets/img/post/bracelet.jpg';
 
 function Assortment() {
   return (
-    <div className="assortment">
+    <motion.div
+      className="assortment"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+    >
       <div className="assortmentColumn1">
         <div className="assortmentColumnDesk">
           <figure className="assortmentItem">
@@ -53,14 +59,14 @@ function Assortment() {
         </div>
         <div className="assortmentColumnDesk">
           <figure className="assortmentItem">
-            <img src={nameNecklace} alt="" className="assortmentImg" />
+            <img src={nameNecklace} alt="" className="assortmentImg"/>
           </figure>
         </div>
       </div>
       <div className="assortmentColumn3">
         <div className="assortmentColumnDesk">
           <figure className="assortmentItem">
-            <img src={earring} alt="" className="assortmentImg" />
+            <img src={earring} alt="" className="assortmentImg"/>
           </figure>
           <p className="assortmentInfo">
             Earrings
@@ -68,14 +74,14 @@ function Assortment() {
         </div>
         <div className="assortmentColumnDesk">
           <figure className="assortmentItem">
-            <img src={bracelet} alt="" className="assortmentImg" />
+            <img src={bracelet} alt="" className="assortmentImg"/>
           </figure>
           <p className="assortmentInfo">
             Bracelets
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

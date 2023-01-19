@@ -288,7 +288,7 @@ figure {
     height: 40px;
     border-radius: 50px;
     transition: all 0.4s;
-    text-transform: uppercase;
+    text-transform: capitalize;
     border: 2px solid #ffece5;
     background-color: #ffece5;
 }
@@ -297,7 +297,7 @@ figure {
     color: #c31e39;
     font-weight: 700;
     text-decoration: none;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 
 .bannerBtn:hover {
@@ -416,7 +416,7 @@ figure {
     font-weight: 700;
     transition: all 0.4s;
     text-decoration: none;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 
 .assortmentBtn:hover {
@@ -999,7 +999,7 @@ figure {
     border-radius: 50px;
     margin-bottom: 100px;
     transition: all 0.4s;
-    text-transform: uppercase;
+    text-transform: capitalize;
     border: 1px solid #c31e39;
     background-color: #c31e39;
 }
@@ -1041,7 +1041,7 @@ figure {
     border-radius: 50px;
     margin: 30px 0 50px;
     transition: all 0.4s;
-    text-transform: uppercase;
+    text-transform: capitalize;
     border: 2px solid #c31e39;
     background-color: #c31e39;
 }
@@ -1338,7 +1338,6 @@ p {
 
 
 .contactMessage {
-    /*height: 100px;*/
     padding-top: 5px;
     margin-bottom: 20px;
 }
@@ -1350,7 +1349,7 @@ p {
     border-radius: 50px;
     margin-bottom: 120px;
     transition: all 0.4s;
-    text-transform: uppercase;
+    text-transform: capitalize;
     border: 2px solid #c31e39;
     background-color: #c31e39;
 }
@@ -1609,7 +1608,7 @@ p {
     border-radius: 50px;
     transition: all 0.4s;
     text-decoration: none;
-    text-transform: uppercase;
+    text-transform: capitalize;
     background-color: #ffece5;
 }
 
@@ -1765,7 +1764,7 @@ p {
     position: absolute;
     border-radius: 50px;
     transition: all 0.4s;
-    text-transform: uppercase;
+    text-transform: capitalize;
     border: 2px solid #c31e39;
     background-color: #c31e39;
 }
@@ -1945,7 +1944,7 @@ p {
     font-weight: 700;
     border-radius: 50px;
     transition: all 0.4s;
-    text-transform: uppercase;
+    text-transform: capitalize;
     border: 2px solid #c31e39;
     background-color: #c31e39;
 }
@@ -1963,10 +1962,11 @@ p {
 
 .profileTitle {
     color: #c31e39;
-    font-size: 34px;
+    font-size: 50px;
+    font-weight: 400;
     text-align: center;
-    margin-bottom: 20px;
-    text-transform: uppercase;
+    margin-bottom: 30px;
+    text-transform: capitalize;
 }
 
 .customer {
@@ -2007,12 +2007,12 @@ p {
 
 .addAddress {
     color: #ffece5;
-    text-decoration: none;
     font-weight: 500;
     margin-top: 15px;
     border-radius: 50px;
     transition: all 0.4s;
     padding: 5px 40px 5px;
+    text-decoration: none;
     text-transform: capitalize;
     border: 2px solid #c31e39;
     background-color: #c31e39;
@@ -2065,13 +2065,16 @@ p {
 
 
 /*ADDRESSES*/
+.addNewAddresses {
+    width: 100%;
+}
+
 .addressForm {
-    width: 70%;
+    width: 80%;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    margin: 60px auto 60px;
     flex-direction: column;
-    margin: 100px auto 0;
 }
 
 .formGroup {
@@ -2082,7 +2085,7 @@ p {
 
 .addressLabel {
     color: #4a4a4a;
-    transition: all 1.0s;
+    transition: all 0.7s;
     text-transform: capitalize;
 }
 
@@ -2090,8 +2093,7 @@ p {
 .PhoneInputInput {
     border: none;
     height: 20px;
-    padding-left: 5px;
-    /*margin-bottom: 15px;*/
+    padding: 5px 0;
     transition: all 1.0s;
     background-color: #fff;
 }
@@ -2100,7 +2102,7 @@ p {
     width: 100%;
     border: none;
     height: 20px;
-    padding-left: 5px;
+    padding: 5px 0;
     margin-bottom: 30px;
     transition: all 1.0s;
     background-color: #fff;
@@ -2123,6 +2125,24 @@ p {
 .react-datepicker-ignore-onclickoutside:focus {
     border: none;
     outline: none;
+}
+
+
+.addressBtn {
+    width: 20%;
+    color: #ffece5;
+    font-weight: 700;
+    border-radius: 50px;
+    padding: 10px 0 10px;
+    transition: all 0.4s;
+    border: 2px solid #c31e39;
+    background-color: #c31e39;
+    text-transform: capitalize;
+}
+
+.addressBtn:hover {
+    color: #c31e39;
+    background-color: white;
 }
 
 /*FOOTER*/

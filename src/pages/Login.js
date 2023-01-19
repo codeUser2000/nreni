@@ -84,7 +84,7 @@ function Login() {
               </label>
               <Link className="forgotPassword" to="/password-reset">Forgot password?</Link>
             </div>
-            <button type="submit" className="loginFormBtn">LOGIN</button>
+            <button type="submit" className="loginFormBtn">log in</button>
             <Link to="/register" className="loginFormLink">Or sign up Using</Link>
           </form>
         </div>

@@ -1,8 +1,7 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 import PersonIcon from '@mui/icons-material/Person';
-import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import MailIcon from '@mui/icons-material/Mail';
 import { useDispatch, useSelector } from 'react-redux';
 import _ from 'lodash';
@@ -10,10 +9,12 @@ import Wrapper from '../components/Wrapper';
 import Account from '../helpers/Account';
 import { deleteUserSelfRequest, getUserProfileRequest } from '../store/actions/users';
 import CartItems from '../components/CartItems';
+import AddNewAddresses from './AddNewAddresses';
 
 function Profile() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [show, setShow] = useState(false);
   const user = useSelector((state) => state.users.singleUserData);
   const userStatus = useSelector((state) => state.users.singleUserDataStatus);
 
@@ -95,10 +96,15 @@ function Profile() {
                   <p className="customerEmail">{user.email}</p>
                 </div>
                 <button
+                  type="submit"
                   className="addAddress"
+                  onClick={() => setShow(true)}
                 >
                   Add new addresses
                 </button>
+                {show
+                  ? <AddNewAddresses />
+                  : null}
               </div>
               <div className="customerOrder">
                 <h4 className="customerTitle">my orders</h4>

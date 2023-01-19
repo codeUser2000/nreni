@@ -116,8 +116,8 @@ function Register() {
                 onChange={(ev) => handleChange('password', ev.target.value)}
               />
               {show
-                ? <RemoveRedEyeIcon fontSize="small" onClick={() => setShow(false)} />
-                : <VisibilityOffIcon fontSize="small" onClick={() => setShow(true)} />}
+                ? <RemoveRedEyeIcon fontSize="small" onClick={() => setShow(false)}/>
+                : <VisibilityOffIcon fontSize="small" onClick={() => setShow(true)}/>}
             </label>
             <label htmlFor="confirmPas" className="regFormLabel">
               <input
@@ -133,7 +133,7 @@ function Register() {
               type="submit"
               className="regFormBtn"
             >
-              SIGN UP
+              sign up
             </button>
             <Link to="/login" className="regFormLink">Or Login Using</Link>
           </form>

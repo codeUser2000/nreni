@@ -36,24 +36,24 @@ function AdminProduct() {
         </div>
         <table className="adminTable">
           <thead className="adminTableThead">
-            <tr className="adminTableTheadTitles">
-              <td>image</td>
-              <td>name</td>
-              <td>description</td>
-              <td>category</td>
-              <td>price</td>
-              <td>actions</td>
-            </tr>
+          <tr className="adminTableTheadTitles">
+            <td>image</td>
+            <td>name</td>
+            <td>description</td>
+            <td>category</td>
+            <td>price</td>
+            <td>actions</td>
+          </tr>
           </thead>
           <tbody className="adminTableTbody">
-            {productsData.map((p) => (
-              <AdminProductComp key={p.id} data={p} />
-            ))}
+          {productsData.map((p) => (
+            <AdminProductComp key={p.id} data={p}/>
+          ))}
           </tbody>
         </table>
-        <Pagination count={+pagination} page={pageNumber} onChange={handleChange} />
+        <Pagination count={+pagination} page={pageNumber} onChange={handleChange}/>
       </div>
-      <CreateModal show={show} setShow={setShow} />
+      <CreateModal show={show} setShow={setShow}/>
     </AdminWrapper>
   );
 }

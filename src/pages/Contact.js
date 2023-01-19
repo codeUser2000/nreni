@@ -55,7 +55,7 @@ function Contact() {
                 name="text"
                 placeholder="Your opinion about us․․․ Write your message here"
               />
-              <button type="submit" className="contactBtn">SEND</button>
+              <button type="submit" className="contactBtn">send</button>
             </form>
             <div className="contactSoc">
               <Link to="/clean" className="contactLink">
