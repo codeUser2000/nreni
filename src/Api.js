@@ -34,6 +34,10 @@ class Api {
     return api.post('/users/register', data);
   }
 
+  static addresses(data) {
+    return api.post('/users/addresses', data);
+  }
+
   static login(data) {
     return api.post('/users/login', data);
   }

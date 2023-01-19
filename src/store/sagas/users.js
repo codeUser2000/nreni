@@ -12,7 +12,10 @@ import {
   FORGET_USER_PASSWORD_FAIL,
   NEW_USER_PASSWORD_REQUEST,
   NEW_USER_PASSWORD_SUCCESS,
-  NEW_USER_PASSWORD_FAIL, DELETE_USER_REQUEST, DELETE_USER_SUCCESS, DELETE_USER_FAIL,
+  NEW_USER_PASSWORD_FAIL,
+  DELETE_USER_REQUEST,
+  DELETE_USER_SUCCESS,
+  DELETE_USER_FAIL,
   GET_USERS_LIST_FAIL,
   GET_USERS_LIST_REQUEST,
   GET_USERS_LIST_SUCCESS,
@@ -21,7 +24,11 @@ import {
   LOGIN_ADMIN_FAIL,
   DELETE_USER_SELF_REQUEST,
   DELETE_USER_SELF_SUCCESS,
-  DELETE_USER_SELF_FAIL, GET_USER_PROFILE_REQUEST, GET_USER_PROFILE_SUCCESS, GET_USER_PROFILE_FAIL,
+  DELETE_USER_SELF_FAIL,
+  GET_USER_PROFILE_REQUEST,
+  GET_USER_PROFILE_SUCCESS,
+  GET_USER_PROFILE_FAIL,
+  CREATE_USERS_ADDRESS_SUCCESS, CREATE_USERS_ADDRESS_FAIL, CREATE_USERS_ADDRESS_REQUEST,
 } from '../actions/users';
 import Api from '../../Api';
 import Account from '../../helpers/Account';
@@ -38,6 +45,23 @@ function* handleCreateUserRequest(action) {
     yield put({
       type: CREATE_USER_FAIL,
       payload: { error: e.response },
+    });
+  }
+}
+
+function* handleCreateUsersAddressRequest(action) {
+  try {
+    const { data } = yield call(Api.addresses, action.payload.data);
+    toast.success('Addresses is created');
+    yield put({
+      type: CREATE_USERS_ADDRESS_SUCCESS,
+      payload: { data },
+    });
+  } catch (e) {
+    toast.error('Something went wrong :(');
+    yield put({
+      type: CREATE_USERS_ADDRESS_FAIL,
+      payload: { error: e.message },
     });
   }
 }
@@ -94,14 +118,14 @@ function* handleUserLoginRequest(action) {
   try {
     const {
       formData,
-      remember
+      remember,
     } = action.payload;
     const { data } = yield call(Api.login, formData);
     yield put({
       type: LOGIN_USER_SUCCESS,
       payload: {
         data,
-        remember
+        remember,
       },
     });
   } catch (e) {
@@ -116,14 +140,14 @@ function* handleAdminLoginRequest(action) {
   try {
     const {
       formData,
-      remember
+      remember,
     } = action.payload;
     const { data } = yield call(Api.adminLogin, formData);
     yield put({
       type: LOGIN_ADMIN_SUCCESS,
       payload: {
         data,
-        remember
+        remember,
       },
     });
   } catch (e) {
@@ -185,6 +209,7 @@ export default function* watcher() {
   yield takeLatest(FORGET_USER_PASSWORD_REQUEST, handleUserForgetPasswordRequest);
   yield takeLatest(NEW_USER_PASSWORD_REQUEST, handleUserNewPasswordRequest);
   yield takeLatest(CREATE_USER_REQUEST, handleCreateUserRequest);
+  yield takeLatest(CREATE_USERS_ADDRESS_REQUEST, handleCreateUsersAddressRequest);
   yield takeLatest(DELETE_USER_REQUEST, handleDeleteUserRequest);
   yield takeLatest(GET_USERS_LIST_REQUEST, handleUsersRequest);
   yield takeLatest(GET_USER_PROFILE_REQUEST, handleUserProfileRequest);

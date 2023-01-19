@@ -53,7 +53,7 @@ const aboutClean = [
       + 'If you urgently need to clean your silver jewelry this time, you may find that these methods will save you a lot of trouble, especially if you are very careful. However, we generally do not recommend using them if it can be avoided.\n'
       + '\n'
       + 'Some of these methods include:',
-    list: ['Baking soda paste (too abrasive)', 'Toothpaste (ditto)', 'Vinegar (too acidic and may damage gemstones)', 'Lemon juice (ditto)', 'Olive oil mixture (leaves a sticky residue that may be difficult to remove)', 'Any combination of the above'],
+    list: ['Baking soda paste (too abrasive)', 'Toothpaste (ditto)', 'Vinegar (too acidic and may damage gemstones)', 'Lemon juice (ditto)', 'Olive oil mixture (leaves a sticky residue that may be difficult to remove)', 'Else combination of the above'],
     media: aboutClean4,
   },
 ];

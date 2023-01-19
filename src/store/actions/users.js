@@ -5,7 +5,10 @@ export const LOGIN_USER_FAIL = 'LOGIN_USER_FAIL';
 export function userLoginRequest(data, remember) {
   return {
     type: LOGIN_USER_REQUEST,
-    payload: { formData: data, remember },
+    payload: {
+      formData: data,
+      remember,
+    },
   };
 }
 
@@ -16,6 +19,17 @@ export const CREATE_USER_FAIL = 'CREATE_USER_FAIL';
 export function createUserRequest(data) {
   return {
     type: CREATE_USER_REQUEST,
+    payload: { data },
+  };
+}
+
+export const CREATE_USERS_ADDRESS_REQUEST = 'CREATE_USERS_ADDRESS_REQUEST';
+export const CREATE_USERS_ADDRESS_SUCCESS = 'CREATE_USERS_ADDRESS_SUCCESS';
+export const CREATE_USERS_ADDRESS_FAIL = 'CREATE_USERS_ADDRESS_FAIL';
+
+export function createUsersAddressRequest(data) {
+  return {
+    type: CREATE_USERS_ADDRESS_REQUEST,
     payload: { data },
   };
 }
@@ -71,7 +85,10 @@ export const LOGIN_ADMIN_FAIL = 'LOGIN_ADMIN_FAIL';
 export function adminLoginRequest(data, remember) {
   return {
     type: LOGIN_ADMIN_REQUEST,
-    payload: { formData: data, remember },
+    payload: {
+      formData: data,
+      remember,
+    },
   };
 }
 

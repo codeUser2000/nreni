@@ -10,10 +10,14 @@ import {
   FORGET_USER_PASSWORD_SUCCESS,
   FORGET_USER_PASSWORD_FAIL,
   LOGIN_ADMIN_SUCCESS,
-  LOGIN_ADMIN_FAIL, GET_USER_PROFILE_REQUEST, GET_USER_PROFILE_SUCCESS, GET_USER_PROFILE_FAIL,
+  LOGIN_ADMIN_FAIL,
+  GET_USER_PROFILE_REQUEST,
+  GET_USER_PROFILE_SUCCESS,
+  GET_USER_PROFILE_FAIL, CREATE_USERS_ADDRESS_SUCCESS,
 } from '../actions/users';
 
 import Account from '../../helpers/Account';
+import { CREATE_PRODUCT_SUCCESS } from '../actions/product';
 
 const initialState = {
   usersData: [],
@@ -71,7 +75,10 @@ export default function reducer(state = initialState, action) {
     }
 
     case LOGIN_USER_SUCCESS: {
-      const { data, remember } = action.payload;
+      const {
+        data,
+        remember,
+      } = action.payload;
       Account.setToken(data.token, remember);
       return {
         ...state,
@@ -87,7 +94,10 @@ export default function reducer(state = initialState, action) {
     }
 
     case LOGIN_ADMIN_SUCCESS: {
-      const { data, remember } = action.payload;
+      const {
+        data,
+        remember,
+      } = action.payload;
       Account.setAdminToken(data.token, remember, data.user);
       return {
         ...state,
@@ -136,7 +146,12 @@ export default function reducer(state = initialState, action) {
         usersDataStatus: 'fail',
       };
     }
-
+    case CREATE_USERS_ADDRESS_SUCCESS: {
+      return {
+        ...state,
+        usersData: [...action.payload.data.users],
+      };
+    }
     default: {
       return {
         ...state,

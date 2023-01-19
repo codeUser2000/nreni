@@ -2109,6 +2109,10 @@ p {
     border-bottom: 2px solid #4a4a4a;
 }
 
+.addressInput:nth-child(-n+5) {
+    text-transform: capitalize;
+}
+
 .PhoneInputInput:focus,
 .addressInput:focus {
     outline: none;
