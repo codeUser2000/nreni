@@ -9,12 +9,12 @@ import { useLocation } from 'react-router-dom';
 import qs from 'query-string';
 import { Pagination } from '@mui/material';
 import _ from 'lodash';
+import { useNavigate } from 'react-router';
 import Wrapper from '../components/Wrapper';
 import ShopSection from '../components/ShopSection';
 import Filter from '../components/Filter';
 import Product from '../components/Product';
 import { getProductDataRequest } from '../store/actions/product';
-import { useNavigate } from 'react-router';
 
 function Shop() {
   const [pageNumber, setPageNumber] = useState(1);
@@ -26,18 +26,24 @@ function Shop() {
   const pagination = useSelector((state) => state.product.pagination);
   const query = qs.parse(location.search, { arrayFormat: 'comma' });
   useEffect(() => {
-    dispatch(getProductDataRequest(pageNumber));
+    console.log(88);
+    (async () => {
+      await dispatch(getProductDataRequest(pageNumber));
+    })();
   }, [pageNumber]);
   const categoryArr = _.isArray(query.filter) ? query.filter : [query.filter];
   useEffect(() => {
     (async () => {
+      if (query.searchText) {
+        setSearch(query.searchText);
+      }
       if (query.sliderPrice) {
         setPageNumber(1);
         const [min, max] = query.sliderPrice.split('_');
-        await dispatch(getProductDataRequest(1, min, max, categoryArr, searchText));
+        await dispatch(getProductDataRequest(1, min, max, categoryArr, query.searchText));
       }
     })();
-  }, [searchText]);
+  }, []);
 
   const handleSearch = useCallback((ev) => {
     setSearch(ev);
@@ -46,11 +52,11 @@ function Shop() {
       arrayFormat: 'comma',
       skipEmptyString: true,
     })}`);
-  }, []);
+  }, [location.search]);
 
-  const handleChange = useCallback((ev, value) => {
+  const handleChange = useCallback(async (ev, value) => {
     setPageNumber(value);
-    dispatch(getProductDataRequest(pageNumber));
+    await dispatch(getProductDataRequest(pageNumber));
   }, [pagination]);
 
   return (
