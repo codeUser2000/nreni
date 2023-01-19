@@ -14,11 +14,14 @@ import ShopSection from '../components/ShopSection';
 import Filter from '../components/Filter';
 import Product from '../components/Product';
 import { getProductDataRequest } from '../store/actions/product';
+import { useNavigate } from 'react-router';
 
 function Shop() {
   const [pageNumber, setPageNumber] = useState(1);
+  const [searchText, setSearch] = useState('');
   const location = useLocation();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const productData = useSelector((state) => state.product.productsData);
   const pagination = useSelector((state) => state.product.pagination);
   const query = qs.parse(location.search, { arrayFormat: 'comma' });
@@ -31,12 +34,18 @@ function Shop() {
       if (query.sliderPrice) {
         setPageNumber(1);
         const [min, max] = query.sliderPrice.split('_');
-        await dispatch(getProductDataRequest(1, min, max, categoryArr));
+        await dispatch(getProductDataRequest(1, min, max, categoryArr, searchText));
       }
-      // if (query.searchText){
-      //   await dispatch(getProductDataRequest(1, min, max, categoryArr));
-      // }
     })();
+  }, [searchText]);
+
+  const handleSearch = useCallback((ev) => {
+    setSearch(ev);
+    query.searchText = ev;
+    navigate(`?${qs.stringify(query, {
+      arrayFormat: 'comma',
+      skipEmptyString: true,
+    })}`);
   }, []);
 
   const handleChange = useCallback((ev, value) => {
@@ -52,6 +61,8 @@ function Shop() {
           <div className="row">
             <Filter />
             <section className="shopSection col-md-8">
+              <input type="text" value={searchText} onChange={(ev) => handleSearch(ev.target.value)} />
+
               <div className="shopProductsRow row">
                 {productData.length
                   ? productData.map((n) => {

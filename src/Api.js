@@ -61,7 +61,8 @@ class Api {
 
   // ------PRODUCT-------//
   static getData(data) {
-    return api.get(`/products/products?page=${data.page}${data.min ? `&min=${data.min}` : ''}${data.max ? `&max=${data.max}` : ''}${data.filterArr ? `&filter=${data.filterArr}` : ''}${data.searchText? `&searchText=${data.searchText}` : ''}`, {
+    console.log(data);
+    return api.get(`/products/products?page=${data.page}${data.min ? `&min=${data.min}` : ''}${data.max ? `&max=${data.max}` : ''}${data.filterArr ? `&filter=${data.filterArr}` : ''}${data.searchText ? `&searchText=${data.searchText}` : ''}`, {
       headers: {
         'Content-Type': 'image/jpeg',
       },

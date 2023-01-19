@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import Table from 'react-bootstrap/Table';
 import Wrapper from '../components/Wrapper';
 import CartItems from '../components/CartItems';
 import Account from '../helpers/Account';
@@ -9,7 +8,6 @@ import Utils from '../helpers/Utils';
 
 function Cart() {
   const dispatch = useDispatch();
-  // const { REACT_APP_API_URL } = process.env;
   const [total, setTotal] = useState(0);
 
   useEffect(() => {

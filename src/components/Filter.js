@@ -44,12 +44,14 @@ function Filter() {
   }, [location.search]);
 
   useEffect(() => {
-    if (!_.isEmpty(query)) {
-      const [minV, maxV] = query.sliderPrice?.split('_') || [min, max];
-      dispatch(getProductDataRequest(1, minV, maxV, categories));
-    } else {
-      dispatch(getProductDataRequest(1));
-    }
+    (async () => {
+      if (!_.isEmpty(query)) {
+        const [minV, maxV] = query.sliderPrice?.split('_') || [min, max];
+        await dispatch(getProductDataRequest(1, minV, maxV, categories, query.searchText));
+      } else {
+        await dispatch(getProductDataRequest(1));
+      }
+    })();
   }, [location.search]);
   return (
     <aside className="shopAside col-md-4">
@@ -84,8 +86,8 @@ function Filter() {
                 checked={categories.includes(m.name)}
                 onChange={() => true}
               />
-              <span className="checkmarkFilter"/>
-              <img className="shopLabelsIcon" src={m.src} alt=""/>
+              <span className="checkmarkFilter" />
+              <img className="shopLabelsIcon" src={m.src} alt="" />
               {' '}
               {' '}
               {m.name}

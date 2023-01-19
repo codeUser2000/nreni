@@ -2,12 +2,12 @@ export const GET_PRODUCT_DATA_REQUEST = 'GET_PRODUCT_DATA_REQUEST';
 export const GET_PRODUCT_DATA_SUCCESS = 'GET_PRODUCT_DATA_SUCCESS';
 export const GET_PRODUCT_DATA_FAIL = 'GET_PRODUCT_DATA_FAIL';
 
-export function getProductDataRequest(page, min, max, filter) {
+export function getProductDataRequest(page, min, max, filter, searchText) {
   const filterArr = filter?.join(',');
   return {
     type: GET_PRODUCT_DATA_REQUEST,
     payload: {
-      page, min, max, filterArr,
+      page, min, max, filterArr, searchText,
     },
   };
 }
