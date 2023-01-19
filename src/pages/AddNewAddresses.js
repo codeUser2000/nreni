@@ -2,7 +2,7 @@ import React, { useCallback, useState, useEffect } from 'react';
 import PhoneInput, {} from 'react-phone-number-input';
 import DatePicker from 'react-datepicker';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserProfileRequest } from '../store/actions/users';
+import { getUserProfileRequest, updateUserRequest } from '../store/actions/users';
 
 function AddNewAddresses() {
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ function AddNewAddresses() {
     country: '',
     city: '',
     street: '',
-    post: '',
+    postal: '',
   });
 
   useEffect(() => {
@@ -25,15 +25,7 @@ function AddNewAddresses() {
     })();
   }, []);
   useEffect(() => {
-    form.firstName = user.firstName;
-    form.lastName = user.lastName;
-    form.birthYear = user.birthYear ? user.birthYear : '';
-    form.country = user.country ? user.country : '';
-    form.city = user.city ? user.city : '';
-    form.street = user.street ? user.street : '';
-    form.post = user.post ? user.post : '';
-    form.phone = user.phone ? user.phone : '';
-    setForm(form);
+    // setForm(user);
   }, [user]);
 
   const handleChange = useCallback((key, value) => {
@@ -43,6 +35,7 @@ function AddNewAddresses() {
 
   const handleSubmit = useCallback(async (ev) => {
     ev.preventDefault();
+    await dispatch(updateUserRequest(form));
     setForm({
       firstName: '',
       lastName: '',
@@ -51,7 +44,7 @@ function AddNewAddresses() {
       country: '',
       city: '',
       street: '',
-      post: '',
+      postal: '',
     });
   }, [form]);
 
@@ -61,7 +54,6 @@ function AddNewAddresses() {
         <div className="formGroup">
           <input
             value={form.firstName}
-              // value={user.firstName}
             onChange={(ev) => handleChange('firstName', ev.target.value)}
             type="text"
             id="firstName"
@@ -132,8 +124,8 @@ function AddNewAddresses() {
             type="text"
             id="postal"
             className="addressInput"
-            value={form.post}
-            onChange={(ev) => handleChange('post', ev.target.value)}
+            value={form.postal}
+            onChange={(ev) => handleChange('postal', ev.target.value)}
           />
           {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
           <label htmlFor="postal" className="addressLabel">
@@ -162,7 +154,7 @@ function AddNewAddresses() {
             date birthday
           </label>
         </div>
-        <button className="addressBtn" type="submit">Edit</button>
+        <button className="addressBtn" onClick={handleSubmit} type="submit">Edit</button>
       </form>
     </div>
   );

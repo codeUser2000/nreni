@@ -35,17 +35,8 @@ class Api {
   }
 
   static addresses(data) {
-    return axios({
-      headers: {
-        Authorization: Account.getToken(),
-        'content-type': 'multipart/form-data',
-      },
-      method: 'post',
-      url: `${REACT_APP_API_URL}/users/addresses`,
-      data,
-    })
-      .then((response) => response)
-      .catch((error) => error);
+    console.log(data);
+    return api.post('/users/addresses', data);
   }
 
   static login(data) {
