@@ -59,14 +59,14 @@ function Assortment() {
         </div>
         <div className="assortmentColumnDesk">
           <figure className="assortmentItem">
-            <img src={nameNecklace} alt="" className="assortmentImg"/>
+            <img src={nameNecklace} alt="" className="assortmentImg" />
           </figure>
         </div>
       </div>
       <div className="assortmentColumn3">
         <div className="assortmentColumnDesk">
           <figure className="assortmentItem">
-            <img src={earring} alt="" className="assortmentImg"/>
+            <img src={earring} alt="" className="assortmentImg" />
           </figure>
           <p className="assortmentInfo">
             Earrings
@@ -74,7 +74,7 @@ function Assortment() {
         </div>
         <div className="assortmentColumnDesk">
           <figure className="assortmentItem">
-            <img src={bracelet} alt="" className="assortmentImg"/>
+            <img src={bracelet} alt="" className="assortmentImg" />
           </figure>
           <p className="assortmentInfo">
             Bracelets

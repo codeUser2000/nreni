@@ -98,7 +98,7 @@ function Profile() {
                 <button
                   type="submit"
                   className="addAddress"
-                  onClick={() => setShow(true)}
+                  onClick={() => setShow(!show)}
                 >
                   Add new addresses
                 </button>

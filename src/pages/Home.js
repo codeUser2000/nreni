@@ -4,7 +4,7 @@ import Carousel from 'nuka-carousel';
 import { useDispatch, useSelector } from 'react-redux';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 import Wrapper from '../components/Wrapper';
 import MyCarouselComp from '../components/MyCarouselComp';
 import Assortment from '../components/Assortment';
@@ -54,14 +54,14 @@ function Home() {
             <Assortment />
             <HomeAbout />
             <section className="new">
-              <motion.h2
-                className="newTitle"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-              >
-                New jewelery
-              </motion.h2>
+              {/* <motion.h2 */}
+              {/*  className="newTitle" */}
+              {/*  initial={{ opacity: 0 }} */}
+              {/*  whileInView={{ opacity: 1 }} */}
+              {/*  viewport={{ once: true }} */}
+              {/* > */}
+              {/*  New jewelery */}
+              {/* </motion.h2> */}
               <p className="newHomeInfo">
                 Showcasing our creativity and expert craftsmanship at its
                 best.
