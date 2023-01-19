@@ -62,7 +62,6 @@ class App extends Component {
             <Route path="/admin-users" element={<AdminUsers />} />
             <Route path="/admin-quotes" element={<AdminQuotes />} />
             <Route path="/complete" element={<CompleteRegistration />} />
-            <Route path="/addresses" element={<AddNewAddresses />} />
             <Route path="*" element={<Navigate to="/not-found" />} />
           </Routes>
         </BrowserRouter>
