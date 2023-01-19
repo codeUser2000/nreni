@@ -26,7 +26,8 @@ function Single() {
     (async () => {
       const { data } = await Api.getSingle(params.itemId);
       setSingle(data.product);
-      setLike(data.like);
+      setLike(data.likeCount);
+      setShow(data.isLiked);
       // const likeD = await Api.getLike();
     })();
   }, []);
@@ -103,27 +104,29 @@ function Single() {
                 <h2 className="singleInfoTitle">
                   {single.title}
                 </h2>
-                <span className="productLike" onClick={() => handleProductLike()}>
-                  {show
-                    ? (
-                      <FavoriteIcon
-                        style={{
-                          width: 30,
-                          height: 30,
-                          fill: '#c31e39',
-                        }}
-                      />
-                    )
-                    : (
-                      <HeartBrokenIcon
-                        style={{
-                          width: 30,
-                          height: 30,
-                        }}
-                      />
-                    )}
-                </span>
-                <span>{like}</span>
+                <div>
+                  <span className="productLike" onClick={() => handleProductLike()}>
+                    {show
+                      ? (
+                        <FavoriteIcon
+                          style={{
+                            width: 30,
+                            height: 30,
+                            fill: '#c31e39',
+                          }}
+                        />
+                      )
+                      : (
+                        <HeartBrokenIcon
+                          style={{
+                            width: 30,
+                            height: 30,
+                          }}
+                        />
+                      )}
+                  </span>
+                  <span>{like}</span>
+                </div>
               </div>
               <p className={classNames('singleInfoPrice', { 'text-decoration-line-through': +single.discount })}>
                 $

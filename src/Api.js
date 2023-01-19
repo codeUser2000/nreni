@@ -85,12 +85,8 @@ class Api {
     return api.post('others/like', { productId });
   }
 
-  static likeDelete(productId) {
+  static deleteLikeProduct(productId) {
     return api.post('others/likeDelete', { productId });
-  }
-
-  static getLike() {
-    return api.get('others/likeGet');
   }
 
   // ------ADMIN-------//

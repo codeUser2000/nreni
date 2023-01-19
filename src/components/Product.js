@@ -35,7 +35,7 @@ function Product({
                 fill: '#c31e39',
               }}
             />
-            2500
+            {data.likeCount.length}
           </div>
           <div className="shopProductLabel">
             <Link to={`/single/${data.id}`} className="linkToSinglePage">Buy now</Link>

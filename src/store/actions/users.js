@@ -103,7 +103,6 @@ export function getUserProfileRequest() {
   };
 }
 
-
 export const UPDATE_USER_REQUEST = 'UPDATE_USER_REQUEST';
 export const UPDATE_USER_SUCCESS = 'UPDATE_PRODUCT_SUCCESS';
 export const UPDATE_USER_FAIL = 'UPDATE_PRODUCT_FAIL';
