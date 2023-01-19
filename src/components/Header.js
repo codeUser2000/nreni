@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import {
   Container, Nav, Navbar,
@@ -21,6 +21,10 @@ function Header() {
         // await dispatch(getCartItemListRequest(1, 1));
       }
     })();
+  }, []);
+
+  const handleChange = useCallback(async (ev) => {
+    console.log(ev);
   }, []);
 
   return (
@@ -73,9 +77,10 @@ function Header() {
                     )}
                 </li>
                 <li className="navList">
-                  <NavLink to="/search" className="navLink">
+                  <p className="navLink">
                     <SearchIcon />
-                  </NavLink>
+                    <input type="text" onChange={(ev) => handleChange(ev.target.value)} />
+                  </p>
                 </li>
               </ul>
             </Nav>

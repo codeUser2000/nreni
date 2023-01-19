@@ -27,11 +27,16 @@ function Shop() {
   }, [pageNumber]);
   const categoryArr = _.isArray(query.filter) ? query.filter : [query.filter];
   useEffect(() => {
-    if (query.sliderPrice) {
-      setPageNumber(1);
-      const [min, max] = query.sliderPrice.split('_');
-      dispatch(getProductDataRequest(1, min, max, categoryArr));
-    }
+    (async () => {
+      if (query.sliderPrice) {
+        setPageNumber(1);
+        const [min, max] = query.sliderPrice.split('_');
+        await dispatch(getProductDataRequest(1, min, max, categoryArr));
+      }
+      // if (query.searchText){
+      //   await dispatch(getProductDataRequest(1, min, max, categoryArr));
+      // }
+    })();
   }, []);
 
   const handleChange = useCallback((ev, value) => {
