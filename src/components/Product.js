@@ -11,7 +11,7 @@ function Product({
   return (
     <div style={style || {}} className="shopProduct col-md-4">
       <figure className="shopProductItem">
-        <img src={REACT_APP_API_URL + data.avatar} alt="" className="shopProductImg"/>
+        <img src={REACT_APP_API_URL + data.avatar} alt="" className="shopProductImg" />
         {+data.discount ? (
           <div className="productDiscountCircle">
             <p className="productDiscount">
