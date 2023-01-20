@@ -1541,11 +1541,12 @@ p {
     box-shadow: 0 0 5px #ffece5;
 }
 
+
 .shopProductsRow {
     width: 100%;
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
+    flex-direction: row;
     justify-content: center;
 }
 
@@ -1560,14 +1561,21 @@ p {
     overflow: hidden;
     position: relative;
     transition: all 0.5s;
-    background-color: #ffece5;
     margin: 10px 0 40px;
     border: 4px solid white;
-    height: 435px
+    background-color: #ffece5;
 }
+
 
 .newProduct {
     width: 100%;
+}
+
+.shopProductInfo {
+    width: 100%;
+    display: flex;
+
+    flex-direction: column;
 }
 
 .newProductImg,
@@ -1576,23 +1584,56 @@ p {
     height: 250px;
     object-fit: cover;
     margin-bottom: 20px;
+    position: relative;
+}
+
+.productDiscountCircle {
+    top: 13px;
+    left: 13px;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    border-radius: 50%;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    background-color: #c31e39;
+}
+
+.productDiscount {
+    color: #ffece5;
+    font-size: 14px;
+    font-weight: 300;
 }
 
 .newProductInfo {
     width: 100%;
 }
 
-.shopProductInfo {
-    width: 100%;
+.shopProductItem {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    flex-direction: column;
+}
+
+.singlePrices,
+.shopProductPrices {
+    display: flex;
     flex-direction: row;
-    justify-content: space-between;
+}
+
+.shopProductPrice {
+    display: flex;
+    font-size: 16px;
+    font-weight: 500;
+    margin-right: 15px;
+    flex-direction: row;
+    text-transform: capitalize;
 }
 
 .newProductTitle,
 .shopProductTitle {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
     margin-bottom: 5px;
     text-transform: capitalize;
@@ -1706,6 +1747,7 @@ p {
     font-size: 25px;
     font-weight: 700;
     margin-bottom: 5px;
+    color: #c31e39;
     text-transform: capitalize;
 }
 
@@ -1715,6 +1757,7 @@ p {
     font-weight: 500;
     margin-bottom: 10px;
     letter-spacing: 1px;
+    margin-right: 15px;
     background-color: #ffece5;
 }
 

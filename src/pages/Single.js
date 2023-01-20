@@ -125,21 +125,24 @@ function Single() {
                         />
                       )}
                   </span>
-                  <span>{like}</span>
+                  {/* <span>{like}</span> */}
                 </div>
               </div>
-              <p className={classNames('singleInfoPrice', { 'text-decoration-line-through': +single.discount })}>
-                $
-                {single.price}
-              </p>
-              {+single.discount ? (
-                <h4 className="shopProductPrice">
+              <div className="singlePrices">
+                <p
+                  className={classNames('singleInfoPrice', { 'text-decoration-line-through': +single.discount })}
+                >
                   $
-                  {' '}
-                  {/* eslint-disable-next-line no-mixed-operators */}
-                  {+single.price * +single.discount / 100 * +count}
-                </h4>
-              ) : null}
+                  {single.price}
+                </p>
+                {+single.discount ? (
+                  <p className="singleInfoPrice" style={{ color: '#c31e39' }}>
+                    $
+                    {/* eslint-disable-next-line no-mixed-operators */}
+                    {+single.price * +single.discount / 100 * +count}
+                  </p>
+                ) : null}
+              </div>
               <p className="singleInfoDescription">
                 {single.description}
               </p>

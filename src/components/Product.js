@@ -11,31 +11,43 @@ function Product({
   return (
     <div style={style || {}} className="shopProduct col-md-4">
       <figure className="shopProductItem">
-        <img src={REACT_APP_API_URL + data.avatar} alt="" className="shopProductImg" />
-        <figcaption className="shopProductInfo">
-          <div className="shopProductLeft">
-            <h3 className="shopProductTitle">{data.title}</h3>
-            <h4 className={classNames('shopProductPrice', { 'text-decoration-line-through': +data.discount})}>
-              $
-              {' '}
-              {data.price}
-            </h4>
-            {+data.discount ? (
-              <h4 className="shopProductPrice">
-                $
-                {' '}
-                {/* eslint-disable-next-line no-mixed-operators */}
-                {+data.price * +data.discount / 100}
-              </h4>
-            ) : null}
+        <img src={REACT_APP_API_URL + data.avatar} alt="" className="shopProductImg"/>
+        {+data.discount ? (
+          <div className="productDiscountCircle">
+            <p className="productDiscount">
+              -
+              {data.discount}
+              %
+            </p>
           </div>
-          <div className="shopProductRight">
+        ) : null}
+        <figcaption className="shopProductInfo">
+          <div className="shopLikeCount">
             <FavoriteIcon
               style={{
+                width: 20,
+                height: 20,
                 fill: '#c31e39',
               }}
             />
             {data.likeCount.length}
+          </div>
+          <h3 className="shopProductTitle">{data.title}</h3>
+          <div className="shopProductPrices">
+            {+data.discount ? (
+              <h4 className="shopProductPrice" style={{ color: '#c31e39' }}>
+                $
+                {/* eslint-disable-next-line no-mixed-operators */}
+                {+data.price * +data.discount / 100}
+              </h4>
+            ) : null}
+            <h4
+              className={classNames('shopProductPrice', { 'text-decoration-line-through': +data.discount })}
+            >
+              $
+              {' '}
+              {data.price}
+            </h4>
           </div>
           <div className="shopProductLabel">
             <Link to={`/single/${data.id}`} className="linkToSinglePage">Buy now</Link>
