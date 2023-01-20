@@ -8,7 +8,7 @@ body {
     background: #fff;
     color: #4a4a4a;
     font-family: 'Roboto', sans-serif;
-    font-size: 17px;
+    font-size: 16px;
 }
 
 .navbar {
@@ -114,7 +114,7 @@ figure {
 }
 
 .navLink {
-    font-size: 19px;
+    font-size: 20px;
     color: #4a4a4a;
     font-weight: 400;
     text-decoration: none;
@@ -257,7 +257,7 @@ figure {
 
 .bannerInfo {
     color: #ffece5;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 400;
     margin-bottom: 40px;
 }
@@ -371,7 +371,7 @@ figure {
 
 .assortmentInfo {
     color: #c31e39;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 100;
     text-align: center;
     text-transform: uppercase;
@@ -412,7 +412,7 @@ figure {
 
 .assortmentLink {
     color: #c31e39;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 700;
     transition: all 0.4s;
     text-decoration: none;
@@ -515,18 +515,19 @@ figure {
     width: calc(100% / 2 - 5px);
 }
 
-.homeAboutImg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover
-}
-
 .homeAboutDesk {
     height: max-content;
     padding: 30px 50px;
     background-color: #ffece5;
     width: calc(100% / 2 - 5px);
 }
+
+.homeAboutImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+
 
 .homeAboutTitle {
     color: #c31e39;
@@ -539,7 +540,7 @@ figure {
 
 .homeAboutInfo {
     color: #4a4a4a;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 25px;
 }
@@ -632,7 +633,7 @@ figure {
 .quote {
     color: #4a4a4a;
     padding: 0 95px;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 35px;
     text-align: center;
@@ -648,7 +649,7 @@ figure {
 
 .thePerson {
     color: #c31e39;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 600;
     text-transform: uppercase;
     text-align: center;
@@ -788,7 +789,7 @@ figure {
 
 .aboutCleanLink2 {
     color: #4a4a4a;
-    font-size: 17px;
+    font-size: 16px;
     margin-bottom: 20px;
     transition: all 0.4s;
 }
@@ -812,7 +813,7 @@ figure {
 
 .aboutCleanTitle {
     color: #ffece5;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: bold;
     margin-bottom: 15px;
     text-transform: uppercase;
@@ -820,7 +821,7 @@ figure {
 
 .aboutCleanLink {
     color: #ffece5;
-    font-size: 17px;
+    font-size: 16px;
     margin-bottom: 20px;
     transition: all 0.4s;
 }
@@ -994,7 +995,7 @@ figure {
 .loginFormBtn {
     height: 40px;
     color: #ffece5;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 700;
     border-radius: 50px;
     margin-bottom: 100px;
@@ -1126,7 +1127,7 @@ p {
 /*RESET PASSWORD*/
 .pasResetTitle {
     color: #4a4a4a;
-    font-size: 19px;
+    font-size: 20px;
     font-weight: 600;
     letter-spacing: 1px;
     transition: all 0.4s;
@@ -1172,7 +1173,7 @@ p {
 
 .resetPasInfo {
     color: #4a4a4a;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 400;
     transition: all 0.4s;
     margin: 15px 0 30px;
@@ -1310,7 +1311,7 @@ p {
 
 .contactInfo {
     color: #4a4a4a;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 300;
     letter-spacing: 1px;
     margin-bottom: 15px;
@@ -1398,13 +1399,13 @@ p {
 
 .shopTitle {
     width: 100%;
-    font-size: 6.5vw;
+    font-size: 5.5vw;
     font-weight: bold;
     font-family: 'Fuzzy Bubbles', sans-serif;
 }
 
 .shopSlogan {
-    font-size: 2vw;
+    font-size: 1.7vw;
     font-weight: 300;
     letter-spacing: 1px;
     margin-bottom: 15px;
@@ -1413,6 +1414,7 @@ p {
 .shopSearch {
     width: 100%;
     padding: 15px;
+    margin-bottom: 15px;
     background-color: #ffece5;
 }
 
@@ -1478,7 +1480,7 @@ p {
 .shopPrices input {
     height: 30px;
     width: 100%;
-    font-size: 17px;
+    font-size: 16px;
     padding-left: 5px;
 }
 
@@ -1498,7 +1500,7 @@ p {
 
 .shopPriceTo {
     margin: 0 20px;
-    font-size: 19px;
+    font-size: 20px;
     font-weight: 300;
     text-transform: capitalize;
 }
@@ -1506,7 +1508,7 @@ p {
 
 .shopLabels {
     display: flex;
-    font-size: 19px;
+    font-size: 20px;
     font-weight: 300;
     align-items: center;
     padding-bottom: 10px;
@@ -1574,7 +1576,7 @@ p {
     overflow: hidden;
     position: relative;
     transition: all 0.5s;
-    margin: 10px 0 40px;
+    margin: 10px 0 10px;
     border: 4px solid white;
     background-color: #ffece5;
 }
@@ -1782,7 +1784,7 @@ p {
 }
 
 .singleInfoLabel {
-    font-size: 19px;
+    font-size: 20px;
     font-weight: 500;
 }
 
@@ -1805,7 +1807,7 @@ p {
 .singleInfoInput {
     height: 40px;
     border: none;
-    font-size: 17px;
+    font-size: 16px;
     text-align: center;
     width: calc(100% / 3);
 }
@@ -1869,7 +1871,7 @@ p {
 
 .cartTableTbody {
     color: #4a4a4a;
-    font-size: 17px;
+    font-size: 16px;
     letter-spacing: 1px;
 }
 
@@ -1907,7 +1909,7 @@ p {
 }
 
 .cartTableInfo {
-    font-size: 17px;
+    font-size: 16px;
     letter-spacing: 0;
 }
 
@@ -1940,7 +1942,7 @@ p {
 .cartTableInput {
     height: 45px;
     border: none;
-    font-size: 19px;
+    font-size: 20px;
     text-align: center;
     width: calc(100% / 3);
     background-color: #fff;
@@ -2055,6 +2057,7 @@ p {
 }
 
 .customerTitle {
+    color: #c31e39;
     font-size: 20px;
     font-weight: 500;
     margin-bottom: 30px;
@@ -2076,7 +2079,7 @@ p {
 
 .customerOrderInfo {
     padding: 20px;
-    font-size: 17px;
+    font-size: 16px;
     border-radius: 6px;
     margin-bottom: 50px;
     background-color: #ffece5;
@@ -2105,7 +2108,7 @@ p {
 
 .customerDesk {
     display: flex;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 400;
     flex-direction: row;
     margin-bottom: 10px;
@@ -2260,7 +2263,7 @@ p {
 
 .footerLink {
     color: #4a4a4a;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 25px;
     transition: all 0.4s;
@@ -2282,7 +2285,7 @@ p {
 .footerContactLink,
 .footerNavLink {
     color: #4a4a4a;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 25px;
     transition: all 0.4s;
@@ -2447,7 +2450,7 @@ p {
 
 .adminTableTheadTitles {
     color: #4a4a4a;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 500;
     text-transform: capitalize;
 }

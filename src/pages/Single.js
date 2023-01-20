@@ -97,7 +97,7 @@ function Single() {
           <h1 className="singleTitle">We hope You&apos;ll like it !</h1>
           <div className="singlePage">
             <figure className="singleItem">
-              <img src={REACT_APP_API_URL + single.avatar} className="singleImg" alt="" />
+              <img src={REACT_APP_API_URL + single.avatar} className="singleImg" alt=""/>
             </figure>
             <div className="singleInfo">
               <div className="singleMain">
@@ -129,12 +129,6 @@ function Single() {
                 </div>
               </div>
               <div className="singlePrices">
-                <p
-                  className={classNames('singleInfoPrice', { 'text-decoration-line-through': +single.discount })}
-                >
-                  $
-                  {single.price}
-                </p>
                 {+single.discount ? (
                   <p className="singleInfoPrice" style={{ color: '#c31e39' }}>
                     $
@@ -142,6 +136,12 @@ function Single() {
                     {+single.price * +single.discount / 100 * +count}
                   </p>
                 ) : null}
+                <p
+                  className={classNames('singleInfoPrice', { 'text-decoration-line-through': +single.discount })}
+                >
+                  $
+                  {single.price}
+                </p>
               </div>
               <p className="singleInfoDescription">
                 {single.description}
