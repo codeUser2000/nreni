@@ -25,13 +25,13 @@ function Shop() {
   const productData = useSelector((state) => state.product.productsData);
   const pagination = useSelector((state) => state.product.pagination);
   const query = qs.parse(location.search, { arrayFormat: 'comma' });
+  const categoryArr = _.isArray(query.filter) ? query.filter : [query.filter];
+
   useEffect(() => {
-    console.log(88);
     (async () => {
       await dispatch(getProductDataRequest(pageNumber));
     })();
   }, [pageNumber]);
-  const categoryArr = _.isArray(query.filter) ? query.filter : [query.filter];
   useEffect(() => {
     (async () => {
       if (query.searchText) {
@@ -41,10 +41,11 @@ function Shop() {
         setPageNumber(1);
         const [min, max] = query.sliderPrice.split('_');
         await dispatch(getProductDataRequest(1, min, max, categoryArr, query.searchText));
+      } else if (query.searchText) {
+        await dispatch(getProductDataRequest(1, '', '', categoryArr, query.searchText));
       }
     })();
   }, []);
-
   const handleSearch = useCallback((ev) => {
     setSearch(ev);
     query.searchText = ev;
