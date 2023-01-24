@@ -33,11 +33,11 @@ function Header() {
         <Container>
           <Navbar.Brand href="/home">
             <figure className="logo">
-              <img src={logo} alt="nreni" className="logoImg" />
+              <img src={logo} alt="nreni" className="logoImg"/>
               <p className="logoName">NRENI</p>
             </figure>
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Toggle aria-controls="basic-navbar-nav"/>
           <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav">
             <Nav>
               <ul className="navBlock">
@@ -55,7 +55,7 @@ function Header() {
                 </li>
                 <li className="navList">
                   <NavLink to="/cart" className="navLink">
-                    <CardGiftcardIcon />
+                    <CardGiftcardIcon/>
                   </NavLink>
                 </li>
                 <li className="navList">
@@ -72,15 +72,9 @@ function Header() {
                     )
                     : (
                       <NavLink to="/login" className="navLink">
-                        <PermIdentityIcon />
+                        <PermIdentityIcon/>
                       </NavLink>
                     )}
-                </li>
-                <li className="navList">
-                  <p className="navLink">
-                    <SearchIcon />
-                    <input type="text" onChange={(ev) => handleChange(ev.target.value)} />
-                  </p>
                 </li>
               </ul>
             </Nav>

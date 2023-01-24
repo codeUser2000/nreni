@@ -54,14 +54,11 @@ function Home() {
             <Assortment />
             <HomeAbout />
             <section className="new">
-              {/* <motion.h2 */}
-              {/*  className="newTitle" */}
-              {/*  initial={{ opacity: 0 }} */}
-              {/*  whileInView={{ opacity: 1 }} */}
-              {/*  viewport={{ once: true }} */}
-              {/* > */}
-              {/*  New jewelery */}
-              {/* </motion.h2> */}
+              <h2
+                className="newTitle"
+              >
+                New jewelery
+              </h2>
               <p className="newHomeInfo">
                 Showcasing our creativity and expert craftsmanship at its
                 best.

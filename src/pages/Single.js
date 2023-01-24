@@ -97,7 +97,7 @@ function Single() {
           <h1 className="singleTitle">We hope You&apos;ll like it !</h1>
           <div className="singlePage">
             <figure className="singleItem">
-              <img src={REACT_APP_API_URL + single.avatar} className="singleImg" alt="" />
+              <img src={REACT_APP_API_URL + single.avatar} className="singleImg" alt=""/>
             </figure>
             <div className="singleInfo">
               <div className="singleMain">
@@ -125,21 +125,24 @@ function Single() {
                         />
                       )}
                   </span>
-                  <span>{like}</span>
+                  {/* <span>{like}</span> */}
                 </div>
               </div>
-              <p className={classNames('singleInfoPrice', { 'text-decoration-line-through': +single.discount })}>
-                $
-                {single.price}
-              </p>
-              {+single.discount ? (
-                <h4 className="shopProductPrice">
+              <div className="singlePrices">
+                {+single.discount ? (
+                  <p className="singleInfoPrice" style={{ color: '#c31e39' }}>
+                    $
+                    {/* eslint-disable-next-line no-mixed-operators */}
+                    {+single.price * +single.discount / 100 * +count}
+                  </p>
+                ) : null}
+                <p
+                  className={classNames('singleInfoPrice', { 'text-decoration-line-through': +single.discount })}
+                >
                   $
-                  {' '}
-                  {/* eslint-disable-next-line no-mixed-operators */}
-                  {+single.price * +single.discount / 100 * +count}
-                </h4>
-              ) : null}
+                  {single.price}
+                </p>
+              </div>
               <p className="singleInfoDescription">
                 {single.description}
               </p>

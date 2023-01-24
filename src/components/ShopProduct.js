@@ -10,11 +10,16 @@ function ShopProduct({ data }) {
         <img src={REACT_APP_API_URL + data.avatar} alt="" className="shopProductImg" />
         <figcaption className="shopProductInfo">
           <h3 className="shopProductTitle">{data.title}</h3>
-          <p className="shopProductPrice">
-            $
-            {data.price}
-            {data.id}
-          </p>
+          <div className="shopProductPrice">
+            <p>
+              $
+              {data.price}
+            </p>
+            <p>
+              $
+              {data.id}
+            </p>
+          </div>
           <div className="shopProductLabel">
             <Link to={`/single/${data.id}`} className="linkToSinglePage">Buy now</Link>
           </div>

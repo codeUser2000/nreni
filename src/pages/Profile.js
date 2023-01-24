@@ -100,7 +100,8 @@ function Profile() {
                   className="addAddress"
                   onClick={() => setShow(!show)}
                 >
-                  Add new addresses
+                  {show ? 'Close modal'
+                    : 'Add new addresses'}
                 </button>
                 {show
                   ? <AddNewAddresses />

@@ -68,7 +68,15 @@ function Shop() {
           <div className="row">
             <Filter />
             <section className="shopSection col-md-8">
-              <input type="text" value={searchText} onChange={(ev) => handleSearch(ev.target.value)} />
+              <div className="shopSearch">
+                <input
+                  type="text"
+                  value={searchText}
+                  placeholder="Search products"
+                  className="shopSearchInput"
+                  onChange={(ev) => handleSearch(ev.target.value)}
+                />
+              </div>
 
               <div className="shopProductsRow row">
                 {productData.length
