@@ -2827,3 +2827,7 @@ p {
     color: #c31e39;
     background-color: #ffece5;
 }
+
+.paymentLabel {
+    width: 100%;
+}
