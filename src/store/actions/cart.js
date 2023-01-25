@@ -12,10 +12,21 @@ export const GET_CART_ITEM_LIST_REQUEST = 'GET_CART_ITEM_LIST_REQUEST';
 export const GET_CART_ITEM_LIST_SUCCESS = 'GET_CART_ITEM_LIST_SUCCESS';
 export const GET_CART_ITEM_LIST_FAIL = 'GET_CART_ITEM_LIST_FAIL';
 
-export function getCartItemListRequest(page, cartId) {
+export function getCartItemListRequest(page) {
   return {
     type: GET_CART_ITEM_LIST_REQUEST,
-    payload: { page, cartId },
+    payload: { page },
+  };
+}
+
+export const GET_CART_ITEM_LIST_ADMIN_REQUEST = 'GET_CART_ITEM_LIST_ADMIN_REQUEST';
+export const GET_CART_ITEM_LIST_ADMIN_SUCCESS = 'GET_CART_ITEM_LIST_ADMIN_SUCCESS';
+export const GET_CART_ITEM_LIST_ADMIN_FAIL = 'GET_CART_ITEM_LIST_ADMIN_FAIL';
+
+export function getCartItemListAdminRequest(page) {
+  return {
+    type: GET_CART_ITEM_LIST_ADMIN_REQUEST,
+    payload: { page },
   };
 }
 

@@ -143,8 +143,8 @@ class Api {
     });
   }
 
-  static getCartItemsList(page, cartId) {
-    return api.get(`/cart/cartItemList?cartId=${cartId}?page=${page || 1}`);
+  static getCartItemsList(page) {
+    return api.get(`/cart/cartItemList?page=${page || 1}`);
   }
 
   static getCartItem(page) {
