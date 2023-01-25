@@ -24,6 +24,7 @@ import CompleteRegistration from './pages/CompleteRegistration';
 import AdminOrders from './pages/AdminOrders';
 import AdminQuotes from './pages/AdminQuotes';
 import AddNewAddresses from './pages/AddNewAddresses';
+import Payment from './pages/Payment';
 
 const LazyShop = React.lazy(() => import('./pages/Shop'));
 
@@ -42,7 +43,7 @@ class App extends Component {
                 <React.Suspense fallback="Loading....">
                   <LazyShop />
                 </React.Suspense>
-            )}
+              )}
             />
             <Route path="/single/:itemId" element={<Single />} />
             <Route path="/about" element={<About />} />
@@ -62,6 +63,7 @@ class App extends Component {
             <Route path="/admin-users" element={<AdminUsers />} />
             <Route path="/admin-quotes" element={<AdminQuotes />} />
             <Route path="/complete" element={<CompleteRegistration />} />
+            <Route path="/payment" element={<Payment />} />
             <Route path="*" element={<Navigate to="/not-found" />} />
           </Routes>
         </BrowserRouter>

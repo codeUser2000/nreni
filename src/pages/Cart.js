@@ -5,6 +5,7 @@ import CartItems from '../components/CartItems';
 import Account from '../helpers/Account';
 import { getCartItemListRequest } from '../store/actions/cart';
 import Utils from '../helpers/Utils';
+import { Link } from 'react-router-dom';
 
 function Cart() {
   const dispatch = useDispatch();
@@ -27,15 +28,15 @@ function Cart() {
             <h2 className="cartTitle">shopping cart</h2>
             <table className="cartTable">
               <thead className="cartTableThead">
-                <tr className="cartTableTheadTitles">
-                  <td>Description</td>
-                  <td>Quantity</td>
-                  <td>Price</td>
-                  <td className="">remove</td>
-                </tr>
+              <tr className="cartTableTheadTitles">
+                <td>Description</td>
+                <td>Quantity</td>
+                <td>Price</td>
+                <td className="">remove</td>
+              </tr>
               </thead>
               <tbody className="cartTableTbody">
-                <CartItems setTotal={setTotal} />
+              <CartItems setTotal={setTotal}/>
               </tbody>
             </table>
             <div className="orderSummaryDetails">
@@ -47,7 +48,9 @@ function Cart() {
                     {total}
                   </p>
                 </div>
-                <button type="submit" className="summeryBtn">checkout</button>
+                <button type="submit" className="summeryBtn">
+                  <Link to="/payment" className="summeryLink">checkout</Link>
+                </button>
               </div>
             </div>
           </div>

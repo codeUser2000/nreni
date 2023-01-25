@@ -92,7 +92,7 @@ figure {
     margin-left: 5px;
     margin-bottom: 0;
     line-height: 70px;
-    font-weight: 700;
+    font-weight: 600;
     text-transform: uppercase;
     font-family: "Fuzzy Bubbles", sans-serif;
 }
@@ -295,7 +295,7 @@ figure {
 
 .bannerLink {
     color: #c31e39;
-    font-weight: 700;
+    font-weight: 600;
     text-decoration: none;
     text-transform: capitalize;
 }
@@ -413,7 +413,7 @@ figure {
 .assortmentLink {
     color: #c31e39;
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 600;
     transition: all 0.4s;
     text-decoration: none;
     text-transform: capitalize;
@@ -885,7 +885,7 @@ figure {
     color: #4a4a4a;
     font-size: 20px;
     margin-left: 5px;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
     font-family: "Fuzzy Bubbles", sans-serif;
@@ -902,7 +902,7 @@ figure {
 .loginBannerTitle {
     width: 100%;
     font-size: 22px;
-    font-weight: 700;
+    font-weight: 600;
     text-align: center;
     margin-bottom: 10px;
 }
@@ -933,7 +933,7 @@ figure {
 
 .loginFormTitle {
     font-size: 22px;
-    font-weight: 700;
+    font-weight: 600;
     text-align: center;
     margin-bottom: 100px;
     text-transform: capitalize;
@@ -996,7 +996,7 @@ figure {
     height: 40px;
     color: #ffece5;
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 600;
     border-radius: 50px;
     margin-bottom: 100px;
     transition: all 0.4s;
@@ -1029,7 +1029,7 @@ figure {
 
 .regFormTitle {
     font-size: 22px;
-    font-weight: 700;
+    font-weight: 600;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -1038,7 +1038,7 @@ figure {
 .regFormBtn {
     height: 40px;
     color: #ffece5;
-    font-weight: 700;
+    font-weight: 600;
     border-radius: 50px;
     margin: 30px 0 50px;
     transition: all 0.4s;
@@ -1165,7 +1165,7 @@ p {
 
 .resetPasTitle {
     font-size: 22px;
-    font-weight: 700;
+    font-weight: 600;
     text-align: center;
     margin-bottom: 20px;
     text-transform: capitalize;
@@ -1203,7 +1203,7 @@ p {
     width: 100%;
     height: 40px;
     color: #ffece5;
-    font-weight: 700;
+    font-weight: 600;
     border-radius: 50px;
     transition: all 0.4s;
     text-transform: uppercase;
@@ -1263,7 +1263,7 @@ p {
     color: #4a4a4a;
     font-size: 20px;
     margin-left: 5px;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: 1px;
     font-family: "Fuzzy Bubbles", sans-serif;
 }
@@ -1277,7 +1277,7 @@ p {
 .contactTitle {
     color: #c31e39;
     font-size: 22px;
-    font-weight: 700;
+    font-weight: 600;
     text-align: center;
     margin-bottom: 30px;
 
@@ -1346,7 +1346,7 @@ p {
 .contactBtn {
     height: 40px;
     color: #ffece5;
-    font-weight: 700;
+    font-weight: 600;
     border-radius: 50px;
     margin-bottom: 120px;
     transition: all 0.4s;
@@ -1446,7 +1446,7 @@ p {
 .shopAsideTitle {
     color: #c31e39;
     font-size: 30px;
-    font-weight: 700;
+    font-weight: 600;
     margin-bottom: 45px;
     text-transform: capitalize;
 }
@@ -1659,7 +1659,7 @@ p {
     width: 50%;
     color: #4a4a4a;
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 600;
     padding: 10px 20px;
     border-radius: 50px;
     transition: all 0.4s;
@@ -1760,7 +1760,7 @@ p {
 
 .singleInfoTitle {
     font-size: 25px;
-    font-weight: 700;
+    font-weight: 600;
     margin-bottom: 5px;
     color: #c31e39;
     text-transform: capitalize;
@@ -1818,7 +1818,7 @@ p {
     width: 100%;
     height: 40px;
     color: #ffece5;
-    font-weight: 700;
+    font-weight: 600;
     position: absolute;
     border-radius: 50px;
     transition: all 0.4s;
@@ -1998,18 +1998,26 @@ p {
 .summeryBtn {
     width: 100%;
     height: 40px;
-    color: #ffece5;
-    font-weight: 700;
     border-radius: 50px;
     transition: all 0.4s;
-    text-transform: capitalize;
     border: 2px solid #c31e39;
     background-color: #c31e39;
 }
 
+.summeryLink {
+    color: #ffece5;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
 .summeryBtn:hover {
-    color: #c31e39;
     background-color: white;
+}
+
+.summeryBtn:hover .summeryLink {
+    color: #c31e39;
+
 }
 
 /*PROFILE*/
@@ -2194,7 +2202,7 @@ p {
 .addressBtn {
     width: 20%;
     color: #ffece5;
-    font-weight: 700;
+    font-weight: 600;
     border-radius: 50px;
     padding: 10px 0 10px;
     transition: all 0.4s;
@@ -2300,7 +2308,7 @@ p {
 .footerSocDesk {
     color: #4a4a4a;
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 600;
     margin: 10px 0 10px;
 }
 
@@ -2722,3 +2730,100 @@ p {
 }
 
 
+/*PAYMENT*/
+.payment {
+    width: 100%;
+    padding: 100px;
+    background-color: #c31e39;
+}
+
+.paymentPage {
+    width: 50%;
+    display: flex;
+    padding: 20px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    border-radius: 5px;
+    flex-direction: row;
+    background-color: #ffece5;
+    box-shadow: 1px 0 38px -2px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 1px 0 38px -2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 1px 0 38px -2px rgba(0, 0, 0, 0.75);
+}
+
+.paymentForm {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    padding: 30px 50px 30px;
+}
+
+.paymentTitle {
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 100px;
+    text-transform: capitalize;
+}
+
+
+.paymentLabel {
+    color: #4a4a4a;
+    transition: all 0.7s;
+    text-transform: capitalize;
+}
+
+
+.paymentInput {
+    width: 100%;
+    border: none;
+    height: 30px;
+    padding: 5px 0;
+    margin-bottom: 30px;
+    transition: all 1.0s;
+    background-color: #ffece5;
+    border-bottom: 2px solid #4a4a4a;
+}
+
+
+.paymentInput:focus {
+    outline: none;
+    border-bottom: 2px solid #c31e39;
+}
+
+.paymentInput:focus + .paymentLabel {
+    color: #c31e39;
+}
+
+.paymentInputs {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 40px;
+}
+
+.paymentInputs .paymentLabel {
+    width: calc(100% / 2);
+}
+
+.paymentInputs .paymentLabel:first-child {
+    margin-right: 15px;
+}
+
+.paymentBtn {
+    height: 40px;
+    color: #ffece5;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.4s;
+    text-transform: capitalize;
+    border: 1px solid #c31e39;
+    background-color: #c31e39;
+}
+
+.paymentBtn:hover {
+    color: #c31e39;
+    background-color: #ffece5;
+}
