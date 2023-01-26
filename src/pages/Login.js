@@ -6,7 +6,7 @@ import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { useNavigate } from 'react-router';
 import _ from 'lodash';
-import logo from '../assets/img/logo/logo.png';
+import { Helmet } from 'react-helmet';
 import { userLoginRequest } from '../store/actions/users';
 import Account from '../helpers/Account';
 
@@ -43,53 +43,58 @@ function Login() {
   }, [form]);
 
   return (
-    <div className="logIn">
-      <div className="container">
-        <div className="loginPage">
-          <form onSubmit={handleSubmit} className="loginForm">
-            <h2 className="loginFormTitle">Login</h2>
-            <label htmlFor="email" className="loginFormLabel">
-              <input
-                id="email"
-                type="email"
-                className="loginFormInput"
-                placeholder=" Type your email"
-                value={form.email}
-                onChange={(ev) => handleChange('email', ev.target.value)}
-              />
-            </label>
-            <label htmlFor="loginPass" style={{ display: 'flex' }} className="loginFormLabel">
-              <input
-                id="loginPass"
-                type={show ? 'text' : 'password'}
-                className="loginFormInput"
-                placeholder="Type your password"
-                value={form.password}
-                onChange={(ev) => handleChange('password', ev.target.value)}
-              />
-              {show
-                ? <RemoveRedEyeIcon fontSize="small" onClick={() => setShow(false)} />
-                : <VisibilityOffIcon fontSize="small" onClick={() => setShow(true)} />}
-            </label>
-            <div className="loginBottom">
-              <label htmlFor="remember" className="containerCheck">
+    <>
+      <Helmet>
+        <body className="red" />
+      </Helmet>
+      <div className="logIn">
+        <div className="container">
+          <div className="loginPage">
+            <form onSubmit={handleSubmit} className="loginForm">
+              <h2 className="loginFormTitle">Login</h2>
+              <label htmlFor="email" className="loginFormLabel">
                 <input
-                  type="checkbox"
-                  id="remember"
-                  checked={remember}
-                  onChange={() => setRemember(!remember)}
+                  id="email"
+                  type="email"
+                  className="loginFormInput"
+                  placeholder=" Type your email"
+                  value={form.email}
+                  onChange={(ev) => handleChange('email', ev.target.value)}
                 />
-                <span className="checkmark" />
-                Remember me
               </label>
-              <Link className="forgotPassword" to="/password-reset">Forgot password?</Link>
-            </div>
-            <button type="submit" className="loginFormBtn">log in</button>
-            <Link to="/register" className="loginFormLink">Or sign up Using</Link>
-          </form>
+              <label htmlFor="loginPass" style={{ display: 'flex' }} className="loginFormLabel">
+                <input
+                  id="loginPass"
+                  type={show ? 'text' : 'password'}
+                  className="loginFormInput"
+                  placeholder="Type your password"
+                  value={form.password}
+                  onChange={(ev) => handleChange('password', ev.target.value)}
+                />
+                {show
+                  ? <RemoveRedEyeIcon fontSize="small" onClick={() => setShow(false)} />
+                  : <VisibilityOffIcon fontSize="small" onClick={() => setShow(true)} />}
+              </label>
+              <div className="loginBottom">
+                <label htmlFor="remember" className="containerCheck">
+                  <input
+                    type="checkbox"
+                    id="remember"
+                    checked={remember}
+                    onChange={() => setRemember(!remember)}
+                  />
+                  <span className="checkmark" />
+                  Remember me
+                </label>
+                <Link className="forgotPassword" to="/password-reset">Forgot password?</Link>
+              </div>
+              <button type="submit" className="loginFormBtn">log in</button>
+              <Link to="/register" className="loginFormLink">Or sign up Using</Link>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

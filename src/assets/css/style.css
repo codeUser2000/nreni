@@ -2730,6 +2730,9 @@ p {
 }
 
 
+.red {
+    background-color: #c31e39
+}
 /*PAYMENT*/
 .payment {
     width: 100%;
