@@ -127,12 +127,12 @@ class Api {
   }
 
   // ------CART-------//
-  static addToCart(data, cartId) {
+  static addToCart(data) {
+    console.log(data);
     return api.post('/cart/addToCart', {
       productId: data.product.id,
       quantity: data.quantity,
       price: data.price,
-      cartId,
     });
   }
 
@@ -176,7 +176,10 @@ class Api {
     return api.post('/blockquote/setBlockquoteView', { id });
   }
 
-  // --------OTHERS--------//
+  // --------PAYMENT--------//
+  static checkoutPayment(data) {
+    return api.post('/payment/create-checkout-session', data);
+  }
 }
 
 export default Api;

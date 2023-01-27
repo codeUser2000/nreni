@@ -8,6 +8,7 @@ export function setLikeRequest(productId) {
     payload: { productId },
   };
 }
+
 export const DELETE_LIKE_REQUEST = 'DELETE_LIKE_REQUEST';
 export const DELETE_LIKE_SUCCESS = 'DELETE_LIKE_SUCCESS';
 export const DELETE_LIKE_FAIL = 'DELETE_LIKE_FAIL';
@@ -15,6 +16,17 @@ export const DELETE_LIKE_FAIL = 'DELETE_LIKE_FAIL';
 export function deleteLikeRequest(productId) {
   return {
     type: DELETE_LIKE_REQUEST,
+    payload: { productId },
+  };
+}
+
+export const CHECKOUT_PAYMENT_REQUEST = 'CHECKOUT_PAYMENT_REQUEST';
+export const CHECKOUT_PAYMENT_SUCCESS = 'CHECKOUT_PAYMENT_SUCCESS';
+export const CHECKOUT_PAYMENT_FAIL = 'CHECKOUT_PAYMENT_FAIL';
+
+export function checkoutPaymentRequest(productId) {
+  return {
+    type: CHECKOUT_PAYMENT_REQUEST,
     payload: { productId },
   };
 }

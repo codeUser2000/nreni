@@ -1,24 +1,29 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Wrapper from '../components/Wrapper';
 import CartItems from '../components/CartItems';
-import Account from '../helpers/Account';
-import { getCartItemListRequest } from '../store/actions/cart';
 import Utils from '../helpers/Utils';
-import { Link } from 'react-router-dom';
+import { checkoutPaymentRequest } from '../store/actions/others';
 
 function Cart() {
   const dispatch = useDispatch();
   const [total, setTotal] = useState(0);
+  const cartToken = useSelector((state) => state.cart.userCartData);
 
   useEffect(() => {
-    if (Account.getToken()) {
-      dispatch(getCartItemListRequest(1));
-    }
     if (localStorage.getItem('cartItem')) {
       setTotal(Utils.totalPrice(JSON.parse(localStorage.getItem('cartItem'))));
     }
   }, []);
+
+  const handleCheckout = useCallback(async () => {
+    if (localStorage.getItem('cartItem')) {
+      console.log(localStorage.getItem('cartItem').length);
+    } else {
+      await dispatch(checkoutPaymentRequest(cartToken));
+    }
+  }, [cartToken]);
 
   return (
     <Wrapper>
@@ -28,15 +33,15 @@ function Cart() {
             <h2 className="cartTitle">shopping cart</h2>
             <table className="cartTable">
               <thead className="cartTableThead">
-              <tr className="cartTableTheadTitles">
-                <td>Description</td>
-                <td>Quantity</td>
-                <td>Price</td>
-                <td className="">remove</td>
-              </tr>
+                <tr className="cartTableTheadTitles">
+                  <td>Description</td>
+                  <td>Quantity</td>
+                  <td>Price</td>
+                  <td className="">remove</td>
+                </tr>
               </thead>
               <tbody className="cartTableTbody">
-              <CartItems setTotal={setTotal}/>
+                <CartItems setTotal={setTotal} />
               </tbody>
             </table>
             <div className="orderSummaryDetails">
@@ -48,8 +53,9 @@ function Cart() {
                     {total}
                   </p>
                 </div>
-                <button type="submit" className="summeryBtn">
-                  <Link to="/payment" className="summeryLink">checkout</Link>
+                <button type="button" onClick={handleCheckout} className="summeryBtn">
+                  checkout
+                  {/* <Link to="/payment" className="summeryLink">checkout</Link> */}
                 </button>
               </div>
             </div>

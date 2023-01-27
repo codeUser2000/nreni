@@ -46,7 +46,7 @@ function Single() {
         price: finalPrice,
         product: data,
       };
-      await dispatch(addToCartRequest(product, user.cart.id));
+      await dispatch(addToCartRequest(product));
     } else {
       let finalPrice;
       if (+data.discount) {
@@ -97,7 +97,7 @@ function Single() {
           <h1 className="singleTitle">We hope You&apos;ll like it !</h1>
           <div className="singlePage">
             <figure className="singleItem">
-              <img src={REACT_APP_API_URL + single.avatar} className="singleImg" alt=""/>
+              <img src={REACT_APP_API_URL + single.avatar} className="singleImg" alt="" />
             </figure>
             <div className="singleInfo">
               <div className="singleMain">

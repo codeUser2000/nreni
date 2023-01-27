@@ -21,16 +21,16 @@ function CartItems({ setTotal }) {
     if (Account.getToken()) {
       if (operator === '+' && product.product.countProduct >= product.quantity + 1) {
         await dispatch(updateCartRequest({
-          cartId: product.cartId,
           productId: product.product.id,
           count: product.quantity + 1,
+          price: Math.round((+product.price + +product.product.price) * 100) / 100,
         }));
         await dispatch(getCartItemListRequest(1, user.cart.id));
       } else if (product.quantity > 1 && operator === '-') {
         await dispatch(updateCartRequest({
-          cartId: product.cartId,
           productId: product.product.id,
           count: product.quantity - 1,
+          price: product.price - product.product.price,
         }));
         await dispatch(getCartItemListRequest(1, user.cart.id));
       }
@@ -69,8 +69,6 @@ function CartItems({ setTotal }) {
       }
     })();
   }, [user]);
-
-  console.log(cart);
 
   useEffect(() => {
     if (Account.getToken()) {

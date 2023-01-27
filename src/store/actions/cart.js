@@ -31,13 +31,13 @@ export function getCartItemListAdminRequest(page) {
 }
 
 export const ADD_TO_CART_REQUEST = 'ADD_TO_CART_REQUEST';
-export const ADD_TO_CART_SUCCESS = 'CREATE_CART_SUCCESS';
-export const ADD_TO_CART_FAIL = 'CREATE_CART_FAIL';
+export const ADD_TO_CART_SUCCESS = 'ADD_TO_CART_SUCCESS';
+export const ADD_TO_CART_FAIL = 'ADD_TO_CART_FAIL';
 
-export function addToCartRequest(product, cartId) {
+export function addToCartRequest(product) {
   return {
     type: ADD_TO_CART_REQUEST,
-    payload: { product, cartId },
+    payload: { product },
   };
 }
 
