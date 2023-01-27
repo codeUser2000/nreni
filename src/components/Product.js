@@ -38,7 +38,7 @@ function Product({
               <h4 className="shopProductPrice" style={{ color: '#c31e39' }}>
                 $
                 {/* eslint-disable-next-line no-mixed-operators */}
-                {+data.price * +data.discount / 100}
+                {+data.price - +data.price * +data.discount / 100}
               </h4>
             ) : null}
             <h4

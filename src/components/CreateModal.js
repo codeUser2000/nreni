@@ -20,7 +20,7 @@ function CreateModal({
     avatar: {},
     title: '',
     description: '',
-    categoryId: '',
+    category: '',
     discount: '',
     price: '',
     countProduct: 0,
@@ -61,7 +61,7 @@ function CreateModal({
       avatar: {},
       title: '',
       description: '',
-      categoryId: '',
+      category: '',
       discount: '',
       price: '',
       countProduct: 0,
@@ -145,14 +145,14 @@ function CreateModal({
           <select
             className="adminSelect"
             value={formData.categoryId}
-            onChange={(ev) => handleChange('categoryId', ev.target.value)}
+            onChange={(ev) => handleChange('category', ev.target.value)}
           >
             <option value="">Choose category</option>
-            <option value="1">rings</option>
-            <option value="2">bracelets</option>
-            <option value="3">necklaces</option>
-            <option value="4">earrings</option>
-            <option value="5">collection</option>
+            <option value="ring">rings</option>
+            <option value="bracelet">bracelets</option>
+            <option value="necklace">necklaces</option>
+            <option value="earring">earrings</option>
+            <option value="collection">collection</option>
           </select>
 
           <input

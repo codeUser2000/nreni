@@ -23,14 +23,16 @@ function CartItems({ setTotal }) {
         await dispatch(updateCartRequest({
           productId: product.product.id,
           count: product.quantity + 1,
-          price: Math.round((+product.price + +product.product.price) * 100) / 100,
+          // eslint-disable-next-line no-mixed-operators,max-len
+          price: Math.round((+product.price + +product.product.price * product.product.discount / 100) * 100) / 100,
         }));
         await dispatch(getCartItemListRequest(1, user.cart.id));
       } else if (product.quantity > 1 && operator === '-') {
         await dispatch(updateCartRequest({
           productId: product.product.id,
           count: product.quantity - 1,
-          price: product.price - product.product.price,
+          // eslint-disable-next-line no-mixed-operators,max-len
+          price: Math.round((+product.price - +product.product.price * product.product.discount / 100) * 100) / 100,
         }));
         await dispatch(getCartItemListRequest(1, user.cart.id));
       }
