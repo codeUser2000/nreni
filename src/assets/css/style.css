@@ -85,6 +85,10 @@ figure {
     margin: 0;
 }
 
+table {
+    margin-bottom: 15px;
+}
+
 .logoName {
     font-size: 25px;
     letter-spacing: 1px;
@@ -1419,6 +1423,7 @@ p {
 }
 
 .shopSearchInput {
+    width: 100%;
     border: none;
     outline: none;
     padding-left: 10px;
@@ -2733,6 +2738,7 @@ p {
 .red {
     background-color: #c31e39
 }
+
 /*PAYMENT*/
 .payment {
     width: 100%;

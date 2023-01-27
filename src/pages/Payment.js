@@ -8,7 +8,7 @@ function Payment() {
         <div className="paymentPage">
           <form className="paymentForm">
             <h2 className="paymentTitle">
-              <LockIcon/>
+              <LockIcon />
               payment
             </h2>
             <label htmlFor="cartName" className="paymentLabel">
