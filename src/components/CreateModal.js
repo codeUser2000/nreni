@@ -25,6 +25,7 @@ function CreateModal({
     oldPrice: '',
     countProduct: 0,
   });
+
   const dispatch = useDispatch();
   const handleChange = useCallback((key, value) => {
     setFormData((prev) => ({
@@ -72,6 +73,7 @@ function CreateModal({
   useEffect(() => {
     if (!_.isEmpty(data)) {
       setFormData(data);
+      console.log(data);
     }
   }, [data]);
 

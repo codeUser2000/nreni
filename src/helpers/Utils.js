@@ -2,24 +2,6 @@ import { toast } from 'react-toastify';
 import _ from 'lodash';
 
 class Utils {
-  static pagination() {
-
-  }
-
-  static translation(data) {
-    const lang = localStorage.getItem('lang');
-    if (lang && lang === 'en') {
-      return data.translationEn;
-    }
-    if (lang && lang === 'ru') {
-      return data.translationRu;
-    }
-    if (lang && lang === 'arm') {
-      return data.translationArm;
-    }
-    return data.translationEn;
-  }
-
   static changeCount(cart, product, opp) {
     cart.map((c) => {
       if (+c.product.id === +product.product.id) {

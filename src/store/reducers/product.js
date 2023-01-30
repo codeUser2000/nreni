@@ -2,7 +2,7 @@ import {
   CREATE_PRODUCT_SUCCESS, DELETE_PRODUCT_SUCCESS,
   GET_PRODUCT_DATA_FAIL,
   GET_PRODUCT_DATA_REQUEST,
-  GET_PRODUCT_DATA_SUCCESS, UPDATE_PRODUCT_SUCCESS,
+  GET_PRODUCT_DATA_SUCCESS, UPDATE_PRODUCT_FAIL, UPDATE_PRODUCT_REQUEST, UPDATE_PRODUCT_SUCCESS,
 } from '../actions/product';
 
 const initialState = {
@@ -36,6 +36,12 @@ export default function reducer(state = initialState, action) {
         ...state,
         productsData: [...action.payload.data.products],
         pagination: +action.payload.data.totalPages,
+      };
+    }
+    case UPDATE_PRODUCT_REQUEST: {
+      return {
+        ...state,
+        productsData: [],
       };
     }
     case DELETE_PRODUCT_SUCCESS: {

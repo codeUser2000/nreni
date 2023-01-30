@@ -126,16 +126,16 @@ function CartItems({ setTotal }) {
           <td className="cartTablePrice">
             $
             {' '}
-            {+c.oldPrice}
+            {+c.product.oldPrice}
           </td>
           <td className="cartTablePrice">
             $
             {' '}
-            {+c.newPrice}
+            {+c.product.newPrice}
           </td>
           <td className="cartTablePrice">
             -
-            {+c.discount}
+            {+c.product.discount}
             %
           </td>
           <td>
