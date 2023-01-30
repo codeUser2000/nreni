@@ -34,32 +34,17 @@ function Single() {
 
   const handleProductAdd = useCallback(async (data) => {
     if (Account.getToken()) {
-      let finalPrice;
-      if (+data.discount) {
-        // eslint-disable-next-line no-mixed-operators
-        finalPrice = +data.price * +data.discount / 100 * count;
-      } else {
-        finalPrice = +data.price * count;
-      }
       const product = {
         quantity: count,
-        price: finalPrice,
+        price: +data.newPrice * count,
         product: data,
       };
       await dispatch(addToCartRequest(product));
     } else {
-      let finalPrice;
-      if (+data.discount) {
-        // eslint-disable-next-line no-mixed-operators
-        finalPrice = +data.price * +data.discount / 100 * count;
-      } else {
-        finalPrice = +data.price * count;
-      }
-
       const product = {
         id: new Date(),
         quantity: count,
-        price: finalPrice,
+        price: +data.newPrice * count,
         product: data,
       };
       Utils.setCart(product);
@@ -97,7 +82,7 @@ function Single() {
           <h1 className="singleTitle">We hope You&apos;ll like it !</h1>
           <div className="singlePage">
             <figure className="singleItem">
-              <img src={REACT_APP_API_URL + single.avatar} className="singleImg" alt=""/>
+              <img src={REACT_APP_API_URL + single.avatar} className="singleImg" alt="" />
             </figure>
             <div className="singleInfo">
               <div className="singleMain">

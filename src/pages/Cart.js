@@ -13,6 +13,7 @@ function Cart() {
 
   useEffect(() => {
     if (localStorage.getItem('cartItem')) {
+      console.log(localStorage.getItem('cartItem'));
       setTotal(Utils.totalPrice(JSON.parse(localStorage.getItem('cartItem'))));
     }
   }, []);
