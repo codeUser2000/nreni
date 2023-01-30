@@ -144,7 +144,7 @@ function CreateModal({
           />
           <select
             className="adminSelect"
-            value={formData.categoryId}
+            value={formData.category}
             onChange={(ev) => handleChange('category', ev.target.value)}
           >
             <option value="">Choose category</option>

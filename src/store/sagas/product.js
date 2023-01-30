@@ -68,6 +68,7 @@ function* handleDeleteProductsRequest(action) {
 function* handleUpdateProductsRequest(action) {
   try {
     const { data } = yield call(Api.updateProduct, action.payload.data);
+    console.log(action.payload.data, 888);
     yield put({
       type: UPDATE_PRODUCT_SUCCESS,
       payload: { data },

@@ -107,33 +107,33 @@ function Profile() {
                   ? <AddNewAddresses />
                   : null}
               </div>
-              <div className="customerOrder">
-                <h4 className="customerTitle">my orders</h4>
-                {user.cart.cartItem.length
-                  ? (
-                    <table className="cartTable">
-                      <thead className="cartTableThead">
-                        <tr className="cartTableTheadTitles">
-                          <td>Description</td>
-                          <td>Quantity</td>
-                          <td>Price</td>
-                          <td className="">remove</td>
-                        </tr>
-                      </thead>
-                      <tbody className="cartTableTbody">
-                        <CartItems />
-                      </tbody>
-                    </table>
-                  )
-                  : (
-                    <p className="customerOrderInfo">
-                      <Link className="customerOrderLink" to="/shop">Make Your first order.</Link>
-                      {' '}
-                      {' '}
-                      You haven&apos;t placed any orders yet.
-                    </p>
-                  )}
-              </div>
+              {/*<div className="customerOrder">*/}
+              {/*  <h4 className="customerTitle">my orders</h4>*/}
+              {/*  {user.cart.cartItem.length*/}
+              {/*    ? (*/}
+              {/*      <table className="cartTable">*/}
+              {/*        <thead className="cartTableThead">*/}
+              {/*          <tr className="cartTableTheadTitles">*/}
+              {/*            <td>Description</td>*/}
+              {/*            <td>Quantity</td>*/}
+              {/*            <td>Price</td>*/}
+              {/*            <td className="">remove</td>*/}
+              {/*          </tr>*/}
+              {/*        </thead>*/}
+              {/*        <tbody className="cartTableTbody">*/}
+              {/*          <CartItems />*/}
+              {/*        </tbody>*/}
+              {/*      </table>*/}
+              {/*    )*/}
+              {/*    : (*/}
+              {/*      <p className="customerOrderInfo">*/}
+              {/*        <Link className="customerOrderLink" to="/shop">Make Your first order.</Link>*/}
+              {/*        {' '}*/}
+              {/*        {' '}*/}
+              {/*        You haven&apos;t placed any orders yet.*/}
+              {/*      </p>*/}
+              {/*    )}*/}
+              {/*</div>*/}
             </div>
           )
             : null}
