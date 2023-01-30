@@ -97,7 +97,7 @@ function Single() {
           <h1 className="singleTitle">We hope You&apos;ll like it !</h1>
           <div className="singlePage">
             <figure className="singleItem">
-              <img src={REACT_APP_API_URL + single.avatar} className="singleImg" alt="" />
+              <img src={REACT_APP_API_URL + single.avatar} className="singleImg" alt=""/>
             </figure>
             <div className="singleInfo">
               <div className="singleMain">
@@ -132,15 +132,14 @@ function Single() {
                 {+single.discount ? (
                   <p className="singleInfoPrice" style={{ color: '#c31e39' }}>
                     $
-                    {/* eslint-disable-next-line no-mixed-operators */}
-                    {+single.price * +single.discount / 100 * +count}
+                    {single.newPrice}
                   </p>
                 ) : null}
                 <p
                   className={classNames('singleInfoPrice', { 'text-decoration-line-through': +single.discount })}
                 >
                   $
-                  {single.price}
+                  {single.oldPrice}
                 </p>
               </div>
               <p className="singleInfoDescription">

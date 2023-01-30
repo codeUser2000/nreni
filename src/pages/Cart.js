@@ -33,15 +33,17 @@ function Cart() {
             <h2 className="cartTitle">shopping cart</h2>
             <table className="cartTable">
               <thead className="cartTableThead">
-                <tr className="cartTableTheadTitles">
-                  <td>Description</td>
-                  <td>Quantity</td>
-                  <td>Price</td>
-                  <td className="">remove</td>
-                </tr>
+              <tr className="cartTableTheadTitles">
+                <td>Description</td>
+                <td>Quantity</td>
+                <td>old price</td>
+                <td>new price</td>
+                <td>discount</td>
+                <td className="">remove</td>
+              </tr>
               </thead>
               <tbody className="cartTableTbody">
-                <CartItems setTotal={setTotal} />
+              <CartItems setTotal={setTotal}/>
               </tbody>
             </table>
             <div className="orderSummaryDetails">

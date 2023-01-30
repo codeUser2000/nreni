@@ -25,10 +25,10 @@ class Utils {
       if (+c.product.id === +product.product.id) {
         if (opp === '+' && +c.quantity + 1 <= +product.product.countProduct) {
           c.quantity += 1;
-          c.price += +c.product.price;
+          c.price += +c.product.newPrice;
         } else if (opp === '-' && +product.quantity > 1) {
           c.quantity -= 1;
-          c.price -= +c.product.price;
+          c.price -= +c.product.newPrice;
         } else {
           toast.error('you cant add product');
           return;
@@ -53,7 +53,7 @@ class Utils {
             return c;
           }
           c.quantity += product.quantity;
-          c.price = c.quantity * c.product.price;
+          c.price = c.quantity * c.product.newPrice;
         }
         // eslint-disable-next-line consistent-return
         return c;

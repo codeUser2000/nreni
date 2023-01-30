@@ -24,7 +24,7 @@ function CartItems({ setTotal }) {
           productId: product.product.id,
           count: product.quantity + 1,
           // eslint-disable-next-line no-mixed-operators,max-len
-          price: Math.round((+product.price + +product.product.price * product.product.discount / 100) * 100) / 100,
+          price: product.product.newPrice,
         }));
         await dispatch(getCartItemListRequest(1, user.cart.id));
       } else if (product.quantity > 1 && operator === '-') {
@@ -32,7 +32,7 @@ function CartItems({ setTotal }) {
           productId: product.product.id,
           count: product.quantity - 1,
           // eslint-disable-next-line no-mixed-operators,max-len
-          price: Math.round((+product.price - +product.product.price * product.product.discount / 100) * 100) / 100,
+          price: product.product.newPrice,
         }));
         await dispatch(getCartItemListRequest(1, user.cart.id));
       }
@@ -126,7 +126,17 @@ function CartItems({ setTotal }) {
           <td className="cartTablePrice">
             $
             {' '}
-            {+c.price}
+            {+c.oldPrice}
+          </td>
+          <td className="cartTablePrice">
+            $
+            {' '}
+            {+c.newPrice}
+          </td>
+          <td className="cartTablePrice">
+            -
+            {+c.discount}
+            %
           </td>
           <td>
             <span className="adminTableBtn">
