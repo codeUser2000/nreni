@@ -11,7 +11,7 @@ function Product({
   return (
     <div style={style || {}} className="shopProduct col-md-4">
       <figure className="shopProductItem">
-        <img src={REACT_APP_API_URL + data.avatar} alt="" className="shopProductImg" />
+        <img src={REACT_APP_API_URL + data.avatar} alt="" className="shopProductImg"/>
         {+data.discount ? (
           <div className="productDiscountCircle">
             <p className="productDiscount">
@@ -37,8 +37,8 @@ function Product({
             {+data.discount ? (
               <h4 className="shopProductPrice" style={{ color: '#c31e39' }}>
                 $
-                {/* eslint-disable-next-line no-mixed-operators */}
-                {+data.price - +data.price * +data.discount / 100}
+                {' '}
+                {data.newPrice}
               </h4>
             ) : null}
             <h4
@@ -46,7 +46,7 @@ function Product({
             >
               $
               {' '}
-              {data.price}
+              {data.oldPrice}
             </h4>
           </div>
           <div className="shopProductLabel">

@@ -22,7 +22,7 @@ function CreateModal({
     description: '',
     category: '',
     discount: '',
-    price: '',
+    oldPrice: '',
     countProduct: 0,
   });
   const dispatch = useDispatch();
@@ -63,7 +63,7 @@ function CreateModal({
       description: '',
       category: '',
       discount: '',
-      price: '',
+      oldPrice: '',
       countProduct: 0,
     });
     setShow(false);
@@ -158,8 +158,8 @@ function CreateModal({
           <input
             type="text"
             placeholder="Type Product Price"
-            value={formData.price}
-            onChange={(ev) => handleChange('price', ev.target.value)}
+            value={formData.oldPrice}
+            onChange={(ev) => handleChange('oldPrice', ev.target.value)}
           />
           <button type="submit" className="adminFormBtn">
             {!_.isEmpty(data) ? 'update' : 'create'}

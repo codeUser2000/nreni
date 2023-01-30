@@ -41,7 +41,9 @@ function AdminProduct() {
               <td>name</td>
               <td>description</td>
               <td>category</td>
-              <td>price</td>
+              <td>old Perice</td>
+              <td>discount</td>
+              <td>new price</td>
               <td>actions</td>
             </tr>
           </thead>

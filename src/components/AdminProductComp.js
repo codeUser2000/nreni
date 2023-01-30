@@ -35,7 +35,19 @@ function AdminProductComp({ data }) {
         <td>
           <p className="adminTablePrice">
             $
-            {data.price}
+            {data.oldPrice}
+          </p>
+        </td>
+        <td>
+          <p className="adminTablePrice">
+            {data.discount}
+            %
+          </p>
+        </td>
+        <td>
+          <p className="adminTablePrice">
+            $
+            {data.newPrice}
           </p>
         </td>
         <td>
