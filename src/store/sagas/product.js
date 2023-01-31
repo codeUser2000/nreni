@@ -73,6 +73,7 @@ function* handleUpdateProductsRequest(action) {
       payload: { data },
     });
   } catch (e) {
+    console.log(e);
     yield put({
       type: UPDATE_PRODUCT_FAIL,
       payload: { error: e.message },

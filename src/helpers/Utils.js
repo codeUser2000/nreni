@@ -35,13 +35,12 @@ class Utils {
             return c;
           }
           c.quantity += product.quantity;
-          c.price = +c.quantity * +c.product.newPrice;
+          c.price = Math.round(+c.quantity * +c.product.newPrice);
         }
         // eslint-disable-next-line consistent-return
         return c;
       });
       const productAddCount = cart.find((c) => +c.product.id === +product.product.id);
-      console.log(product,999);
 
       productData = _.isEmpty(productAddCount)
         ? [...productData, product]

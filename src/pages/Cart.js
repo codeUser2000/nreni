@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import Wrapper from '../components/Wrapper';
 import CartItems from '../components/CartItems';
 import Utils from '../helpers/Utils';
@@ -14,7 +13,7 @@ function Cart() {
   useEffect(() => {
     if (localStorage.getItem('cartItem')) {
       console.log(localStorage.getItem('cartItem'));
-      setTotal(Utils.totalPrice(JSON.parse(localStorage.getItem('cartItem'))));
+      setTotal(Math.round(Utils.totalPrice(JSON.parse(localStorage.getItem('cartItem')))));
     }
   }, []);
 
