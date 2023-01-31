@@ -22,10 +22,7 @@ function Login() {
     password: '',
   });
   useEffect(() => {
-    if (Account.getToken() && Account.getToken() !== 'undefined' && !_.isEmpty(user)) {
-      navigate('/profile');
-    }
-    if (userStatus === 'ok') {
+    if ((Account.getToken() && Account.getToken() !== 'undefined' && !_.isEmpty(user)) || userStatus === 'ok') {
       navigate('/profile');
     }
   }, [user, userStatus]);

@@ -38,7 +38,9 @@ import Account from '../../helpers/Account';
 function* handleCreateUserRequest(action) {
   try {
     const { data } = yield call(Api.register, action.payload.data);
-    toast.success('Please check your mail for activating your account');
+    if (action.payload.data.status === 'pending') {
+      toast.success('Please check your mail for activating your account');
+    }
     yield put({
       type: CREATE_USER_SUCCESS,
       payload: { data },

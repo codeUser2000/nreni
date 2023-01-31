@@ -17,6 +17,7 @@
     "classnames": "^2.3.2",
     "framer-motion": "^8.5.0",
     "js-cookie": "^3.0.1",
+    "jwt-decode": "^3.1.2",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "nuka-carousel": "^5.4.0",

@@ -1,14 +1,17 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import jwtDecode from 'jwt-decode';
 import { Helmet } from 'react-helmet';
+import { useNavigate } from 'react-router';
 import { createUserRequest } from '../store/actions/users';
 
 function Register() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [password2, setPassword2] = useState('');
   const [show, setShow] = useState(false);
   const [formData, setFormData] = useState({
@@ -16,6 +19,7 @@ function Register() {
     lastName: '',
     email: '',
     password: '',
+    status: 'pending',
   });
   const handleChange = useCallback((key, value) => {
     formData[key] = value;
@@ -54,7 +58,33 @@ function Register() {
       }
     }
     dispatch(createUserRequest(formData));
+    if (formData.status === 'active') {
+      navigate('/login');
+    }
   }, [formData, password2]);
+  const handleCallback = useCallback((res) => {
+    console.log(jwtDecode(res.credential));
+    const userInfo = jwtDecode(res.credential);
+    setFormData({
+      firstName: userInfo.given_name,
+      lastName: userInfo.family_name,
+      email: userInfo.email,
+      password: '',
+      status: 'active',
+    });
+  }, []);
+  useEffect(() => {
+    // eslint-disable-next-line no-undef
+    google.accounts.id.initialize({
+      client_id: '750414407655-rms17ql7o07uflsg8juqvsqakg0ij4rv.apps.googleusercontent.com',
+      callback: handleCallback,
+    });
+    // eslint-disable-next-line no-undef
+    google.accounts.id.renderButton(
+      document.getElementById('signInGoogle'),
+      { theme: 'outline', size: 'large' },
+    );
+  }, []);
   return (
     <>
       <Helmet>
@@ -123,6 +153,13 @@ function Register() {
                 className="regFormBtn"
               >
                 sign up
+              </button>
+              <button
+                type="submit"
+                className="regFormBtn"
+                id="signInGoogle"
+              >
+                sign up google
               </button>
               <Link to="/login" className="regFormLink">Or Login Using</Link>
             </form>
