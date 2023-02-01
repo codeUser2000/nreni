@@ -22,7 +22,6 @@ function AdminWrapper({ children }) {
           </div>
         </div>
       </main>
-
     </>
   );
 }

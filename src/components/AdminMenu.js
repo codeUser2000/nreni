@@ -1,9 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PersonIcon from '@mui/icons-material/Person';
-import LocalMallIcon from '@mui/icons-material/LocalMall';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
+import CreditCardIcon from '@mui/icons-material/CreditCard';
+import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt';
 
 function AdminMenu() {
   return (
@@ -18,7 +19,7 @@ function AdminMenu() {
         </li>
         <li className="adminMenuList">
           <NavLink to="/admin-orders" className="adminMenuLink">
-            <LocalMallIcon style={{ fill: '#c31e39', marginRight: '5px' }} />
+            <CreditCardIcon style={{ fill: '#c31e39', marginRight: '5px' }} />
             orders
           </NavLink>
         </li>
@@ -26,6 +27,12 @@ function AdminMenu() {
           <NavLink to="/admin-users" className="adminMenuLink">
             <PersonIcon style={{ fill: '#c31e39', marginRight: '5px' }} />
             users
+          </NavLink>
+        </li>
+        <li className="adminMenuList">
+          <NavLink to="/admin-analytics" className="adminMenuLink">
+            <SignalCellularAltIcon style={{ fill: '#c31e39', marginRight: '5px' }} />
+            Analytics
           </NavLink>
         </li>
         <li className="adminMenuList">
