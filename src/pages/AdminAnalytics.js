@@ -11,6 +11,7 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import faker from 'faker';
+import AdminWrapper from '../components/AdminWrapper';
 
 ChartJS.register(
   CategoryScale,
@@ -63,17 +64,19 @@ export const data = {
 
 function AdminAnalytics() {
   return (
-    <div style={{
-      width: '50%',
-      height: 250,
-    }}
-    >
-      <p>Charts for Admin</p>
-      <Line
-        options={options}
-        data={data}
-      />
-    </div>
+    <AdminWrapper>
+      <div style={{
+        width: '50%',
+        height: 250,
+      }}
+      >
+        <p>Charts for Admin</p>
+        <Line
+          options={options}
+          data={data}
+        />
+      </div>
+    </AdminWrapper>
   );
 }
 
