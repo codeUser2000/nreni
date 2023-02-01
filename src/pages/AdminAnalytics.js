@@ -63,10 +63,17 @@ export const data = {
 
 function AdminAnalytics() {
   return (
-    <Line
-      options={options}
-      data={data}
-    />
+    <div style={{
+      width: '50%',
+      height: 250,
+    }}
+    >
+      <p>Charts for Admin</p>
+      <Line
+        options={options}
+        data={data}
+      />
+    </div>
   );
 }
 
