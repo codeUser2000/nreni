@@ -109,7 +109,7 @@ function Profile() {
               </div>
               <div className="customerOrder">
                 <h4 className="customerTitle">my orders</h4>
-                {user.cart.cartItem.length
+                {user.cart?.cartItem?.length
                   ? (
                     <table className="cartTable">
                       <thead className="cartTableThead">

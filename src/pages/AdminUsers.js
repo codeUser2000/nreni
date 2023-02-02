@@ -32,9 +32,7 @@ function AdminUsers() {
         <table className="adminTable">
           <thead className="adminTableThead">
             <tr className="adminTableTheadTitles">
-              <td>first name</td>
-              <td>last name</td>
-              <td>phone number</td>
+              <td>name</td>
               <td>email</td>
               <td>role</td>
               <td>status</td>
@@ -45,13 +43,13 @@ function AdminUsers() {
             {users.length ? users.map((u) => (
               <tr key={u.id}>
                 <td>
-                  <p className="adminTableName">{u.firstName}</p>
-                </td>
-                <td>
-                  <p className="adminTableName">{u.lastName}</p>
-                </td>
-                <td>
-                  <p>{u.phone}</p>
+                  <p className="adminTableName">
+                    {u.firstName}
+                    {' '}
+                    {' '}
+                    {' '}
+                    {u.lastName}
+                  </p>
                 </td>
                 <td>
                   <p>{u.email}</p>

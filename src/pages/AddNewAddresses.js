@@ -2,6 +2,7 @@ import React, { useCallback, useState, useEffect } from 'react';
 import PhoneInput, {} from 'react-phone-number-input';
 import DatePicker from 'react-datepicker';
 import { useDispatch, useSelector } from 'react-redux';
+import _ from 'lodash';
 import { getUserProfileRequest, updateUserRequest } from '../store/actions/users';
 
 function AddNewAddresses() {
@@ -20,12 +21,16 @@ function AddNewAddresses() {
   });
 
   useEffect(() => {
-    (async () => {
-      await dispatch(getUserProfileRequest());
-    })();
-  }, []);
-  useEffect(() => {
-    // setForm(user);
+    setForm({
+      firstName: user.firstName,
+      lastName: user.lastName,
+      birthYear: new Date(),
+      phone: user.phone,
+      country: user.country,
+      city: user.city,
+      street: user.street,
+      postal: user.postal,
+    });
   }, [user]);
 
   const handleChange = useCallback((key, value) => {
