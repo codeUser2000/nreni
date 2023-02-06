@@ -30,3 +30,14 @@ export function checkoutPaymentRequest(productId) {
     payload: { productId },
   };
 }
+
+export const GET_ORDER_LIST_ADMIN_REQUEST = 'GET_ORDER_LIST_ADMIN_REQUEST';
+export const GET_ORDER_LIST_ADMIN_SUCCESS = 'GET_ORDER_LIST_ADMIN_SUCCESS';
+export const GET_ORDER_LIST_ADMIN_FAIL = 'GET_ORDER_LIST_ADMIN_FAIL';
+
+export function getOrderListAdminRequest(page) {
+  return {
+    type: GET_ORDER_LIST_ADMIN_REQUEST,
+    payload: { page },
+  };
+}

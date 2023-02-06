@@ -19,17 +19,6 @@ export function getCartItemListRequest(page) {
   };
 }
 
-export const GET_CART_ITEM_LIST_ADMIN_REQUEST = 'GET_CART_ITEM_LIST_ADMIN_REQUEST';
-export const GET_CART_ITEM_LIST_ADMIN_SUCCESS = 'GET_CART_ITEM_LIST_ADMIN_SUCCESS';
-export const GET_CART_ITEM_LIST_ADMIN_FAIL = 'GET_CART_ITEM_LIST_ADMIN_FAIL';
-
-export function getCartItemListAdminRequest(page) {
-  return {
-    type: GET_CART_ITEM_LIST_ADMIN_REQUEST,
-    payload: { page },
-  };
-}
-
 export const ADD_TO_CART_REQUEST = 'ADD_TO_CART_REQUEST';
 export const ADD_TO_CART_SUCCESS = 'ADD_TO_CART_SUCCESS';
 export const ADD_TO_CART_FAIL = 'ADD_TO_CART_FAIL';

@@ -3,21 +3,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Pagination } from '@mui/material';
 import AdminWrapper from '../components/AdminWrapper';
 import AdminOrder from '../components/AdminOrder';
-import { getCartItemListAdminRequest } from '../store/actions/cart';
+import { getOrderListAdminRequest } from '../store/actions/others';
 
 function AdminOrders() {
   const dispatch = useDispatch();
   const [page, setPage] = useState(1);
-  const cartAdminData = useSelector((state) => state.cart.cartAdminData);
-  const pagination = useSelector((state) => state.cart.pagination);
+  const orderData = useSelector((state) => state.others.orderData);
+  const pagination = useSelector((state) => state.others.pagination);
   useEffect(() => {
     (async () => {
-      await dispatch(getCartItemListAdminRequest(page));
+      await dispatch(getOrderListAdminRequest(page));
     })();
   }, [page]);
   const handleChange = useCallback(async (ev, value) => {
     setPage(value);
-    await dispatch(getCartItemListAdminRequest(page));
+    await dispatch(getOrderListAdminRequest(page));
   }, [pagination]);
   return (
     <AdminWrapper>
@@ -38,7 +38,7 @@ function AdminOrders() {
             </tr>
           </thead>
           <tbody className="adminTableTbody">
-            {cartAdminData.map((c) => (<AdminOrder key={c.id} data={c} />))}
+            {orderData.map((c) => (<AdminOrder key={c.id} data={c} />))}
           </tbody>
         </table>
         <Pagination count={+pagination} page={page} onChange={handleChange} />

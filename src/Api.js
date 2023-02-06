@@ -178,6 +178,11 @@ class Api {
   static checkoutPayment(data) {
     return api.post('/payment/create-checkout-session', data);
   }
+
+  // ------ORDERS--------//
+  static getOrders(data) {
+    return api.get('/others/orders', data);
+  }
 }
 
 export default Api;
