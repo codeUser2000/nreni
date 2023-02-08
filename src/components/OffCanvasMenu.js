@@ -1,8 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import {
-  Button, Offcanvas,
-} from 'react-bootstrap';
+import { Offcanvas } from 'react-bootstrap';
 import MenuIcon from '@mui/icons-material/Menu';
 import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
@@ -60,13 +58,13 @@ function OffCanvasMenu({ show, handleClose, handleShow }) {
           </ul>
         </Offcanvas.Body>
       </Offcanvas>
-      <Button
-        variant="primary"
+      <button
+        type="button"
         onClick={handleShow}
         className="me-2 menuBtn"
       >
         <MenuIcon style={{ fill: '#c31e39' }} />
-      </Button>
+      </button>
     </div>
   );
 }
