@@ -53,6 +53,10 @@ body {
   z-index: 999;
   background-color: #ffece5; }
 
+.menuBtn {
+  border: none;
+  background-color: transparent; }
+
 .logoLink {
   width: 100%;
   display: flex;
@@ -2364,5 +2368,29 @@ p {
 @media only screen and (max-width: 1170px) {
   .container {
     width: 100%; } }
+@media only screen and (max-width: 992px) {
+  .bannerRow {
+    flex-direction: column; }
+
+  .bannerRow {
+    padding: 15px; }
+
+  .bannerFigure {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 10px; }
+
+  .bannerDesk {
+    width: 100%;
+    padding: 10px;
+    text-align: center; }
+
+  .bannerTitle {
+    font-size: 22px;
+    margin-bottom: 10px; }
+
+  .bannerInfo {
+    font-size: 14px;
+    margin-bottom: 15px; } }
 
 /*# sourceMappingURL=style.css.map */

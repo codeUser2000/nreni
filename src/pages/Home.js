@@ -4,7 +4,6 @@ import Carousel from 'nuka-carousel';
 import { useDispatch, useSelector } from 'react-redux';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-// import { motion } from 'framer-motion';
 import Wrapper from '../components/Wrapper';
 import MyCarouselComp from '../components/MyCarouselComp';
 import Assortment from '../components/Assortment';
