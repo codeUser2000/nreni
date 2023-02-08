@@ -27,6 +27,7 @@ function Header() {
       setOffCanvasShow(false);
     }
   }, []);
+  console.log(5678);
   useEffect(() => {
     handleWindowResize();
     window.addEventListener('resize', handleWindowResize);
