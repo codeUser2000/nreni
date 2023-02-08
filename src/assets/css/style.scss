@@ -65,6 +65,9 @@ body {
   left: 0;
   z-index: 999;
   background-color: #ffece5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .menuBtn {
@@ -2845,6 +2848,13 @@ p {
 .paymentBtn:hover {
   color: #c31e39;
   background-color: #ffece5;
+}
+
+.navListOffset{
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  height: 55px;
 }
 
 @import "media/media";

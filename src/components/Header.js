@@ -1,27 +1,23 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Navbar } from 'react-bootstrap';
 import Account from '../helpers/Account';
 import { getUserProfileRequest } from '../store/actions/users';
 import NavBarMenu from './NavBarMenu';
+import OffCanvasMenu from './OffCanvasMenu';
+import logo from '../assets/img/logo/logo.png';
 
 function Header() {
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
   const [offCanvasShow, setOffCanvasShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   const handleWindowResize = useCallback(() => {
-    if (window.innerWidth < 949) {
+    if (window.innerWidth < 768) {
       setShow(true);
-      setOffCanvasShow(true);
     } else {
       setShow(false);
-      setOffCanvasShow(false);
     }
   }, []);
-  console.log(5678);
   useEffect(() => {
     handleWindowResize();
     window.addEventListener('resize', handleWindowResize);
@@ -40,7 +36,18 @@ function Header() {
 
   return (
     <header className="header">
-      {show ? <NavBarMenu /> : null}
+      <figure className="logo">
+        <img src={logo} alt="nreni" className="logoImg" />
+        <p className="logoName">NRENI</p>
+      </figure>
+      {!show ? <NavBarMenu />
+        : (
+          <OffCanvasMenu
+            show={offCanvasShow}
+            handleClose={() => setOffCanvasShow(false)}
+            handleShow={() => setOffCanvasShow(true)}
+          />
+        )}
 
     </header>
   );

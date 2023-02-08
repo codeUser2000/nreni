@@ -11,13 +11,6 @@ import logo from '../assets/img/logo/logo.png';
 function OffCanvasMenu({ show, handleClose, handleShow }) {
   return (
     <div>
-      <Button
-        variant="primary"
-        onClick={handleShow}
-        className="me-2 menuBtn"
-      >
-        <MenuIcon style={{ fill: '#c31e39' }}/>
-      </Button>
       <Offcanvas className="menuBar" show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>
@@ -28,22 +21,22 @@ function OffCanvasMenu({ show, handleClose, handleShow }) {
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <ul className="navBlock">
-            <li className="navList">
+          <ul className="offset">
+            <li className="navListOffset navList">
               <NavLink to="/home" className="navLink">Home</NavLink>
             </li>
-            <li className="navList">
+            <li className="navListOffset navList">
               <NavLink to="/shop" className="navLink">shop</NavLink>
             </li>
-            <li className="navList">
+            <li className="navListOffset navList">
               <NavLink to="/about" className="navLink">about</NavLink>
             </li>
-            <li className="navList">
+            <li className="navListOffset navList">
               <NavLink to="/contact" className="navLink">contact</NavLink>
             </li>
-            <li className="navList">
+            <li className="navListOffset navList">
               <NavLink to="/cart" className="navLink">
-                <CardGiftcardIcon/>
+                <CardGiftcardIcon />
               </NavLink>
             </li>
             <li className="navList">
@@ -67,6 +60,13 @@ function OffCanvasMenu({ show, handleClose, handleShow }) {
           </ul>
         </Offcanvas.Body>
       </Offcanvas>
+      <Button
+        variant="primary"
+        onClick={handleShow}
+        className="me-2 menuBtn"
+      >
+        <MenuIcon style={{ fill: '#c31e39' }} />
+      </Button>
     </div>
   );
 }
