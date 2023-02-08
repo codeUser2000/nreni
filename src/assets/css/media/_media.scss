@@ -1,0 +1,11 @@
+@media (pointer: coarse) {
+  @import "pointer";
+}
+
+@media only screen and (max-width: 1170px) {
+  @import "mx1170";
+}
+
+@media only screen and (max-width: 992px) {
+  @import "mx992";
+}
