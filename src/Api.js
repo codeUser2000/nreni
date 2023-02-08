@@ -134,6 +134,10 @@ class Api {
     });
   }
 
+  static addLocalCart(data) {
+    return api.post('/cart/addToCartLocal', { data });
+  }
+
   static deleteFromCart(productId, cartId) {
     return api.post('/cart/deleteFromCart', {
       productId,

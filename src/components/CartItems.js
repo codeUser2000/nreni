@@ -9,6 +9,7 @@ import {
   getCartItemListRequest,
   getLocalCartData, updateCartRequest,
 } from '../store/actions/cart';
+import Api from '../Api';
 
 function CartItems({ setTotal }) {
   const { REACT_APP_API_URL } = process.env;
@@ -23,7 +24,6 @@ function CartItems({ setTotal }) {
         await dispatch(updateCartRequest({
           productId: product.product.id,
           count: product.quantity + 1,
-          // eslint-disable-next-line no-mixed-operators,max-len
           price: product.product.newPrice,
         }));
         await dispatch(getCartItemListRequest(1, user.cart.id));
@@ -31,7 +31,6 @@ function CartItems({ setTotal }) {
         await dispatch(updateCartRequest({
           productId: product.product.id,
           count: product.quantity - 1,
-          // eslint-disable-next-line no-mixed-operators,max-len
           price: product.product.newPrice,
         }));
         await dispatch(getCartItemListRequest(1, user.cart.id));
@@ -63,9 +62,11 @@ function CartItems({ setTotal }) {
   useEffect(() => {
     (async () => {
       if (Account.getToken()) {
-        if (!_.isEmpty(user)) {
-          await dispatch(getCartItemListRequest(1, user.cart.id));
+        if (localStorage.getItem('cartItem')) {
+          await Api.addLocalCart(JSON.parse(localStorage.getItem('cartItem')));
         }
+        localStorage.removeItem('cartItem');
+        await dispatch(getCartItemListRequest(1));
       } else if (localStorage.getItem('cartItem')) {
         setCart(JSON.parse(localStorage.getItem('cartItem')));
       }
