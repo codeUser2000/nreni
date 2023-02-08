@@ -11,12 +11,7 @@ import bracelet from '../assets/img/post/bracelet.jpg';
 
 function Assortment() {
   return (
-    <motion.div
-      className="assortment"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-    >
+    <div className="assortment">
       <div className="assortmentColumn1">
         <div className="assortmentColumnDesk">
           <figure className="assortmentItem">
@@ -40,48 +35,50 @@ function Assortment() {
           </figure>
         </div>
       </div>
-      <div className="assortmentColumn2">
-        <div className="assortmentColumnDesk">
-          <figure className="assortmentItem">
-            <img
-              style={{ objectPosition: 'bottom' }}
-              src={necklace}
-              alt=""
-              className="assortmentImg"
-            />
-          </figure>
-          <div className="assortmentDesk">
-            <p className="assortmentInfo">Necklaces</p>
-            <button type="button" className="assortmentBtn">
-              <Link to="/shop" className="assortmentLink">Shop now</Link>
-            </button>
+      <div className="assortmentColumnGroup">
+        <div className="assortmentColumn2">
+          <div className="assortmentColumnDesk">
+            <figure className="assortmentItem">
+              <img
+                style={{ objectPosition: 'bottom' }}
+                src={necklace}
+                alt=""
+                className="assortmentImg"
+              />
+            </figure>
+            <div className="assortmentDesk">
+              <p className="assortmentInfo">Necklaces</p>
+              <button type="button" className="assortmentBtn">
+                <Link to="/shop" className="assortmentLink">Shop now</Link>
+              </button>
+            </div>
+          </div>
+          <div className="assortmentColumnDesk">
+            <figure className="assortmentItem">
+              <img src={nameNecklace} alt="" className="assortmentImg" />
+            </figure>
           </div>
         </div>
-        <div className="assortmentColumnDesk">
-          <figure className="assortmentItem">
-            <img src={nameNecklace} alt="" className="assortmentImg" />
-          </figure>
+        <div className="assortmentColumn3">
+          <div className="assortmentColumnDesk">
+            <figure className="assortmentItem">
+              <img src={earring} alt="" className="assortmentImg" />
+            </figure>
+            <p className="assortmentInfo">
+              Earrings
+            </p>
+          </div>
+          <div className="assortmentColumnDesk">
+            <figure className="assortmentItem">
+              <img src={bracelet} alt="" className="assortmentImg" />
+            </figure>
+            <p className="assortmentInfo">
+              Bracelets
+            </p>
+          </div>
         </div>
       </div>
-      <div className="assortmentColumn3">
-        <div className="assortmentColumnDesk">
-          <figure className="assortmentItem">
-            <img src={earring} alt="" className="assortmentImg" />
-          </figure>
-          <p className="assortmentInfo">
-            Earrings
-          </p>
-        </div>
-        <div className="assortmentColumnDesk">
-          <figure className="assortmentItem">
-            <img src={bracelet} alt="" className="assortmentImg" />
-          </figure>
-          <p className="assortmentInfo">
-            Bracelets
-          </p>
-        </div>
-      </div>
-    </motion.div>
+    </div>
   );
 }
 

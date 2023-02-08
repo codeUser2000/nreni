@@ -9,7 +9,7 @@ function Product({
 }) {
   const { REACT_APP_API_URL } = process.env;
   return (
-    <div style={style || {}} className="shopProduct col-md-4">
+    <div style={style || {}} className="shopProduct">
       <figure className="shopProductItem">
         <img src={REACT_APP_API_URL + data.avatar} alt="" className="shopProductImg"/>
         {+data.discount ? (

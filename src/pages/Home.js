@@ -26,9 +26,6 @@ function Home() {
   }, []);
   return (
     <Wrapper>
-      <Helmet>
-        <title>NRENI</title>
-      </Helmet>
       <div id="header-carousel" className="carousel slide" data-ride="carousel">
         <section className="banner">
           <div className="container">

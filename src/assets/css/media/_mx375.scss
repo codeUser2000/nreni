@@ -3,9 +3,17 @@
   flex-direction: column;
 }
 
+
 .bannerRow {
-  padding: 15px;
+  padding: 40px 15px 30px 15px;
 }
+
+.banner2Figure {
+  width: 300px;
+  height: 300px;
+  margin-bottom: 40px;
+}
+
 
 .bannerFigure {
   width: 250px;
@@ -13,18 +21,120 @@
   margin-bottom: 10px;
 }
 
+.banner2Img {
+  border-radius: 50%;
+  border: 10px solid #ffece5;
+}
+
+.banner2Desk,
 .bannerDesk {
   width: 100%;
   padding: 10px;
   text-align: center;
 }
 
+
 .bannerTitle {
-  font-size: 22px;
+  font-size: 25px;
   margin-bottom: 10px;
 }
 
+.banner2Info,
 .bannerInfo {
-  font-size: 14px;
+  font-size: 15px;
   margin-bottom: 15px;
+}
+
+.bannerDiscounts {
+  font-size: 19px;
+  margin-bottom: 15px;
+}
+
+.bannerDiscounts span {
+  padding: 5px;
+  color: #ffece5;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 50%;
+  border: 5px solid #ffece5;
+}
+
+.bannerBtn {
+  margin-bottom: 20px;
+}
+
+.assortment {
+  width: 100%;
+  height: 1200px;
+  flex-direction: column;
+}
+
+.assortmentColumnGroup,
+.assortmentColumn1 {
+  width: 100%;
+}
+
+.assortmentColumn2,
+.assortmentColumn3 {
+  width: calc(100% / 2);
+}
+
+.assortmentBtn {
+  width: 100%;
+  height: 30px;
+  padding: 20px;
+}
+
+.homeAbout {
+  display: flex;
+  flex-direction: column;
+}
+
+.homeAboutItem {
+  width: 100%;
+}
+
+.homeAboutDesk {
+  width: 100%;
+  padding: 15px;
+  background-color: #ffece5;
+}
+
+.homeAboutTitle {
+  font-size: 25px;
+  padding: 0 0 15px;
+  text-transform: capitalize;
+}
+
+.blockquoteTitle,
+.newTitle {
+  font-size: 29px;
+}
+
+.blockquoteInfo,
+.newHomeInfo {
+  font-size: 17px;
+  margin-bottom: 50px;
+}
+
+.quotesBlock {
+  padding: 35px;
+}
+
+.quoteSymbol {
+  font-size: 45px;
+  font-weight: 600;
+  margin-bottom: -15px;
+}
+
+.quote {
+  padding: 0;
+  font-size: 16px;
+  line-height: 30px;
+  margin-bottom: 45px;
+}
+
+.thePerson {
+  font-size: 15px;
+  font-weight: 500;
 }

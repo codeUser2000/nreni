@@ -1,16 +1,33 @@
-import React from 'react';
 import Card from 'react-bootstrap/Card';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserData } from '../store/actions/users';
 
-function BasicExample() {
+function BasicExample({ id = 4 }) {
+  const users = useSelector((state) => state.users.usersData);
+  const [user, setUser] = useState({});
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    (async () => {
+      await dispatch(getUserData(1));
+    })();
+  }, []);
+  useEffect(() => {
+    setUser(users.filter((u) => +u.id === id));
+  }, [users]);
+
   return (
     <Card style={{ width: '18rem' }}>
       <Card.Body>
-        <Card.Title>John Done</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">john0@gmail.com</Card.Subtitle>
+        <Card.Title>
+          {user.firstName}
+          {' '}
+          {user.lastName}
+        </Card.Title>
+        <Card.Subtitle className="mb-2 text-muted">naira@gmail.com</Card.Subtitle>
         <Card.Text>
-          Some quick example text to build on the card title and make up the
-          {/* eslint-disable-next-line react/no-unescaped-entities */}
-          bulk of the card's content.
+          lorem ipsum
         </Card.Text>
       </Card.Body>
     </Card>

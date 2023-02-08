@@ -2,7 +2,6 @@ import React from 'react';
 
 function Blockquote({ data }) {
   return (
-
     <div className="quotesBlock">
       <h2 className="quoteSymbol">❛❛</h2>
       <p className="quote">
@@ -18,7 +17,6 @@ function Blockquote({ data }) {
         <div className="quoteLine" />
       </div>
     </div>
-
   );
 }
 

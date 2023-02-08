@@ -8,9 +8,9 @@ function MyCarouselComp2() {
       <div className="banner2Desk">
         <p className="banner2Info">The best ARMENIAN silver you can get</p>
         <p className="bannerDiscounts">
-          Christmas discounts
+          Holiday discounts
           {' '}
-          <span>35%</span>
+          <span>40%</span>
         </p>
         <button className="bannerBtn">
           <Link className="bannerLink" to="/register">
