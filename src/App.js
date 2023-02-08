@@ -23,7 +23,6 @@ import AdminProduct from './pages/AdminProduct';
 import CompleteRegistration from './pages/CompleteRegistration';
 import AdminOrders from './pages/AdminOrders';
 import AdminQuotes from './pages/AdminQuotes';
-import AddNewAddresses from './pages/AddNewAddresses';
 import Payment from './pages/Payment';
 import AdminAnalytics from './pages/AdminAnalytics';
 import UserCard from './components/UserCard';
