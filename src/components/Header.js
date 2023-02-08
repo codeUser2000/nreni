@@ -1,15 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import {
-  Button, Offcanvas,
-} from 'react-bootstrap';
-import MenuIcon from '@mui/icons-material/Menu';
 import { useDispatch } from 'react-redux';
-import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
-import PermIdentityIcon from '@mui/icons-material/PermIdentity';
-import logo from '../assets/img/logo/logo.png';
+import { Navbar } from 'react-bootstrap';
 import Account from '../helpers/Account';
 import { getUserProfileRequest } from '../store/actions/users';
+import NavBarMenu from './NavBarMenu';
 
 function Header() {
   const dispatch = useDispatch();
@@ -46,6 +40,8 @@ function Header() {
 
   return (
     <header className="header">
+      {show ? <NavBarMenu /> : null}
+
     </header>
   );
 }

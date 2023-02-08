@@ -21,7 +21,7 @@ function Cart() {
     if (localStorage.getItem('cartItem')) {
       console.log(localStorage.getItem('cartItem').length);
     } else {
-      await dispatch(checkoutPaymentRequest(cartToken));
+      await dispatch(checkoutPaymentRequest(Utils.setPaymentCartData(cartToken)));
     }
   }, [cartToken]);
 

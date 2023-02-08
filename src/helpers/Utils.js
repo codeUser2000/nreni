@@ -69,6 +69,23 @@ class Utils {
     console.log(data);
     return count;
   }
+
+  static setPaymentCartData(data) {
+    const final = [];
+    data.map((d) => {
+      final.push({
+        price: d.price,
+        quantity: d.quantity,
+        product: {
+          id: d.product.id,
+          title: d.product.title,
+          description: d.product.description,
+        },
+      });
+      return true;
+    });
+    return final;
+  }
 }
 
 export default Utils;
