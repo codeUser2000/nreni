@@ -83,8 +83,8 @@ function AdminUsers() {
       </div>
       <Modal
         show={show}
-        onRequestClose={() => { setShow(false); }}
-        isOpen={show}
+        onHide={() => setShow(false)}
+        onExit={() => setShow(false)}
       >
         <button type="button" onClick={() => setShow(false)}>
           x
