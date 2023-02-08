@@ -14,7 +14,6 @@ function NavBarMenu(props) {
         </figure>
         <nav className="nav">
           <ul className="navBlock">
-            <li>Aid</li>
             <li className="navList">
               <NavLink to="/home" className="navLink">Home</NavLink>
             </li>
