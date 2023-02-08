@@ -1582,6 +1582,7 @@ p {
 .logo {
   display: flex;
   align-items: center;
+  width: fit-content;
 }
 
 .newProduct,
@@ -2294,6 +2295,9 @@ p {
   color: #c31e39;
 }
 
+.nav{
+  width: fit-content;
+}
 .footerNav {
   width: 100%;
   padding: 0;
