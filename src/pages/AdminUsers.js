@@ -2,12 +2,16 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Pagination } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { Modal } from 'react-bootstrap';
 import AdminWrapper from '../components/AdminWrapper';
 import { deleteUserRequest, getUserData } from '../store/actions/users';
+import UserCard from '../components/UserCard';
 
 function AdminUsers() {
   const users = useSelector((state) => state.users.usersData);
   const dispatch = useDispatch();
+  const [show, setShow] = useState(false);
+  const [id, setId] = useState(0);
   const [pageNumber, setPageNumber] = useState(1);
   const pagination = useSelector((state) => state.users.pagination);
 
@@ -18,6 +22,12 @@ function AdminUsers() {
   const handleDelete = useCallback((email) => {
     dispatch(deleteUserRequest(email));
     dispatch(getUserData(1));
+  }, []);
+
+  const handleOpenModal = useCallback((userId) => {
+    setShow(true);
+    console.log(userId);
+    setId(userId);
   }, []);
 
   const handleChange = useCallback((ev, value) => {
@@ -41,7 +51,7 @@ function AdminUsers() {
           </thead>
           <tbody className="adminTableTbody">
             {users.length ? users.map((u) => (
-              <tr key={u.id}>
+              <tr key={u.id} onClick={() => handleOpenModal(u.id)}>
                 <td>
                   <p className="adminTableName">
                     {u.firstName}
@@ -71,6 +81,16 @@ function AdminUsers() {
         </table>
         <Pagination count={+pagination} page={pageNumber} onChange={handleChange} />
       </div>
+      <Modal
+        show={show}
+        onRequestClose={() => { setShow(false); }}
+        isOpen={show}
+      >
+        <button type="button" onClick={() => setShow(false)}>
+          x
+        </button>
+        <UserCard id={id} />
+      </Modal>
     </AdminWrapper>
 
   );

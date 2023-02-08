@@ -1,9 +1,9 @@
 import Card from 'react-bootstrap/Card';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserData } from '../store/actions/users';
 
-function BasicExample({ id = 4 }) {
+function BasicExample({ id = 7 }) {
   const users = useSelector((state) => state.users.usersData);
   const [user, setUser] = useState({});
   const dispatch = useDispatch();
@@ -14,8 +14,8 @@ function BasicExample({ id = 4 }) {
     })();
   }, []);
   useEffect(() => {
-    setUser(users.filter((u) => +u.id === id));
-  }, [users]);
+    setUser(users.filter((u) => +u.id === id)[0]);
+  }, [users, id]);
 
   return (
     <Card style={{ width: '18rem' }}>
@@ -25,9 +25,11 @@ function BasicExample({ id = 4 }) {
           {' '}
           {user.lastName}
         </Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">naira@gmail.com</Card.Subtitle>
+        <Card.Subtitle className="mb-2 text-muted">{user.email}</Card.Subtitle>
         <Card.Text>
-          lorem ipsum
+          {user.phone ? user.phone : null}
+          {user.country ? user.country : null}
+          {user.city ? user.city : null}
         </Card.Text>
       </Card.Body>
     </Card>
