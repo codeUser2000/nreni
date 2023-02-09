@@ -55,7 +55,7 @@ function* handleCreateUserRequest(action) {
 
 function* handleUsersRequest(action) {
   try {
-    const { data } = yield call(Api.getUser, action.payload.page);
+    const { data } = yield call(Api.getUser, action.payload.page, action.payload.search);
     yield put({
       type: GET_USERS_LIST_SUCCESS,
       payload: { data },

@@ -35,7 +35,6 @@ class Api {
   }
 
   static addresses(data) {
-    console.log(data);
     return api.post('/users/addresses', data);
   }
 
@@ -61,7 +60,6 @@ class Api {
 
   // ------PRODUCT-------//
   static getData(data) {
-    console.log(data);
     return api.get(`/products/products?page=${data.page}${data.min ? `&min=${data.min}` : ''}${data.max ? `&max=${data.max}` : ''}${data.filterArr ? `&filter=${data.filterArr}` : ''}${data.searchText ? `&searchText=${data.searchText}` : ''}`, {
       headers: {
         'Content-Type': 'image/jpeg',
@@ -82,8 +80,8 @@ class Api {
   }
 
   // ------ADMIN-------//
-  static getUser(page) {
-    return api.get(`/users/list?page=${page || 1}`);
+  static getUser(page, search) {
+    return api.get(`/users/list?page=${page || 1}${search ? `&search=${search}` : ''}`);
   }
 
   static deleteUser(email) {

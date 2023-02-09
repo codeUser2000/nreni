@@ -3,16 +3,24 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Pagination } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Modal } from 'react-bootstrap';
+import qs from 'query-string';
+import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import AdminWrapper from '../components/AdminWrapper';
 import { deleteUserRequest, getUserData } from '../store/actions/users';
 import UserCard from '../components/UserCard';
 
 function AdminUsers() {
-  const users = useSelector((state) => state.users.usersData);
+  const location = useLocation();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const query = qs.parse(location.search, { arrayFormat: 'comma' });
+  const users = useSelector((state) => state.users.usersData);
   const [show, setShow] = useState(false);
   const [id, setId] = useState(0);
   const [pageNumber, setPageNumber] = useState(1);
+  const [searchText, setSearch] = useState('');
+
   const pagination = useSelector((state) => state.users.pagination);
 
   useEffect(() => {
@@ -26,7 +34,6 @@ function AdminUsers() {
 
   const handleOpenModal = useCallback((userId) => {
     setShow(true);
-    console.log(userId);
     setId(userId);
   }, []);
 
@@ -35,10 +42,48 @@ function AdminUsers() {
     dispatch(getUserData(pageNumber));
   }, [pagination]);
 
+  useEffect(() => {
+    (async () => {
+      if (query.searchText) {
+        setSearch(query.searchText);
+      }
+      if (query.searchText) {
+        setPageNumber(1);
+        await dispatch(getUserData(1, query.searchText));
+      }
+    })();
+  }, []);
+  useEffect(() => {
+    (async () => {
+      if (query.searchText) {
+        setPageNumber(1);
+        await dispatch(getUserData(1, query.searchText));
+      } else {
+        await dispatch(getUserData(1));
+      }
+    })();
+  }, [location.search]);
+  const handleSearch = useCallback((ev) => {
+    setSearch(ev);
+    query.searchText = ev;
+    navigate(`?${qs.stringify(query, {
+      arrayFormat: 'comma',
+      skipEmptyString: true,
+    })}`);
+  }, [location.search]);
+
   return (
     <AdminWrapper>
       <div className="adminProducts">
         <p className="adminTitle">Users</p>
+        <input
+          type="text"
+          style={{ height: 49 }}
+          value={searchText}
+          placeholder="Search user"
+          className="shopSearchInput"
+          onChange={(ev) => handleSearch(ev.target.value)}
+        />
         <table className="adminTable">
           <thead className="adminTableThead">
             <tr className="adminTableTheadTitles">
