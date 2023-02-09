@@ -28,7 +28,6 @@ function AdminQuotes() {
 
   const handleUpdate = useCallback(async (id, ev) => {
     await dispatch(setViewBlockquote(id, ev));
-    await dispatch(getAdminBlockquoteDataRequest(page));
   }, []);
 
   return (

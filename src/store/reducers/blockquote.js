@@ -7,7 +7,7 @@ import {
   DELETE_BLOCKQUOTE_FAIL,
   GET_ADMIN_BLOCKQUOTE_DATA_REQUEST,
   GET_ADMIN_BLOCKQUOTE_DATA_SUCCESS,
-  GET_ADMIN_BLOCKQUOTE_DATA_FAIL, SET_VIEW_BLOCKQUOTE_SUCCESS,
+  GET_ADMIN_BLOCKQUOTE_DATA_FAIL, SET_VIEW_BLOCKQUOTE_SUCCESS, SET_VIEW_BLOCKQUOTE_REQUEST,
 } from '../actions/blockquote';
 
 const initialState = {
@@ -28,6 +28,13 @@ export default function reducer(state = initialState, action) {
         blockquotesDataStatus: 'request',
       };
     }
+    case SET_VIEW_BLOCKQUOTE_REQUEST: {
+      return {
+        ...state,
+        blockquotesDataAdmin: [],
+        blockquotesDataStatusAdmin: 'request',
+      };
+    }
 
     case GET_BLOCKQUOTE_DATA_SUCCESS: {
       const { quote } = action.payload;
@@ -39,11 +46,10 @@ export default function reducer(state = initialState, action) {
     }
     case SET_VIEW_BLOCKQUOTE_SUCCESS: {
       const { quote } = action.payload.data;
-      console.log(quote);
       return {
         ...state,
-        blockquotesDataStatus: 'ok',
-        blockquotesData: quote,
+        blockquotesDataStatusAdmin: 'ok',
+        blockquotesDataAdmin: quote,
       };
     }
 
