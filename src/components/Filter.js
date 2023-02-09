@@ -54,7 +54,7 @@ function Filter() {
     })();
   }, [location.search]);
   return (
-    <aside className="shopAside col-md-4">
+    <aside className="shopAside">
       <h2 className="shopAsideTitle">Filters</h2>
       <form>
         <div className="shopBtCategory">
