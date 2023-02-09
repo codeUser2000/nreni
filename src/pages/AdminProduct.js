@@ -1,17 +1,23 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Pagination } from '@mui/material';
+import qs from 'query-string';
+import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import AdminWrapper from '../components/AdminWrapper';
 import { getProductDataRequest } from '../store/actions/product';
 import AdminProductComp from '../components/AdminProductComp';
 import CreateModal from '../components/CreateModal';
 
 function AdminProduct() {
+  const location = useLocation();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const query = qs.parse(location.search, { arrayFormat: 'comma' });
   const productsData = useSelector((state) => state.product.productsData);
   const [pageNumber, setPageNumber] = useState(1);
   const [show, setShow] = useState(false);
-  const [searchText, handleSearch] = useState('');
+  const [searchText, setSearch] = useState('');
   const pagination = useSelector((state) => state.product.pagination);
 
   useEffect(() => {
@@ -21,6 +27,37 @@ function AdminProduct() {
     setPageNumber(value);
     await dispatch(getProductDataRequest(pageNumber));
   }, [pagination]);
+
+  const handleSearch = useCallback((ev) => {
+    setSearch(ev);
+    query.searchText = ev;
+    navigate(`?${qs.stringify(query, {
+      arrayFormat: 'comma',
+      skipEmptyString: true,
+    })}`);
+  }, [location.search]);
+
+  useEffect(() => {
+    (async () => {
+      if (query.searchText) {
+        setSearch(query.searchText);
+      }
+      if (query.searchText) {
+        setPageNumber(1);
+        await dispatch(getProductDataRequest(1, '', '', '', query.searchText));
+      }
+    })();
+  }, []);
+  useEffect(() => {
+    (async () => {
+      if (query.searchText) {
+        setPageNumber(1);
+        await dispatch(getProductDataRequest(1, '', '', '', query.searchText));
+      } else {
+        await dispatch(getProductDataRequest(1));
+      }
+    })();
+  }, [location.search]);
 
   return (
     <AdminWrapper>

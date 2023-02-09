@@ -3,7 +3,10 @@ export const GET_PRODUCT_DATA_SUCCESS = 'GET_PRODUCT_DATA_SUCCESS';
 export const GET_PRODUCT_DATA_FAIL = 'GET_PRODUCT_DATA_FAIL';
 
 export function getProductDataRequest(page, min, max, filter, searchText) {
-  const filterArr = filter?.join(',');
+  let filterArr = '';
+  if (filter) {
+    filterArr = filter?.join(',');
+  }
   return {
     type: GET_PRODUCT_DATA_REQUEST,
     payload: {
