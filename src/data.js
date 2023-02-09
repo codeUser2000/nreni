@@ -12,9 +12,6 @@ const menu = [
   }, {
     id: 2,
     name: 'ring',
-    sub: {
-      type: ['ring', 'chain Ring', 'ceramic ring'],
-    },
     src: ring,
   }, {
     id: 3,
@@ -24,9 +21,6 @@ const menu = [
     id: 4,
     name: 'necklace',
     src: necklace,
-    sub: {
-      type: ['necklaces', 'Name Necklaces'],
-    },
   }, {
     id: 5,
     name: 'earring',

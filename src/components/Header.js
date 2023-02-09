@@ -5,6 +5,7 @@ import { getUserProfileRequest } from '../store/actions/users';
 import NavBarMenu from './NavBarMenu';
 import OffCanvasMenu from './OffCanvasMenu';
 import logo from '../assets/img/logo/logo.png';
+import { offCanvasUserData } from '../offCanvasData';
 
 function Header() {
   const dispatch = useDispatch();
@@ -52,6 +53,8 @@ function Header() {
           : (
             <OffCanvasMenu
               show={offCanvasShow}
+              isAdmin={false}
+              data={offCanvasUserData}
               handleClose={() => setOffCanvasShow(false)}
               handleShow={() => setOffCanvasShow(true)}
             />

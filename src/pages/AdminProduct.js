@@ -11,6 +11,7 @@ function AdminProduct() {
   const productsData = useSelector((state) => state.product.productsData);
   const [pageNumber, setPageNumber] = useState(1);
   const [show, setShow] = useState(false);
+  const [searchText, handleSearch] = useState('');
   const pagination = useSelector((state) => state.product.pagination);
 
   useEffect(() => {
@@ -34,9 +35,18 @@ function AdminProduct() {
             Create
           </button>
         </div>
+        <input
+          type="text"
+          style={{ height: 49 }}
+          value={searchText}
+          placeholder="Search products"
+          className="shopSearchInput"
+          onChange={(ev) => handleSearch(ev.target.value)}
+        />
         <table className="adminTable">
           <thead className="adminTableThead">
             <tr className="adminTableTheadTitles">
+              <td>id</td>
               <td>image</td>
               <td>name</td>
               <td>description</td>

@@ -1,9 +1,12 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/img/logo/logo.png';
 import Account from '../helpers/Account';
+import OffCanvasMenu from './OffCanvasMenu';
+import { offCanvasAdminData } from '../offCanvasData';
 
-function AdminHeader() {
+function AdminHeader({ show }) {
+  const [offCanvasShow, setOffCanvasShow] = useState(false);
   const handleLogout = useCallback(() => {
     Account.logoutAdmin();
     window.location.reload(false);
@@ -32,6 +35,17 @@ function AdminHeader() {
                   logout
                 </p>
               </li>
+              {!show ? (
+                <li className="navList">
+                  <OffCanvasMenu
+                    show={offCanvasShow}
+                    data={offCanvasAdminData}
+                    isAdmin
+                    handleClose={() => setOffCanvasShow(false)}
+                    handleShow={() => setOffCanvasShow(true)}
+                  />
+                </li>
+              ) : null}
             </ul>
           </nav>
         </div>

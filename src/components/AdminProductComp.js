@@ -19,6 +19,9 @@ function AdminProductComp({ data }) {
     <>
       <tr>
         <td>
+          {data.id}
+        </td>
+        <td>
           <figure className="adminTableItem">
             <img src={`${REACT_APP_API_URL}${data.avatar}`} alt="a" className="adminTableImg" />
           </figure>
