@@ -21,13 +21,14 @@ function AdminQuotes() {
   const handleDelete = useCallback(async (id) => {
     await dispatch(deleteBlockquoteRequest(id));
   }, []);
-  const handleChange = useCallback((ev, value) => {
+  const handleChange = useCallback(async (ev, value) => {
     setPage(value);
-    dispatch(getAdminBlockquoteDataRequest(page));
+    await dispatch(getAdminBlockquoteDataRequest(page));
   }, [pagination]);
 
-  const handleUpdate = useCallback(async (id) => {
-    await dispatch(setViewBlockquote(id));
+  const handleUpdate = useCallback(async (id, ev) => {
+    await dispatch(setViewBlockquote(id, ev));
+    await dispatch(getAdminBlockquoteDataRequest(page));
   }, []);
 
   return (
@@ -67,9 +68,9 @@ function AdminQuotes() {
                     <button
                       type="button"
                       className="adminQuoteView"
-                      onClick={() => handleUpdate(q.id)}
+                      onClick={() => handleUpdate(q.id, q.view)}
                     >
-                      view
+                      {q.view === 'allowed' ? 'unview' : 'view'}
                     </button>
                   </div>
                 </td>

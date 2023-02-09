@@ -14,7 +14,6 @@ function Cart() {
 
   useEffect(() => {
     if (localStorage.getItem('cartItem')) {
-      console.log(localStorage.getItem('cartItem'));
       setTotal(Math.round(Utils.totalPrice(JSON.parse(localStorage.getItem('cartItem')))));
     }
   }, []);

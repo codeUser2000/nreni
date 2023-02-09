@@ -35,7 +35,6 @@ export default function reducer(state = initialState, action) {
     }
 
     case GET_CART_ITEM_LIST_SUCCESS: {
-      console.log(action.payload.data, 9);
       const { cartItem } = action.payload.data;
       return {
         ...state,

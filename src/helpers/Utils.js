@@ -66,7 +66,6 @@ class Utils {
       count += +c.price;
       return true;
     });
-    console.log(data);
     return count;
   }
 

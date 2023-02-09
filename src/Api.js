@@ -60,7 +60,6 @@ class Api {
 
   // ------PRODUCT-------//
   static getData(data) {
-    console.log(data);
     return api.get(`/products/products?page=${data.page}${data.min ? `&min=${data.min}` : ''}${data.max ? `&max=${data.max}` : ''}${data.filterArr ? `&filter=${data.filterArr}` : ''}${data.searchText ? `&searchText=${data.searchText}` : ''}`, {
       headers: {
         'Content-Type': 'image/jpeg',
@@ -174,8 +173,8 @@ class Api {
     return api.post('/blockquote/deleteBlockquote', { id });
   }
 
-  static setViewBlockquote(id) {
-    return api.post('/blockquote/setBlockquoteView', { id });
+  static setViewBlockquote(id, ev) {
+    return api.post('/blockquote/setBlockquoteView', { id, ev });
   }
 
   // --------PAYMENT--------//

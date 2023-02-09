@@ -7,7 +7,7 @@ import {
   DELETE_BLOCKQUOTE_FAIL,
   GET_ADMIN_BLOCKQUOTE_DATA_REQUEST,
   GET_ADMIN_BLOCKQUOTE_DATA_SUCCESS,
-  GET_ADMIN_BLOCKQUOTE_DATA_FAIL,
+  GET_ADMIN_BLOCKQUOTE_DATA_FAIL, SET_VIEW_BLOCKQUOTE_SUCCESS,
 } from '../actions/blockquote';
 
 const initialState = {
@@ -31,6 +31,15 @@ export default function reducer(state = initialState, action) {
 
     case GET_BLOCKQUOTE_DATA_SUCCESS: {
       const { quote } = action.payload;
+      return {
+        ...state,
+        blockquotesDataStatus: 'ok',
+        blockquotesData: quote,
+      };
+    }
+    case SET_VIEW_BLOCKQUOTE_SUCCESS: {
+      const { quote } = action.payload.data;
+      console.log(quote);
       return {
         ...state,
         blockquotesDataStatus: 'ok',

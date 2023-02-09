@@ -83,7 +83,7 @@ function* handleDeleteBlockquoteRequest(action) {
 
 function* handleViewBlockquoteRequest(action) {
   try {
-    const { data } = yield call(Api.setViewBlockquote, action.payload.id);
+    const { data } = yield call(Api.setViewBlockquote, action.payload.id, action.payload.ev);
     toast.success('Quote is set successfully');
     yield put({
       type: SET_VIEW_BLOCKQUOTE_SUCCESS,

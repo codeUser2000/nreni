@@ -73,7 +73,6 @@ function CreateModal({
   useEffect(() => {
     if (!_.isEmpty(data)) {
       data.category = data.categories.type;
-      console.log(data);
       setFormData(data);
     }
   }, [data]);
