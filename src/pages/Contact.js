@@ -46,8 +46,20 @@ function Contact() {
             <h2 className="contactTitle">Get In Touch</h2>
             <form onSubmit={handleSubmit} className="contactForm">
               <p className="contactInfo">Leave us a message!</p>
-              <input className="contactInput" onChange={(ev) => handleChange('firstName', ev.target.value)} value={formData.firstName} type="text" placeholder="Your First Name" />
-              <input className="contactInput" onChange={(ev) => handleChange('lastName', ev.target.value)} value={formData.lastName} type="text" placeholder="Your Last Name" />
+              <input
+                className="contactInput"
+                onChange={(ev) => handleChange('firstName', ev.target.value)}
+                value={formData.firstName}
+                type="text"
+                placeholder="Your First Name"
+              />
+              <input
+                className="contactInput"
+                onChange={(ev) => handleChange('lastName', ev.target.value)}
+                value={formData.lastName}
+                type="text"
+                placeholder="Your Last Name"
+              />
               <textarea
                 value={formData.message}
                 onChange={(ev) => handleChange('message', ev.target.value)}
@@ -60,14 +72,20 @@ function Contact() {
             <div className="contactSoc">
               <Link to="/clean" className="contactLink">
                 <LocalPhoneIcon />
+                {' '}
                 +374 (98) 804824
               </Link>
-              <Link to="https://instagram.com/silver_nreni?igshid=YmMyMTA2M2Y=" className="contactLink">
+              <Link
+                to="https://instagram.com/silver_nreni?igshid=YmMyMTA2M2Y="
+                className="contactLink"
+              >
                 <InstagramIcon />
+                {' '}
                 @silver_nreni
               </Link>
               <Link to="https://www.facebook.com/nreni.jeweler" className="contactLink">
                 <FacebookIcon />
+                {' '}
                 Silver Nreni
               </Link>
             </div>

@@ -156,7 +156,6 @@ function Register() {
               </button>
               <button
                 type="submit"
-                className="regFormBtn"
                 id="signInGoogle"
               >
                 sign up google

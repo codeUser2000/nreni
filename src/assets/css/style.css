@@ -808,6 +808,14 @@ table {
   border-bottom: 2px solid #c31e39;
   animation: input 1.5s ease-in-out 0s forwards; }
 
+#signInGoogle {
+  border: none;
+  margin: 0 auto;
+  background-color: #ffece5; }
+
+.S9gUrf-YoZ4jf {
+  background-color: #ffece5; }
+
 .forgotPassword {
   color: #4a4a4a;
   font-weight: 400;
@@ -2410,6 +2418,7 @@ p {
   .logoName {
     font-size: 23px; }
 
+  .profileTitle,
   .singleTitle,
   .aboutCleaningMainTitle,
   .aboutMainTitle,
@@ -2604,13 +2613,57 @@ p {
   .singleInfoPrice {
     font-size: 19px; }
 
+  .red {
+    background-color: #ffece5; }
+
+  .contact,
+  .contact .container,
+  .registrationPage,
+  .registrationPage .container,
   .logIn .container,
   .logIn {
     padding: 0;
     background-color: #fff; }
 
+  .contactPage,
+  .regPage,
   .loginPage {
+    width: 100%;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none; }
+
+  .contactLogo {
+    display: none; }
+
+  .contactPage {
+    flex-direction: column; }
+
+  .contactMap {
+    width: 100%;
+    height: 300px; }
+
+  .contactDesk {
     width: 100%; }
+
+  .contactForm {
+    padding: 0;
+    margin: 0 auto; }
+
+  .contactBtn {
+    margin-bottom: 40px; }
+
+  .contactSoc {
+    flex-direction: column; }
+
+  .contactLink {
+    color: #c31e39; }
+
+  .customerInactive {
+    color: #c31e39; }
+
+  .customerWelcome {
+    font-size: 17px; }
 
   .footer {
     padding: 50px 15px; }
