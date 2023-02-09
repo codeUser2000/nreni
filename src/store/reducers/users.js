@@ -127,13 +127,6 @@ export default function reducer(state = initialState, action) {
       };
     }
 
-    case CREATE_USER_SUCCESS: {
-      Account.setToken(action.payload.data.token);
-      return {
-        ...state,
-        usersDataStatus: 'ok',
-      };
-    }
     case CREATE_USER_FAIL: {
       const { errors } = action.payload.error.data;
       // eslint-disable-next-line guard-for-in,no-restricted-syntax

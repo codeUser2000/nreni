@@ -25,7 +25,7 @@ function Register() {
     formData[key] = value;
     setFormData({ ...formData });
   }, [formData]);
-  const handleSubmit = useCallback((ev) => {
+  const handleSubmit = useCallback(async (ev) => {
     ev.preventDefault();
     const emailReg = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
     const passReg = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
@@ -57,13 +57,12 @@ function Register() {
         return;
       }
     }
-    dispatch(createUserRequest(formData));
+    await dispatch(createUserRequest(formData));
     if (formData.status === 'active') {
       navigate('/login');
     }
   }, [formData, password2]);
   const handleCallback = useCallback((res) => {
-    console.log(jwtDecode(res.credential));
     const userInfo = jwtDecode(res.credential);
     setFormData({
       firstName: userInfo.given_name,
