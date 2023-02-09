@@ -18,7 +18,7 @@ function OffCanvasMenu({
 }) {
   return (
     <div>
-      <Offcanvas className="menuBar" show={show} onHide={handleClose}>
+      <Offcanvas className="menuBar" show={show} onHide={handleClose} placement="end">
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>
             <figure
