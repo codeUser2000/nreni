@@ -80,9 +80,10 @@ function Single() {
       <main className="single">
         <div className="container">
           <h1 className="singleTitle">We hope You&apos;ll like it !</h1>
+          <p className='singleMainInfo'>Here some information about product you like!</p>
           <div className="singlePage">
             <figure className="singleItem">
-              <img src={REACT_APP_API_URL + single.avatar} className="singleImg" alt="" />
+              <img src={REACT_APP_API_URL + single.avatar} className="singleImg" alt=""/>
             </figure>
             <div className="singleInfo">
               <div className="singleMain">

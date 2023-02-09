@@ -765,7 +765,7 @@ table {
 .aboutInfo {
   width: 50%;
   font-weight: 100;
-  font-size: 1.5vw;
+  font-size: 16px;
 }
 
 .aboutCleaningFigure,
@@ -1415,13 +1415,13 @@ p {
 
 .shopTitle {
   width: 100%;
-  font-size: 5.5vw;
+  font-size: 60px;
   font-weight: bold;
   font-family: 'Fuzzy Bubbles', sans-serif;
 }
 
 .shopSlogan {
-  font-size: 1.7vw;
+  font-size: 20px;
   font-weight: 300;
   letter-spacing: 1px;
   margin-bottom: 15px;
@@ -1722,10 +1722,20 @@ p {
 
 .singleTitle {
   color: #c31e39;
-  font-size: 34px;
+  font-size: 50px;
+  font-weight: 400;
   text-align: center;
-  margin-bottom: 40px;
-  text-transform: uppercase;
+  margin-bottom: 30px;
+  text-transform: capitalize;
+}
+
+.singleMainInfo {
+  color: #c31e39;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 90px;
+  text-transform: capitalize;
 }
 
 .singlePage {
