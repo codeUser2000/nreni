@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import Carousel from 'nuka-carousel';
 import { useDispatch, useSelector } from 'react-redux';
@@ -17,12 +17,28 @@ import Product from '../components/Product';
 function Home() {
   const productData = useSelector((state) => state.product.productsData);
   const quote = useSelector((state) => state.blockquote.blockquotesData);
+  const [count, setCount] = useState(4);
   const dispatch = useDispatch();
   useEffect(() => {
     (async () => {
       await dispatch(getProductDataRequest(1));
       await dispatch(getBlockquoteDataRequest());
     })();
+  }, []);
+
+  const handleWindowResize = useCallback(() => {
+    if (window.innerWidth <= 800) {
+      setCount(1);
+    } else {
+      setCount(3);
+    }
+  }, []);
+  useEffect(() => {
+    handleWindowResize();
+    window.addEventListener('resize', handleWindowResize);
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
   }, []);
   return (
     <Wrapper>
@@ -64,7 +80,7 @@ function Home() {
                   dragging="true"
                   pauseOnHover="true"
                   wrapAround="true"
-                  slidesToShow={3}
+                  slidesToShow={count}
                   cellSpacing={20}
                   defaultControlsConfig={{
                     prevButtonText: <ArrowBackIosNewIcon />,
