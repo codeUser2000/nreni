@@ -36,19 +36,22 @@ function Header() {
 
   return (
     <header className="header">
-      <figure className="logo">
-        <img src={logo} alt="nreni" className="logoImg" />
-        <p className="logoName">NRENI</p>
-      </figure>
-      {!show ? <NavBarMenu />
-        : (
-          <OffCanvasMenu
-            show={offCanvasShow}
-            handleClose={() => setOffCanvasShow(false)}
-            handleShow={() => setOffCanvasShow(true)}
-          />
-        )}
-
+      <div className="container">
+        <div className="row">
+          <figure className="logo">
+            <img src={logo} alt="nreni" className="logoImg"/>
+            <p className="logoName">NRENI</p>
+          </figure>
+          {!show ? <NavBarMenu/>
+            : (
+              <OffCanvasMenu
+                show={offCanvasShow}
+                handleClose={() => setOffCanvasShow(false)}
+                handleShow={() => setOffCanvasShow(true)}
+              />
+            )}
+        </div>
+      </div>
     </header>
   );
 }

@@ -1,4 +1,28 @@
 //HOME
+
+.logoImg {
+  width: 35px;
+  height: 35px;
+}
+
+.logoName {
+  font-size: 23px;
+}
+
+.aboutMainTitle,
+.blockquoteTitle,
+.newTitle {
+  font-size: 29px;
+  margin-bottom: 25px;
+}
+
+.aboutMainInfo,
+.blockquoteInfo,
+.newHomeInfo {
+  font-size: 17px;
+  margin-bottom: 50px;
+}
+
 .bannerRow {
   flex-direction: column;
 }
@@ -106,16 +130,6 @@
   text-transform: capitalize;
 }
 
-.blockquoteTitle,
-.newTitle {
-  font-size: 29px;
-}
-
-.blockquoteInfo,
-.newHomeInfo {
-  font-size: 17px;
-  margin-bottom: 50px;
-}
 
 .quotesBlock {
   padding: 35px;
@@ -138,3 +152,48 @@
   font-size: 15px;
   font-weight: 500;
 }
+
+.quoteLine {
+  margin-top: -10px;
+  width: calc(100% / 4);
+  border: 1px solid #c31e39;
+  background-color: #c31e39;
+}
+
+//ABOUT
+.aboutBlock {
+  //padding: 50px 15px;
+}
+
+.aboutTitle {
+  font-size: 24px;
+}
+
+.aboutFigure {
+  flex-direction: column;
+}
+
+//FOOTER
+.footer {
+  padding: 50px 15px;
+}
+
+.footerRow {
+  flex-direction: column;
+}
+
+.footerBlock {
+  width: 100%;
+  margin-bottom: 35px;
+}
+
+.footerTitle {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.footerSocDesk {
+  font-size: 18px;
+}
+
+
