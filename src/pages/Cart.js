@@ -4,9 +4,11 @@ import Wrapper from '../components/Wrapper';
 import CartItems from '../components/CartItems';
 import Utils from '../helpers/Utils';
 import { checkoutPaymentRequest } from '../store/actions/others';
+import { useNavigate } from 'react-router';
 
 function Cart() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [total, setTotal] = useState(0);
   const cartToken = useSelector((state) => state.cart.userCartData);
 
@@ -19,7 +21,7 @@ function Cart() {
 
   const handleCheckout = useCallback(async () => {
     if (localStorage.getItem('cartItem')) {
-      console.log(localStorage.getItem('cartItem').length);
+      navigate('/login');
     } else {
       await dispatch(checkoutPaymentRequest(Utils.setPaymentCartData(cartToken)));
     }

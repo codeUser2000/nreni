@@ -29,11 +29,6 @@ function Shop() {
 
   useEffect(() => {
     (async () => {
-      await dispatch(getProductDataRequest(pageNumber));
-    })();
-  }, [pageNumber]);
-  useEffect(() => {
-    (async () => {
       if (query.searchText) {
         setSearch(query.searchText);
       }
@@ -57,16 +52,16 @@ function Shop() {
 
   const handleChange = useCallback(async (ev, value) => {
     setPageNumber(value);
-    await dispatch(getProductDataRequest(pageNumber));
+    await dispatch(getProductDataRequest(value));
   }, [pagination]);
 
   return (
     <Wrapper>
       <div className="shop">
-        <ShopSection/>
+        <ShopSection />
         <div className="container">
           <div className="row">
-            <Filter/>
+            <Filter />
             <section className="shopSection">
               <div className="shopSearch">
                 <input
@@ -82,12 +77,12 @@ function Shop() {
                 {productData.length
                   ? productData.map((n) => {
                     if (n.countProduct > 0) {
-                      return <Product key={n.id} data={n}/>;
+                      return <Product key={n.id} data={n} />;
                     }
                     return true;
                   }) : 'There is no any product...'}
               </div>
-              <Pagination count={+pagination} page={pageNumber} onChange={handleChange}/>
+              <Pagination count={+pagination} page={pageNumber} onChange={handleChange} />
             </section>
           </div>
         </div>
