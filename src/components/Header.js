@@ -36,21 +36,26 @@ function Header() {
 
   return (
     <header className="header">
-      <div className="container">
-        <div className="row">
-          <figure className="logo">
-            <img src={logo} alt="nreni" className="logoImg"/>
-            <p className="logoName">NRENI</p>
-          </figure>
-          {!show ? <NavBarMenu/>
-            : (
-              <OffCanvasMenu
-                show={offCanvasShow}
-                handleClose={() => setOffCanvasShow(false)}
-                handleShow={() => setOffCanvasShow(true)}
-              />
-            )}
-        </div>
+      <div
+        className="container"
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}
+      >
+        <figure className="logo">
+          <img src={logo} alt="nreni" className="logoImg" />
+          <p className="logoName">NRENI</p>
+        </figure>
+        {!show ? <NavBarMenu />
+          : (
+            <OffCanvasMenu
+              show={offCanvasShow}
+              handleClose={() => setOffCanvasShow(false)}
+              handleShow={() => setOffCanvasShow(true)}
+            />
+          )}
       </div>
     </header>
   );
