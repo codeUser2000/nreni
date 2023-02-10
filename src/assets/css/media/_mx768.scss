@@ -20,26 +20,46 @@
 
 //HOME
 //banner
-.banner2Figure {
-  width: 500px;
-  height: 400px;
-}
 
-.bannerDesk {
-  padding: 0 0 0 20px;
+.bannerRow {
+  flex-direction: column;
+  padding: 40px 15px 30px 15px;
 }
 
 .bannerTitle {
-  font-size: 30px;
+  //font-size: 50px;
+  margin-bottom: 20px;
 }
 
+.banner2Desk,
+.bannerDesk {
+  width: 100%;
+  text-align: center;
+}
+
+.bannerDesk {
+  padding: 0 80px 0;
+}
+
+.bannerBtn {
+  margin-bottom: 40px;
+}
+
+.banner2Figure {
+  width: 400px;
+  height: 400px;
+  margin-bottom: 40px;
+}
+
+
 .bannerFigure {
-  width: 450px;
-  height: 350px;
+  width: 400px;
+  height: 400px;
+  margin-bottom: 10px;
 }
 
 .banner2Info {
-  font-size: 20px;
+  font-size: 22px;
 }
 
 .bannerDiscounts {
@@ -80,6 +100,105 @@
   font-size: 25px;
   padding: 0 0 15px;
   text-transform: capitalize;
+}
+
+//LOGIN & REGISTER & CONTACT
+.red {
+  background-color: #ffece5;
+}
+
+.contact,
+.contact .container,
+.registrationPage,
+.registrationPage .container,
+.logIn .container,
+.logIn {
+  padding: 0;
+  background-color: #fff;
+}
+
+.contactPage,
+.regPage,
+.loginPage {
+  width: 100%;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+}
+
+.contactLogo {
+  display: none;
+}
+
+.contactPage {
+  flex-direction: column;
+}
+
+.contactMap {
+  width: 100%;
+  height: 300px;
+}
+
+.contactDesk {
+  width: 100%;
+}
+
+.contactForm {
+  padding: 0;
+  margin: 0 auto
+}
+
+.contactBtn {
+  margin-bottom: 40px;
+}
+
+.contactSoc {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.contactLink {
+  color: #c31e39;
+}
+
+
+.contactForm,
+.regForm,
+.loginForm {
+  padding: 30px 70px 30px;
+}
+
+//ABOUT
+.aboutCleaningBlock,
+.aboutBlock {
+  padding: 20px;
+}
+
+.aboutClean {
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+
+.aboutCleaningTitle,
+.aboutTitle {
+  font-size: 24px;
+  padding: 0 0 15px;
+}
+
+.aboutCleaningFigure,
+.aboutFigure {
+  flex-direction: column;
+}
+
+.aboutCleaningVideo,
+.aboutCleaningImg,
+.aboutCleaningInfo,
+.aboutInfo,
+.aboutImg {
+  width: 100%;
+  margin: 0 0 30px 0;
 }
 
 //SHOP
