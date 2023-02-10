@@ -66,6 +66,9 @@ body {
 .offcanvas-header {
   padding: 30px 30px 20px; }
 
+.headerLogoLink {
+  text-decoration: none; }
+
 .logoLink {
   width: 100%;
   display: flex;

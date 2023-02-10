@@ -83,12 +83,17 @@ body {
   padding: 30px 30px 20px;
 }
 
+.headerLogoLink {
+  text-decoration: none;
+}
+
 .logoLink {
   width: 100%;
   display: flex;
   align-items: center;
   flex-direction: row;
   text-decoration: none;
+
 }
 
 .logoImg {
