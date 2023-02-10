@@ -19,7 +19,7 @@ function MyCarouselComp2() {
         </button>
       </div>
       <figure className="banner2Figure">
-        <img className="banner2Img" src={banner2} alt="" />
+        <img className="banner2Img" src={banner2} alt=""/>
       </figure>
     </div>
   );
