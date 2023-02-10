@@ -1457,7 +1457,7 @@ p {
   width: 30%;
 }
 
-.shopProduct{
+.shopProduct {
   width: 300px;
 }
 
@@ -2260,6 +2260,21 @@ p {
 
 
 /*ADMIN*/
+.modal-content .card {
+  width: 100%;
+}
+
+.card-title {
+  color: #c31e39;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.userCardItems {
+  margin-bottom: 10px;
+}
+
 .adminHeader {
   width: 100%;
   background-color: #ffece5;
