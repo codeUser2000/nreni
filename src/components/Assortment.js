@@ -48,21 +48,24 @@ function Assortment() {
             </figure>
             <div className="assortmentDesk">
               <p className="assortmentInfo">Necklaces</p>
-              <button type="button" className="assortmentBtn">
-                <Link to="/shop" className="assortmentLink">Shop now</Link>
+              {/* <button type="button" className="assortmentBtn"> */}
+              {/*  <Link to="/shop" className="assortmentLink">Shop now</Link> */}
+              {/* </button> */}
+              <button type="button" className="assortmentButton">
+                <Link to="/shop" className="assortmentLink">Shop</Link>
               </button>
             </div>
           </div>
           <div className="assortmentColumnDesk">
             <figure className="assortmentItem">
-              <img src={nameNecklace} alt="" className="assortmentImg" />
+              <img src={nameNecklace} alt="" className="assortmentImg"/>
             </figure>
           </div>
         </div>
         <div className="assortmentColumn3">
           <div className="assortmentColumnDesk">
             <figure className="assortmentItem">
-              <img src={earring} alt="" className="assortmentImg" />
+              <img src={earring} alt="" className="assortmentImg"/>
             </figure>
             <p className="assortmentInfo">
               Earrings
@@ -70,7 +73,7 @@ function Assortment() {
           </div>
           <div className="assortmentColumnDesk">
             <figure className="assortmentItem">
-              <img src={bracelet} alt="" className="assortmentImg" />
+              <img src={bracelet} alt="" className="assortmentImg"/>
             </figure>
             <p className="assortmentInfo">
               Bracelets

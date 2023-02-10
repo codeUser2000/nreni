@@ -343,7 +343,8 @@ table {
   flex-direction: column;
   background-color: #ffece5; }
 
-.assortmentBtn {
+.assortmentButton {
+  width: 100%;
   height: 40px;
   padding: 0 40px;
   border-radius: 50px;
@@ -361,10 +362,10 @@ table {
   text-decoration: none;
   text-transform: capitalize; }
 
-.assortmentBtn:hover {
+.assortmentButton:hover {
   background-color: #c31e39; }
 
-.assortmentBtn:hover .assortmentLink {
+.assortmentButton:hover .assortmentLink {
   color: #ffece5; }
 
 .assortmentDesk .assortmentInfo {

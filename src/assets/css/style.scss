@@ -419,8 +419,8 @@ table {
   background-color: #ffece5;
 }
 
-
-.assortmentBtn {
+.assortmentButton {
+  width: 100%;
   height: 40px;
   padding: 0 40px;
   border-radius: 50px;
@@ -429,6 +429,7 @@ table {
   border: 2px solid #c31e39;
   background-color: #ffece5;
 }
+
 
 .assortmentLink {
   width: 100%;
@@ -440,11 +441,11 @@ table {
   text-transform: capitalize;
 }
 
-.assortmentBtn:hover {
+.assortmentButton:hover {
   background-color: #c31e39;
 }
 
-.assortmentBtn:hover .assortmentLink {
+.assortmentButton:hover .assortmentLink {
   color: #ffece5;
 }
 
