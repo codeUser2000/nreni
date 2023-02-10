@@ -8,9 +8,9 @@ import _ from 'lodash';
 import Wrapper from '../components/Wrapper';
 import Account from '../helpers/Account';
 import { deleteUserSelfRequest, getUserProfileRequest } from '../store/actions/users';
-import CartItems from '../components/CartItems';
 import AddNewAddresses from './AddNewAddresses';
-import Api from '../Api';
+import { getOrderListUserRequest } from '../store/actions/others';
+import OrderItems from '../components/OrderItems';
 
 function Profile() {
   const navigate = useNavigate();
@@ -18,6 +18,7 @@ function Profile() {
   const [show, setShow] = useState(false);
   const user = useSelector((state) => state.users.singleUserData);
   const userStatus = useSelector((state) => state.users.singleUserDataStatus);
+  const orders = useSelector((state) => state.others.orderDataUser);
 
   useEffect(() => {
     (async () => {
@@ -25,7 +26,7 @@ function Profile() {
         navigate('/login');
       } else {
         await dispatch(getUserProfileRequest());
-        await Api.getSingleOrders({ page: 1 });
+        await dispatch(getOrderListUserRequest(1));
       }
     })();
   }, []);
@@ -111,7 +112,7 @@ function Profile() {
               </div>
               <div className="customerOrder">
                 <h4 className="customerTitle">my orders</h4>
-                {user.cart?.cartItem?.length
+                {orders?.length
                   ? (
                     <table className="cartTable">
                       <thead className="cartTableThead">
@@ -119,11 +120,11 @@ function Profile() {
                           <td>Description</td>
                           <td>Quantity</td>
                           <td>Price</td>
-                          <td className="">remove</td>
+                          <td className="">Status</td>
                         </tr>
                       </thead>
                       <tbody className="cartTableTbody">
-                        <CartItems />
+                        <OrderItems />
                       </tbody>
                     </table>
                   )

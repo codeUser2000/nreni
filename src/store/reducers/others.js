@@ -2,11 +2,16 @@ import {
   GET_ORDER_LIST_ADMIN_FAIL,
   GET_ORDER_LIST_ADMIN_REQUEST,
   GET_ORDER_LIST_ADMIN_SUCCESS,
+  GET_ORDER_LIST_USER_FAIL,
+  GET_ORDER_LIST_USER_REQUEST,
+  GET_ORDER_LIST_USER_SUCCESS,
 } from '../actions/others';
 
 const initialState = {
   orderData: [],
   orderDataStatus: '',
+  orderDataUser: [],
+  orderDataUserStatus: '',
   pagination: 1,
 };
 
@@ -35,6 +40,39 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         orderDataStatus: 'fail',
+      };
+    }
+    case GET_ORDER_LIST_USER_REQUEST: {
+      return {
+        ...state,
+        orderDataUser: [],
+        orderDataUserStatus: 'request',
+      };
+    }
+
+    case GET_ORDER_LIST_USER_SUCCESS: {
+      const { orders } = action.payload.data;
+      const allProduct = [];
+      orders.map((o) => {
+        o.products.map((p) => {
+          p.deliveryStatus = o.deliveryStatus;
+          return p;
+        });
+        allProduct.push(...o.products);
+        return true;
+      });
+      return {
+        ...state,
+        orderDataUserStatus: 'ok',
+        orderDataUser: allProduct,
+        pagination: action.payload.data.totalPages,
+      };
+    }
+
+    case GET_ORDER_LIST_USER_FAIL: {
+      return {
+        ...state,
+        orderDataUserStatus: 'fail',
       };
     }
     default: {
