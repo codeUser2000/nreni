@@ -31,35 +31,48 @@ function BasicExample({ id = 7 }) {
           {user.lastName}
         </Card.Title>
         <Card.Text>
-          <p className="userCardItems">
-            <Inventory2Icon style={{ fill: ' #c31e39' }} />
-            {' '}
-            {user.postal ? user.postal : null}
-          </p>
-          <p className="userCardItems">
-            <CalendarMonthIcon style={{ fill: ' #c31e39' }} />
-            {' '}
-            {user.birthYear ? user.birthYear : null}
-          </p>
-          <p className="userCardItems">
-            <PermPhoneMsgIcon style={{ fill: ' #c31e39' }} />
-            {' '}
-            {user.phone ? user.phone : null}
-          </p>
-          <p className="userCardItems">
-            <LocalPostOfficeIcon style={{ fill: ' #c31e39' }} />
-            {' '}
-            {user.email}
-          </p>
-          <p className="userCardItems" style={{ textTransform: 'capitalize' }}>
-            <ImportContactsIcon style={{ fill: ' #c31e39' }} />
-            {' '}
-            {user.country ? user.country : null}
-            {' '}
-            {user.city ? user.city : null}
-            {' '}
-            {user.street ? user.street : null}
-          </p>
+          {user.postal
+            ? (
+              <p className="userCardItems">
+                <Inventory2Icon style={{ fill: ' #c31e39' }} />
+                {' '}
+                {user.postal}
+              </p>
+            )
+            : null}
+          {user.birthYear ? (
+            <p className="userCardItems">
+              <CalendarMonthIcon style={{ fill: ' #c31e39' }} />
+              {' '}
+              {user.birthYear}
+            </p>
+          ) : null}
+          {user.phone ? (
+            <p className="userCardItems">
+              <PermPhoneMsgIcon style={{ fill: ' #c31e39' }} />
+              {' '}
+              {user.phone}
+            </p>
+          ) : null}
+          {user.email ? (
+            <p className="userCardItems">
+              <LocalPostOfficeIcon style={{ fill: ' #c31e39' }} />
+              {' '}
+              {user.email}
+            </p>
+          ) : null}
+
+          {user.country || user.city || user.street ? (
+            <p className="userCardItems" style={{ textTransform: 'capitalize' }}>
+              <ImportContactsIcon style={{ fill: ' #c31e39' }} />
+              {' '}
+              {user.country}
+              {' '}
+              {user.city}
+              {' '}
+              {user.street}
+            </p>
+          ) : null}
         </Card.Text>
       </Card.Body>
     </Card>
