@@ -61,6 +61,8 @@ export default function reducer(state = initialState, action) {
         allProduct.push(...o.products);
         return true;
       });
+
+      console.log(allProduct);
       return {
         ...state,
         orderDataUserStatus: 'ok',

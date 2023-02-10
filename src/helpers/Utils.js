@@ -75,13 +75,14 @@ class Utils {
       final.push({
         price: d.price,
         quantity: d.quantity,
-        product: {
-          id: d.product.id,
-          title: d.product.title,
-          description: d.product.description,
-          avatar: d.product.avatar,
-          newPrice: d.product.newPrice,
-        },
+        productId: d.product.id,
+        // {
+        // id: d.product.id,
+        // title: d.product.title,
+        // description: d.product.description,
+        // avatar: d.product.avatar,
+        // newPrice: d.product.newPrice,
+        // },
       });
       return true;
     });
