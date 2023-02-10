@@ -31,22 +31,19 @@
 //banner
 .bannerRow {
   flex-direction: column;
-}
-
-.bannerRow {
   padding: 40px 15px 30px 15px;
 }
 
 .banner2Figure {
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
   margin-bottom: 40px;
 }
 
 
 .bannerFigure {
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
   margin-bottom: 10px;
 }
 
@@ -165,6 +162,105 @@
   width: calc(100% / 4);
   border: 1px solid #c31e39;
   background-color: #c31e39;
+}
+
+
+//LOGIN & REGISTER & CONTACT
+.red {
+  background-color: #ffece5;
+}
+
+.contact,
+.contact .container,
+.registrationPage,
+.registrationPage .container,
+.logIn .container,
+.logIn {
+  padding: 0;
+  background-color: #fff;
+}
+
+.contactPage,
+.regPage,
+.loginPage {
+  width: 100%;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+}
+
+.contactLogo {
+  display: none;
+}
+
+.contactPage {
+  flex-direction: column;
+}
+
+.contactMap {
+  width: 100%;
+  height: 300px;
+}
+
+.contactDesk {
+  width: 100%;
+}
+
+.contactForm {
+  padding: 0;
+  margin: 0 auto
+}
+
+.contactBtn {
+  margin-bottom: 40px;
+}
+
+.contactSoc {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.contactForm,
+.regForm,
+.loginForm {
+  padding: 30px 20px 30px;
+}
+
+.contactLink {
+  color: #c31e39;
+}
+
+//ABOUT
+.aboutCleaningBlock,
+.aboutBlock {
+  padding: 20px;
+}
+
+.aboutClean {
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+
+.aboutCleaningTitle,
+.aboutTitle {
+  font-size: 24px;
+  padding: 0 0 15px;
+}
+
+.aboutCleaningFigure,
+.aboutFigure {
+  flex-direction: column;
+}
+
+.aboutCleaningVideo,
+.aboutCleaningImg,
+.aboutCleaningInfo,
+.aboutInfo,
+.aboutImg {
+  width: 100%;
+  margin: 0 0 30px 0;
 }
 
 

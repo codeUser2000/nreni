@@ -15,7 +15,7 @@ function MyCarouselComp({ data }) {
         </p>
         <button className="bannerBtn">
           <Link className="bannerLink" to="/shop">
-            Shop now
+            shop now
           </Link>
         </button>
       </div>

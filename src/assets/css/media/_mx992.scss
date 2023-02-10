@@ -1,3 +1,53 @@
+//ABOUT
+.aboutClean {
+  padding: 15px;
+}
+
+.aboutCleanTitle {
+  font-size: 17px;
+}
+
+
+//CONTACT & LOGIN & REGISTER
+.contactPage,
+.regPage,
+.loginPage {
+  width: 70%;
+}
+
+.contactPage {
+  flex-direction: column;
+}
+
+
+.contactLogo {
+  display: none;
+}
+
+.contactPage {
+  flex-direction: column;
+}
+.contact {
+  padding: 50px;
+}
+.contactMap {
+  width: 100%;
+  height: 300px;
+}
+
+.contactDesk {
+  width: 100%;
+}
+
+.contactBtn {
+  margin-bottom: 40px;
+}
+
+.contactLink {
+  color: #c31e39;
+}
+
+
 //SHOP
 .shopProduct {
   width: calc(100% / 2);

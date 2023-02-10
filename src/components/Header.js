@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Account from '../helpers/Account';
 import { getUserProfileRequest } from '../store/actions/users';
 import NavBarMenu from './NavBarMenu';
@@ -45,11 +46,13 @@ function Header() {
           alignItems: 'center',
         }}
       >
-        <figure className="logo">
-          <img src={logo} alt="nreni" className="logoImg" />
-          <p className="logoName">NRENI</p>
-        </figure>
-        {!show ? <NavBarMenu />
+        <Link to="/home" className='headerLogoLink'>
+          <figure className="logo">
+            <img src={logo} alt="nreni" className="logoImg"/>
+            <p className="logoName">NRENI</p>
+          </figure>
+        </Link>
+        {!show ? <NavBarMenu/>
           : (
             <OffCanvasMenu
               show={offCanvasShow}
