@@ -58,10 +58,10 @@ function Shop() {
   return (
     <Wrapper>
       <div className="shop">
-        <ShopSection />
+        <ShopSection/>
         <div className="container">
           <div className="row">
-            <Filter />
+            <Filter/>
             <section className="shopSection">
               <div className="shopSearch">
                 <input
@@ -73,16 +73,16 @@ function Shop() {
                 />
               </div>
 
-              <div className="shopProductsRow row">
+              <div className="shopProductsRow">
                 {productData.length
                   ? productData.map((n) => {
                     if (n.countProduct > 0) {
-                      return <Product key={n.id} data={n} />;
+                      return <Product key={n.id} data={n}/>;
                     }
                     return true;
                   }) : 'There is no any product...'}
               </div>
-              <Pagination count={+pagination} page={pageNumber} onChange={handleChange} />
+              <Pagination count={+pagination} page={pageNumber} onChange={handleChange}/>
             </section>
           </div>
         </div>

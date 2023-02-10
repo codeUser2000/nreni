@@ -313,6 +313,16 @@
   color: #c31e39;
 }
 
+//SHOP
+.shop .row {
+  flex-direction: column;
+}
+
+.shopProduct,
+.shopSection,
+.shopAside {
+  width: 100%;
+}
 
 //PROFILE
 .customerInactive {

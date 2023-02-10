@@ -105,13 +105,16 @@ function Footer() {
                   <Link to="/home" className="footerNavLink">Home</Link>
                 </li>
                 <li className="footerNavList">
-                  <Link to="/about" className="footerNavLink">About</Link>
+                  <Link to="/about" className="footerNavLink">About us</Link>
                 </li>
                 <li className="footerNavList">
                   <Link to="/shop" className="footerNavLink">Shop</Link>
                 </li>
                 <li className="footerNavList">
                   <Link to="/contact" className="footerNavLink">Contact</Link>
+                </li>
+                <li className="footerNavList">
+                  <Link to="/clean" className="footerNavLink">Clean Silver</Link>
                 </li>
               </ul>
             </div>

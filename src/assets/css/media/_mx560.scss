@@ -1,1 +1,53 @@
+//SHOP
+.shop .row {
+  flex-direction: column;
+}
 
+.shopAside,
+.shopSection {
+  width: 100%;
+}
+
+.shopProductsRow {
+  flex-direction: row;
+}
+
+.shopProduct {
+  width: calc(100% / 2);
+}
+
+//FOOTER
+.footer {
+  padding: 50px 15px;
+}
+
+.footerRow {
+  flex-direction: column;
+}
+
+.footerBlock {
+  width: 100%;
+  margin-bottom: 35px;
+}
+
+.footerEndBlock {
+  width: 100%;
+}
+
+.footerTitle {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.footerSocDesk {
+  font-size: 18px;
+}
+
+.footerSocDesk {
+  padding: 0;
+  margin-top: -10px;
+}
+
+.footerContactLink {
+  font-size: 15px;
+}

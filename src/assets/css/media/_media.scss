@@ -10,14 +10,14 @@
   @import "mx992";
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 768px) {
   @import "mx768";
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 560px) {
   @import "mx560";
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 375px) {
   @import "mx375";
 }
