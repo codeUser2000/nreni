@@ -6,7 +6,7 @@ function MyCarouselComp({ data }) {
   return (
     <div className="bannerRow">
       <figure className="bannerFigure">
-        <img className="bannerImg" src={banner} alt=""/>
+        <img className="bannerImg" src={banner} alt="" />
       </figure>
       <div className="bannerDesk">
         <h1 className="bannerTitle">SILVER NRENI</h1>
@@ -14,8 +14,8 @@ function MyCarouselComp({ data }) {
           {data}
         </p>
         <button className="bannerBtn">
-          <Link className="bannerLink" to="/contact">
-            contact us
+          <Link className="bannerLink" to="/shop">
+            Shop now
           </Link>
         </button>
       </div>

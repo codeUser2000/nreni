@@ -10,6 +10,9 @@ import {
   GET_ORDER_LIST_ADMIN_FAIL,
   GET_ORDER_LIST_ADMIN_REQUEST,
   GET_ORDER_LIST_ADMIN_SUCCESS,
+  GET_ORDER_LIST_USER_FAIL,
+  GET_ORDER_LIST_USER_REQUEST,
+  GET_ORDER_LIST_USER_SUCCESS,
   SET_LIKE_FAIL,
   SET_LIKE_REQUEST,
   SET_LIKE_SUCCESS,
@@ -44,7 +47,7 @@ function* handleDeleteLikeRequest(action) {
   }
 }
 
-function* handleCartItemsAdminRequest(action) {
+function* handleOrderItemsAdminRequest(action) {
   try {
     const { data } = yield call(Api.getOrders, action.payload.page);
     yield put({
@@ -54,6 +57,20 @@ function* handleCartItemsAdminRequest(action) {
   } catch (e) {
     yield put({
       type: GET_ORDER_LIST_ADMIN_FAIL,
+      payload: { error: e.response },
+    });
+  }
+}
+function* handleOrderItemsUserRequest(action) {
+  try {
+    const { data } = yield call(Api.getSingleOrders, action.payload.page);
+    yield put({
+      type: GET_ORDER_LIST_USER_SUCCESS,
+      payload: { data },
+    });
+  } catch (e) {
+    yield put({
+      type: GET_ORDER_LIST_USER_FAIL,
       payload: { error: e.response },
     });
   }
@@ -79,6 +96,7 @@ export default function* watcher() {
   yield takeLatest(SET_LIKE_REQUEST, handleSetLikeRequest);
   yield takeLatest(DELETE_LIKE_REQUEST, handleDeleteLikeRequest);
   yield takeLatest(CHECKOUT_PAYMENT_REQUEST, handleCheckoutPaymentRequest);
-  yield takeLatest(GET_ORDER_LIST_ADMIN_REQUEST, handleCartItemsAdminRequest);
+  yield takeLatest(GET_ORDER_LIST_ADMIN_REQUEST, handleOrderItemsAdminRequest);
+  yield takeLatest(GET_ORDER_LIST_USER_REQUEST, handleOrderItemsUserRequest);
 
 }

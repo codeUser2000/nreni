@@ -41,3 +41,13 @@ export function getOrderListAdminRequest(page) {
     payload: { page },
   };
 }
+export const GET_ORDER_LIST_USER_REQUEST = 'GET_ORDER_LIST_USER_REQUEST';
+export const GET_ORDER_LIST_USER_SUCCESS = 'GET_ORDER_LIST_USER_SUCCESS';
+export const GET_ORDER_LIST_USER_FAIL = 'GET_ORDER_LIST_USER_FAIL';
+
+export function getOrderListUserRequest(page) {
+  return {
+    type: GET_ORDER_LIST_USER_REQUEST,
+    payload: { page },
+  };
+}
