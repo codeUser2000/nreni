@@ -27,9 +27,9 @@ function Home() {
   }, []);
 
   const handleWindowResize = useCallback(() => {
-    if (window.innerWidth < 768) {
+    if (window.innerWidth <= 560) {
       setCount(1);
-    } else if (window.innerWidth <= 800) {
+    } else if (window.innerWidth <= 768) {
       setCount(2);
     } else {
       setCount(3);
@@ -58,15 +58,15 @@ function Home() {
                   data={'Jewelry is a very personal thing... It should tell a story about the person who\'s wearing it!\n'
                     + '          We sell aesthetic and stylish jewelry. The most suitable gifts here for your loved ones'}
                 />
-                <MyCarouselComp2 />
+                <MyCarouselComp2/>
               </Carousel>
             </div>
           </div>
         </section>
         <main className="home">
           <div className="container">
-            <Assortment />
-            <HomeAbout />
+            <Assortment/>
+            <HomeAbout/>
             <section className="new">
               <h2
                 className="newTitle"
@@ -85,8 +85,8 @@ function Home() {
                   slidesToShow={count}
                   cellSpacing={20}
                   defaultControlsConfig={{
-                    prevButtonText: <ArrowBackIosNewIcon />,
-                    nextButtonText: <ArrowForwardIosIcon />,
+                    prevButtonText: <ArrowBackIosNewIcon/>,
+                    nextButtonText: <ArrowForwardIosIcon/>,
                     nextButtonStyle: {
                       color: '#ffece5',
                       borderRadius: '50%',
@@ -102,7 +102,7 @@ function Home() {
                   }}
                 >
                   {productData.map((n) => (
-                    <Product key={n.id} data={n} style={{ width: `${100}%` }} />
+                    <Product key={n.id} data={n} style={{ width: `${100}%` }}/>
                   ))}
                 </Carousel>
               </div>
@@ -121,7 +121,7 @@ function Home() {
                     cellSpacing={20}
                   >
                     {quote.map((n) => (
-                      <Blockquote key={n.id} data={n} />
+                      <Blockquote key={n.id} data={n}/>
                     ))}
                   </Carousel>
                 ) : (

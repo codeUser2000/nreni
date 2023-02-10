@@ -25,7 +25,7 @@ function OffCanvasMenu({
               }}
             >
               <img src={logo} alt="nreni" className="logoImg" />
-              <p className="logoName" style={{ fontSize: 22 }}>NRENI</p>
+              <Link to="/home" className="logoName" style={{ fontSize: 22 }}>NRENI</Link>
             </figure>
           </Offcanvas.Title>
         </Offcanvas.Header>
