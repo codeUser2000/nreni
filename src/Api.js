@@ -186,6 +186,10 @@ class Api {
   static getOrders(data) {
     return api.get('/others/orders', data);
   }
+
+  static getSingleOrders(data) {
+    return api.get('/others/getSingleOrder', data);
+  }
 }
 
 export default Api;

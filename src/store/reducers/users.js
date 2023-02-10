@@ -140,7 +140,6 @@ export default function reducer(state = initialState, action) {
     }
 
     case UPDATE_USER_SUCCESS: {
-      console.log(action.payload.data);
       return {
         ...state,
         singleUserData: action.payload.data.updateUser,

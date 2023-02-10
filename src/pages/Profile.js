@@ -10,6 +10,7 @@ import Account from '../helpers/Account';
 import { deleteUserSelfRequest, getUserProfileRequest } from '../store/actions/users';
 import CartItems from '../components/CartItems';
 import AddNewAddresses from './AddNewAddresses';
+import Api from '../Api';
 
 function Profile() {
   const navigate = useNavigate();
@@ -24,6 +25,7 @@ function Profile() {
         navigate('/login');
       } else {
         await dispatch(getUserProfileRequest());
+        await Api.getSingleOrders({ page: 1 });
       }
     })();
   }, []);

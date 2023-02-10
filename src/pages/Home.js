@@ -27,8 +27,10 @@ function Home() {
   }, []);
 
   const handleWindowResize = useCallback(() => {
-    if (window.innerWidth <= 800) {
+    if (window.innerWidth <= 768) {
       setCount(1);
+    } else if (window.innerWidth <= 800) {
+      setCount(2);
     } else {
       setCount(3);
     }
