@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router';
 import Wrapper from '../components/Wrapper';
 import CartItems from '../components/CartItems';
 import Utils from '../helpers/Utils';
 import { checkoutPaymentRequest } from '../store/actions/others';
-import { useNavigate } from 'react-router';
 
 function Cart() {
   const dispatch = useDispatch();
