@@ -299,7 +299,7 @@ table {
 
 .assortment {
   width: 100%;
-  height: fit-content;
+  height: 600px;
   display: flex;
   flex-direction: row;
   margin-bottom: 150px; }
@@ -317,11 +317,14 @@ table {
   width: calc(100% / 2); }
 
 .assortmentInfo {
+  display: flex;
   padding: 5px;
   color: #c31e39;
   font-size: 16px;
   font-weight: 100;
   text-align: center;
+  align-items: center;
+  justify-content: center;
   text-transform: uppercase;
   background-color: #ffece5; }
 
@@ -344,7 +347,7 @@ table {
   background-color: #ffece5; }
 
 .assortmentButton {
-  width: 100%;
+  width: 90%;
   height: 40px;
   padding: 0 40px;
   border-radius: 50px;
@@ -384,7 +387,8 @@ table {
   width: calc(100% / 2 - 5px); }
 
 .assortmentColumn1 .assortmentItem {
-  width: 100%; }
+  width: 100%;
+  height: 100%; }
 
 .assortmentColumn1 .assortmentInfo {
   line-height: 210px; }
