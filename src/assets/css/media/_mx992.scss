@@ -1,2 +1,45 @@
 //SHOP
 
+
+//FOOTER
+.footer {
+  padding: 50px 15px;
+}
+
+.footerRow {
+  flex-direction: column;
+}
+
+.footerBlock,
+.footerStartBlock,
+.footerEndBlock {
+  width: 100%;
+}
+
+.footerStartBlock {
+  margin-bottom: 35px;
+}
+
+.footerTitle {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.footerSocDesk {
+  font-size: 18px;
+}
+
+.footerInfo {
+  padding-right: 100px;
+}
+
+.footerSocDesk {
+  padding: 0;
+  margin-top: -10px;
+}
+
+.footerContactLink {
+  font-size: 15px;
+}
+
+

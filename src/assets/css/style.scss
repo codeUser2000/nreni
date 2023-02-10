@@ -2793,16 +2793,17 @@ p {
 }
 
 
-.footerBlock {
-  width: 30%;
-  margin-right: 50px;
-}
-
+.footerStartBlock,
 .footerEndBlock {
-  width: 40%;
+  width: calc(100% / 2);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.footerBlock {
+  width: calc(100% / 2);
+  margin-right: 50px;
 }
 
 .footerEndBtn {

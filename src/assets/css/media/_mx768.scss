@@ -1,5 +1,108 @@
+//HOME
+//banner
+.banner2Figure {
+  width: 500px;
+  height: 400px;
+}
+
+.bannerDesk {
+  padding: 0 0 0 20px;
+}
+
+.bannerTitle {
+  font-size: 30px;
+}
+
+.bannerFigure {
+  width: 500px;
+  height: 400px;
+}
+
+.banner2Info {
+  font-size: 20px;
+}
+
+.bannerDiscounts {
+  font-size: 18px;
+}
+
+.bannerDiscounts .span {
+  font-size: 18px;
+}
+
+.bannerBtn {
+  width: 60%;
+}
+
+
+//home about
+.homeAbout {
+  display: flex;
+  flex-direction: column;
+}
+
+.homeAboutItem {
+  width: 100%;
+}
+
+.homeAboutDesk {
+  width: 100%;
+  padding: 15px;
+  background-color: #ffece5;
+}
+
+.homeAboutTitle {
+  font-size: 25px;
+  padding: 0 0 15px;
+  text-transform: capitalize;
+}
+
 //SHOP
 .shopSection,
 .shopAside {
   width: 50%;
 }
+
+
+//FOOTER
+.footer {
+  padding: 50px 15px;
+}
+
+.footerRow {
+  flex-direction: column;
+}
+
+.footerBlock,
+.footerStartBlock,
+.footerEndBlock {
+  width: 100%;
+}
+
+.footerBlock {
+  margin-bottom: 35px;
+}
+
+.footerInfo {
+  padding-right: 50px;
+}
+
+.footerTitle {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.footerSocDesk {
+  font-size: 18px;
+}
+
+.footerSocDesk {
+  padding: 0;
+  margin-top: -10px;
+}
+
+.footerContactLink {
+  font-size: 15px;
+}
+
+

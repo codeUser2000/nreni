@@ -1,5 +1,4 @@
 //HOME
-
 .logoImg {
   width: 35px;
   height: 35px;
@@ -28,6 +27,8 @@
   margin-bottom: 50px;
 }
 
+
+//banner
 .bannerRow {
   flex-direction: column;
 }
@@ -45,8 +46,8 @@
 
 
 .bannerFigure {
-  width: 250px;
-  height: 250px;
+  width: 300px;
+  height: 300px;
   margin-bottom: 10px;
 }
 
@@ -92,6 +93,7 @@
   margin-bottom: 20px;
 }
 
+//assortment
 .assortment {
   width: 100%;
   flex-direction: column;
@@ -113,6 +115,7 @@
   padding: 20px;
 }
 
+//home about
 .homeAbout {
   display: flex;
   flex-direction: column;
@@ -134,7 +137,7 @@
   text-transform: capitalize;
 }
 
-
+//quotes
 .quotesBlock {
   padding: 35px;
 }
@@ -338,6 +341,7 @@
   padding: 50px 15px;
 }
 
+.footerStartBlock,
 .footerRow {
   flex-direction: column;
 }
@@ -347,6 +351,11 @@
   margin-bottom: 35px;
 }
 
+.footerInfo {
+  padding: 0;
+}
+
+.footerStartBlock,
 .footerEndBlock {
   width: 100%;
 }
