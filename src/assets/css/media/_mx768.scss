@@ -1,3 +1,24 @@
+.profileTitle,
+.singleTitle,
+.aboutCleaningMainTitle,
+.aboutMainTitle,
+.blockquoteTitle,
+.newTitle {
+  font-size: 40px;
+  margin-bottom: 25px;
+}
+
+.singleMainInfo,
+.aboutCleaningMainInfo,
+.aboutMainInfo,
+.blockquoteInfo,
+.newHomeInfo {
+  font-size: 20px;
+  margin-bottom: 50px;
+}
+
+
+
 //HOME
 //banner
 .banner2Figure {
@@ -14,8 +35,8 @@
 }
 
 .bannerFigure {
-  width: 500px;
-  height: 400px;
+  width: 450px;
+  height: 350px;
 }
 
 .banner2Info {
@@ -31,9 +52,14 @@
 }
 
 .bannerBtn {
-  width: 60%;
+  width: 80%;
 }
 
+
+//quote
+.quote {
+  padding: 0;
+}
 
 //home about
 .homeAbout {
