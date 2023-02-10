@@ -6,7 +6,6 @@ import {
   CREATE_USER_FAIL,
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAIL,
-  CREATE_USER_SUCCESS,
   FORGET_USER_PASSWORD_SUCCESS,
   FORGET_USER_PASSWORD_FAIL,
   LOGIN_ADMIN_SUCCESS,
@@ -141,9 +140,10 @@ export default function reducer(state = initialState, action) {
     }
 
     case UPDATE_USER_SUCCESS: {
+      console.log(action.payload.data);
       return {
         ...state,
-        usersData: [...action.payload.data.users],
+        singleUserData: action.payload.data.updateUser,
       };
     }
 
