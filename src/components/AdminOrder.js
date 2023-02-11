@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useCallback } from 'react';
+import moment from 'moment/moment';
 
-function AdminOrder({ data }) {
-  const { REACT_APP_API_URL } = process.env;
-  useEffect(() => {
-    console.log(data);
+function AdminOrder({ data, setData }) {
+  const handleOrderModal = useCallback((id) => {
+    setData(id);
   }, []);
   return (
     <tr>
@@ -11,26 +11,21 @@ function AdminOrder({ data }) {
         {data.id}
       </td>
       <td>
-        <button type="button">Click to see</button>
+        <button type="button" onClick={() => handleOrderModal(data.id)}>Click to see</button>
       </td>
       <td>
         <div className="adminOrderCustomer">
-          {/*<h4 className="orderCustomerName">*/}
-          {/*  {data.carts.user.firstName}*/}
-          {/*  {' '}*/}
-          {/*  {data.carts.user.lastName}*/}
-          {/*</h4>*/}
-          {/*<p>{data.carts.user.customerPhone}</p>*/}
-          {/*<p>{data.carts.user.customerEmail}</p>*/}
+          <h4 className="orderCustomerName">
+            {data.userOrder.firstName}
+            {' '}
+            {data.userOrder.lastName}
+          </h4>
+          <p>{data.userOrder.phone}</p>
+          <p>{data.userOrder.email}</p>
         </div>
       </td>
-      <td>
-        <p className="adminOrderCount">
-          {/*{data.quantity}*/}
-        </p>
-      </td>
-      {/*<td>{data.price}</td>*/}
-      {/*<td>{data.createdAt}</td>*/}
+      <td>{data.total / 100}</td>
+      <td>{moment(data.createdAt).format('MMMM Do YYYY, h:mm:ss a')}</td>
       <td>
         {data.status === 'unsold'
           ? <button type="submit">uncorrected</button>

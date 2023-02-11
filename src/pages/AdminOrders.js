@@ -4,10 +4,12 @@ import { Pagination } from '@mui/material';
 import AdminWrapper from '../components/AdminWrapper';
 import AdminOrder from '../components/AdminOrder';
 import { getOrderListAdminRequest } from '../store/actions/others';
+import OrderModal from '../components/OrderModal';
 
 function AdminOrders() {
   const dispatch = useDispatch();
   const [page, setPage] = useState(1);
+  const [id, setId] = useState(0);
   const orderData = useSelector((state) => state.others.orderData);
   const pagination = useSelector((state) => state.others.pagination);
   useEffect(() => {
@@ -31,17 +33,17 @@ function AdminOrders() {
               <td>order id</td>
               <td>order</td>
               <td>customer</td>
-              <td>count</td>
               <td>amount</td>
               <td>date</td>
               <td>status order</td>
             </tr>
           </thead>
           <tbody className="adminTableTbody">
-            {orderData.map((c) => (<AdminOrder key={c.id} data={c} />))}
+            {orderData.map((c) => (<AdminOrder key={c.id} data={c} setData={setId} />))}
           </tbody>
         </table>
         <Pagination count={+pagination} page={page} onChange={handleChange} />
+        {id ? <OrderModal id={id} setId={setId} /> : null}
       </div>
     </AdminWrapper>
 
