@@ -17,18 +17,14 @@ function OffCanvasMenu({
       <Offcanvas className="menuBar" show={show} onHide={handleClose} placement="end">
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>
-            <figure
-              className="logo"
-              style={{
-                width: 30,
-                height: 30,
-              }}
-            >
-              <Link to="/home" className="headerLogoLink">
-                <img src={logo} alt="nreni" className="logoImg"/>
+            <Link to="/home" className="headerLogoLink">
+              <figure
+                className="logo"
+              >
+                <img src={logo} alt="nreni" className="logoImg" />
                 <p className="logoName" style={{ fontSize: 22 }}>NRENI</p>
-              </Link>
-            </figure>
+              </figure>
+            </Link>
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
@@ -48,14 +44,14 @@ function OffCanvasMenu({
                   {sessionStorage.getItem('token')
                     ? (
                       <NavLink to="/profile" className="navLink">
-                        <PersonIcon style={{ marginTop: -5 }}/>
+                        <PersonIcon style={{ marginTop: -5 }} />
                         {' '}
                         Profile
                       </NavLink>
                     )
                     : (
                       <NavLink to="/login" className="navLink">
-                        <PersonIcon style={{ marginTop: -5 }}/>
+                        <PersonIcon style={{ marginTop: -5 }} />
                         {' '}
                         Profile
                       </NavLink>
@@ -70,7 +66,7 @@ function OffCanvasMenu({
         onClick={handleShow}
         className="me-2 menuBtn"
       >
-        <MenuIcon style={{ fill: '#c31e39' }}/>
+        <MenuIcon style={{ fill: '#c31e39' }} />
       </button>
     </div>
   );
