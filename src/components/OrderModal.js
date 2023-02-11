@@ -25,7 +25,7 @@ function OrderModal({ id, setId }) {
       >
         <div>
           Customer :
-          { customer || ''}
+          {customer || ''}
         </div>
         <button type="button" onClick={() => setId(0)}>
           x
