@@ -2,8 +2,7 @@ import React, { useCallback, useState, useEffect } from 'react';
 import PhoneInput, {} from 'react-phone-number-input';
 import DatePicker from 'react-datepicker';
 import { useDispatch, useSelector } from 'react-redux';
-import _ from 'lodash';
-import { getUserProfileRequest, updateUserRequest } from '../store/actions/users';
+import { updateUserRequest } from '../store/actions/users';
 
 function AddNewAddresses() {
   const dispatch = useDispatch();

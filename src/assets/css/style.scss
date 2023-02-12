@@ -2195,6 +2195,7 @@ p {
   flex-direction: column;
 }
 
+
 .formGroup {
   width: 100%;
   display: flex;
@@ -2509,7 +2510,7 @@ p {
 .adminEditProduct {
   width: 100%;
   display: flex;
-  padding: 25px;
+  padding: 15px;
   flex-direction: row;
   justify-content: space-around;
 }
@@ -2535,10 +2536,31 @@ p {
   object-fit: cover;
 }
 
+.createLabel {
+  color: #4a4a4a;
+  transition: all 0.7s;
+  text-transform: capitalize;
+}
+
+
+.createGroup {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.createGroup input:focus {
+  outline: none;
+  border-bottom: 2px solid #c31e39;
+}
+
+.createGroup input:focus + .createLabel {
+  color: #c31e39;
+}
+
 .adminSelect,
 .adminForm input {
   border: none;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   border-bottom: 1px solid #4a4a4a;
 }
 

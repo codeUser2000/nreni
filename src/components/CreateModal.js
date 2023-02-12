@@ -8,7 +8,7 @@ import {
   createProductRequest,
   updateProductRequest,
 } from '../store/actions/product';
-import img from '../assets/img/logo/logo.png';
+import img from '../assets/img/post/add.jpg';
 
 function CreateModal({
   show,
@@ -108,7 +108,7 @@ function CreateModal({
     >
       {/* eslint-disable-next-line max-len */}
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
-      <div className="d-flex justify-content-end" onClick={() => setShow(false)}><CloseIcon /></div>
+      <div className="d-flex justify-content-end" onClick={() => setShow(false)}><CloseIcon/></div>
       <div className="adminEditProduct">
         <form className="adminForm" onSubmit={handleSubmit}>
           <p className="adminTitle">
@@ -116,53 +116,86 @@ function CreateModal({
             {' '}
             a product
           </p>
-          <input
-            type="file"
-            onChange={handleFile}
-          />
-          <input
-            type="text"
-            placeholder="Type Product Name"
-            value={formData.title}
-            onChange={(ev) => handleChange('title', ev.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Type Product Description"
-            value={formData.description}
-            onChange={(ev) => handleChange('description', ev.target.value)}
-          />
-          <input
-            type="number"
-            placeholder="Type Product Discount"
-            value={formData.discount}
-            onChange={(ev) => handleChange('discount', ev.target.value)}
-          />
-          <input
-            type="number"
-            placeholder="Type Product Count"
-            value={formData.countProduct}
-            onChange={(ev) => handleChange('countProduct', ev.target.value)}
-          />
-          <select
-            className="adminSelect"
-            value={formData.category}
-            onChange={(ev) => handleChange('category', ev.target.value)}
-          >
-            <option value="">Choose category</option>
-            <option value="ring">rings</option>
-            <option value="bracelet">bracelets</option>
-            <option value="necklace">necklaces</option>
-            <option value="earring">earrings</option>
-            <option value="collection">collection</option>
-          </select>
-
-          <input
-            type="text"
-            placeholder="Type Product Price"
-            value={formData.oldPrice}
-            onChange={(ev) => handleChange('oldPrice', ev.target.value)}
-          />
+          <div className="createGroup">
+            <input
+              type="file"
+              id="picture"
+              onChange={handleFile}
+            />
+            <label htmlFor="picture" className="createLabel">
+              Product picture
+            </label>
+          </div>
+          <div className="createGroup">
+            <input
+              id="name"
+              type="text"
+              value={formData.title}
+              className="createInput"
+              onChange={(ev) => handleChange('title', ev.target.value)}
+            />
+            <label htmlFor="name" className="createLabel">
+              Product name
+            </label>
+          </div>
+          <div className="createGroup">
+            <input
+              type="text"
+              id="description"
+              value={formData.description}
+              onChange={(ev) => handleChange('description', ev.target.value)}
+            />
+            <label htmlFor="description" className="createLabel">
+              Product description
+            </label>
+          </div>
+          <div className="createGroup">
+            <input
+              type="number"
+              id="discount"
+              value={formData.discount}
+              onChange={(ev) => handleChange('discount', ev.target.value)}
+            />
+            <label htmlFor="discount" className="createLabel">
+              Product discount
+            </label>
+          </div>
+          <div className="createGroup">
+            <input
+              type="number"
+              id="count"
+              value={formData.countProduct}
+              onChange={(ev) => handleChange('countProduct', ev.target.value)}
+            />
+            <label htmlFor="count" className="createLabel">
+              Product count
+            </label>
+          </div>
+          <div className="createGroup">
+            <select
+              className="adminSelect"
+              value={formData.category}
+              onChange={(ev) => handleChange('category', ev.target.value)}
+            >
+              <option value="">Choose category</option>
+              <option value="ring">rings</option>
+              <option value="bracelet">bracelets</option>
+              <option value="necklace">necklaces</option>
+              <option value="earring">earrings</option>
+              <option value="collection">collection</option>
+            </select>
+          </div>
+          <div className="createGroup">
+            <input
+              type="text"
+              id="price"
+              value={formData.oldPrice}
+              onChange={(ev) => handleChange('oldPrice', ev.target.value)}
+            />
+            <label htmlFor="price" className="createLabel">
+              Product price
+            </label>
+          </div>
           <button type="submit" className="adminFormBtn">
             {!_.isEmpty(data) ? 'update' : 'create'}
           </button>
