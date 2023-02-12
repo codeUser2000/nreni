@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Account from '../helpers/Account';
 import Utils from '../helpers/Utils';
 import {
+  addToCartLocalRequest,
   deleteFromCartRequest,
   getCartItemListRequest,
   getLocalCartData, updateCartRequest,
@@ -62,7 +63,7 @@ function CartItems({ setTotal }) {
     (async () => {
       if (Account.getToken()) {
         if (localStorage.getItem('cartItem')) {
-          await Api.addLocalCart(JSON.parse(localStorage.getItem('cartItem')));
+          await dispatch(addToCartLocalRequest(JSON.parse(localStorage.getItem('cartItem'))));
         }
         localStorage.removeItem('cartItem');
         await dispatch(getCartItemListRequest(1));

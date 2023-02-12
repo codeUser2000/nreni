@@ -29,6 +29,16 @@ export function addToCartRequest(product) {
     payload: { product },
   };
 }
+export const ADD_TO_CART_LOCAL_REQUEST = 'ADD_TO_CART_LOCAL_REQUEST';
+export const ADD_TO_CART_LOCAL_SUCCESS = 'ADD_TO_CART_LOCAL_SUCCESS';
+export const ADD_TO_CART_LOCAL_FAIL = 'ADD_TO_CART_LOCAL_FAIL';
+
+export function addToCartLocalRequest(product) {
+  return {
+    type: ADD_TO_CART_LOCAL_REQUEST,
+    payload: { product },
+  };
+}
 
 export const DELETE_FROM_CART_REQUEST = 'DELETE_FROM_CART_REQUEST';
 export const DELETE_FROM_CART_SUCCESS = 'DELETE_FROM_CART_SUCCESS';

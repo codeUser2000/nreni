@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import classNames from 'classnames';
+import _ from 'lodash';
 import Wrapper from '../components/Wrapper';
 import Api from '../Api';
 import Utils from '../helpers/Utils';
@@ -59,6 +60,26 @@ function Single() {
       setCount(+count - 1);
     }
   }, [single, count]);
+
+  const handleFocusOut = useCallback((ev) => {
+    if (!ev) {
+      setCount(1);
+    }
+  }, []);
+
+  const handleChange = useCallback((ev) => {
+    if (_.isNumber(+ev) || !ev) {
+      setCount(ev);
+      if (+ev < 0) {
+        setCount(1);
+      }
+      if (+ev > +single.countProduct) {
+        setCount(+single.countProduct);
+      }
+    } else if (_.isString(ev)) {
+      setCount(1);
+    }
+  }, [single]);
 
   const handleProductLike = useCallback(async () => {
     if (!Account.getToken()) {
@@ -141,9 +162,10 @@ function Single() {
                 </button>
                 <input
                   type="text"
+                  onBlur={(ev) => handleFocusOut(ev.target.value)}
                   className="singleInfoInput"
-                  onChange={() => true}
-                  value={count < 1 ? setCount(1) : count}
+                  onChange={(ev) => handleChange(ev.target.value)}
+                  value={count}
                 />
                 <button
                   type="button"
