@@ -96,8 +96,9 @@ function AdminUsers() {
           </thead>
           <tbody className="adminTableTbody">
             {users.length ? users.map((u) => (
-              <tr key={u.id} onClick={() => handleOpenModal(u.id)}>
-                <td>
+              <tr key={u.id}>
+                {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
+                <td onClick={() => handleOpenModal(u.id)}>
                   <p className="adminTableName">
                     {u.firstName}
                     {' '}

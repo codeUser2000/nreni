@@ -51,3 +51,14 @@ export function getOrderListUserRequest(page) {
     payload: { page },
   };
 }
+
+export const SET_ORDER_STATUS_REQUEST = 'SET_ORDER_STATUS_REQUEST';
+export const SET_ORDER_STATUS_SUCCESS = 'SET_ORDER_STATUS_SUCCESS';
+export const SET_ORDER_STATUS_FAIL = 'SET_ORDER_STATUS_FAIL';
+
+export function setOrderStatusRequest(data) {
+  return {
+    type: SET_ORDER_STATUS_REQUEST,
+    payload: { data },
+  };
+}

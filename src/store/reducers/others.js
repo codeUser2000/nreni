@@ -5,6 +5,9 @@ import {
   GET_ORDER_LIST_USER_FAIL,
   GET_ORDER_LIST_USER_REQUEST,
   GET_ORDER_LIST_USER_SUCCESS,
+  SET_ORDER_STATUS_FAIL,
+  SET_ORDER_STATUS_REQUEST,
+  SET_ORDER_STATUS_SUCCESS,
 } from '../actions/others';
 
 const initialState = {
@@ -18,7 +21,8 @@ const initialState = {
 // eslint-disable-next-line default-param-last
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case GET_ORDER_LIST_ADMIN_REQUEST: {
+    case GET_ORDER_LIST_ADMIN_REQUEST:
+    case SET_ORDER_STATUS_REQUEST: {
       return {
         ...state,
         orderData: [],
@@ -26,7 +30,8 @@ export default function reducer(state = initialState, action) {
       };
     }
 
-    case GET_ORDER_LIST_ADMIN_SUCCESS: {
+    case GET_ORDER_LIST_ADMIN_SUCCESS:
+    case SET_ORDER_STATUS_SUCCESS: {
       const { orders } = action.payload.data;
       return {
         ...state,
@@ -36,7 +41,8 @@ export default function reducer(state = initialState, action) {
       };
     }
 
-    case GET_ORDER_LIST_ADMIN_FAIL: {
+    case GET_ORDER_LIST_ADMIN_FAIL:
+    case SET_ORDER_STATUS_FAIL: {
       return {
         ...state,
         orderDataStatus: 'fail',
@@ -61,8 +67,6 @@ export default function reducer(state = initialState, action) {
         allProduct.push(...o.products);
         return true;
       });
-
-      console.log(allProduct);
       return {
         ...state,
         orderDataUserStatus: 'ok',

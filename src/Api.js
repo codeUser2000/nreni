@@ -190,6 +190,10 @@ class Api {
   static getSingleOrders(data) {
     return api.get('/others/getSingleOrder', data);
   }
+
+  static setOrderStatus(data) {
+    return api.post('/others/orderStatus', data);
+  }
 }
 
 export default Api;

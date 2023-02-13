@@ -1,9 +1,16 @@
 import React, { useCallback } from 'react';
 import moment from 'moment/moment';
+import { useDispatch } from 'react-redux';
+import { setOrderStatusRequest } from '../store/actions/others';
 
 function AdminOrder({ data, setData }) {
+  const dispatch = useDispatch();
   const handleOrderModal = useCallback((id) => {
     setData(id);
+  }, []);
+
+  const handleOrderSent = useCallback(async (id, status) => {
+    await dispatch(setOrderStatusRequest({ id, page: 1, status }));
   }, []);
   return (
     <tr>
@@ -27,9 +34,7 @@ function AdminOrder({ data, setData }) {
       <td>{data.total / 100}</td>
       <td>{moment(data.createdAt).format('MMMM Do YYYY, h:mm:ss a')}</td>
       <td>
-        {data.status === 'unsold'
-          ? <button type="submit">uncorrected</button>
-          : <button type="submit">corrected</button>}
+        <button type="button" onClick={() => handleOrderSent(data.id, data.deliveryStatus)}>{data.deliveryStatus === 'sent' ? 'Unsent' : 'Sent'}</button>
       </td>
     </tr>
   );

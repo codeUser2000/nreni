@@ -15,7 +15,7 @@ import {
   GET_ORDER_LIST_USER_SUCCESS,
   SET_LIKE_FAIL,
   SET_LIKE_REQUEST,
-  SET_LIKE_SUCCESS,
+  SET_LIKE_SUCCESS, SET_ORDER_STATUS_FAIL, SET_ORDER_STATUS_REQUEST, SET_ORDER_STATUS_SUCCESS,
 } from '../actions/others';
 
 function* handleSetLikeRequest(action) {
@@ -75,6 +75,21 @@ function* handleOrderItemsUserRequest(action) {
     });
   }
 }
+function* handleOrderItemSetStatusRequest(action) {
+  try {
+    const { data } = yield call(Api.setOrderStatus, action.payload.data);
+    console.log(data);
+    yield put({
+      type: SET_ORDER_STATUS_SUCCESS,
+      payload: { data },
+    });
+  } catch (e) {
+    yield put({
+      type: SET_ORDER_STATUS_FAIL,
+      payload: { error: e.response },
+    });
+  }
+}
 
 function* handleCheckoutPaymentRequest(action) {
   try {
@@ -98,5 +113,5 @@ export default function* watcher() {
   yield takeLatest(CHECKOUT_PAYMENT_REQUEST, handleCheckoutPaymentRequest);
   yield takeLatest(GET_ORDER_LIST_ADMIN_REQUEST, handleOrderItemsAdminRequest);
   yield takeLatest(GET_ORDER_LIST_USER_REQUEST, handleOrderItemsUserRequest);
-
+  yield takeLatest(SET_ORDER_STATUS_REQUEST, handleOrderItemSetStatusRequest);
 }
