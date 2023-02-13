@@ -282,6 +282,57 @@
   width: calc(100% / 2);
 }
 
+.shopTitle {
+  font-size: 40px;
+}
+
+.shopSlogan {
+  font-size: 16px;
+}
+
+//SINGLE
+.singlePage {
+  padding: 40px;
+  flex-direction: column;
+}
+
+.singleItem {
+  width: 100%;
+  height: 300px;
+  margin: 0 0 20px 0;
+}
+
+.singleInfoQuantity {
+  width: 80%;
+  border: 0;
+  margin: 0 auto 20px;
+}
+
+.singleInfoInput,
+.singleBtnM,
+.singleBtnP {
+  border: 1px solid #4a4a4a;
+  background-color: #ffece5;
+}
+
+.singleInfoBtn,
+.singleInfo {
+  width: 100%;
+  position: static;
+}
+
+.singleInfoTitle {
+  font-size: 24px;
+}
+
+.singleItem {
+  margin: 0 auto 25px;
+}
+
+.singleInfoDescription,
+.singleInfoPrice {
+  font-size: 19px;
+}
 
 //FOOTER
 .footer {

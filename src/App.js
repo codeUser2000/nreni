@@ -5,7 +5,6 @@ import {
 import { ToastContainer } from 'react-toastify';
 import Home from './pages/Home';
 import About from './pages/About';
-// import Shop from './pages/Shop';
 import NotFound from './pages/NotFound';
 import Single from './pages/Single';
 import Contact from './pages/Contact';
@@ -52,7 +51,7 @@ class App extends Component {
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/cart" element={<Cart />} />
+            <Route path="/card" element={<Cart />} />
             <Route path="/confirm" element={<Confirm />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/password-reset" element={<PasswordReset />} />

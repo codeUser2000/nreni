@@ -9,7 +9,6 @@ import {
   getCartItemListRequest,
   getLocalCartData, updateCartRequest,
 } from '../store/actions/cart';
-import Api from '../Api';
 
 function CartItems({ setTotal }) {
   const { REACT_APP_API_URL } = process.env;
@@ -89,7 +88,7 @@ function CartItems({ setTotal }) {
           <td>
             <div className="cartTableProduct">
               <figure className="cartTableItem">
-                <img className="cartTableImg" src={REACT_APP_API_URL + c.product.avatar} alt="" />
+                <img className="cartTableImg" src={REACT_APP_API_URL + c.product.avatar} alt=""/>
               </figure>
               <div className="cartTableDesk">
                 <h4 className="cartTableTitle">{c.product.title}</h4>
@@ -128,11 +127,13 @@ function CartItems({ setTotal }) {
             $
             {' '}
             {+c.product.oldPrice}
+            .00
           </td>
           <td className="cartTablePrice">
             $
             {' '}
             {+c.product.newPrice}
+            .00
           </td>
           <td className="cartTablePrice">
             -

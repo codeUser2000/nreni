@@ -1885,7 +1885,8 @@ p {
 }
 
 
-/*CART*/
+/*CARD*/
+
 .cart {
   width: 100%;
   padding: 150px 0 100px;
@@ -1899,6 +1900,7 @@ p {
   margin-bottom: 30px;
   text-transform: capitalize;
 }
+
 
 .cartTable {
   width: 100%;
@@ -1945,12 +1947,13 @@ p {
 }
 
 .cartTableTitle {
+  font-size: 19px;
   text-transform: capitalize;
 }
 
 .cartTableItem {
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   margin-right: 20px;
 }
 
@@ -1961,6 +1964,7 @@ p {
 }
 
 .cartTableInfo {
+  width: 90%;
   font-size: 16px;
   letter-spacing: 0;
 }
