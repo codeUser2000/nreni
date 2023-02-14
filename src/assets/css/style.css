@@ -1614,7 +1614,7 @@ p {
   border-bottom: 1px solid #4a4a4a; }
 
 .cartTableTbodyTr td {
-  padding: 1px; }
+  padding: 0 2px 0; }
 
 .cartTableProduct {
   width: 100%;

@@ -20,7 +20,7 @@ function NavBarMenu() {
           <NavLink to="/contact" className="navLink">contact</NavLink>
         </li>
         <li className="navList">
-          <NavLink to="/cart" className="navLink">
+          <NavLink to="/card" className="navLink">
             {' '}
             <CardGiftcardIcon />
           </NavLink>
