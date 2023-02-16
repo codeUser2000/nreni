@@ -1,6 +1,5 @@
 import React, { useCallback, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 import { useDispatch } from 'react-redux';
 import logo from '../assets/img/logo/logo.png';
 import { forgetUserPasswordRequest } from '../store/actions/users';
@@ -10,7 +9,7 @@ function PasswordReset() {
   const dispatch = useDispatch();
   const handleSubmit = useCallback(async (ev) => {
     ev.preventDefault();
-    dispatch(forgetUserPasswordRequest(email));
+    await dispatch(forgetUserPasswordRequest(email));
   }, [email]);
 
   return (

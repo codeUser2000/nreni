@@ -8,7 +8,7 @@ import {
   createProductRequest,
   updateProductRequest,
 } from '../store/actions/product';
-import img from '../assets/img/post/add.jpg';
+import img from '../assets/img/site/bracelets.png';
 
 function CreateModal({
   show,
