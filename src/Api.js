@@ -84,8 +84,8 @@ class Api {
     return api.get(`/users/list?page=${page || 1}${search ? `&search=${search}` : ''}`);
   }
 
-  static deleteUser(email) {
-    return api.post('/users/delete', { email });
+  static deleteUser(email, status) {
+    return api.post('/users/delete', { email, status });
   }
 
   static deleteProduct(id) {

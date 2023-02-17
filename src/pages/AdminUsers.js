@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Pagination } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { Modal } from 'react-bootstrap';
 import qs from 'query-string';
 import { useLocation } from 'react-router-dom';
@@ -27,8 +28,8 @@ function AdminUsers() {
     dispatch(getUserData(1));
   }, []);
 
-  const handleDelete = useCallback((email) => {
-    dispatch(deleteUserRequest(email));
+  const handleDelete = useCallback((email, status) => {
+    dispatch(deleteUserRequest(email, status));
     dispatch(getUserData(1));
   }, []);
 
@@ -117,8 +118,8 @@ function AdminUsers() {
                   <p className="adminTableRole">{u.status}</p>
                 </td>
                 <td>
-                  <span className="adminTableBtn">
-                    <DeleteIcon onClick={() => handleDelete(u.email)} />
+                  <span className="adminTableBtn" onClick={() => handleDelete(u.email, u.status)}>
+                    {u.status === 'deleted' ? <CheckCircleIcon /> : <DeleteIcon />}
                   </span>
                 </td>
               </tr>

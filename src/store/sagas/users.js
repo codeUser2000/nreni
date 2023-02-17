@@ -70,8 +70,12 @@ function* handleUsersRequest(action) {
 
 function* handleDeleteUserRequest(action) {
   try {
-    yield call(Api.deleteUser, action.payload.email);
-    toast.success('User is deleted successfully');
+    yield call(Api.deleteUser, action.payload.email, action.payload.status);
+    if (action.payload.status === 'deleted') {
+      toast.success('User is activated successfully');
+    } else {
+      toast.success('User is deleted successfully');
+    }
     yield put({
       type: DELETE_USER_SUCCESS,
       payload: {},
