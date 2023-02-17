@@ -31,7 +31,7 @@ export const offCanvasUserData = [
     ,
   },
   {
-    id: 6, title: 'Card', link: '/cart', icon: <CreditCardIcon style={{ marginTop: -5 }} />
+    id: 6, title: 'Card', link: '/card', icon: <CreditCardIcon style={{ marginTop: -5 }} />
     ,
   },
 ];

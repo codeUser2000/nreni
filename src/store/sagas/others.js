@@ -1,4 +1,5 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
+import { toast } from 'react-toastify';
 import Api from '../../Api';
 import {
   CHECKOUT_PAYMENT_FAIL,
@@ -78,7 +79,6 @@ function* handleOrderItemsUserRequest(action) {
 function* handleOrderItemSetStatusRequest(action) {
   try {
     const { data } = yield call(Api.setOrderStatus, action.payload.data);
-    console.log(data);
     yield put({
       type: SET_ORDER_STATUS_SUCCESS,
       payload: { data },
@@ -100,6 +100,7 @@ function* handleCheckoutPaymentRequest(action) {
       payload: { data },
     });
   } catch (e) {
+    toast.error(e.response.data.message);
     yield put({
       type: CHECKOUT_PAYMENT_FAIL,
       payload: { error: e.message },

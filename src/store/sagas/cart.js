@@ -26,7 +26,7 @@ function* handleAddToCartRequest(action) {
       payload: { data },
     });
   } catch (e) {
-    toast.error('Something went wrong :(');
+    toast.error(e.response.data.message);
     yield put({
       type: ADD_TO_CART_FAIL,
       payload: { error: e.message },
@@ -43,7 +43,7 @@ function* handleAddToCartLocalRequest(action) {
       payload: { data },
     });
   } catch (e) {
-    toast.error('Something went wrong :(');
+    toast.error(e.message);
     yield put({
       type: ADD_TO_CART_LOCAL_FAIL,
       payload: { error: e.message },
