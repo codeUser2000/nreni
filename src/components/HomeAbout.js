@@ -13,6 +13,7 @@ function HomeAbout() {
       <figure
         className="homeAboutItem"
         data-aos="fade-right"
+        data-aos-duration="1500"
         data-aos-easing="ease-out-cubic"
       >
         <img className="homeAboutImg" src={homeAbout} alt="" />
@@ -20,6 +21,7 @@ function HomeAbout() {
       <div
         className="homeAboutDesk"
         data-aos="fade-left"
+        data-aos-duration="1500"
         data-aos-easing="ease-out-cubic"
       >
         <h2 className="homeAboutTitle">What we do?</h2>

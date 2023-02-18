@@ -5,9 +5,11 @@ import 'rc-slider/assets/index.css';
 import qs from 'query-string';
 import _ from 'lodash';
 import { useDispatch, useSelector } from 'react-redux';
+import Aos from 'aos';
 import SliderValue from './SliderValue';
 import menu from '../data';
 import { getProductDataRequest } from '../store/actions/product';
+import 'aos/dist/aos.css';
 
 function Filter() {
   const location = useLocation();
@@ -44,6 +46,7 @@ function Filter() {
   }, [location.search]);
 
   useEffect(() => {
+    Aos.init();
     (async () => {
       if (!_.isEmpty(query)) {
         const [minV, maxV] = query.sliderPrice?.split('_') || [min, max];
@@ -54,7 +57,12 @@ function Filter() {
     })();
   }, [location.search]);
   return (
-    <aside className="shopAside">
+    <aside
+      className="shopAside"
+      data-aos="fade-down"
+      data-aos-easing="linear"
+      data-aos-duration="1500"
+    >
       <h2 className="shopAsideTitle">Filters</h2>
       <form>
         <div className="shopBtCategory">

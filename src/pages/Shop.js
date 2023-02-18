@@ -10,11 +10,13 @@ import qs from 'query-string';
 import { Pagination } from '@mui/material';
 import _ from 'lodash';
 import { useNavigate } from 'react-router';
+import Aos from 'aos';
 import Wrapper from '../components/Wrapper';
 import ShopSection from '../components/ShopSection';
 import Filter from '../components/Filter';
 import Product from '../components/Product';
 import { getProductDataRequest } from '../store/actions/product';
+import 'aos/dist/aos.css';
 
 function Shop() {
   const [pageNumber, setPageNumber] = useState(1);
@@ -28,6 +30,7 @@ function Shop() {
   const categoryArr = _.isArray(query.filter) ? query.filter : [query.filter];
 
   useEffect(() => {
+    Aos.init();
     (async () => {
       if (query.searchText) {
         setSearch(query.searchText);
@@ -58,11 +61,15 @@ function Shop() {
   return (
     <Wrapper>
       <div className="shop">
-        <ShopSection/>
+        <ShopSection />
         <div className="container">
           <div className="row">
-            <Filter/>
-            <section className="shopSection">
+            <Filter />
+            <section
+              className="shopSection"
+              data-aos="fade-up"
+              data-aos-duration="3000"
+            >
               <div className="shopSearch">
                 <input
                   type="text"
@@ -77,12 +84,12 @@ function Shop() {
                 {productData.length
                   ? productData.map((n) => {
                     if (n.countProduct > 0) {
-                      return <Product key={n.id} data={n}/>;
+                      return <Product key={n.id} data={n} />;
                     }
                     return true;
                   }) : 'There is no any product...'}
               </div>
-              <Pagination count={+pagination} page={pageNumber} onChange={handleChange}/>
+              <Pagination count={+pagination} page={pageNumber} onChange={handleChange} />
             </section>
           </div>
         </div>
