@@ -2948,4 +2948,76 @@ p {
   object-fit: cover;
 }
 
+//NOT-FOUND
+.notFound {
+  height: 100vh;
+  color: #4a4a4a;
+  position: relative;
+}
+
+.notFoundBody {
+  background-color: #ffece5;
+}
+
+.notFoundPage {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  text-align: center;
+  width: fit-content;
+  position: absolute;
+  height: fit-content;
+}
+
+.notFoundTitle {
+  font-size: 150px;
+  font-weight: 900;
+  margin-bottom: 13px;
+  background: #C31E39;
+  background: radial-gradient(ellipse farthest-side at bottom left, #C31E39 69%, #4A4A4A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.notFoundSecondTitle {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.notFoundInfo {
+  font-size: 18px;
+  margin-bottom: 13px;
+}
+
+.notFoundBtn {
+  width: 50%;
+  height: 40px;
+  border-radius: 50px;
+  transition: all 0.4s;
+  border: 2px solid #c31e39;
+  background-color: #c31e39;
+}
+
+.notFoundLink {
+  color: #ffece5;
+  font-size: 16px;
+  font-weight: 100;
+  transition: all 0.4s;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.notFoundBtn:hover {
+  background-color: #ffece5;
+}
+
+.notFoundBtn:hover .notFoundLink {
+  color: #c31e39;
+}
+
 @import "media/media";
