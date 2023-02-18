@@ -60,7 +60,7 @@ function* handleDeleteFromCartRequest(action) {
       payload: {},
     });
   } catch (e) {
-    toast.error('Something went wrong :(');
+    toast.error(e.response.data.message);
     yield put({
       type: DELETE_FROM_CART_FAIL,
       payload: { error: e.message },

@@ -19,7 +19,10 @@ function Assortment() {
     })();
   }, []);
   return (
-    <div className="assortment">
+    <div
+      className="assortment"
+      data-aos="flip-left"
+    >
       <div className="assortmentColumn1">
         <div className="assortmentColumnDesk">
           <figure className="assortmentItem">

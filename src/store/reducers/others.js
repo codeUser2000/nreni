@@ -1,4 +1,5 @@
 import {
+  CHECKOUT_PAYMENT_FAIL,
   GET_ORDER_LIST_ADMIN_FAIL,
   GET_ORDER_LIST_ADMIN_REQUEST,
   GET_ORDER_LIST_ADMIN_SUCCESS,
@@ -16,6 +17,7 @@ const initialState = {
   orderDataUser: [],
   orderDataUserStatus: '',
   pagination: 1,
+  paymentStatus: '',
 };
 
 // eslint-disable-next-line default-param-last
@@ -79,6 +81,12 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         orderDataUserStatus: 'fail',
+      };
+    }
+    case CHECKOUT_PAYMENT_FAIL: {
+      return {
+        ...state,
+        paymentStatus: 'fail',
       };
     }
     default: {

@@ -11,6 +11,13 @@ function Cart() {
   const navigate = useNavigate();
   const [total, setTotal] = useState(0);
   const cartToken = useSelector((state) => state.cart.userCartData);
+  const paymentStatus = useSelector((state) => state.others.paymentStatus);
+
+  useEffect(() => {
+    if (paymentStatus === 'fail') {
+      navigate('/profile');
+    }
+  }, [paymentStatus]);
 
   useEffect(() => {
     if (localStorage.getItem('cartItem')) {
