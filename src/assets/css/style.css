@@ -1811,6 +1811,10 @@ p {
 .customerDetails {
   margin-bottom: 50px; }
 
+.customerDetailsDesk {
+  display: flex;
+  flex-direction: column; }
+
 .customerDesk {
   display: flex;
   font-size: 16px;

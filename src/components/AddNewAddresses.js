@@ -2,7 +2,9 @@ import React, { useCallback, useState, useEffect } from 'react';
 import PhoneInput, {} from 'react-phone-number-input';
 import DatePicker from 'react-datepicker';
 import { useDispatch, useSelector } from 'react-redux';
+import Aos from 'aos';
 import { updateUserRequest } from '../store/actions/users';
+import 'aos/dist/aos.css';
 
 function AddNewAddresses() {
   const dispatch = useDispatch();
@@ -18,7 +20,9 @@ function AddNewAddresses() {
     street: '',
     postal: '',
   });
-
+  useEffect(() => {
+    Aos.init();
+  });
   useEffect(() => {
     setForm({
       firstName: user.firstName,
@@ -53,7 +57,11 @@ function AddNewAddresses() {
   }, [form]);
 
   return (
-    <div className="addNewAddresses">
+    <div
+      className="addNewAddresses"
+      data-aos="fade-down"
+      data-aos-duration="2000"
+    >
       <form className="addressForm" onSubmit={handleSubmit}>
         <div className="formGroup">
           <input
