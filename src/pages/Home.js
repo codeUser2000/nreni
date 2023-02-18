@@ -3,6 +3,7 @@ import Carousel from 'nuka-carousel';
 import { useDispatch, useSelector } from 'react-redux';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import Aos from 'aos';
 import Wrapper from '../components/Wrapper';
 import MyCarouselComp from '../components/MyCarouselComp';
 import Assortment from '../components/Assortment';
@@ -12,6 +13,7 @@ import { getProductDataRequest } from '../store/actions/product';
 import { getBlockquoteDataRequest } from '../store/actions/blockquote';
 import Blockquote from '../components/Blockquote';
 import Product from '../components/Product';
+import 'aos/dist/aos.css';
 
 function Home() {
   const productData = useSelector((state) => state.product.productsData);
@@ -19,6 +21,7 @@ function Home() {
   const [count, setCount] = useState(4);
   const dispatch = useDispatch();
   useEffect(() => {
+    Aos.init();
     (async () => {
       await dispatch(getProductDataRequest(1));
       await dispatch(getBlockquoteDataRequest());
@@ -44,7 +47,10 @@ function Home() {
   return (
     <Wrapper>
       <div id="header-carousel" className="carousel slide" data-ride="carousel">
-        <section className="banner">
+        <section
+          className="banner"
+
+        >
           <div className="container">
             <div className="carousel-inner">
               <Carousel
@@ -66,17 +72,29 @@ function Home() {
           <div className="container">
             <Assortment />
             <HomeAbout />
-            <section className="new">
+            <section
+              className="new"
+            >
               <h2
                 className="newTitle"
+                data-aos="zoom-in-down"
+                data-aos-duration="1000"
               >
                 New jewelery
               </h2>
-              <p className="newHomeInfo">
+              <p
+                className="newHomeInfo"
+                data-aos="zoom-in-down"
+                data-aos-duration="1000"
+              >
                 Showcasing our creativity and expert craftsmanship at its
                 best.
               </p>
-              <div className="newJewelryRow">
+              <div
+                className="newJewelryRow"
+                data-aos="fade-up"
+                data-aos-duration="2000"
+              >
                 <Carousel
                   dragging="true"
                   pauseOnHover="true"
@@ -108,8 +126,20 @@ function Home() {
             </section>
 
             <blockquote className="blockquote">
-              <h2 className="blockquoteTitle">What Our Client Says</h2>
-              <p className="blockquoteInfo">people&apos;s writing their opinion about our work</p>
+              <h2
+                className="blockquoteTitle"
+                data-aos="zoom-in-down"
+                data-aos-duration="1000"
+              >
+                What Our Client Says
+              </h2>
+              <p
+                className="blockquoteInfo"
+                data-aos="zoom-in-down"
+                data-aos-duration="1000"
+              >
+                people&apos;s writing their opinion about our work
+              </p>
               {quote.length
                 ? (
                   <Carousel

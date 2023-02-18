@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import Aos from 'aos';
 import { getProductDataRequest } from '../store/actions/product';
 import { getBlockquoteDataRequest } from '../store/actions/blockquote';
 import ring from '../assets/img/post/ring.jpg';
@@ -9,10 +10,12 @@ import necklace from '../assets/img/post/necklace.jpg';
 import nameNecklace from '../assets/img/post/nameNecklace.jpg';
 import earring from '../assets/img/post/earring.jpg';
 import bracelet from '../assets/img/post/bracelet.jpg';
+import 'aos/dist/aos.css';
 
 function Assortment() {
   const dispatch = useDispatch();
   useEffect(() => {
+    Aos.init();
     (async () => {
       await dispatch(getProductDataRequest(1));
       await dispatch(getBlockquoteDataRequest());
@@ -22,6 +25,8 @@ function Assortment() {
     <div
       className="assortment"
       data-aos="flip-left"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="2000"
     >
       <div className="assortmentColumn1">
         <div className="assortmentColumnDesk">

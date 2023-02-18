@@ -38,7 +38,7 @@ function Cart() {
       <div className="cart">
         <div className="container">
           <div className="cartPage">
-            <h2 className="cartTitle">shopping cart</h2>
+            <h2 className="cartTitle">shopping card</h2>
             <table className="cartTable">
               <thead className="cartTableThead">
                 <tr className="cartTableTheadTitles">
