@@ -1,5 +1,4 @@
-import React from 'react';
-import { useEffect } from '@types/react';
+import React, { useEffect } from 'react';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 
@@ -8,7 +7,11 @@ function Blockquote({ data }) {
     Aos.init();
   }, []);
   return (
-    <div className="quotesBlock" data-aos="zoom-out" data-aos-duration="2000">
+    <div
+      className="quotesBlock"
+      data-aos="fade-up"
+      data-aos-duration="2000"
+    >
       <h2 className="quoteSymbol">❛❛</h2>
       <p className="quote">
         {data.message}

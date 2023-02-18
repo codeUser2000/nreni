@@ -24,8 +24,7 @@ function Assortment() {
   return (
     <div
       className="assortment"
-      data-aos="flip-left"
-      data-aos-easing="ease-out-cubic"
+      data-aos="zoom-in"
       data-aos-duration="2000"
     >
       <div className="assortmentColumn1">
