@@ -1,12 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import _ from 'lodash';
+import Aos from 'aos';
 
 function SterlingSilverTarnish({ data }) {
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
     <div className="aboutCleaningBlock">
-      <h2 className="aboutCleaningTitle">{data.title}</h2>
+      <h2
+        className="aboutCleaningTitle"
+        data-aos="fade-up"
+        data-aos-duration="1500"
+        data-aos-anchor-placement="bottom-bottom"
+      >
+        {data.title}
+      </h2>
       <figure className="aboutCleaningFigure">
-        <figcaption className="aboutCleaningInfo">
+        <figcaption
+          className="aboutCleaningInfo"
+          data-aos="fade-up"
+          data-aos-duration="1500"
+          data-aos-anchor-placement="bottom-bottom"
+        >
           {data.desc}
           {data.list
             ? (
@@ -17,9 +33,27 @@ function SterlingSilverTarnish({ data }) {
               </ul>
             ) : null}
         </figcaption>
-        {data.media.split('.').reverse()[0] === 'jpg' ? <img src={data.media} alt="" className="aboutCleaningImg" />
+        {data.media.split('.')
+          .reverse()[0] === 'jpg' ? (
+            <img
+              src={data.media}
+              alt=""
+              className="aboutCleaningImg"
+              data-aos="fade-down"
+              data-aos-duration="1500"
+              data-aos-anchor-placement="bottom-bottom"
+            />
+          )
           : (
-            <video muted autoPlay loop className="aboutCleaningVideo">
+            <video
+              muted
+              autoPlay
+              loop
+              className="aboutCleaningVideo"
+              data-aos="fade-down"
+              data-aos-duration="1500"
+              data-aos-anchor-placement="bottom-bottom"
+            >
               <source src={data.media} type="video/mp4" />
             </video>
           )}

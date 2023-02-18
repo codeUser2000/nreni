@@ -13,11 +13,11 @@ function ShopSection() {
           <h1
             className="shopTitle"
             data-aos="fade-right"
-            data-aos-duration="1000"
+            data-aos-duration="1500"
           >
             Sale collection
           </h1>
-          <p className="shopSlogan" data-aos="fade-left" data-aos-duration="1000">
+          <p className="shopSlogan" data-aos="fade-left" data-aos-duration="1500">
             Next stop,
             <b>SILVER NRENI</b>
             {' '}

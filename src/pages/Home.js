@@ -78,14 +78,14 @@ function Home() {
               <h2
                 className="newTitle"
                 data-aos="zoom-in-down"
-                data-aos-duration="1000"
+                data-aos-duration="1500"
               >
                 New jewelery
               </h2>
               <p
                 className="newHomeInfo"
                 data-aos="zoom-in-down"
-                data-aos-duration="1000"
+                data-aos-duration="1500"
               >
                 Showcasing our creativity and expert craftsmanship at its
                 best.
@@ -129,14 +129,14 @@ function Home() {
               <h2
                 className="blockquoteTitle"
                 data-aos="zoom-in-down"
-                data-aos-duration="1000"
+                data-aos-duration="1500"
               >
                 What Our Client Says
               </h2>
               <p
                 className="blockquoteInfo"
                 data-aos="zoom-in-down"
-                data-aos-duration="1000"
+                data-aos-duration="1500"
               >
                 people&apos;s writing their opinion about our work
               </p>
