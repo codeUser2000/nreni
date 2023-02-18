@@ -14,8 +14,20 @@ function About() {
     <Wrapper>
       <main className="about">
         <div className="container">
-          <h1 className="aboutMainTitle" data-aos="zoom-in-down" data-aos-duration="1500">advice & info</h1>
-          <p className="aboutMainInfo" data-aos="zoom-in-down" data-aos-duration="1500">we give you useful information on how to use silver and how to keep it clean</p>
+          <h1
+            className="aboutMainTitle"
+            data-aos="fade-right"
+            data-aos-duration="1500"
+          >
+            advice & info
+          </h1>
+          <p
+            className="aboutMainInfo"
+            data-aos="fade-left"
+            data-aos-duration="1500"
+          >
+            we give you useful information on how to use silver and how to keep it clean
+          </p>
           <AboutSilverJewelry />
           {data.map((d) => (
             <AboutSilverOldJewelry key={d.id} data={d} />

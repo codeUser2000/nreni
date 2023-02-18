@@ -1,10 +1,12 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
+import Aos from 'aos';
 import Wrapper from '../components/Wrapper';
 import CartItems from '../components/CartItems';
 import Utils from '../helpers/Utils';
 import { checkoutPaymentRequest } from '../store/actions/others';
+import 'aos/dist/aos.css';
 
 function Cart() {
   const dispatch = useDispatch();
@@ -14,6 +16,7 @@ function Cart() {
   const paymentStatus = useSelector((state) => state.others.paymentStatus);
 
   useEffect(() => {
+    Aos.init();
     if (paymentStatus === 'fail') {
       navigate('/profile');
     }
@@ -38,8 +41,12 @@ function Cart() {
       <div className="cart">
         <div className="container">
           <div className="cartPage">
-            <h2 className="cartTitle">shopping card</h2>
-            <table className="cartTable">
+            <h2 className="cartTitle" data-aos="zoom-in-down" data-aos-duration="1500">shopping card</h2>
+            <table
+              className="cartTable"
+              data-aos="fade-up"
+              data-aos-duration="2000"
+            >
               <thead className="cartTableThead">
                 <tr className="cartTableTheadTitles">
                   <td>Description</td>
@@ -54,7 +61,11 @@ function Cart() {
                 <CartItems setTotal={setTotal} />
               </tbody>
             </table>
-            <div className="orderSummaryDetails">
+            <div
+              className="orderSummaryDetails"
+              data-aos="fade-up"
+              data-aos-duration="2000"
+            >
               <div className="summery">
                 <div className="summeryDesk">
                   <p className="summeryTitle">total</p>

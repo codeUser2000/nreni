@@ -13,8 +13,18 @@ function Cleaning() {
     <Wrapper>
       <main className="aboutCleaning">
         <div className="container">
-          <h1 className="aboutCleaningMainTitle" data-aos="zoom-in-down" data-aos-duration="1500">clean silver jewelry</h1>
-          <p className="aboutCleaningMainInfo" data-aos="zoom-in-down" data-aos-duration="1500">
+          <h1
+            className="aboutCleaningMainTitle"
+            data-aos="fade-right"
+            data-aos-duration="1500"
+          >
+            clean silver jewelry
+          </h1>
+          <p
+            className="aboutCleaningMainInfo"
+            data-aos="fade-left"
+            data-aos-duration="1500"
+          >
             we answer your question "How to clean blackened
             silver?"
           </p>

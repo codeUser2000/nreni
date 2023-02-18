@@ -5,12 +5,14 @@ import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import classNames from 'classnames';
 import _ from 'lodash';
+import Aos from 'aos';
 import Wrapper from '../components/Wrapper';
 import Api from '../Api';
 import Utils from '../helpers/Utils';
 import { addToCartRequest, getLocalCartData } from '../store/actions/cart';
 import Account from '../helpers/Account';
 import { setLikeRequest, deleteLikeRequest } from '../store/actions/others';
+import 'aos/dist/aos.css';
 
 function Single() {
   const params = useParams();
@@ -24,6 +26,7 @@ function Single() {
   const user = useSelector((state) => state.users.singleUserData);
 
   useEffect(() => {
+    Aos.init();
     (async () => {
       const { data } = await Api.getSingle(params.itemId);
       setSingle(data.product);
@@ -100,9 +103,25 @@ function Single() {
     <Wrapper>
       <main className="single">
         <div className="container">
-          <h1 className="singleTitle">We hope You&apos;ll like it !</h1>
-          <p className="singleMainInfo">Here some information about product you like!</p>
-          <div className="singlePage">
+          <h1
+            className="singleTitle"
+            data-aos="fade-right"
+            data-aos-duration="1500"
+          >
+            We hope You&apos;ll like it !
+          </h1>
+          <p
+            className="singleMainInfo"
+            data-aos="fade-left"
+            data-aos-duration="1500"
+          >
+            Here some information about product you like!
+          </p>
+          <div
+            className="singlePage"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
             <figure className="singleItem">
               <img src={REACT_APP_API_URL + single.avatar} className="singleImg" alt="" />
             </figure>
