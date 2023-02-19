@@ -16,14 +16,14 @@ function Cleaning() {
           <h1
             className="aboutCleaningMainTitle"
             data-aos="fade-right"
-            data-aos-duration="1500"
+            data-aos-duration="1000"
           >
             clean silver jewelry
           </h1>
           <p
             className="aboutCleaningMainInfo"
             data-aos="fade-left"
-            data-aos-duration="1500"
+            data-aos-duration="1000"
           >
             we answer your question "How to clean blackened
             silver?"

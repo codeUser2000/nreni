@@ -366,6 +366,9 @@ table {
   padding: 100px 0 100px;
 }
 
+.assortmentBlock {
+  margin-bottom: 150px;
+}
 
 .assortment {
   width: 100%;
@@ -373,7 +376,6 @@ table {
   //height: fit-content;
   display: flex;
   flex-direction: row;
-  margin-bottom: 150px;
 }
 
 .assortmentColumnGroup,

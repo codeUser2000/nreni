@@ -22,91 +22,107 @@ function Assortment() {
     })();
   }, []);
   return (
-    <div
-      className="assortment"
-      data-aos="zoom-in"
-      data-aos-duration="2000"
-    >
-      <div className="assortmentColumn1">
-        <div className="assortmentColumnDesk">
-          <figure className="assortmentItem">
-            <img
-              style={{ objectPosition: 'bottom' }}
-              src={ring}
-              alt=""
-              className="assortmentImg"
-            />
-          </figure>
-        </div>
-        <div className="assortmentColumnDesk">
-          <p className="assortmentInfo">
-            ring
-          </p>
-          <figure className="assortmentItem">
-            <img
-              style={{ objectPosition: 'bottom' }}
-              src={chainRing}
-              alt=""
-              className="assortmentImg"
-            />
-          </figure>
-        </div>
-      </div>
-      <div className="assortmentColumnGroup">
-        <div className="assortmentColumn2">
+    <div className="assortmentBlock">
+      <h2
+        className="newTitle"
+        data-aos="fade-right"
+        data-aos-duration="1000"
+      >
+       our product range
+      </h2>
+      <p
+        className="newHomeInfo"
+        data-aos="fade-left"
+        data-aos-duration="1000"
+      >
+        A wide range from which to choose a gift for every occasion and person
+      </p>
+      <div
+        className="assortment"
+        data-aos="zoom-in"
+        data-aos-duration="1500"
+      >
+        <div className="assortmentColumn1">
           <div className="assortmentColumnDesk">
             <figure className="assortmentItem">
               <img
                 style={{ objectPosition: 'bottom' }}
-                src={necklace}
+                src={ring}
                 alt=""
                 className="assortmentImg"
               />
             </figure>
-            <div className="assortmentDesk">
-              <p className="assortmentInfo">
-                {' '}
-                Necklace
-              </p>
-              <button type="button" className="assortmentButton">
-                <Link to="/shop" className="assortmentLink">Shop now</Link>
-              </button>
-            </div>
           </div>
           <div className="assortmentColumnDesk">
+            <p className="assortmentInfo">
+              ring
+            </p>
             <figure className="assortmentItem">
               <img
-                src={nameNecklace}
+                style={{ objectPosition: 'bottom' }}
+                src={chainRing}
                 alt=""
                 className="assortmentImg"
               />
             </figure>
           </div>
         </div>
-        <div className="assortmentColumn3">
-          <div className="assortmentColumnDesk">
-            <figure className="assortmentItem">
-              <img
-                src={earring}
-                alt=""
-                className="assortmentImg"
-              />
-            </figure>
-            <p className="assortmentInfo">
-              earring
-            </p>
+        <div className="assortmentColumnGroup">
+          <div className="assortmentColumn2">
+            <div className="assortmentColumnDesk">
+              <figure className="assortmentItem">
+                <img
+                  style={{ objectPosition: 'bottom' }}
+                  src={necklace}
+                  alt=""
+                  className="assortmentImg"
+                />
+              </figure>
+              <div className="assortmentDesk">
+                <p className="assortmentInfo">
+                  {' '}
+                  Necklace
+                </p>
+                <button type="button" className="assortmentButton">
+                  <Link to="/shop" className="assortmentLink">Shop now</Link>
+                </button>
+              </div>
+            </div>
+            <div className="assortmentColumnDesk">
+              <figure className="assortmentItem">
+                <img
+                  src={nameNecklace}
+                  alt=""
+                  className="assortmentImg"
+                />
+              </figure>
+            </div>
           </div>
-          <div className="assortmentColumnDesk">
-            <figure className="assortmentItem">
-              <img
-                src={bracelet}
-                alt=""
-                className="assortmentImg"
-              />
-            </figure>
-            <p className="assortmentInfo">
-              bracelet
-            </p>
+          <div className="assortmentColumn3">
+            <div className="assortmentColumnDesk">
+              <figure className="assortmentItem">
+                <img
+                  src={earring}
+                  alt=""
+                  className="assortmentImg"
+                />
+              </figure>
+              <p className="assortmentInfo">
+                earring
+              </p>
+            </div>
+            <div className="assortmentColumnDesk">
+              <figure className="assortmentItem">
+                <img
+                  src={bracelet}
+                  alt=""
+                  className="assortmentImg"
+                />
+              </figure>
+              <p className="assortmentInfo">
+                bracelet
+              </p>
+            </div>
           </div>
         </div>
       </div>

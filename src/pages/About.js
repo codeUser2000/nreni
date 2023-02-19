@@ -17,14 +17,14 @@ function About() {
           <h1
             className="aboutMainTitle"
             data-aos="fade-right"
-            data-aos-duration="1500"
+            data-aos-duration="1000"
           >
             advice & info
           </h1>
           <p
             className="aboutMainInfo"
             data-aos="fade-left"
-            data-aos-duration="1500"
+            data-aos-duration="1000"
           >
             we give you useful information on how to use silver and how to keep it clean
           </p>

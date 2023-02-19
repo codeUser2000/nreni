@@ -10,21 +10,11 @@ function AboutSilverJewelry() {
   }, []);
   return (
     <div className="aboutBlock">
-      <h2
-        className="aboutTitle"
-        data-aos="fade-right"
-        data-aos-offset="300"
-        data-aos-easing="ease-in-sine"
-      >
+      <h2 className="aboutTitle">
         About silver jewelry
       </h2>
       <figure className="aboutFigure">
-        <div
-          className="aboutClean"
-          data-aos="fade-up"
-          data-aos-duration="1500"
-          data-aos-anchor-placement="bottom-bottom"
-        >
+        <div className="aboutClean">
           <h4 className="aboutCleanTitle">CLEANING SILVER JEWELLERY</h4>
           <Link to="/clean" className="aboutCleanLink">
             How to Clean Silver Jewellery: Advice and
@@ -34,12 +24,7 @@ function AboutSilverJewelry() {
             <img src={about1} alt="" className="aboutCleanImg" />
           </figure>
         </div>
-        <figcaption
-          className="aboutInfo"
-          data-aos="fade-down"
-          data-aos-duration="1500"
-          data-aos-anchor-placement="bottom-bottom"
-        >
+        <figcaption className="aboutInfo">
           Science confirms that silver is very useful for human health. People throw silver spoons
           or
           other household items into the well to enrich the water with useful microelements. Jewelry

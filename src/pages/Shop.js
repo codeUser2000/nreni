@@ -10,13 +10,11 @@ import qs from 'query-string';
 import { Pagination } from '@mui/material';
 import _ from 'lodash';
 import { useNavigate } from 'react-router';
-import Aos from 'aos';
 import Wrapper from '../components/Wrapper';
 import ShopSection from '../components/ShopSection';
 import Filter from '../components/Filter';
 import Product from '../components/Product';
 import { getProductDataRequest } from '../store/actions/product';
-import 'aos/dist/aos.css';
 
 function Shop() {
   const [pageNumber, setPageNumber] = useState(1);
@@ -30,7 +28,6 @@ function Shop() {
   const categoryArr = _.isArray(query.filter) ? query.filter : [query.filter];
 
   useEffect(() => {
-    Aos.init();
     (async () => {
       if (query.searchText) {
         setSearch(query.searchText);
@@ -67,8 +64,6 @@ function Shop() {
             <Filter />
             <section
               className="shopSection"
-              data-aos="fade-up"
-              data-aos-duration="3000"
             >
               <div className="shopSearch">
                 <input

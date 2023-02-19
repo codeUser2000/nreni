@@ -11,7 +11,7 @@ function AboutSilverOldJewelry({ data }) {
     <div className="aboutBlock">
       <h2
         data-aos="fade-up"
-        data-aos-duration="1500"
+        data-aos-duration="500"
         data-aos-anchor-placement="bottom-bottom"
         className="aboutTitle"
       >
@@ -26,13 +26,13 @@ function AboutSilverOldJewelry({ data }) {
           alt=""
           className="aboutImg"
           data-aos="fade-up"
-          data-aos-duration="1500"
+          data-aos-duration="5000"
           data-aos-anchor-placement="bottom-bottom"
         />
         <figcaption
           className="aboutInfo"
           data-aos="fade-down"
-          data-aos-duration="1500"
+          data-aos-duration="500"
           data-aos-anchor-placement="bottom-bottom"
         >
           {data.desc}

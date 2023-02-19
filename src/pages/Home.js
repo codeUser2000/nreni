@@ -78,14 +78,14 @@ function Home() {
               <h2
                 className="newTitle"
                 data-aos="fade-right"
-                data-aos-duration="1500"
+                data-aos-duration="1000"
               >
                 New jewelery
               </h2>
               <p
                 className="newHomeInfo"
                 data-aos="fade-left"
-                data-aos-duration="1500"
+                data-aos-duration="1000"
               >
                 Showcasing our creativity and expert craftsmanship at its
                 best.

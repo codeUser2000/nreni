@@ -11,7 +11,7 @@ function SterlingSilverTarnish({ data }) {
       <h2
         className="aboutCleaningTitle"
         data-aos="fade-up"
-        data-aos-duration="1500"
+        data-aos-duration="500"
         data-aos-anchor-placement="bottom-bottom"
       >
         {data.title}
@@ -20,7 +20,7 @@ function SterlingSilverTarnish({ data }) {
         <figcaption
           className="aboutCleaningInfo"
           data-aos="fade-up"
-          data-aos-duration="1500"
+          data-aos-duration="500"
           data-aos-anchor-placement="bottom-bottom"
         >
           {data.desc}
@@ -40,7 +40,7 @@ function SterlingSilverTarnish({ data }) {
               alt=""
               className="aboutCleaningImg"
               data-aos="fade-down"
-              data-aos-duration="1500"
+              data-aos-duration="500"
               data-aos-anchor-placement="bottom-bottom"
             />
           )
@@ -51,7 +51,7 @@ function SterlingSilverTarnish({ data }) {
               loop
               className="aboutCleaningVideo"
               data-aos="fade-down"
-              data-aos-duration="1500"
+              data-aos-duration="500"
               data-aos-anchor-placement="bottom-bottom"
             >
               <source src={data.media} type="video/mp4" />

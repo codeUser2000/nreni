@@ -106,21 +106,19 @@ function Single() {
           <h1
             className="singleTitle"
             data-aos="fade-right"
-            data-aos-duration="1500"
+            data-aos-duration="1000"
           >
             We hope You&apos;ll like it !
           </h1>
           <p
             className="singleMainInfo"
             data-aos="fade-left"
-            data-aos-duration="1500"
+            data-aos-duration="1000"
           >
             Here some information about product you like!
           </p>
           <div
             className="singlePage"
-            data-aos="fade-up"
-            data-aos-duration="2000"
           >
             <figure className="singleItem">
               <img src={REACT_APP_API_URL + single.avatar} className="singleImg" alt="" />
