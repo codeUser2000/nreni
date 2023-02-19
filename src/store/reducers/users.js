@@ -13,7 +13,7 @@ import {
   GET_USER_PROFILE_REQUEST,
   GET_USER_PROFILE_SUCCESS,
   GET_USER_PROFILE_FAIL,
-  UPDATE_USER_SUCCESS,
+  UPDATE_USER_SUCCESS, UPDATE_USER_FAIL,
 } from '../actions/users';
 
 import Account from '../../helpers/Account';
@@ -143,6 +143,18 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         singleUserData: action.payload.data.updateUser,
+      };
+    }
+    case UPDATE_USER_FAIL: {
+      const { errors } = action.payload.error;
+      console.log(action.payload.data);
+      // eslint-disable-next-line guard-for-in,no-restricted-syntax
+      for (const i in errors) {
+        toast.error(errors[i]);
+      }
+      return {
+        ...state,
+        // singleUserData: action.payload.data,
       };
     }
 
