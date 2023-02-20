@@ -16,6 +16,7 @@ function Contact() {
     email: '',
     message: '',
   });
+
   const handleChange = useCallback((key, value) => {
     formData[key] = value;
     setFormData({ ...formData });
@@ -28,7 +29,7 @@ function Contact() {
   return (
     <>
       <Helmet>
-        <body className="red" />
+        <body className="red"/>
       </Helmet>
       <div className="contact">
         <div className="container">
@@ -45,11 +46,14 @@ function Contact() {
             </div>
             <div className="contactDesk">
               <Link to="/home" className="contactLogo">
-                <img src={logo} alt="nreni" className="contactLogoImg" />
+                <img src={logo} alt="nreni" className="contactLogoImg"/>
                 <p className="contactLogoName">NRENI</p>
               </Link>
               <h2 className="contactTitle">Get In Touch</h2>
-              <form onSubmit={handleSubmit} className="contactForm">
+              <form
+                onSubmit={handleSubmit}
+                className="contactForm"
+              >
                 <p className="contactInfo">Leave us a message!</p>
                 <input
                   className="contactInput"
@@ -76,7 +80,7 @@ function Contact() {
               </form>
               <div className="contactSoc">
                 <Link to="/clean" className="contactLink">
-                  <LocalPhoneIcon />
+                  <LocalPhoneIcon/>
                   {' '}
                   +374 (98) 804824
                 </Link>
@@ -84,12 +88,12 @@ function Contact() {
                   to="https://instagram.com/silver_nreni?igshid=YmMyMTA2M2Y="
                   className="contactLink"
                 >
-                  <InstagramIcon />
+                  <InstagramIcon/>
                   {' '}
                   @silver_nreni
                 </Link>
                 <Link to="https://www.facebook.com/nreni.jeweler" className="contactLink">
-                  <FacebookIcon />
+                  <FacebookIcon/>
                   {' '}
                   Silver Nreni
                 </Link>
