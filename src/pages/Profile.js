@@ -51,150 +51,154 @@ function Profile() {
     navigate('/home');
   }, []);
   return (
-    <Wrapper>
-      <main className="profile">
-        <div className="container">
-          <h2
-            className="profileTitle"
-          >
-            my account
-          </h2>
-          {!_.isEmpty(user) ? (
-            <div className="customer">
-              <p
-                className="customerWelcome"
+    <>
+      { !_.isEmpty(user) ? (
+        <Wrapper>
+          <main className="profile">
+            <div className="container">
+              <h2
+                className="profileTitle"
               >
-                Hello
-                <span className="customerInfo">
-                  {' '}
-                  {user.firstName}
-                  {' '}
-                  {user.lastName}
-                </span>
-                !
-                ( Do you want
-                {' '}
-                {' '}
-                <span
-                  onClick={handleLogout}
-                  className="customerInactive"
-                >
-                  logout
-                </span>
-                {' '}
-                ?)
-              </p>
-              <div
-                className="deleteProfile"
-                onClick={handleDelete}
-              >
-                Delete profile
-              </div>
-              <div
-                className="customerDetails"
-              >
-                <h4 className="customerTitle">user info</h4>
-                <div className="customerDetailsDesk">
-                  <div className="customerDesk">
-                    <PersonIcon style={{ fill: '#c31e39' }} />
-                    <p className="customerName">
+                my account
+              </h2>
+              {!_.isEmpty(user) ? (
+                <div className="customer">
+                  <p
+                    className="customerWelcome"
+                  >
+                    Hello
+                    <span className="customerInfo">
+                      {' '}
                       {user.firstName}
                       {' '}
                       {user.lastName}
-                    </p>
+                    </span>
+                    !
+                    ( Do you want
+                    {' '}
+                    {' '}
+                    <span
+                      onClick={handleLogout}
+                      className="customerInactive"
+                    >
+                      logout
+                    </span>
+                    {' '}
+                    ?)
+                  </p>
+                  <div
+                    className="deleteProfile"
+                    onClick={handleDelete}
+                  >
+                    Delete profile
                   </div>
-                  {user.postal
-                    ? (
+                  <div
+                    className="customerDetails"
+                  >
+                    <h4 className="customerTitle">user info</h4>
+                    <div className="customerDetailsDesk">
                       <div className="customerDesk">
-                        <Inventory2Icon style={{ fill: '#c31e39' }} />
-                        <p className="customerEmail">{user.postal}</p>
+                        <PersonIcon style={{ fill: '#c31e39' }} />
+                        <p className="customerName">
+                          {user.firstName}
+                          {' '}
+                          {user.lastName}
+                        </p>
                       </div>
-                    )
-                    : null}
-                  {user.birthYear
-                    ? (
-                      <div className="customerDesk">
-                        <CalendarMonthIcon style={{ fill: '#c31e39' }} />
-                        <p className="customerEmail">{user.birthYear}</p>
-                      </div>
-                    )
-                    : null}
-                  {user.phone
-                    ? (
-                      <div className="customerDesk">
-                        <PermPhoneMsgIcon style={{ fill: '#c31e39' }} />
-                        <p className="customerEmail">{user.phone}</p>
-                      </div>
-                    )
-                    : null}
-                  {user.email
-                    ? (
-                      <div className="customerDesk">
-                        <MailIcon style={{ fill: '#c31e39' }} />
-                        <p className="customerEmail">{user.email}</p>
-                      </div>
-                    )
-                    : null}
-                  {user.country || user.city || user.street ? (
-                    <div className="customerDesk">
-                      <ImportContactsIcon style={{ fill: '#c31e39' }} />
-                      <p className="customerEmail">
-                        {user.country}
-                        {' '}
-                        {user.city}
-                        {' '}
-                        {user.street}
-                      </p>
+                      {user.postal
+                        ? (
+                          <div className="customerDesk">
+                            <Inventory2Icon style={{ fill: '#c31e39' }} />
+                            <p className="customerEmail">{user.postal}</p>
+                          </div>
+                        )
+                        : null}
+                      {user.birthYear
+                        ? (
+                          <div className="customerDesk">
+                            <CalendarMonthIcon style={{ fill: '#c31e39' }} />
+                            <p className="customerEmail">{user.birthYear}</p>
+                          </div>
+                        )
+                        : null}
+                      {user.phone
+                        ? (
+                          <div className="customerDesk">
+                            <PermPhoneMsgIcon style={{ fill: '#c31e39' }} />
+                            <p className="customerEmail">{user.phone}</p>
+                          </div>
+                        )
+                        : null}
+                      {user.email
+                        ? (
+                          <div className="customerDesk">
+                            <MailIcon style={{ fill: '#c31e39' }} />
+                            <p className="customerEmail">{user.email}</p>
+                          </div>
+                        )
+                        : null}
+                      {user.country || user.city || user.street ? (
+                        <div className="customerDesk">
+                          <ImportContactsIcon style={{ fill: '#c31e39' }} />
+                          <p className="customerEmail">
+                            {user.country}
+                            {' '}
+                            {user.city}
+                            {' '}
+                            {user.street}
+                          </p>
+                        </div>
+                      ) : null}
                     </div>
-                  ) : null}
+                    <button
+                      type="submit"
+                      className="addAddress"
+                      onClick={() => setShow(!show)}
+                    >
+                      {show ? 'Close modal'
+                        : 'Add new addresses'}
+                    </button>
+                    {show
+                      ? <AddNewAddresses />
+                      : null}
+                  </div>
+                  <div
+                    className="customerOrder"
+                  >
+                    <h4 className="customerTitle">my orders</h4>
+                    {orders?.length
+                      ? (
+                        <table className="cartTable">
+                          <thead className="cartTableThead">
+                            <tr className="cartTableTheadTitles">
+                              <td>Description</td>
+                              <td>Quantity</td>
+                              <td>Price</td>
+                              <td className="">Status</td>
+                            </tr>
+                          </thead>
+                          <tbody className="cartTableTbody">
+                            <OrderItems />
+                          </tbody>
+                        </table>
+                      )
+                      : (
+                        <p className="customerOrderInfo">
+                          <Link className="customerOrderLink" to="/shop">Make Your first order.</Link>
+                          {' '}
+                          {' '}
+                          You haven&apos;t placed any orders yet.
+                        </p>
+                      )}
+                  </div>
                 </div>
-                <button
-                  type="submit"
-                  className="addAddress"
-                  onClick={() => setShow(!show)}
-                >
-                  {show ? 'Close modal'
-                    : 'Add new addresses'}
-                </button>
-                {show
-                  ? <AddNewAddresses />
-                  : null}
-              </div>
-              <div
-                className="customerOrder"
-              >
-                <h4 className="customerTitle">my orders</h4>
-                {orders?.length
-                  ? (
-                    <table className="cartTable">
-                      <thead className="cartTableThead">
-                        <tr className="cartTableTheadTitles">
-                          <td>Description</td>
-                          <td>Quantity</td>
-                          <td>Price</td>
-                          <td className="">Status</td>
-                        </tr>
-                      </thead>
-                      <tbody className="cartTableTbody">
-                        <OrderItems />
-                      </tbody>
-                    </table>
-                  )
-                  : (
-                    <p className="customerOrderInfo">
-                      <Link className="customerOrderLink" to="/shop">Make Your first order.</Link>
-                      {' '}
-                      {' '}
-                      You haven&apos;t placed any orders yet.
-                    </p>
-                  )}
-              </div>
+              )
+                : null}
             </div>
-          )
-            : null}
-        </div>
-      </main>
-    </Wrapper>
+          </main>
+        </Wrapper>
+      ) : null}
+    </>
   );
 }
 
