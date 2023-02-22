@@ -88,6 +88,14 @@ class Api {
     return api.post('/users/delete', { email, status });
   }
 
+  static getDataAdmin(data) {
+    return api.get(`/products/productsAdmin?page=${data.page}${data.searchText ? `&searchText=${data.searchText}` : ''}`, {
+      headers: {
+        'Content-Type': 'image/jpeg',
+      },
+    });
+  }
+
   static deleteProduct(id) {
     return api.post('/products/delete', { id });
   }

@@ -30,7 +30,7 @@ function Product({
                 fill: '#c31e39',
               }}
             />
-            {data.likeCount.length}
+            {data.like}
           </div>
           <h3 className="shopProductTitle">{data.title}</h3>
           <div className="shopProductPrices">

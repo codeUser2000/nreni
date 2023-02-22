@@ -14,6 +14,18 @@ export function getProductDataRequest(page, min, max, filter, searchText) {
     },
   };
 }
+export const GET_PRODUCT_ADMIN_DATA_REQUEST = 'GET_PRODUCT_ADMIN_DATA_REQUEST';
+export const GET_PRODUCT_ADMIN_DATA_SUCCESS = 'GET_PRODUCT_ADMIN_DATA_SUCCESS';
+export const GET_PRODUCT_ADMIN_DATA_FAIL = 'GET_PRODUCT_ADMIN_DATA_FAIL';
+
+export function getProductDataAdminRequest(page, searchText) {
+  return {
+    type: GET_PRODUCT_ADMIN_DATA_REQUEST,
+    payload: {
+      page, searchText,
+    },
+  };
+}
 
 export const CREATE_PRODUCT_REQUEST = 'CREATE_PRODUCT_REQUEST';
 export const CREATE_PRODUCT_SUCCESS = 'CREATE_PRODUCT_SUCCESS';

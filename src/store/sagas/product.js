@@ -13,6 +13,9 @@ import {
   UPDATE_PRODUCT_REQUEST,
   UPDATE_PRODUCT_SUCCESS,
   UPDATE_PRODUCT_FAIL,
+  GET_PRODUCT_ADMIN_DATA_SUCCESS,
+  GET_PRODUCT_ADMIN_DATA_FAIL,
+  GET_PRODUCT_ADMIN_DATA_REQUEST,
 } from '../actions/product';
 import Api from '../../Api';
 
@@ -26,6 +29,21 @@ function* handleGetProductsRequest(action) {
   } catch (e) {
     yield put({
       type: GET_PRODUCT_DATA_FAIL,
+      payload: { error: e.message },
+    });
+  }
+}
+
+function* handleGetProductsAdminRequest(action) {
+  try {
+    const { data } = yield call(Api.getDataAdmin, action.payload);
+    yield put({
+      type: GET_PRODUCT_ADMIN_DATA_SUCCESS,
+      payload: { data },
+    });
+  } catch (e) {
+    yield put({
+      type: GET_PRODUCT_ADMIN_DATA_FAIL,
       payload: { error: e.message },
     });
   }
@@ -86,4 +104,5 @@ export default function* watcher() {
   yield takeLatest(DELETE_PRODUCT_REQUEST, handleDeleteProductsRequest);
   yield takeLatest(UPDATE_PRODUCT_REQUEST, handleUpdateProductsRequest);
   yield takeLatest(GET_PRODUCT_DATA_REQUEST, handleGetProductsRequest);
+  yield takeLatest(GET_PRODUCT_ADMIN_DATA_REQUEST, handleGetProductsAdminRequest);
 }

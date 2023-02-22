@@ -5,7 +5,7 @@ import qs from 'query-string';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router';
 import AdminWrapper from '../components/AdminWrapper';
-import { getProductDataRequest } from '../store/actions/product';
+import { getProductDataAdminRequest } from '../store/actions/product';
 import AdminProductComp from '../components/AdminProductComp';
 import CreateModal from '../components/CreateModal';
 
@@ -21,11 +21,11 @@ function AdminProduct() {
   const pagination = useSelector((state) => state.product.pagination);
 
   useEffect(() => {
-    dispatch(getProductDataRequest(pageNumber));
+    dispatch(getProductDataAdminRequest(pageNumber));
   }, [pageNumber]);
   const handleChange = useCallback(async (ev, value) => {
     setPageNumber(value);
-    await dispatch(getProductDataRequest(pageNumber));
+    await dispatch(getProductDataAdminRequest(pageNumber));
   }, [pagination]);
 
   const handleSearch = useCallback((ev) => {
@@ -44,7 +44,7 @@ function AdminProduct() {
       }
       if (query.searchText) {
         setPageNumber(1);
-        await dispatch(getProductDataRequest(1, '', '', '', query.searchText));
+        await dispatch(getProductDataAdminRequest(1, query.searchText));
       }
     })();
   }, []);
@@ -52,9 +52,9 @@ function AdminProduct() {
     (async () => {
       if (query.searchText) {
         setPageNumber(1);
-        await dispatch(getProductDataRequest(1, '', '', '', query.searchText));
+        await dispatch(getProductDataAdminRequest(1, query.searchText));
       } else {
-        await dispatch(getProductDataRequest(1));
+        await dispatch(getProductDataAdminRequest(1));
       }
     })();
   }, [location.search]);

@@ -1,8 +1,12 @@
 import {
-  CREATE_PRODUCT_SUCCESS, DELETE_PRODUCT_SUCCESS,
+  CREATE_PRODUCT_SUCCESS,
+  DELETE_PRODUCT_SUCCESS,
+  GET_PRODUCT_ADMIN_DATA_FAIL,
+  GET_PRODUCT_ADMIN_DATA_SUCCESS,
   GET_PRODUCT_DATA_FAIL,
   GET_PRODUCT_DATA_REQUEST,
-  GET_PRODUCT_DATA_SUCCESS, UPDATE_PRODUCT_SUCCESS,
+  GET_PRODUCT_DATA_SUCCESS,
+  UPDATE_PRODUCT_SUCCESS,
 } from '../actions/product';
 
 const initialState = {
@@ -53,12 +57,29 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         productsDataStatus: 'ok',
-        productsData: data.product,
+        productsData: data.products,
         productPrice: data.productPrice[0],
         pagination: +data.totalPages,
       };
     }
     case GET_PRODUCT_DATA_FAIL:
+    {
+      return {
+        ...state,
+        productsDataStatus: 'fail',
+      };
+    }
+    case GET_PRODUCT_ADMIN_DATA_SUCCESS:
+    {
+      const { data } = action.payload;
+      return {
+        ...state,
+        productsDataStatus: 'ok',
+        productsData: data.products,
+        pagination: +data.totalPages,
+      };
+    }
+    case GET_PRODUCT_ADMIN_DATA_FAIL:
     {
       return {
         ...state,

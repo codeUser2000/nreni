@@ -73,7 +73,7 @@ class Utils {
     const final = [];
     data.map((d) => {
       final.push({
-        price: d.price,
+        price: Math.round(d.price),
         quantity: d.quantity,
         productId: d.product.id,
       });
