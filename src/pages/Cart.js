@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
+import { useLocation } from 'react-router-dom';
 import Wrapper from '../components/Wrapper';
 import CartItems from '../components/CartItems';
 import Utils from '../helpers/Utils';
@@ -9,10 +10,9 @@ import { checkoutPaymentRequest } from '../store/actions/others';
 function Cart() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
   const [total, setTotal] = useState(0);
   const cartToken = useSelector((state) => state.cart.userCartData);
-  const paymentStatus = useSelector((state) => state.others.paymentStatus);
-
 
   useEffect(() => {
     if (localStorage.getItem('cartItem')) {
@@ -22,6 +22,7 @@ function Cart() {
 
   const handleCheckout = useCallback(async () => {
     if (localStorage.getItem('cartItem')) {
+      localStorage.setItem('location', location.pathname);
       navigate('/login');
     } else {
       await dispatch(checkoutPaymentRequest(Utils.setPaymentCartData(cartToken)));

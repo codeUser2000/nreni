@@ -6,6 +6,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import classNames from 'classnames';
 import _ from 'lodash';
 import Aos from 'aos';
+import { useLocation } from 'react-router-dom';
 import Wrapper from '../components/Wrapper';
 import Api from '../Api';
 import Utils from '../helpers/Utils';
@@ -18,6 +19,7 @@ function Single() {
   const params = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
   const { REACT_APP_API_URL } = process.env;
   const [count, setCount] = useState(1);
   const [show, setShow] = useState(false);
@@ -86,6 +88,7 @@ function Single() {
 
   const handleProductLike = useCallback(async () => {
     if (!Account.getToken()) {
+      localStorage.setItem('location', location.pathname);
       navigate('/login');
       return;
     }

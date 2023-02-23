@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
@@ -13,6 +13,7 @@ import Account from '../helpers/Account';
 function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
   const user = useSelector((state) => state.users.singleUserData);
   const userStatus = useSelector((state) => state.users.usersDataStatus);
   const [show, setShow] = useState(false);
@@ -23,6 +24,11 @@ function Login() {
   });
   useEffect(() => {
     if ((Account.getToken() && Account.getToken() !== 'undefined' && !_.isEmpty(user)) || userStatus === 'ok') {
+      if (localStorage.getItem('location')) {
+        navigate(localStorage.getItem('location'));
+        localStorage.removeItem('location');
+        return;
+      }
       navigate('/profile');
     }
   }, [user, userStatus]);
