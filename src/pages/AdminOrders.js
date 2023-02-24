@@ -31,10 +31,10 @@ function AdminOrders() {
           <thead className="adminTableThead">
             <tr className="adminTableTheadTitles">
               <td>order id</td>
-              <td>order</td>
               <td>customer</td>
               <td>amount</td>
               <td>date</td>
+              <td>order</td>
               <td>status order</td>
             </tr>
           </thead>
