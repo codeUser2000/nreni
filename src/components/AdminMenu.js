@@ -4,7 +4,6 @@ import PersonIcon from '@mui/icons-material/Person';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
-import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt';
 
 function AdminMenu() {
   return (
@@ -27,12 +26,6 @@ function AdminMenu() {
           <NavLink to="/admin-users" className="adminMenuLink">
             <PersonIcon style={{ fill: '#c31e39', marginRight: '5px' }} />
             users
-          </NavLink>
-        </li>
-        <li className="adminMenuList">
-          <NavLink to="/admin-analytics" className="adminMenuLink">
-            <SignalCellularAltIcon style={{ fill: '#c31e39', marginRight: '5px' }} />
-            Analytics
           </NavLink>
         </li>
         <li className="adminMenuList">

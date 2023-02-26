@@ -23,7 +23,6 @@ import CompleteRegistration from './pages/CompleteRegistration';
 import AdminOrders from './pages/AdminOrders';
 import AdminQuotes from './pages/AdminQuotes';
 import Payment from './pages/Payment';
-import AdminAnalytics from './pages/AdminAnalytics';
 import UserCard from './components/UserCard';
 
 const LazyShop = React.lazy(() => import('./pages/Shop'));
@@ -62,7 +61,6 @@ class App extends Component {
             <Route path="/admin-orders" element={<AdminOrders />} />
             <Route path="/admin-users" element={<AdminUsers />} />
             <Route path="/admin-quotes" element={<AdminQuotes />} />
-            <Route path="/admin-analytics" element={<AdminAnalytics />} />
             <Route path="/complete" element={<CompleteRegistration />} />
             <Route path="/payment" element={<Payment />} />
             <Route path="/user-card" element={<UserCard />} />
