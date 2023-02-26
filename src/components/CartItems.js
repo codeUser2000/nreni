@@ -10,7 +10,7 @@ import {
   getLocalCartData, updateCartRequest,
 } from '../store/actions/cart';
 
-function CartItems({ setTotal }) {
+function CartItems({ setTotal, page }) {
   const { REACT_APP_API_URL } = process.env;
   const [cart, setCart] = useState([]);
   const dispatch = useDispatch();
@@ -46,8 +46,8 @@ function CartItems({ setTotal }) {
 
   const handleDelete = useCallback(async (id) => {
     if (Account.getToken()) {
-      await dispatch(deleteFromCartRequest(id, user.cart.id));
-      await dispatch(getCartItemListRequest(1, user.cart.id));
+      await dispatch(deleteFromCartRequest(id));
+      await dispatch(getCartItemListRequest(page));
     } else {
       Utils.deleteFromCart(id);
       setCart(JSON.parse(localStorage.getItem('cartItem')));
@@ -56,7 +56,7 @@ function CartItems({ setTotal }) {
       }
       await dispatch(getLocalCartData());
     }
-  }, [user]);
+  }, [page]);
 
   useEffect(() => {
     (async () => {

@@ -2,17 +2,21 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { useLocation } from 'react-router-dom';
+import { Pagination } from '@mui/material';
 import Wrapper from '../components/Wrapper';
 import CartItems from '../components/CartItems';
 import Utils from '../helpers/Utils';
 import { checkoutPaymentRequest } from '../store/actions/others';
+import { getCartItemListRequest } from '../store/actions/cart';
 
 function Cart() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
   const [total, setTotal] = useState(0);
+  const [page, setPage] = useState(1);
   const cartToken = useSelector((state) => state.cart.userCartData);
+  const pagination = useSelector((state) => state.cart.pagination);
 
   useEffect(() => {
     if (localStorage.getItem('cartItem')) {
@@ -28,6 +32,11 @@ function Cart() {
       await dispatch(checkoutPaymentRequest(Utils.setPaymentCartData(cartToken)));
     }
   }, [cartToken]);
+
+  const handleChange = useCallback(async (ev, value) => {
+    setPage(value);
+    await dispatch(getCartItemListRequest(value));
+  }, [pagination]);
 
   return (
     <Wrapper>
@@ -49,7 +58,7 @@ function Cart() {
                 </tr>
               </thead>
               <tbody className="cartTableTbody">
-                <CartItems setTotal={setTotal} />
+                <CartItems page={page} setTotal={setTotal} />
               </tbody>
             </table>
             <div
@@ -69,6 +78,7 @@ function Cart() {
                 </button>
               </div>
             </div>
+            <Pagination count={+pagination} page={page} onChange={handleChange} />
           </div>
         </div>
       </div>

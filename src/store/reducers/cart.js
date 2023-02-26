@@ -40,6 +40,7 @@ export default function reducer(state = initialState, action) {
         ...state,
         userCartDataStatus: 'ok',
         userCartData: cartItem,
+        pagination: action.payload.data.totalPages,
       };
     }
 

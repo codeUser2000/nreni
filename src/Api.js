@@ -145,19 +145,14 @@ class Api {
     return api.post('/cart/addToCartLocal', { data });
   }
 
-  static deleteFromCart(productId, cartId) {
+  static deleteFromCart(productId) {
     return api.post('/cart/deleteFromCart', {
       productId,
-      cartId,
     });
   }
 
   static getCartItemsList(page) {
     return api.get(`/cart/cartItemList?page=${page || 1}`);
-  }
-
-  static getCartItem(page) {
-    return api.get(`cart/getCartItem?page=${page || 1}`);
   }
 
   static updateCart(data) {

@@ -9,20 +9,24 @@ import ImportContactsIcon from '@mui/icons-material/ImportContacts';
 import Inventory2Icon from '@mui/icons-material/Inventory2';
 import PermPhoneMsgIcon from '@mui/icons-material/PermPhoneMsg';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import { Pagination } from '@mui/material';
 import Wrapper from '../components/Wrapper';
 import Account from '../helpers/Account';
 import { deleteUserSelfRequest, getUserProfileRequest } from '../store/actions/users';
 import AddNewAddresses from '../components/AddNewAddresses';
 import { getOrderListUserRequest } from '../store/actions/others';
 import OrderItems from '../components/OrderItems';
+import { getProductDataRequest } from '../store/actions/product';
 
 function Profile() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
+  const [pageNumber, setPageNumber] = useState(1);
   const user = useSelector((state) => state.users.singleUserData);
   const userStatus = useSelector((state) => state.users.singleUserDataStatus);
   const orders = useSelector((state) => state.others.orderDataUser);
+  const pagination = useSelector((state) => state.others.pagination);
 
   useEffect(() => {
     (async () => {
@@ -50,7 +54,13 @@ function Profile() {
     await dispatch(deleteUserSelfRequest(id));
     navigate('/home');
   }, []);
+
+  const handleChange = useCallback(async (ev, value) => {
+    setPageNumber(value);
+    await dispatch(getOrderListUserRequest(value));
+  }, [pagination]);
   return (
+    // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
       { !_.isEmpty(user) ? (
         <Wrapper>
@@ -168,19 +178,22 @@ function Profile() {
                     <h4 className="customerTitle">my orders</h4>
                     {orders?.length
                       ? (
-                        <table className="cartTable">
-                          <thead className="cartTableThead">
-                            <tr className="cartTableTheadTitles">
-                              <td>Description</td>
-                              <td>Quantity</td>
-                              <td>Price</td>
-                              <td className="">Status</td>
-                            </tr>
-                          </thead>
-                          <tbody className="cartTableTbody">
-                            <OrderItems />
-                          </tbody>
-                        </table>
+                        <>
+                          <table className="cartTable">
+                            <thead className="cartTableThead">
+                              <tr className="cartTableTheadTitles">
+                                <td>Description</td>
+                                <td>Quantity</td>
+                                <td>Price</td>
+                                <td className="">Status</td>
+                              </tr>
+                            </thead>
+                            <tbody className="cartTableTbody">
+                              <OrderItems />
+                            </tbody>
+                          </table>
+                          <Pagination count={+pagination} page={pageNumber} onChange={handleChange} />
+                        </>
                       )
                       : (
                         <p className="customerOrderInfo">

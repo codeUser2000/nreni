@@ -53,7 +53,7 @@ function* handleAddToCartLocalRequest(action) {
 
 function* handleDeleteFromCartRequest(action) {
   try {
-    yield call(Api.deleteFromCart, action.payload.productId, action.payload.cartId);
+    yield call(Api.deleteFromCart, action.payload.productId);
     toast.success('The product has been successfully deleted from the card:)');
     yield put({
       type: DELETE_FROM_CART_SUCCESS,
