@@ -147,14 +147,12 @@ export default function reducer(state = initialState, action) {
     }
     case UPDATE_USER_FAIL: {
       const { errors } = action.payload.error;
-      console.log(action.payload.data);
       // eslint-disable-next-line guard-for-in,no-restricted-syntax
       for (const i in errors) {
         toast.error(errors[i]);
       }
       return {
         ...state,
-        // singleUserData: action.payload.data,
       };
     }
 

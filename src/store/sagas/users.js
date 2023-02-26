@@ -197,7 +197,7 @@ function* handleUserNewPasswordRequest(action) {
 function* handleUpdateUsersRequest(action) {
   try {
     const { data } = yield call(Api.addresses, action.payload.data);
-    console.log(data);
+    toast.success('You are successfully updated');
     yield put({
       type: UPDATE_USER_SUCCESS,
       payload: { data },

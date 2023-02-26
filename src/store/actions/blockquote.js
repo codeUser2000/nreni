@@ -36,7 +36,6 @@ export const SET_VIEW_BLOCKQUOTE_SUCCESS = 'SET_VIEW_BLOCKQUOTE_SUCCESS';
 export const SET_VIEW_BLOCKQUOTE_FAIL = 'SET_VIEW_BLOCKQUOTE_FAIL';
 
 export function setViewBlockquote(id, ev) {
-  console.log(id, ev);
   return {
     type: SET_VIEW_BLOCKQUOTE_REQUEST,
     payload: { id, ev },
