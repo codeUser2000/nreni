@@ -85,6 +85,8 @@ function Contact() {
                   +374 (98) 804824
                 </a>
                 <a
+                  rel="noopener noreferrer"
+                  target="_blank"
                   href="https://instagram.com/silver_nreni?igshid=YmMyMTA2M2Y="
                   className="contactLink"
                 >
@@ -92,7 +94,12 @@ function Contact() {
                   {' '}
                   @silver_nreni
                 </a>
-                <a href="https://www.facebook.com/nreni.jeweler" className="contactLink">
+                <a
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  href="https://www.facebook.com/nreni.jeweler"
+                  className="contactLink"
+                >
                   <FacebookIcon />
                   {' '}
                   Silver Nreni
