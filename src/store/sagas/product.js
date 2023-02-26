@@ -58,7 +58,7 @@ function* handleCreateProductsRequest(action) {
       payload: { data },
     });
   } catch (e) {
-    toast.error('Something went wrong :(');
+    toast.error(e.response.data.message);
     yield put({
       type: CREATE_PRODUCT_FAIL,
       payload: { error: e.message },
@@ -75,7 +75,7 @@ function* handleDeleteProductsRequest(action) {
       payload: { data },
     });
   } catch (e) {
-    toast.error('Something went wrong :(');
+    toast.error(e.response.data.message);
     yield put({
       type: DELETE_PRODUCT_FAIL,
       payload: { error: e.message },
@@ -86,12 +86,14 @@ function* handleDeleteProductsRequest(action) {
 function* handleUpdateProductsRequest(action) {
   try {
     const { data } = yield call(Api.updateProduct, action.payload.data);
+    toast.success('Product is updated successfully :)');
+
     yield put({
       type: UPDATE_PRODUCT_SUCCESS,
       payload: { data },
     });
   } catch (e) {
-    console.log(e);
+    toast.error(e.response.data.message);
     yield put({
       type: UPDATE_PRODUCT_FAIL,
       payload: { error: e.message },
