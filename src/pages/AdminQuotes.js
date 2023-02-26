@@ -1,6 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Pagination } from '@mui/material';
+import { useNavigate } from 'react-router';
+import { useLocation } from 'react-router-dom';
+import qs from 'query-string';
 import AdminWrapper from '../components/AdminWrapper';
 import {
   deleteBlockquoteRequest,
@@ -9,22 +12,31 @@ import {
 
 function AdminQuotes() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
   const [page, setPage] = useState(1);
   const pagination = useSelector((state) => state.blockquote.pagination);
   const quote = useSelector((state) => state.blockquote.blockquotesDataAdmin);
+  const query = qs.parse(location.search, { arrayFormat: 'comma' });
 
   useEffect(() => {
     (async () => {
-      await dispatch(getAdminBlockquoteDataRequest(1));
+      setPage(+query.page || 1);
+      await dispatch(getAdminBlockquoteDataRequest(query.page || 1));
     })();
   }, []);
   const handleDelete = useCallback(async (id) => {
     await dispatch(deleteBlockquoteRequest(id));
   }, []);
+
   const handleChange = useCallback(async (ev, value) => {
     setPage(value);
-    await dispatch(getAdminBlockquoteDataRequest(page));
-  }, [pagination]);
+    query.page = value;
+    navigate(`?${qs.stringify(query, {
+      arrayFormat: 'comma',
+      skipEmptyString: true,
+    })}`);
+  }, [location.search]);
 
   const handleUpdate = useCallback(async (id, ev) => {
     await dispatch(setViewBlockquote(id, ev));

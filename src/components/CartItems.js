@@ -10,7 +10,7 @@ import {
   getLocalCartData, updateCartRequest,
 } from '../store/actions/cart';
 
-function CartItems({ setTotal, page }) {
+function CartItems({ setTotal, page, setPage }) {
   const { REACT_APP_API_URL } = process.env;
   const [cart, setCart] = useState([]);
   const dispatch = useDispatch();
@@ -25,14 +25,15 @@ function CartItems({ setTotal, page }) {
           count: product.quantity + 1,
           price: product.product.newPrice,
         }));
-        await dispatch(getCartItemListRequest(1, user.cart.id));
+        await dispatch(getCartItemListRequest(page, user.cart.id));
       } else if (product.quantity > 1 && operator === '-') {
         await dispatch(updateCartRequest({
           productId: product.product.id,
           count: product.quantity - 1,
           price: product.product.newPrice,
         }));
-        await dispatch(getCartItemListRequest(1, user.cart.id));
+        setPage(page);
+        await dispatch(getCartItemListRequest(page, user.cart.id));
       }
     } else {
       const newCart = cart.filter((c) => c.id === product.id);
@@ -42,10 +43,11 @@ function CartItems({ setTotal, page }) {
         setTotal(Utils.totalPrice(JSON.parse(localStorage.getItem('cartItem'))));
       }
     }
-  }, [cart]);
+  }, [cart, page]);
 
   const handleDelete = useCallback(async (id) => {
     if (Account.getToken()) {
+      setPage(page);
       await dispatch(deleteFromCartRequest(id));
       await dispatch(getCartItemListRequest(page));
     } else {
@@ -65,12 +67,13 @@ function CartItems({ setTotal, page }) {
           await dispatch(addToCartLocalRequest(JSON.parse(localStorage.getItem('cartItem'))));
         }
         localStorage.removeItem('cartItem');
-        await dispatch(getCartItemListRequest(1));
+        setPage(page);
+        await dispatch(getCartItemListRequest(page));
       } else if (localStorage.getItem('cartItem')) {
         setCart(JSON.parse(localStorage.getItem('cartItem')));
       }
     })();
-  }, [user]);
+  }, [page]);
 
   useEffect(() => {
     if (Account.getToken()) {

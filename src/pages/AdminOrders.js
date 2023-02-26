@@ -1,26 +1,38 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Pagination } from '@mui/material';
+import qs from 'query-string';
+import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import AdminWrapper from '../components/AdminWrapper';
 import AdminOrder from '../components/AdminOrder';
 import { getOrderListAdminRequest } from '../store/actions/others';
 import OrderModal from '../components/OrderModal';
 
 function AdminOrders() {
+  const location = useLocation();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const query = qs.parse(location.search, { arrayFormat: 'comma' });
   const [page, setPage] = useState(1);
   const [id, setId] = useState(0);
   const orderData = useSelector((state) => state.others.orderData);
   const pagination = useSelector((state) => state.others.pagination);
   useEffect(() => {
     (async () => {
-      await dispatch(getOrderListAdminRequest(page));
+      setPage(+query.page || 1);
+      await dispatch(getOrderListAdminRequest(query.page || 1));
     })();
   }, [page]);
   const handleChange = useCallback(async (ev, value) => {
     setPage(value);
-    await dispatch(getOrderListAdminRequest(page));
-  }, [pagination]);
+    query.page = value;
+    navigate(`?${qs.stringify(query, {
+      arrayFormat: 'comma',
+      skipEmptyString: true,
+    })}`);
+  }, [location.search]);
+
   return (
     <AdminWrapper>
       <div className="adminOrders">

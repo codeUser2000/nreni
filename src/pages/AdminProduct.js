@@ -21,12 +21,19 @@ function AdminProduct() {
   const pagination = useSelector((state) => state.product.pagination);
 
   useEffect(() => {
-    dispatch(getProductDataAdminRequest(pageNumber));
-  }, [pageNumber]);
+    (async () => {
+      await dispatch(getProductDataAdminRequest(pageNumber));
+    })();
+  }, []);
+
   const handleChange = useCallback(async (ev, value) => {
     setPageNumber(value);
-    await dispatch(getProductDataAdminRequest(pageNumber));
-  }, [pagination]);
+    query.page = value;
+    navigate(`?${qs.stringify(query, {
+      arrayFormat: 'comma',
+      skipEmptyString: true,
+    })}`);
+  }, [location.search]);
 
   const handleSearch = useCallback((ev) => {
     setSearch(ev);
@@ -43,18 +50,18 @@ function AdminProduct() {
         setSearch(query.searchText);
       }
       if (query.searchText) {
-        setPageNumber(1);
-        await dispatch(getProductDataAdminRequest(1, query.searchText));
+        setPageNumber(+query.page || 1);
+        await dispatch(getProductDataAdminRequest(query.page || 1, query.searchText));
       }
     })();
   }, []);
   useEffect(() => {
     (async () => {
       if (query.searchText) {
-        setPageNumber(1);
-        await dispatch(getProductDataAdminRequest(1, query.searchText));
+        setPageNumber(+query.page || 1);
+        await dispatch(getProductDataAdminRequest(query.page || 1, query.searchText));
       } else {
-        await dispatch(getProductDataAdminRequest(1));
+        await dispatch(getProductDataAdminRequest(query.page || 1));
       }
     })();
   }, [location.search]);

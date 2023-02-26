@@ -26,13 +26,13 @@ function AdminUsers() {
 
   useEffect(() => {
     (async () => {
-      await dispatch(getUserData(1));
+      await dispatch(getUserData(query.page || 1));
     })();
   }, []);
 
   const handleDelete = useCallback(async (email, status) => {
     await dispatch(deleteUserRequest(email, status));
-    await dispatch(getUserData(1));
+    await dispatch(getUserData(query.page || 1));
   }, []);
 
   const handleOpenModal = useCallback((userId) => {
@@ -40,10 +40,14 @@ function AdminUsers() {
     setId(userId);
   }, []);
 
-  const handleChange = useCallback((ev, value) => {
+  const handleChange = useCallback(async (ev, value) => {
     setPageNumber(value);
-    dispatch(getUserData(pageNumber));
-  }, [pagination]);
+    query.page = value;
+    navigate(`?${qs.stringify(query, {
+      arrayFormat: 'comma',
+      skipEmptyString: true,
+    })}`);
+  }, [location.search]);
 
   useEffect(() => {
     (async () => {
@@ -51,8 +55,8 @@ function AdminUsers() {
         setSearch(query.searchText);
       }
       if (query.searchText) {
-        setPageNumber(1);
-        await dispatch(getUserData(1, query.searchText));
+        setPageNumber(+query.page || 1);
+        await dispatch(getUserData(query.page || 1, query.searchText));
       }
     })();
   }, []);

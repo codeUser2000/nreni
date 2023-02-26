@@ -47,9 +47,10 @@ function Filter() {
     (async () => {
       if (!_.isEmpty(query)) {
         const [minV, maxV] = query.sliderPrice?.split('_') || [min, max];
-        await dispatch(getProductDataRequest(1, minV, maxV, categories, query.searchText));
+        // eslint-disable-next-line max-len
+        await dispatch(getProductDataRequest(query.page || 1, minV, maxV, categories, query.searchText));
       } else {
-        await dispatch(getProductDataRequest(1));
+        await dispatch(getProductDataRequest(query.page || 1));
       }
     })();
   }, [location.search]);

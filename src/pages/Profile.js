@@ -16,7 +16,6 @@ import { deleteUserSelfRequest, getUserProfileRequest } from '../store/actions/u
 import AddNewAddresses from '../components/AddNewAddresses';
 import { getOrderListUserRequest } from '../store/actions/others';
 import OrderItems from '../components/OrderItems';
-import { getProductDataRequest } from '../store/actions/product';
 
 function Profile() {
   const navigate = useNavigate();
@@ -192,6 +191,7 @@ function Profile() {
                               <OrderItems />
                             </tbody>
                           </table>
+                          {/* eslint-disable-next-line max-len */}
                           <Pagination count={+pagination} page={pageNumber} onChange={handleChange} />
                         </>
                       )

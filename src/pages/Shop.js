@@ -32,12 +32,16 @@ function Shop() {
       if (query.searchText) {
         setSearch(query.searchText);
       }
+      if (query.page) {
+        setPageNumber(query.page);
+      }
       if (query.sliderPrice) {
         setPageNumber(1);
         const [min, max] = query.sliderPrice.split('_');
-        await dispatch(getProductDataRequest(1, min, max, categoryArr, query.searchText));
+        // eslint-disable-next-line max-len
+        await dispatch(getProductDataRequest(query.page || 1, min, max, categoryArr, query.searchText));
       } else if (query.searchText) {
-        await dispatch(getProductDataRequest(1, '', '', categoryArr, query.searchText));
+        await dispatch(getProductDataRequest(query.page || 1, '', '', categoryArr, query.searchText));
       }
     })();
   }, []);
@@ -52,8 +56,12 @@ function Shop() {
 
   const handleChange = useCallback(async (ev, value) => {
     setPageNumber(value);
-    await dispatch(getProductDataRequest(value));
-  }, [pagination]);
+    query.page = value;
+    navigate(`?${qs.stringify(query, {
+      arrayFormat: 'comma',
+      skipEmptyString: true,
+    })}`);
+  }, [location.search]);
 
   return (
     <Wrapper>
