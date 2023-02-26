@@ -29,7 +29,7 @@ function Contact() {
   return (
     <>
       <Helmet>
-        <body className="red" />
+        <body className="red"/>
       </Helmet>
       <div className="contact">
         <div className="container">
@@ -46,7 +46,7 @@ function Contact() {
             </div>
             <div className="contactDesk">
               <Link to="/home" className="contactLogo">
-                <img src={logo} alt="nreni" className="contactLogoImg" />
+                <img src={logo} alt="nreni" className="contactLogoImg"/>
                 <p className="contactLogoName">NRENI</p>
               </Link>
               <h2 className="contactTitle">Get In Touch</h2>
@@ -79,24 +79,24 @@ function Contact() {
                 <button type="submit" className="contactBtn">send</button>
               </form>
               <div className="contactSoc">
-                <a href="tel:+37498804824" className="contactLink">
-                  <LocalPhoneIcon />
+                <Link to="/clean" className="contactLink">
+                  <LocalPhoneIcon/>
                   {' '}
                   +374 (98) 804824
-                </a>
-                <a
-                  href="https://instagram.com/silver_nreni?igshid=YmMyMTA2M2Y="
+                </Link>
+                <Link
+                  to="https://instagram.com/silver_nreni?igshid=YmMyMTA2M2Y="
                   className="contactLink"
                 >
-                  <InstagramIcon />
+                  <InstagramIcon/>
                   {' '}
                   @silver_nreni
-                </a>
-                <a href="https://www.facebook.com/nreni.jeweler" className="contactLink">
-                  <FacebookIcon />
+                </Link>
+                <Link to="https://www.facebook.com/nreni.jeweler" className="contactLink">
+                  <FacebookIcon/>
                   {' '}
                   Silver Nreni
-                </a>
+                </Link>
               </div>
             </div>
           </div>
