@@ -2660,6 +2660,32 @@ p {
   font-weight: 600;
 }
 
+.clickToSee {
+  border: none;
+  transition: all 0.4s;
+  background-color: white;
+}
+
+.clickToSee:hover {
+  color: #c31e39;
+}
+
+.orderBtn {
+  color: #ffece5;
+  padding: 0 15px 0;
+  margin-right: 10px;
+  border-radius: 50px;
+  transition: all 0.4s;
+  background-color: #c31e39;
+  border: 2px solid #c31e39;
+  text-transform: capitalize;
+}
+
+.orderBtn:hover {
+  color: #c31e39;
+  background-color: white;
+}
+
 .adminOrder {
   width: 100%;
   display: flex;
@@ -2681,7 +2707,7 @@ p {
 
 .adminQuoteDelete {
   color: #ffece5;
-  padding: 0 5px 0;
+  padding: 0 15px 0;
   margin-right: 10px;
   border-radius: 50px;
   transition: all 0.4s;
@@ -2690,9 +2716,22 @@ p {
   text-transform: capitalize;
 }
 
+.x {
+  width: 25px;
+  color: #c31e39;
+  transition: all 0.4s;
+  border: 2px solid #c31e39;
+  background-color: #ffece5;
+}
+
+.x:hover {
+  color: #ffece5;
+  background-color: #c31e39;
+}
+
 .adminQuoteView {
   color: #ffece5;
-  padding: 0 5px 0;
+  padding: 0 15px 0;
   border-radius: 50px;
   transition: all 0.4s;
   background-color: green;
