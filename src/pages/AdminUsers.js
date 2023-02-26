@@ -25,12 +25,14 @@ function AdminUsers() {
   const pagination = useSelector((state) => state.users.pagination);
 
   useEffect(() => {
-    dispatch(getUserData(1));
+    (async () => {
+      await dispatch(getUserData(1));
+    })();
   }, []);
 
-  const handleDelete = useCallback((email, status) => {
-    dispatch(deleteUserRequest(email, status));
-    dispatch(getUserData(1));
+  const handleDelete = useCallback(async (email, status) => {
+    await dispatch(deleteUserRequest(email, status));
+    await dispatch(getUserData(1));
   }, []);
 
   const handleOpenModal = useCallback((userId) => {
