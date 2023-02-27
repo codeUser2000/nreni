@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import PersonIcon from '@mui/icons-material/Person';
 
 function NavBarMenu() {
   return (
@@ -22,23 +22,23 @@ function NavBarMenu() {
         <li className="navList">
           <NavLink to="/card" className="navLink">
             {' '}
-            <ShoppingCartIcon />
+            <ShoppingCartIcon/>
           </NavLink>
         </li>
         <li className="navList">
           {' '}
           {sessionStorage.getItem('token') ? (
-            <NavLink to="/profile" className="navLink">
-              <PermIdentityIcon style={{
-                width: 28,
-                height: 28,
-              }}
-              />
-            </NavLink>
-          )
+              <NavLink to="/profile" className="navLink">
+                <PersonIcon style={{
+                  width: 28,
+                  height: 28,
+                }}
+                />
+              </NavLink>
+            )
             : (
               <NavLink to="/login" className="navLink">
-                <PermIdentityIcon />
+                <PersonIcon/>
               </NavLink>
             )}
         </li>
