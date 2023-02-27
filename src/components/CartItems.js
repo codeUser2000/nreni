@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useDispatch, useSelector } from 'react-redux';
+import PaidIcon from '@mui/icons-material/Paid';
+import { useNavigate } from 'react-router-dom';
 import Account from '../helpers/Account';
 import Utils from '../helpers/Utils';
 import {
@@ -9,18 +11,28 @@ import {
   getCartItemListRequest,
   getLocalCartData, updateCartRequest,
 } from '../store/actions/cart';
-import PaidIcon from '@mui/icons-material/Paid';
+import { checkoutPaymentRequest } from '../store/actions/others';
 
 function CartItems({
   setTotal,
   page,
-  setPage
+  setPage,
 }) {
   const { REACT_APP_API_URL } = process.env;
   const [cart, setCart] = useState([]);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const cartToken = useSelector((state) => state.cart.userCartData);
   const user = useSelector((state) => state.users.singleUserData);
+
+  const handleCheckout = useCallback(async (single) => {
+    if (localStorage.getItem('cartItem')) {
+      navigate('/login');
+    } else {
+      // eslint-disable-next-line max-len
+      await dispatch(checkoutPaymentRequest(Utils.setPaymentCartData([{ product: single.product, quantity: single.quantity, price: single.price }])));
+    }
+  }, []);
 
   const handleCount = useCallback(async (operator, product) => {
     if (Account.getToken()) {
@@ -96,7 +108,7 @@ function CartItems({
           <td>
             <div className="cartTableProduct">
               <figure className="cartTableItem">
-                <img className="cartTableImg" src={REACT_APP_API_URL + c.product.avatar} alt=""/>
+                <img className="cartTableImg" src={REACT_APP_API_URL + c.product.avatar} alt="" />
               </figure>
               <div className="cartTableDesk">
                 <h4 className="cartTableTitle">{c.product.title}</h4>
@@ -154,8 +166,11 @@ function CartItems({
             </span>
           </td>
           <td style={{ textAlign: 'center' }}>
-            <button className='cardBuySingle'>
-              <PaidIcon/>
+            <button
+              onClick={() => handleCheckout(c)}
+              className="cardBuySingle"
+            >
+              <PaidIcon />
             </button>
           </td>
         </tr>

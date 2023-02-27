@@ -13,7 +13,7 @@ import Api from '../Api';
 import Utils from '../helpers/Utils';
 import { addToCartRequest, getLocalCartData } from '../store/actions/cart';
 import Account from '../helpers/Account';
-import { setLikeRequest, deleteLikeRequest } from '../store/actions/others';
+import { setLikeRequest, deleteLikeRequest, checkoutPaymentRequest } from '../store/actions/others';
 import 'aos/dist/aos.css';
 
 function Single() {
@@ -62,7 +62,7 @@ function Single() {
   const handleProductCountChange = useCallback((operator) => {
     if (operator === 'add' && +count < +single.countProduct) {
       setCount(+count + 1);
-    } else if (operator === 'delete' && +count >= 0) {
+    } else if (operator === 'delete' && +count > 1) {
       setCount(+count - 1);
     }
   }, [single, count]);
@@ -102,6 +102,16 @@ function Single() {
     }
     setShow(!show);
   }, [show, like, single]);
+
+  const handleCheckout = useCallback(async () => {
+    if (localStorage.getItem('cartItem')) {
+      localStorage.setItem('location', location.pathname);
+      navigate('/login');
+    } else {
+      // eslint-disable-next-line max-len
+      await dispatch(checkoutPaymentRequest(Utils.setPaymentCartData([{ product: single, quantity: count, price: single.newPrice }])));
+    }
+  }, [single, count]);
 
   return (
     <Wrapper>
@@ -200,6 +210,7 @@ function Single() {
               </div>
               <div className="paymentSingle">
                 <button
+                  onClick={handleCheckout}
                   type="button"
                   className="singleBuyNow"
                 >
