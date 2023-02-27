@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
+import AddCardIcon from '@mui/icons-material/AddCard';
 import Account from '../helpers/Account';
 import Utils from '../helpers/Utils';
 import { addToCartRequest, getLocalCartData } from '../store/actions/cart';
-import AddCardIcon from '@mui/icons-material/AddCard';
 
 function Product({
   data,
@@ -40,7 +40,7 @@ function Product({
   return (
     <div style={style || {}} className="shopProduct">
       <figure className="shopProductItem">
-        <img src={REACT_APP_API_URL + data.avatar} alt="" className="shopProductImg"/>
+        <img src={REACT_APP_API_URL + data.avatar} alt="" className="shopProductImg" />
         {+data.discount ? (
           <div className="productDiscountCircle">
             <p className="productDiscount">

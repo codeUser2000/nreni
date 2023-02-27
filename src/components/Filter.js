@@ -9,7 +9,7 @@ import SliderValue from './SliderValue';
 import menu from '../data';
 import { getProductDataRequest } from '../store/actions/product';
 
-function Filter() {
+function Filter({ setPage }) {
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -31,6 +31,8 @@ function Filter() {
     } else {
       query.filter = [param];
     }
+    setPage(1);
+    query.page = 1;
     navigate(`?${qs.stringify(query, { arrayFormat: 'comma' })}`);
   }, [location.search]);
 

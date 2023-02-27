@@ -39,15 +39,17 @@ function Shop() {
         setPageNumber(1);
         const [min, max] = query.sliderPrice.split('_');
         // eslint-disable-next-line max-len
-        await dispatch(getProductDataRequest(query.page || 1, min, max, categoryArr, query.searchText));
+        await dispatch(getProductDataRequest(1, min, max, categoryArr, query.searchText));
       } else if (query.searchText) {
-        await dispatch(getProductDataRequest(query.page || 1, '', '', categoryArr, query.searchText));
+        await dispatch(getProductDataRequest(1, '', '', categoryArr, query.searchText));
       }
     })();
   }, []);
   const handleSearch = useCallback((ev) => {
     setSearch(ev);
     query.searchText = ev;
+    setPageNumber(1);
+    query.page = 1;
     navigate(`?${qs.stringify(query, {
       arrayFormat: 'comma',
       skipEmptyString: true,
@@ -69,7 +71,7 @@ function Shop() {
         <ShopSection />
         <div className="container">
           <div className="row">
-            <Filter />
+            <Filter setPage={setPageNumber} />
             <section
               className="shopSection"
             >
