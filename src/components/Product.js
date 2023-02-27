@@ -7,6 +7,7 @@ import AddCardIcon from '@mui/icons-material/AddCard';
 import Account from '../helpers/Account';
 import Utils from '../helpers/Utils';
 import { addToCartRequest, getLocalCartData } from '../store/actions/cart';
+import { toast } from 'react-toastify';
 
 function Product({
   data,
@@ -40,7 +41,7 @@ function Product({
   return (
     <div style={style || {}} className="shopProduct">
       <figure className="shopProductItem">
-        <img src={REACT_APP_API_URL + data.avatar} alt="" className="shopProductImg"/>
+        <img src={REACT_APP_API_URL + data.avatar} alt="" className="shopProductImg" />
         {+data.discount ? (
           <div className="productDiscountCircle">
             <p className="productDiscount">
@@ -80,27 +81,20 @@ function Product({
           </div>
           <div className="shopProductLabel">
             <Link to={`/single/${data.id}`} className="linkToSinglePage">View</Link>
-
-            {data.countProduct === 0
-              ? (
-                <button
-                  type="button"
-                  disabled={undefined}
-                  className="addToCardShop"
-                  onClick={() => handleProductAdd(data)}
-                >
-                  <AddCardIcon/>
-                </button>
-              )
-              : (
-                <button
-                  type="button"
-                  className="addToCardShop"
-                  onClick={() => handleProductAdd(data)}
-                >
-                  <AddCardIcon/>
-                </button>
-              )}
+            <button
+              type="button"
+              className="addToCardShop"
+              onClick={() => {
+                if (+data.countProduct !== 0) {
+                  handleProductAdd(data).then(() => true).catch((e) => false);
+                }
+                toast.info('This product is not available');
+                return false;
+              }}
+            >
+              <AddCardIcon />
+            </button>
+            )
 
           </div>
         </figcaption>

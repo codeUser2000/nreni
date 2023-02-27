@@ -8,6 +8,7 @@ import _ from 'lodash';
 import Aos from 'aos';
 import { useLocation } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { toast } from 'react-toastify';
 import Wrapper from '../components/Wrapper';
 import Api from '../Api';
 import Utils from '../helpers/Utils';
@@ -135,7 +136,7 @@ function Single() {
             className="singlePage"
           >
             <figure className="singleItem">
-              <img src={REACT_APP_API_URL + single.avatar} className="singleImg" alt=""/>
+              <img src={REACT_APP_API_URL + single.avatar} className="singleImg" alt="" />
             </figure>
             <div className="singleInfo">
               <div className="singleCol">
@@ -144,26 +145,26 @@ function Single() {
                     {single.title}
                   </h2>
                   <div>
-                  <span className="productLike" onClick={() => handleProductLike()}>
-                    {show
-                      ? (
-                        <FavoriteIcon
-                          style={{
-                            width: 30,
-                            height: 30,
-                            fill: '#c31e39',
-                          }}
-                        />
-                      )
-                      : (
-                        <HeartBrokenIcon
-                          style={{
-                            width: 30,
-                            height: 30,
-                          }}
-                        />
-                      )}
-                  </span>
+                    <span className="productLike" onClick={() => handleProductLike()}>
+                      {show
+                        ? (
+                          <FavoriteIcon
+                            style={{
+                              width: 30,
+                              height: 30,
+                              fill: '#c31e39',
+                            }}
+                          />
+                        )
+                        : (
+                          <HeartBrokenIcon
+                            style={{
+                              width: 30,
+                              height: 30,
+                            }}
+                          />
+                        )}
+                    </span>
                     {/* <span>{like}</span> */}
                   </div>
                 </div>
@@ -186,6 +187,7 @@ function Single() {
                 </p>
                 <div className="singleInfoQuantity">
                   <button
+                    disabled={+single.countProduct === 0 || count === 1}
                     type="button"
                     className="singleBtnM"
                     onClick={() => handleProductCountChange('delete')}
@@ -200,6 +202,7 @@ function Single() {
                     value={count}
                   />
                   <button
+                    disabled={+single.countProduct === 0 || +single.countProduct === count}
                     type="button"
                     onClick={() => handleProductCountChange('add')}
                     className="singleBtnP"
@@ -210,7 +213,13 @@ function Single() {
               </div>
               <div className="paymentSingle">
                 <button
-                  onClick={handleCheckout}
+                  onClick={() => {
+                    if (+single.countProduct === 0) {
+                      toast.info('This product is not available');
+                    } else {
+                      handleCheckout().then(() => true).catch((e) => false);
+                    }
+                  }}
                   type="button"
                   className="singleBuyNow"
                 >
@@ -221,7 +230,7 @@ function Single() {
                   onClick={() => handleProductAdd(single)}
                   className="singleAddCard"
                 >
-                  <ShoppingCartIcon/>
+                  <ShoppingCartIcon />
                 </button>
               </div>
             </div>

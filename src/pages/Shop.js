@@ -87,12 +87,7 @@ function Shop() {
 
               <div className="shopProductsRow">
                 {productData.length
-                  ? productData.map((n) => {
-                    if (n.countProduct > 0) {
-                      return <Product key={n.id} data={n} />;
-                    }
-                    return true;
-                  }) : 'There is no any product...'}
+                  ? productData.map((n) => (<Product key={n.id} data={n} />)) : 'There is no any product...'}
               </div>
               <Pagination count={+pagination} page={pageNumber} onChange={handleChange} />
             </section>
