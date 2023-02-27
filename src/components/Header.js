@@ -46,13 +46,13 @@ function Header() {
           alignItems: 'center',
         }}
       >
-        <Link to="/home" className='headerLogoLink'>
+        <Link to="/home" className="headerLogoLink">
           <figure className="logo">
-            <img src={logo} alt="nreni" className="logoImg"/>
+            <img src={logo} alt="nreni" className="logoImg" />
             <p className="logoName">NRENI</p>
           </figure>
         </Link>
-        {!show ? <NavBarMenu/>
+        {!show ? <NavBarMenu />
           : (
             <OffCanvasMenu
               show={offCanvasShow}

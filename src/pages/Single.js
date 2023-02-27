@@ -7,6 +7,7 @@ import classNames from 'classnames';
 import _ from 'lodash';
 import Aos from 'aos';
 import { useLocation } from 'react-router-dom';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Wrapper from '../components/Wrapper';
 import Api from '../Api';
 import Utils from '../helpers/Utils';
@@ -124,14 +125,15 @@ function Single() {
             className="singlePage"
           >
             <figure className="singleItem">
-              <img src={REACT_APP_API_URL + single.avatar} className="singleImg" alt="" />
+              <img src={REACT_APP_API_URL + single.avatar} className="singleImg" alt=""/>
             </figure>
             <div className="singleInfo">
-              <div className="singleMain">
-                <h2 className="singleInfoTitle">
-                  {single.title}
-                </h2>
-                <div>
+              <div className="singleCol">
+                <div className="singleMain">
+                  <h2 className="singleInfoTitle">
+                    {single.title}
+                  </h2>
+                  <div>
                   <span className="productLike" onClick={() => handleProductLike()}>
                     {show
                       ? (
@@ -152,56 +154,65 @@ function Single() {
                         />
                       )}
                   </span>
-                  {/* <span>{like}</span> */}
+                    {/* <span>{like}</span> */}
+                  </div>
+                </div>
+                <div className="singlePrices">
+                  {+single.discount ? (
+                    <p className="singleInfoPrice" style={{ color: '#c31e39' }}>
+                      $
+                      {single.newPrice}
+                    </p>
+                  ) : null}
+                  <p
+                    className={classNames('singleInfoPrice', { 'text-decoration-line-through': +single.discount })}
+                  >
+                    $
+                    {single.oldPrice}
+                  </p>
+                </div>
+                <p className="singleInfoDescription">
+                  {single.description}
+                </p>
+                <div className="singleInfoQuantity">
+                  <button
+                    type="button"
+                    className="singleBtnM"
+                    onClick={() => handleProductCountChange('delete')}
+                  >
+                    -
+                  </button>
+                  <input
+                    type="text"
+                    onBlur={(ev) => handleFocusOut(ev.target.value)}
+                    className="singleInfoInput"
+                    onChange={(ev) => handleChange(ev.target.value)}
+                    value={count}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => handleProductCountChange('add')}
+                    className="singleBtnP"
+                  >
+                    +
+                  </button>
                 </div>
               </div>
-              <div className="singlePrices">
-                {+single.discount ? (
-                  <p className="singleInfoPrice" style={{ color: '#c31e39' }}>
-                    $
-                    {single.newPrice}
-                  </p>
-                ) : null}
-                <p
-                  className={classNames('singleInfoPrice', { 'text-decoration-line-through': +single.discount })}
-                >
-                  $
-                  {single.oldPrice}
-                </p>
-              </div>
-              <p className="singleInfoDescription">
-                {single.description}
-              </p>
-              <div className="singleInfoQuantity">
+              <div className="paymentSingle">
                 <button
                   type="button"
-                  className="singleBtnM"
-                  onClick={() => handleProductCountChange('delete')}
+                  className="singleBuyNow"
                 >
-                  -
+                  Buy now
                 </button>
-                <input
-                  type="text"
-                  onBlur={(ev) => handleFocusOut(ev.target.value)}
-                  className="singleInfoInput"
-                  onChange={(ev) => handleChange(ev.target.value)}
-                  value={count}
-                />
                 <button
                   type="button"
-                  onClick={() => handleProductCountChange('add')}
-                  className="singleBtnP"
+                  onClick={() => handleProductAdd(single)}
+                  className="singleAddCard"
                 >
-                  +
+                  <ShoppingCartIcon/>
                 </button>
               </div>
-              <button
-                type="button"
-                onClick={() => handleProductAdd(single)}
-                className="singleInfoBtn"
-              >
-                Add to cart
-              </button>
             </div>
           </div>
         </div>

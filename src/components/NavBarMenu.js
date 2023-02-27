@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 function NavBarMenu() {
   return (
@@ -22,7 +22,7 @@ function NavBarMenu() {
         <li className="navList">
           <NavLink to="/card" className="navLink">
             {' '}
-            <CardGiftcardIcon />
+            <ShoppingCartIcon />
           </NavLink>
         </li>
         <li className="navList">

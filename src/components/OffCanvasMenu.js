@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { Offcanvas } from 'react-bootstrap';
 import MenuIcon from '@mui/icons-material/Menu';
 import PersonIcon from '@mui/icons-material/Person';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import logo from '../assets/img/logo/logo.png';
 
 function OffCanvasMenu({

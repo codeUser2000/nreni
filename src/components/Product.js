@@ -1,17 +1,46 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import classNames from 'classnames';
+import { useDispatch } from 'react-redux';
+import Account from '../helpers/Account';
+import Utils from '../helpers/Utils';
+import { addToCartRequest, getLocalCartData } from '../store/actions/cart';
+import AddCardIcon from '@mui/icons-material/AddCard';
 
 function Product({
   data,
   style,
 }) {
   const { REACT_APP_API_URL } = process.env;
+  const dispatch = useDispatch();
+  // const [count, setCount] = useState(1);
+  // const user = useSelector((state) => state.users.singleUserData);
+
+  const handleProductAdd = useCallback(async (productData) => {
+    if (Account.getToken()) {
+      const product = {
+        quantity: 1,
+        price: +productData.newPrice,
+        product: productData,
+      };
+      await dispatch(addToCartRequest(product));
+    } else {
+      const product = {
+        id: new Date(),
+        quantity: 1,
+        price: +productData.newPrice,
+        product: productData,
+      };
+      Utils.setCart(product);
+      dispatch(getLocalCartData());
+    }
+  }, []);
+
   return (
     <div style={style || {}} className="shopProduct">
       <figure className="shopProductItem">
-        <img src={REACT_APP_API_URL + data.avatar} alt="" className="shopProductImg" />
+        <img src={REACT_APP_API_URL + data.avatar} alt="" className="shopProductImg"/>
         {+data.discount ? (
           <div className="productDiscountCircle">
             <p className="productDiscount">
@@ -50,7 +79,14 @@ function Product({
             </h4>
           </div>
           <div className="shopProductLabel">
-            <Link to={`/single/${data.id}`} className="linkToSinglePage">Buy now</Link>
+            <Link to={`/single/${data.id}`} className="linkToSinglePage">View</Link>
+            <button
+              type="button"
+              className="addToCardShop"
+              onClick={() => handleProductAdd(data)}
+            >
+              <AddCardIcon />
+            </button>
           </div>
         </figcaption>
       </figure>

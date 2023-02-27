@@ -1700,16 +1700,32 @@ p {
 
 
 .linkToSinglePage {
-  width: 50%;
+  width: 40%;
   color: #4a4a4a;
   font-size: 14px;
   font-weight: 600;
+  margin-right: 5px;
   padding: 10px 20px;
   border-radius: 50px;
   transition: all 0.4s;
   text-decoration: none;
   text-transform: capitalize;
   background-color: #ffece5;
+}
+
+.addToCardShop {
+  width: 45px;
+  height: 45px;
+  color: #4a4a4a;
+  align-items: center;
+  border-radius: 50px;
+  transition: all 0.4s;
+  border: 2px solid #ffece5;
+  background-color: #ffece5;
+}
+
+.addToCardShop:hover {
+  color: #c31e39;
 }
 
 .newProductLabel,
@@ -1787,8 +1803,10 @@ p {
 }
 
 .singleInfo {
-  position: relative;
+  display: flex;
   width: calc(100% / 2);
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .productLike {
@@ -1866,29 +1884,59 @@ p {
   width: calc(100% / 3);
 }
 
-.singleInfoBtn {
-  left: 0;
-  bottom: 0;
+//
+//.singleInfoBtn {
+//  left: 0;
+//  bottom: 0;
+//  width: 100%;
+//  height: 40px;
+//  color: #ffece5;
+//  font-weight: 600;
+//  position: absolute;
+//  border-radius: 50px;
+//  transition: all 0.4s;
+//  text-transform: capitalize;
+//  border: 2px solid #c31e39;
+//  background-color: #c31e39;
+//}
+//
+//.singleInfoBtn:hover {
+//  color: #c31e39;
+//  background-color: #ffece5;
+//}
+.paymentSingle {
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.singleBuyNow,
+.singleAddCard {
   height: 40px;
   color: #ffece5;
-  font-weight: 600;
-  position: absolute;
   border-radius: 50px;
   transition: all 0.4s;
-  text-transform: capitalize;
   border: 2px solid #c31e39;
   background-color: #c31e39;
 }
 
-.singleInfoBtn:hover {
+.singleBuyNow {
+  width: 80%;
+}
+
+.singleAddCard {
+  width: 15%;
+}
+
+.singleBuyNow:hover,
+.singleAddCard:hover {
   color: #c31e39;
   background-color: #ffece5;
 }
 
-
 /*CARD*/
-
 .cart {
   width: 100%;
   padding: 150px 0 100px;
@@ -2009,6 +2057,17 @@ p {
 .cartTablePrice {
   font-weight: 600;
   text-align: center;
+}
+
+.cardBuySingle {
+  border: none;
+  color: #4a4a4a;
+  transition: all 0.4s;
+  background-color: white;
+}
+
+.cardBuySingle:hover {
+  color: #c31e39;
 }
 
 .cartTableBtnR {

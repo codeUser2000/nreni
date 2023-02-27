@@ -9,8 +9,13 @@ import {
   getCartItemListRequest,
   getLocalCartData, updateCartRequest,
 } from '../store/actions/cart';
+import PaidIcon from '@mui/icons-material/Paid';
 
-function CartItems({ setTotal, page, setPage }) {
+function CartItems({
+  setTotal,
+  page,
+  setPage
+}) {
   const { REACT_APP_API_URL } = process.env;
   const [cart, setCart] = useState([]);
   const dispatch = useDispatch();
@@ -91,7 +96,7 @@ function CartItems({ setTotal, page, setPage }) {
           <td>
             <div className="cartTableProduct">
               <figure className="cartTableItem">
-                <img className="cartTableImg" src={REACT_APP_API_URL + c.product.avatar} alt="" />
+                <img className="cartTableImg" src={REACT_APP_API_URL + c.product.avatar} alt=""/>
               </figure>
               <div className="cartTableDesk">
                 <h4 className="cartTableTitle">{c.product.title}</h4>
@@ -141,12 +146,17 @@ function CartItems({ setTotal, page, setPage }) {
             {+c.product.discount}
             %
           </td>
-          <td>
+          <td style={{ textAlign: 'center' }}>
             <span className="adminTableBtn">
               <DeleteIcon
                 onClick={() => handleDelete(c.id)}
               />
             </span>
+          </td>
+          <td style={{ textAlign: 'center' }}>
+            <button className='cardBuySingle'>
+              <PaidIcon/>
+            </button>
           </td>
         </tr>
       ))}
