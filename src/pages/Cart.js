@@ -3,12 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { useLocation } from 'react-router-dom';
 import { Pagination } from '@mui/material';
+import qs from 'query-string';
 import Wrapper from '../components/Wrapper';
 import CartItems from '../components/CartItems';
 import Utils from '../helpers/Utils';
 import { checkoutPaymentRequest } from '../store/actions/others';
-import { getCartItemListRequest } from '../store/actions/cart';
-import qs from 'query-string';
 
 function Cart() {
   const dispatch = useDispatch();

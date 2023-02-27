@@ -376,3 +376,8 @@
 .footerContactLink {
   font-size: 15px;
 }
+
+.cartTable.orderTable{
+  display: block;
+  overflow: auto;
+}

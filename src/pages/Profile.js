@@ -178,7 +178,7 @@ function Profile() {
                     {orders?.length
                       ? (
                         <>
-                          <table className="cartTable">
+                          <table className="cartTable orderTable">
                             <thead className="cartTableThead">
                               <tr className="cartTableTheadTitles">
                                 <td>Description</td>

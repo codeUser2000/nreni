@@ -298,4 +298,11 @@
   font-size: 15px;
 }
 
+.cartTable{
+  display: block;
+  overflow: auto;
+}
+.cartTable.orderTable{
+  display: table;
+}
 
