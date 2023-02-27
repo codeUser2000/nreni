@@ -11,7 +11,7 @@ function OrderItems() {
           <td>
             <div className="cartTableProduct">
               <figure className="cartTableItem">
-                <img className="cartTableImg" src={REACT_APP_API_URL + o.products.avatar} alt=""/>
+                <img className="cartTableImg" src={REACT_APP_API_URL + o.products.avatar} alt="" />
               </figure>
               <div className="cartTableDesk">
                 <h4 className="cartTableTitle">{o.products.title}</h4>
