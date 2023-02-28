@@ -53,18 +53,18 @@ function Cart() {
               className="cartTable"
             >
               <thead className="cartTableThead">
-              <tr className="cartTableTheadTitles">
-                <td>Description</td>
-                <td>Quantity</td>
-                <td>old price</td>
-                <td>new price</td>
-                <td>discount</td>
-                <td>remove</td>
-                <td>action</td>
-              </tr>
+                <tr className="cartTableTheadTitles">
+                  <td>Description</td>
+                  <td>Quantity</td>
+                  <td>old price</td>
+                  <td>new price</td>
+                  <td>discount</td>
+                  <td>remove</td>
+                  <td>action</td>
+                </tr>
               </thead>
               <tbody className="cartTableTbody">
-              <CartItems page={query.page} setPage={setPage} setTotal={setTotal}/>
+                <CartItems page={query.page} setPage={setPage} setTotal={setTotal} />
               </tbody>
             </table>
             <div
@@ -84,7 +84,7 @@ function Cart() {
                 </button>
               </div>
             </div>
-            <Pagination count={+pagination} page={+page} onChange={handleChange}/>
+            <Pagination count={+pagination} page={+page} onChange={handleChange} />
           </div>
         </div>
       </div>

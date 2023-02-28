@@ -121,7 +121,7 @@ function CartItems({
           <td>
             <div className="cartTableQuantity">
               <button
-                disabled={+c.product.countProduct === 0 || +c.product.countProduct === 1}
+                disabled={+c.product.countProduct === 0 || +c.quantity === 1}
                 type="button"
                 className="cartTableBtnM"
                 onClick={() => handleCount('-', c)}
