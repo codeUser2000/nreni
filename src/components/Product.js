@@ -15,8 +15,6 @@ function Product({
 }) {
   const { REACT_APP_API_URL } = process.env;
   const dispatch = useDispatch();
-  // const [count, setCount] = useState(1);
-  // const user = useSelector((state) => state.users.singleUserData);
 
   const handleProductAdd = useCallback(async (productData) => {
     if (Account.getToken()) {
@@ -86,7 +84,9 @@ function Product({
               className="addToCardShop"
               onClick={() => {
                 if (+data.countProduct !== 0) {
-                  handleProductAdd(data).then(() => true).catch((e) => false);
+                  handleProductAdd(data)
+                    .then(() => true)
+                    .catch((e) => false);
                 } else {
                   toast.info('This product is not available');
                 }
