@@ -23,7 +23,7 @@ function Login() {
     password: '',
   });
   useEffect(() => {
-    if ((Account.getToken() && Account.getToken() !== 'undefined' && !_.isEmpty(user)) || userStatus === 'ok') {
+    if ((Account.getToken() && Account.getToken() !== 'undefined' && !_.isEmpty(user))) {
       if (localStorage.getItem('location')) {
         navigate(localStorage.getItem('location'));
         localStorage.removeItem('location');
@@ -31,7 +31,7 @@ function Login() {
       }
       navigate('/profile');
     }
-  }, [user, userStatus]);
+  }, [user]);
   const handleSubmit = useCallback(async (ev) => {
     ev.preventDefault();
     if (!form.email || !form.password) {

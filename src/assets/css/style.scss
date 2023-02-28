@@ -2166,9 +2166,11 @@ p {
   color: #4a4a4a;
   transition: all 0.4s;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .deleteProfile {
+  cursor: pointer;
   font-size: 20px;
   font-weight: 500;
   text-align: center;

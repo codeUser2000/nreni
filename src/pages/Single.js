@@ -217,17 +217,28 @@ function Single() {
                     if (+single.countProduct === 0) {
                       toast.info('This product is not available');
                     } else {
-                      handleCheckout().then(() => true).catch((e) => false);
+                      handleCheckout()
+                        .then(() => true)
+                        .catch((e) => toast.error(e.response.data.message));
                     }
                   }}
                   type="button"
                   className="singleBuyNow"
                 >
-                  Buy now
+                  {' '}
+                  {+single.countProduct === 0 ? 'Product is not available' : 'Buy now'}
                 </button>
                 <button
                   type="button"
-                  onClick={() => handleProductAdd(single)}
+                  onClick={() => {
+                    if (+single.countProduct === 0) {
+                      toast.info('This product is not available');
+                    } else {
+                      handleProductAdd(single)
+                        .then(() => true)
+                        .catch((e) => toast.error(e.response.data.message));
+                    }
+                  }}
                   className="singleAddCard"
                 >
                   <ShoppingCartIcon />

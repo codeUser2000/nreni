@@ -42,7 +42,7 @@ function CartItems({
           count: product.quantity + 1,
           price: product.product.newPrice,
         }));
-        await dispatch(getCartItemListRequest(page, user.cart.id));
+        await dispatch(getCartItemListRequest(page));
       } else if (product.quantity > 1 && operator === '-') {
         await dispatch(updateCartRequest({
           productId: product.product.id,
@@ -50,7 +50,7 @@ function CartItems({
           price: product.product.newPrice,
         }));
         setPage(page);
-        await dispatch(getCartItemListRequest(page, user.cart.id));
+        await dispatch(getCartItemListRequest(page));
       }
     } else {
       const newCart = cart.filter((c) => c.id === product.id);
