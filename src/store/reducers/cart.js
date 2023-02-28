@@ -29,7 +29,6 @@ export default function reducer(state = initialState, action) {
     case GET_CART_ITEM_LIST_REQUEST: {
       return {
         ...state,
-        userCartData: [],
         userCartDataStatus: 'request',
       };
     }
