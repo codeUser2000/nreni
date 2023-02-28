@@ -13,9 +13,8 @@ import Account from '../helpers/Account';
 function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const location = useLocation();
   const user = useSelector((state) => state.users.singleUserData);
-  const userStatus = useSelector((state) => state.users.usersDataStatus);
+  const userStatus = useSelector((state) => state.users.singleUserDataStatus);
   const [show, setShow] = useState(false);
   const [remember, setRemember] = useState(false);
   const [form, setForm] = useState({
@@ -23,7 +22,7 @@ function Login() {
     password: '',
   });
   useEffect(() => {
-    if ((Account.getToken() && Account.getToken() !== 'undefined' && !_.isEmpty(user))) {
+    if ((Account.getToken() && Account.getToken() !== 'undefined' && !_.isEmpty(user)) || userStatus === 'ok') {
       if (localStorage.getItem('location')) {
         navigate(localStorage.getItem('location'));
         localStorage.removeItem('location');
@@ -31,7 +30,7 @@ function Login() {
       }
       navigate('/profile');
     }
-  }, [user]);
+  }, [user, userStatus]);
   const handleSubmit = useCallback(async (ev) => {
     ev.preventDefault();
     if (!form.email || !form.password) {

@@ -13,7 +13,7 @@ import {
   GET_USER_PROFILE_REQUEST,
   GET_USER_PROFILE_SUCCESS,
   GET_USER_PROFILE_FAIL,
-  UPDATE_USER_SUCCESS, UPDATE_USER_FAIL,
+  UPDATE_USER_SUCCESS, UPDATE_USER_FAIL, DELETE_USER_SUCCESS,
 } from '../actions/users';
 
 import Account from '../../helpers/Account';
@@ -81,14 +81,14 @@ export default function reducer(state = initialState, action) {
       Account.setToken(data.token, remember);
       return {
         ...state,
-        usersDataStatus: 'ok',
+        singleUserDataStatus: 'ok',
       };
     }
     case LOGIN_USER_FAIL: {
       toast.error(action.payload.error.data.message);
       return {
         ...state,
-        usersDataStatus: 'fail',
+        singleUserDataStatus: 'fail',
       };
     }
 
@@ -115,14 +115,14 @@ export default function reducer(state = initialState, action) {
       toast.success('Please check your mail');
       return {
         ...state,
-        usersDataStatus: 'ok',
+        singleUserDataStatus: 'ok',
       };
     }
     case FORGET_USER_PASSWORD_FAIL: {
       toast.error(action.payload.error.data.message);
       return {
         ...state,
-        usersDataStatus: 'fail',
+        singleUserDataStatus: 'fail',
       };
     }
 
@@ -135,7 +135,14 @@ export default function reducer(state = initialState, action) {
       toast.error('You didnt get registered');
       return {
         ...state,
-        usersDataStatus: 'fail',
+        singleUserDataStatus: 'fail',
+      };
+    }
+
+    case DELETE_USER_SUCCESS: {
+      return {
+        ...state,
+        singleUserDataStatus: '',
       };
     }
 

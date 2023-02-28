@@ -192,7 +192,7 @@ function Profile() {
                             </tbody>
                           </table>
                           {/* eslint-disable-next-line max-len */}
-                          <Pagination count={+pagination} page={pageNumber} onChange={handleChange} />
+                          <Pagination count={+pagination} page={+pageNumber} onChange={handleChange} />
                         </>
                       )
                       : (

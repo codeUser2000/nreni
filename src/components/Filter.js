@@ -38,6 +38,8 @@ function Filter({ setPage }) {
 
   const categories = _.isArray(query.filter) ? query.filter : [query.filter];
   const handleChange = useCallback((val) => {
+    setPage(1);
+    query.page = 1;
     query.sliderPrice = val.join('_');
     navigate(`?${qs.stringify(query, {
       arrayFormat: 'comma',

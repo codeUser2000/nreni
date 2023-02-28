@@ -132,7 +132,7 @@ function AdminUsers() {
             )) : null}
           </tbody>
         </table>
-        <Pagination count={+pagination} page={pageNumber} onChange={handleChange} />
+        <Pagination count={+pagination} page={+pageNumber} onChange={handleChange} />
       </div>
       <Modal
         show={show}

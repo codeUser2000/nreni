@@ -107,7 +107,7 @@ function AdminProduct() {
             ))}
           </tbody>
         </table>
-        <Pagination count={+pagination} page={pageNumber} onChange={handleChange} />
+        <Pagination count={+pagination} page={+pageNumber} onChange={handleChange} />
       </div>
       <CreateModal show={show} setShow={setShow} />
     </AdminWrapper>

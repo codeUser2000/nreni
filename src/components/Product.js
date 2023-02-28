@@ -4,10 +4,10 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
 import AddCardIcon from '@mui/icons-material/AddCard';
+import { toast } from 'react-toastify';
 import Account from '../helpers/Account';
 import Utils from '../helpers/Utils';
 import { addToCartRequest, getLocalCartData } from '../store/actions/cart';
-import { toast } from 'react-toastify';
 
 function Product({
   data,
@@ -87,9 +87,9 @@ function Product({
               onClick={() => {
                 if (+data.countProduct !== 0) {
                   handleProductAdd(data).then(() => true).catch((e) => false);
+                } else {
+                  toast.info('This product is not available');
                 }
-                toast.info('This product is not available');
-                return false;
               }}
             >
               <AddCardIcon />

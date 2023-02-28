@@ -84,7 +84,7 @@ function Cart() {
                 </button>
               </div>
             </div>
-            <Pagination count={+pagination} page={page} onChange={handleChange}/>
+            <Pagination count={+pagination} page={+page} onChange={handleChange}/>
           </div>
         </div>
       </div>

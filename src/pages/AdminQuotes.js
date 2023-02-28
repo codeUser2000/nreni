@@ -89,7 +89,7 @@ function AdminQuotes() {
             )) : null}
           </tbody>
         </table>
-        <Pagination count={+pagination} page={page} onChange={handleChange} />
+        <Pagination count={+pagination} page={+page} onChange={handleChange} />
       </div>
     </AdminWrapper>
 

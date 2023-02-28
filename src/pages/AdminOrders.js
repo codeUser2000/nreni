@@ -54,7 +54,7 @@ function AdminOrders() {
             {orderData.map((c) => (<AdminOrder key={c.id} data={c} setData={setId} />))}
           </tbody>
         </table>
-        <Pagination count={+pagination} page={page} onChange={handleChange} />
+        <Pagination count={+pagination} page={+page} onChange={handleChange} />
         {id ? <OrderModal id={id} setId={setId} /> : null}
       </div>
     </AdminWrapper>
