@@ -205,7 +205,10 @@ function* handleUpdateUsersRequest(action) {
   } catch (e) {
     yield put({
       type: UPDATE_USER_FAIL,
-      payload: { error: e.response.data, data: action.payload.data },
+      payload: {
+        error: e.response.data,
+        data: action.payload.data
+      },
     });
   }
 }

@@ -3132,7 +3132,7 @@ p {
     flex-direction: row; }
 
   .shopProduct {
-    width: calc(100% / 2); }
+    width: 100%; }
 
   .shopTitle {
     font-size: 40px; }
