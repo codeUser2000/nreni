@@ -8,7 +8,7 @@ import {
   createProductRequest,
   updateProductRequest,
 } from '../store/actions/product';
-import img from '../assets/img/site/bracelets.png';
+import img from '../assets/img/post/add.png';
 
 function CreateModal({
   show,
@@ -108,7 +108,7 @@ function CreateModal({
     >
       {/* eslint-disable-next-line max-len */}
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
-      <div className="d-flex justify-content-end" onClick={() => setShow(false)}><CloseIcon /></div>
+      <div className="d-flex justify-content-end" onClick={() => setShow(false)}><CloseIcon/></div>
       <div className="adminEditProduct">
         <form className="adminForm" onSubmit={handleSubmit}>
           <p className="adminTitle">
